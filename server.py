@@ -117,3 +117,6 @@ logging.basicConfig(filename="game.log", level=logging.INFO, format='%(asctime)s
 logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 threading.Thread(target=manageNetwork).start()
 manageInput()
+
+
+

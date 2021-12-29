@@ -1,0 +1,49 @@
+12/29/2021 10:13:01 AM INFO: Hanabi server started on 127.0.0.1:1024
+12/29/2021 10:13:44 AM INFO: Connected by: ('127.0.0.1', 64134)
+12/29/2021 10:13:44 AM INFO: Player connected: giulia
+12/29/2021 10:14:36 AM INFO: Connected by: ('127.0.0.1', 64139)
+12/29/2021 10:14:36 AM INFO: Player connected: emma
+12/29/2021 10:14:47 AM INFO: Player ready: giulia
+12/29/2021 10:14:52 AM INFO: Player ready: emma
+12/29/2021 10:14:52 AM INFO: Game start! Between: ['giulia', 'emma']
+12/29/2021 10:14:52 AM INFO: Ok, let's start the game!
+12/29/2021 10:15:19 AM INFO: Showing hand to: giulia
+12/29/2021 10:16:59 AM INFO: Player giulia providing hint to emma: cards with value 3 are in positions: [0, 4]
+12/29/2021 10:17:37 AM INFO: Showing hand to: emma
+12/29/2021 10:18:05 AM INFO: Player emma providing hint to giulia: cards with value 1 are in positions: [2, 3]
+12/29/2021 10:18:59 AM INFO: giulia: card played and correctly put on the table
+12/29/2021 10:18:59 AM INFO: Giving 1 free note token.
+12/29/2021 10:19:02 AM INFO: Showing hand to: giulia
+12/29/2021 10:19:27 AM INFO: Showing hand to: emma
+12/29/2021 10:20:52 AM INFO: Player: emma: card 48 discarded successfully
+12/29/2021 10:21:31 AM INFO: Showing hand to: emma
+12/29/2021 12:26:45 PM INFO: Closing the server...
+12/29/2021 12:26:53 PM INFO: Hanabi server started on 127.0.0.1:1024
+12/29/2021 12:27:04 PM INFO: Connected by: ('127.0.0.1', 64074)
+12/29/2021 12:27:04 PM INFO: Player connected: giulia
+12/29/2021 12:27:11 PM INFO: Connected by: ('127.0.0.1', 64075)
+12/29/2021 12:27:11 PM INFO: Player connected: emma
+12/29/2021 12:27:17 PM INFO: Player ready: giulia
+12/29/2021 12:27:22 PM INFO: Player ready: emma
+12/29/2021 12:27:22 PM INFO: Game start! Between: ['giulia', 'emma']
+12/29/2021 12:27:22 PM INFO: Ok, let's start the game!
+12/29/2021 12:36:09 PM INFO: Hanabi server started on 127.0.0.1:1024
+12/29/2021 12:36:14 PM INFO: Connected by: ('127.0.0.1', 57180)
+12/29/2021 12:36:14 PM INFO: Player connected: emma
+12/29/2021 12:36:18 PM INFO: Player ready: emma
+12/29/2021 12:36:27 PM INFO: Connected by: ('127.0.0.1', 57183)
+12/29/2021 12:36:27 PM INFO: Player connected: giulia
+12/29/2021 12:36:30 PM INFO: Player ready: giulia
+12/29/2021 12:36:30 PM INFO: Game start! Between: ['emma', 'giulia']
+12/29/2021 12:36:30 PM INFO: Ok, let's start the game!
+12/29/2021 01:12:09 PM INFO: Closing the server...
+12/29/2021 01:12:22 PM INFO: Hanabi server started on 127.0.0.1:1024
+12/29/2021 01:12:30 PM INFO: Connected by: ('127.0.0.1', 60499)
+12/29/2021 01:12:30 PM INFO: Player connected: emma
+12/29/2021 01:12:58 PM INFO: Connected by: ('127.0.0.1', 60504)
+12/29/2021 01:12:58 PM INFO: Player connected: giulia
+12/29/2021 01:13:03 PM INFO: Player ready: giulia
+12/29/2021 01:13:05 PM INFO: Player ready: emma
+12/29/2021 01:13:05 PM INFO: Game start! Between: ['emma', 'giulia']
+12/29/2021 01:13:05 PM INFO: Ok, let's start the game!
+12/29/2021 01:14:20 PM INFO: Closing the server...

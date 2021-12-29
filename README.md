@@ -4,6 +4,10 @@ Exam of computational intelligence 2021 - 2022. It requires teaching the client 
 
 ## Server
 
+To start it:
+
+```python server.py```
+
 The server accepts passing objects provided in GameData.py back and forth to the clients.
 Each object has a ```serialize()``` and a ```deserialize(data: str)``` method that must be used to pass the data between server and client.
 
@@ -15,8 +19,15 @@ Commands for server:
 
 ## Client
 
-Commands for client:
+To start it:
 
+```python client.py server_ip server_port name_player```
+ex:
+
+```python client.py 127.0.0.1 1024 giulia```
+
+Commands for client:
+ 
 + exit: exit from the game
 + ready: set your status to ready (lobby only)
 + show: show cards
