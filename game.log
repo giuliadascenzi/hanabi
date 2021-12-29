@@ -47,3 +47,14 @@
 12/29/2021 01:13:05 PM INFO: Game start! Between: ['emma', 'giulia']
 12/29/2021 01:13:05 PM INFO: Ok, let's start the game!
 12/29/2021 01:14:20 PM INFO: Closing the server...
+12/29/2021 01:20:11 PM INFO: Hanabi server started on 127.0.0.1:1024
+12/29/2021 01:20:15 PM INFO: Connected by: ('127.0.0.1', 64119)
+12/29/2021 01:20:15 PM INFO: Player connected: emma
+12/29/2021 01:20:21 PM INFO: Connected by: ('127.0.0.1', 64121)
+12/29/2021 01:20:21 PM INFO: Player connected: giulia
+12/29/2021 01:20:26 PM INFO: Player ready: giulia
+12/29/2021 01:20:30 PM INFO: Connected by: ('127.0.0.1', 64123)
+12/29/2021 01:20:30 PM INFO: Player connected: giulia
+12/29/2021 01:20:33 PM INFO: Player ready: giulia
+12/29/2021 01:20:41 PM INFO: Player ready: emma
+12/29/2021 01:21:36 PM INFO: Closing the server...

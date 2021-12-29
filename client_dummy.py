@@ -16,6 +16,10 @@ statuses = ["Lobby", "Game", "GameHint"]
 
 status = statuses[0]
 
+players = []
+
+playerName = ""
+
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
@@ -23,6 +27,8 @@ def start_game():
     global run
     global status
     global AI_type
+    global players
+    global playerName
 
     # Check of the arguments
     if len(argv) < 4:
@@ -36,10 +42,12 @@ def start_game():
         ip = argv[1]
         port = int(argv[2])
 
+    # 0) open the connection
+    s.connect((ip, port))
+
     # 1) request a connection from the server
     print("Trying to estabilisy a connection with the server...")
     request = GameData.ClientPlayerAddData(playerName)
-    s.connect((HOST, PORT))
     s.send(request.serialize())
 
     # 2) wait the response of the server
@@ -49,7 +57,7 @@ def start_game():
         print(data.message)
     
     # 3) Wait until all the players entered in the lobby -> sleep some seconds TODO: (This is an andrea suggestion)
-    time.sleep(5)
+    time.sleep(6)
 
     # 4) Comunicate to the server that you are ready
     print("I am ready to start the game.")
@@ -65,8 +73,10 @@ def start_game():
     # 6) Wait until everyone is ready and the game can start.     
     data = s.recv(DATASIZE)
     data = GameData.GameData.deserialize(data)
+    players = data.pleyers
     if type(data) is GameData.ServerStartGameData:
         print("Game start!")
+        print("My team mates are: ", players)
 
     # 7) The game can finally start
     s.send(GameData.ClientPlayerReadyData(playerName).serialize())
@@ -74,7 +84,8 @@ def start_game():
     # 8) Set the status from lobby to game.
     status = statuses[1]
 
-    print("Starting game process done")
+    print("---Starting game process done----")
+    return
     
 start_game()
 print("time to sleep")
