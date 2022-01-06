@@ -122,7 +122,9 @@ def init_data(playerName, players_names):
     global playing_agent
     global playerTurn
 
-    
+    '''
+    HERE: Choose which agent to use 
+    '''
     playing_agent = DummyAgent(playerName)
     
     # ask to show the data to the server
@@ -139,7 +141,7 @@ def init_data(playerName, players_names):
         usedNoteTokens = data.usedNoteTokens # = 0
         usedStormTokens= data.usedStormTokens # = 0
     
-    print("##################", data.players)
+    
     playing_agent.initialize(num_players= len(players_names), players_names= players_names, k=len(playersInfo[0].hand), board= tableCards, players_info= playersInfo, discard_pile=discardPile)
 
 def update_data():
@@ -177,7 +179,7 @@ def main():
     playerName, players_names = start_game()
     init_data(playerName, players_names)
     while run: # while the game is going
-        time.sleep(5)
+        time.sleep(3)
         print("***********************")
         show()
         print("***********************")
@@ -187,24 +189,19 @@ def main():
                 continue
             data = GameData.GameData.deserialize(data)
             if type(data) is GameData.ServerActionValid:
-                dataOk = True
                 print("Action valid!")
                 print("Current player: " + data.player)
             if type(data) is GameData.ServerPlayerMoveOk:
-                dataOk = True
                 print("Nice move!")
                 print("Current player: " + data.player)
             if type(data) is GameData.ServerPlayerThunderStrike:
-                dataOk = True
                 print("OH NO! The Gods are unhappy with you!")
             if type(data) is GameData.ServerHintData:
-                dataOk = True
                 print("Hint type: " + data.type)
                 print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
                 for i in data.positions:
                     print("\t" + str(i))
             if type(data) is GameData.ServerGameOver:
-                dataOk = True
                 print(data.message)
                 print(data.score)
                 print(data.scoreMessage)
@@ -225,7 +222,7 @@ def main():
         update_data()
 
 
-    print("FINEEEE")       
+    print("END")       
     os._exit(0)
 
 main()
