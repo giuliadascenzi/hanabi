@@ -17,22 +17,23 @@ from agent import Agent
 parser = argparse.ArgumentParser()
 parser.add_argument('--ip', type=str, default=HOST, help='IP address of the host')
 parser.add_argument('--port', type=int, default=PORT, help='Port of the server')
-parser.add_argument('--player_name', type=str, help='Player name')
-parser.add_argument('--ai_player', help='Play with the AI agent', action='store_true')
+player = parser.add_mutually_exclusive_group()
+player.add_argument('--player-name', type=str, help='Player name')
+player.add_argument('--ai-player', help='Play with the AI agent', action='store_true')
 args = parser.parse_args()
 
 ip = args.ip
 port = args.port
 agent = ""
+playerName = ""
 
 if args.ai_player is not False:
-    print(args.ai_player)
-    playerName = 'AI'
+    playerName = "AI"
     agent = Agent(playerName)
 
 else:
-    if args is None:
-        print("You need the player name to start the game, or play with the AI by specifying '--ai_player'.")
+    if args.player_name is None:
+        print("You need the player name to start the game, or play with the AI by specifying '--ai-player'.")
         exit(-1)
     else:
         playerName = args.player_name
@@ -41,42 +42,43 @@ run = True
 statuses = ["Lobby", "Game", "GameHint"]
 status = statuses[0]
 hintState = ("", "")
-wait_move = 1
-observation = []
+wait_move = 7
+observation = {'current_player': None,
+               'current_player_offset': 0,
+               'usedStormTokens': 0,
+               'usedNoteTokens': 0,
+               'players': None,
+               'num_players': 0,
+               # 'deck_size': self.deck_size,
+               # 'fireworks': self.fireworks,
+               # 'legal_moves': self.get_legal_moves(),
+               # 'observed_hands': self.get_observed_hands(),  # moves own hand to front
+               'discard_pile': None,
+               # 'card_knowledge': self.get_card_knowledge(),
+               # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
+               'tableCards': None
+               }
 
 
 def agentPlay():
     global run
     global status
-    while run:
-        # TODO:ask Lise
-        if status == statuses[0]: #Lobby
-            # 4) Communicate to the server that you are ready
-            print("I am ready to start the game.")
-            request = GameData.ClientPlayerStartRequest(playerName)
-            s.send(request.serialize())
-            # TODO
-
-        # wait to feel more human
-        time.sleep(wait_move)
-        # Get observation
-        # ask to show the data to the server - should be the "obs"
-        request = GameData.ClientGetGameStateRequest(playerName)
+    # TODO:ask Lise
+    if status == statuses[0]:  # Lobby
+        print("I am ready to start the game.")
+        request = GameData.ClientPlayerStartRequest(playerName)
         s.send(request.serialize())
-        time.sleep(wait_move)
-        # should wait to get the updated observation
-        # Compute action and send to server
-        # action = agent.simple_heuristic_choice(observation)
-        action = agent.dummy_agent_choice(observation)
-        s.send(action)
-
-        # leave replay lobby when game has ended
-        # if self.game_ended:
-            # self.ws.send(cmd.gameUnattend())
-            # self.game_ended = False
-            # self.gameHasStarted = False
-
-    time.sleep(1)
+    while run:
+        if status == statuses[1]:
+            # Get observation : ask to show the data to the server
+            request = GameData.ClientGetGameStateRequest(playerName)
+            s.send(request.serialize())
+            time.sleep(wait_move)
+            # Compute action and send to server
+            if observation['current_player'] == playerName:
+                # action = agent.dummy_agent_choice(observation)
+                action = agent.simple_heuristic_choice(observation)
+                s.send(action.serialize())
 
 
 def manageInput():
@@ -137,7 +139,6 @@ def manageInput():
         stdout.flush()
 
 
-
 ## --- MAIN ---
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -158,8 +159,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
     # 3) Wait until all the players entered in the lobby -> sleep some seconds
     # TODO: (This is an andrea suggestion)
-    time.sleep(6)
-
+    # time.sleep(6)
 
     if type(agent) == Agent:
         Thread(target=agentPlay).start()
@@ -181,11 +181,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             # 6) Wait until everyone is ready and the game can start.
             data = s.recv(DATASIZE)
             data = GameData.GameData.deserialize(data)
-            players = data.players
+            # players = data.players
 
         if type(data) is GameData.ServerStartGameData:
             dataOk = True
-            print("Game start! My team mates are: ", players)
+            # print("Game start! My team mates are: ", players)
 
             # 7) The game can finally start
             s.send(GameData.ClientPlayerReadyData(playerName).serialize())
@@ -196,45 +196,47 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         if type(data) is GameData.ServerGameStateData:
             dataOk = True
-            print("Current player: " + data.currentPlayer)
-            print("Player hands: ")
-            for p in data.players:
-                print(p.toClientString())
-            print("Table cards: ")
-            for pos in data.tableCards:
-                print(pos + ": [ ")
-                for c in data.tableCards[pos]:
-                    print(c.toClientString() + " ")
-                print("]")
-            print("Discard pile: ")
-            for c in data.discardPile:
-                print("\t" + c.toClientString())
-            print("Note tokens used: " + str(data.usedNoteTokens) + "/8")
-            print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
 
-            # should implement the return observation here
-            observation = {
-                'current_player': data.currentPlayer,  # should return the player name
-                'current_player_offset': 0,
-                'usedStormTokens': data.usedStormTokens,
-                'usedNoteTokens': data.usedNoteTokens,
-                'players': data.players,
-                'num_players': data.players.size,
-                # 'deck_size': self.deck_size,
-                # 'fireworks': self.fireworks,
-                # 'legal_moves': self.get_legal_moves(),
-                # 'observed_hands': self.get_observed_hands(),  # moves own hand to front
-                'discard_pile': data.discard_pile,
-                # 'card_knowledge': self.get_card_knowledge(),
-                # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
+            if playerName != "AI":
+                print("Current player: " + data.currentPlayer)
+                print("Player hands: ")
+                for p in data.players:
+                    print(p.toClientString())
+                print("Table cards: ")
+                for pos in data.tableCards:
+                    print(pos + ": [ ")
+                    for c in data.tableCards[pos]:
+                        print(c.toClientString() + " ")
+                    print("]")
+                print("Discard pile: ")
+                for c in data.discardPile:
+                    print("\t" + c.toClientString())
+                print("Hints: ")
+                for h in data.hints:
+                    print(h)
+                print("Note tokens used: " + str(data.usedNoteTokens) + "/8")
+                print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
 
-                'tableCards': data.tableCards,
-            }
+            else:
+                observation = {
+                    'current_player': data.currentPlayer,  # should return the player name
+                    'usedStormTokens': data.usedStormTokens,
+                    'usedNoteTokens': data.usedNoteTokens,
+                    'players': data.players,
+                    'num_players': len(data.players),
+                    # 'deck_size': self.deck_size,
+                    'fireworks': data.tableCards,
+                    # 'legal_moves': self.get_legal_moves(),
+                    # 'observed_hands': data.players,  # moves own hand to front
+                    'discard_pile': data.discardPile,
+                    'card_knowledge': data.hints,
+                    # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
+                }
 
-            # legal_moves_as_int, legal_moves_as_int_formated = self.get_legal_moves_as_int(observation['legal_moves'])
-            # observation["legal_moves_as_int"] = legal_moves_as_int
-            # observation["legal_moves_as_int_formated"] = legal_moves_as_int_formated
-            # observation['vectorized'] = self.get_vectorized(observation)
+                # legal_moves_as_int, legal_moves_as_int_formated = self.get_legal_moves_as_int(observation['legal_moves'])
+                # observation["legal_moves_as_int"] = legal_moves_as_int
+                # observation["legal_moves_as_int_formated"] = legal_moves_as_int_formated
+                # observation['vectorized'] = self.get_vectorized(observation)
 
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True

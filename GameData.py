@@ -188,7 +188,7 @@ class ServerGameStateData(ServerToClientData):
     """
 
     def __init__(self, currentPlayer: str, players: list, usedNoteTokens: int, usedStormTokens: int, table: list,
-                 discard: list) -> None:
+                 discard: list, hints: list) -> None:
         action = "Show cards response"
         self.currentPlayer = currentPlayer
         self.players = players
@@ -196,6 +196,7 @@ class ServerGameStateData(ServerToClientData):
         self.usedStormTokens = usedStormTokens
         self.tableCards = table
         self.discardPile = discard
+        self.hints = hints
         super().__init__(action)
 
 

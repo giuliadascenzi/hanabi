@@ -3,7 +3,6 @@ from game import Player
 import GameData
 
 
-
 class Agent(Player):
     def __init__(self, name):
         super().__init__(name)
@@ -40,29 +39,38 @@ class Agent(Player):
     def simple_heuristic_choice(self, observation):
         """Act based on an observation."""
 
-        if observation['current_player_offset'] != 0:
-            return None
-
         # Check if there are any pending hints and play the card corresponding to the hint.
-        for card_index, hint in enumerate(observation['card_knowledge'][0]):
-            if hint['color'] is not None or hint['rank'] is not None:
-                return GameData.ClientPlayerPlayCardRequest(self.name, card_index).serialize()
+        for d in observation['card_knowledge']:
+            if d['player'] == self.name:
+                return GameData.ClientPlayerPlayCardRequest(self.name, d['card_index'])
 
         # Check if it's possible to hint a card to your colleagues.
         fireworks = observation['fireworks']
-        if observation['information_tokens'] > 0:
+        if observation['usedNoteTokens'] < 8:
             # Check if there are any playable cards in the hands of the opponents.
-            for player_offset in range(1, observation['num_players']):
-                player_hand = observation['observed_hands'][player_offset]
-                player_hints = observation['card_knowledge'][player_offset]
+            for player in observation['players']:
+                player_hand = player.hand
+                player_hints = []
+                for d in observation['card_knowledge']:
+                    if d['player'] == player.name:
+                        player_hints.append(d)
                 # Check if the card in the hand of the opponent is playable.
+                # Try first to complete an hint
                 for card, hint in zip(player_hand, player_hints):
-                    if (card.value == fireworks[card.color]) and (hint['color'] is None):
-                        player_name = observation['players'][player_offset]
-                        return GameData.ClientHintData(self.name, player_name, 'color', card['color']).serialize()
+                    if (card.value == len(fireworks[card.color]) + 1) and (hint['color'] is None):
+                        return GameData.ClientHintData(self.name, player.name, 'color', card.color)
+                    elif (card.value == len(fireworks[card.color]) + 1) and (hint['value'] is None):
+                        return GameData.ClientHintData(self.name, player.name, 'value', card.value)
+                # If not possible, give the value
+                for card in player_hand:
+                    if (card.value == len(fireworks[card.color]) + 1):
+                        return GameData.ClientHintData(self.name, player.name, 'value', card.value)
 
         # If not then discard or play card number 0
         if observation['usedNoteTokens'] > 1:
-            return GameData.ClientPlayerDiscardCardRequest(self.name, 0).serialize()
+            return GameData.ClientPlayerDiscardCardRequest(self.name, 0)
         else:
-            return GameData.ClientPlayerPlayCardRequest(self.name, 0).serialize()
+            return GameData.ClientPlayerPlayCardRequest(self.name, 0)
+
+    def rule_based_choice(self):
+        pass
