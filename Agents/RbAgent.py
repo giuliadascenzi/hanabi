@@ -112,7 +112,6 @@ class RbAgent(BaseAgent):
     An instance of this class represents a player's strategy.
     It only has the knowledge of that player, and it must make decisions.
 
-    It performs only random choices
     """
     
     def __init__(self, name):
@@ -131,43 +130,40 @@ class RbAgent(BaseAgent):
 
         self.board = board
         self.players_info = players_info
-        self.discard_pile = discard_pile
+        self.discard_pile = self.counterOfCards(discard_pile)
 
         # store a copy of the full deck
         self.full_deck = get_full_deck()
         self.deck_size = len(self.full_deck)
         self.full_deck_composition = self.counterOfCards(self.full_deck)
-        print(self.full_deck_composition)
+        
 
         # for each of my card, store its possibilities
-        self.possibilities = [Counter(self.full_deck) for i in range(self.k)]
+        self.possibilities = [self.counterOfCards(self.full_deck) for i in range(self.k)]
         
         # remove cards of other players from possibilities
         self.update_possibilities()
+        
         
         # knowledge of all players
         self.knowledge = [[Knowledge(color=False, number=False) for j in range(k)] for i in range(num_players)]
 
     def counterOfCards(self, cardList):
+        """
+        It gets as imput a list of Card.
+        Output = Counter with keys (color,value)
+        """
         counterCard = {}
-        for card in cardList:            
-            if (card.color, card.value) not in counterCard:
-                counterCard[(card.color, card.value)] = 1 
+        for card in cardList:
+            # key of the dictionary tuple of (color, value)
+            key = (card.color, card.value)      
+            if key not in counterCard:
+                counterCard[key] = 1 
             else:
-                counterCard[(card.color, card.value)] += 1
-        return counterCard
+                counterCard[key] += 1
+        return Counter(counterCard)
 
             
-
-    def visible_cards(self):
-        """
-        Counter of all the cards visible by me.
-        """
-        res = Counter(self.discard_pile)
-        for player_info in self.players_info: 
-            res += Counter(player_info.hand)
-        
-        return res
 
     def update(self, board, players_info, discardPile, usedNoteTokens, usedStormTokens, turn= 0, last_turn=0 ):
         """
@@ -179,7 +175,7 @@ class RbAgent(BaseAgent):
         self.last_turn = last_turn
 
         self.players_info = players_info
-        self.discard_pile = discardPile
+        self.discard_pile = self.counterOfCards(discardPile)
         self.board= board
              
     def update_possibilities(self):
@@ -208,54 +204,76 @@ class RbAgent(BaseAgent):
         """
         # update possibilities checking all combinations if deck is small 
 
-        if self.usedNoteTokens < 8 and random.randint(0,2) == 0:
-            # give random hint to the next player
-            destination_name, value, type = self.get_best_hint()
-            
-            print(">>>give some random hint")
-            return GameData.ClientHintData(self.name, destination_name, type, value)
-        
-        elif random.randint(0,1) == 0 or self.usedNoteTokens == 0 :
-            # play random card
-            card_pos = self.get_best_play()
-            print(">>>play some random card")
+        # 1) Check if there is a playable card
+
+        card_pos = self.get_best_play()
+
+        if (card_pos is not None):
+            print(">>>play the card number:", card_pos)
             return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
+
+        if (self.usedNoteTokens > 0 and random.randint(0,1) == 0) or self.usedNoteTokens==8:
+            # discard card
+            card_pos,_,_ = self.get_best_discard()
+            print(">>>discard the card number:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
         
         else:
-            # discard random card
-            card_pos = self.get_best_discard()
-            print(">>>discard some random card")
-            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+            # give the best hint
+            destination_name, value, type = self.get_best_hint()
+            
+            print(">>>give the hint ", type, " ", value, " to ", destination_name)
+            return GameData.ClientHintData(self.name, destination_name, type, value)
 
-    def is_playable(self, card):
-        if len(self.board[card.color]) == 0:
-            if card.value == 1:
-                return True
-        elif card.value == len(self.board[card.color]) + 1:
-            return True
+    def feed_turn(self, player_id, action):
+        # TODO farla con messaggi ottenuti dal server
+        """
+        Receive information about a played turn. (either of the same player)
+        """
+        '''
+        if action.type in [Action.PLAY, Action.DISCARD]:
+            # reset knowledge of the player
+            new_card = self.my_hand[action.card_pos] if player_id == self.id else self.hands[player_id][action.card_pos]
+            self.reset_knowledge(player_id, action.card_pos, new_card is not None)
+            
+            if player_id == self.id:
+                # check for my new card
+                self.possibilities[action.card_pos] = Counter(self.full_deck) if self.my_hand[action.card_pos] is not None else Counter()
         
-        return False
+        elif action.type == Action.HINT:
+            # someone gave a hint!
+            # the suitable hints manager must process it
+            hints_manager = self.hints_scheduler.select_hints_manager(player_id, action.turn)
+            hints_manager.receive_hint(player_id, action)
+        
+        # update possibilities with visible cards
+        self.update_possibilities()
+        '''
+        pass
 
 
     def get_best_play(self):
         WEIGHT = {number: self.k - number for number in range(1, self.k)}
         WEIGHT[self.k] = self.k
-        print("Ciaoneee")
         
         tolerance = 1e-3
         best_card_pos = None
         best_avg_num_playable = -1.0    # average number of other playable cards, after my play
         best_avg_weight = 0.0           # average weight (in the sense above)
-        for (card_pos, p) in enumerate(self.possibilities):            
+        for (card_pos, p) in enumerate(self.possibilities):
+            # p = Counter of possible tuple (card,value)            
             if all( self.is_playable(card) for card in p) and len(p) > 0:
                 # the card in this position is surely playable!
                 # how many cards of the other players become playable, on average?
                 num_playable = []
                 for card in p:
+                    # Remember that p is a tuple (color, value)
+                    color = card[0]
+                    value = card[1]
                     fake_board = copy.copy(self.board)
-                    fake_board[card.color] += 1
+                    fake_board[color] += 1
                     for i in range(p[card]):
-                        num_playable.append(sum(1 for player_info in self.players_info for c in player_info.hand if c is not None and c.playable(fake_board)))
+                        num_playable.append(sum(1 for player_info in self.players_info for c in player_info.hand if c is not None and self.playable_card(c, fake_board)))
                 
                 avg_num_playable = float(sum(num_playable)) / len(num_playable)
                 
@@ -267,12 +285,63 @@ class RbAgent(BaseAgent):
         if best_card_pos is not None:
             print("playing card in position %d gives %f playable cards on average and weight %f" % (best_card_pos, best_avg_num_playable, best_avg_weight))
             return best_card_pos
+        #elif random.randint(0,3) == 0:
+        #    return random.randint(0,4)
         else:
-            print("nobueno!")
-            return random.choice([0,1,2,3,4])
+            return best_card_pos
 
     def get_best_discard(self):
-        return random.choice([0,1,2,3,4])
+        """
+        Choose the best card to be discarded.
+        """
+        # first see if I can be sure to discard a useless card
+        for (card_pos, p) in enumerate(self.possibilities):
+            # p = Counter of (color, value) tuples with the number of occurrencies
+            # representing the possible (color,value) for a card in pos card_pos
+            # one for each card
+            if len(p) > 0 and all(not self.useful_card(card, self.board, self.full_deck_composition, self.discard_pile) for card in p):
+                self.log("considering to discard useless card")
+                return card_pos, 0.0, 0.0
+        
+        # Try to avoid cards that are (on average) more relevant, then choose cards that are (on average) less useful
+        tolerance = 1e-3
+        best_cards_pos = []
+        best_relevant_ratio = 1.0
+        
+        WEIGHT = {number: self.k + 1 - number for number in range(1, self.k + 1)}
+        best_relevant_weight = max(WEIGHT.values())
+        
+        for (card_pos, p) in enumerate(self.possibilities):
+            # p = Counter of (color, value) tuples with the number of occurrencies
+            # representing the possible (color,value) for a card in pos card_pos
+            # one for each card
+            if len(p) > 0:
+                num_relevant = sum(p[card] for card in p if self.relevant_card(card, self.board, self.full_deck_composition, self.discard_pile))
+                relevant_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if self.relevant_card(card, self.board, self.full_deck_composition, self.discard_pile))
+                
+                relevant_ratio = float(num_relevant) / sum(p.values())
+                relevant_weight = float(relevant_weight_sum) / sum(p.values())
+                
+                num_useful = sum(p[card] for card in p if self.useful_card(card, self.board, self.full_deck_composition, self.discard_pile))
+                useful_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if self.useful_card(card, self.board, self.full_deck_composition, self.discard_pile))
+                useful_ratio = float(num_useful) / sum(p.values())
+                useful_weight = float(useful_weight_sum) / sum(p.values())
+                
+                
+                if relevant_weight < best_relevant_weight - tolerance:
+                    # better weight found
+                    best_cards_pos, best_relevant_weight, = [], relevant_weight
+                
+                if relevant_weight < best_relevant_weight + tolerance:
+                    # add this card to the possibilities
+                    best_cards_pos.append((useful_weight, card_pos))
+        
+        assert len(best_cards_pos) > 0
+        print(best_cards_pos)
+        useful_weight, card_pos = min(best_cards_pos, key= lambda t: t[0]) #consider the one with minor useful_weight
+        
+        print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)" % (card_pos, best_relevant_weight, useful_weight))
+        return card_pos, relevant_weight, useful_weight
 
     def get_best_hint(self):
         next_player_index = (self.players_names.index(self.name)+1) % self.num_players
@@ -290,3 +359,75 @@ class RbAgent(BaseAgent):
             type=  "value"
             value = card.value
         return destination_name, value, type
+
+    ########################
+    ### ---> Card functions
+    ########################
+
+    def visible_cards(self):
+        """
+        Counter of all the cards visible by me.
+        """
+        res = self.counterOfCards(self.discard_pile)
+        for player_info in self.players_info: 
+            res += self.counterOfCards(player_info.hand)
+        
+        return res
+
+    def is_playable(self, card):
+        """
+        card = tuple (color, value)
+        """
+        color = card[0]
+        value = card[1]
+        if len(self.board[color]) == 0:
+            if value == 1:
+                return True
+        elif value == len(self.board[color]) + 1:
+            return True
+        
+        return False
+
+    def playable_card(card, board):
+        """
+        Is this card playable on the board?
+        """
+        return card.number == board[card.color] + 1
+
+    def useful_card(self, card, board, full_deck, discard_pile):
+        """
+        Is this card still useful?
+        full_deck and discard_pile are Counters.
+        REMEMBER: card is a tuple (color, value)
+        """
+        # check that lower cards still exist
+        color = card[0]
+        value = card[1]
+
+        last_value_in_board = len( board[color] )
+
+        for number in range(last_value_in_board + 1, value):
+            copies_in_deck = full_deck[(color, number)]
+            copies_in_discard_pile = discard_pile[(color, number)]
+            
+            if copies_in_deck == copies_in_discard_pile:
+                # some lower card was discarded!
+                return False
+        
+        return value > last_value_in_board
+
+    def relevant_card(self, card, board, full_deck, discard_pile):
+        """
+        Is this card the last copy available?
+        full_deck and discard_pile are Counters.
+        """
+        color = card[0]
+        value = card[1]
+        copies_in_deck = full_deck[(color, value)]
+
+        copies_in_discard_pile = discard_pile[(color, value)]
+        
+        return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
+
+        
+

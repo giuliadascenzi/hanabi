@@ -94,6 +94,7 @@ def start_game():
     return playerName, players_names
 
 def show():
+    global playerName
     # ask to show the data to the server
     request = GameData.ClientGetGameStateRequest(playerName)
     s.send(request.serialize())
@@ -179,11 +180,20 @@ def main():
 
     playerName, players_names = start_game()
     init_data(playerName, players_names)
+
+    index = 0
     while run: # while the game is going
-        time.sleep(3)
-        print("***********************")
+        time.sleep(1)
+        
+        index +=1
+        if (index==10):
+            time.sleep(1)
+            show()
+            index=0
+        
+        #print("***********************")
         #show()
-        print("***********************")
+        #print("***********************")
         if (playerTurn!=playerName): # while is not my turn
             data = s.recv(DATASIZE)
             if not data:
@@ -208,11 +218,11 @@ def main():
                 print(data.scoreMessage)
                 stdout.flush()
                 run = False
-            print("End of a turn")
+            #print("End of a turn")
             
         else:
             # Its the player turn
-            print("ITS MY TURN")
+            #print("ITS MY TURN")
             print("[" + playerName + " - " + status + "]: ", end="")
             request = playing_agent.get_turn_action()
             s.send(request.serialize())
@@ -220,6 +230,7 @@ def main():
             data = GameData.GameData.deserialize(data)
             print(data.action)
         
+        time.sleep(2)
         update_data()
 
 
