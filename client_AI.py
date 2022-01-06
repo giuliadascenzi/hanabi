@@ -2,7 +2,8 @@
 
 from sys import argv, stdout
 from threading import Thread
-from Agents.DummyAgent import DummyAgent
+#from Agents.DummyAgent import DummyAgent
+from Agents.RbAgent import RbAgent
 import GameData
 import socket
 from constants import *
@@ -125,7 +126,7 @@ def init_data(playerName, players_names):
     '''
     HERE: Choose which agent to use 
     '''
-    playing_agent = DummyAgent(playerName)
+    playing_agent =  RbAgent(playerName)           ##DummyAgent(playerName)
     
     # ask to show the data to the server
     request = GameData.ClientGetGameStateRequest(playerName)
@@ -181,7 +182,7 @@ def main():
     while run: # while the game is going
         time.sleep(3)
         print("***********************")
-        show()
+        #show()
         print("***********************")
         if (playerTurn!=playerName): # while is not my turn
             data = s.recv(DATASIZE)
