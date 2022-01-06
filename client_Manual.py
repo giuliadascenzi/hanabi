@@ -1,83 +1,31 @@
 #!/usr/bin/env python3
 
-from sys import stdout
+from sys import argv, stdout
 from threading import Thread
 import GameData
 import socket
-import os
-import time
-import cmd
-import argparse
-
 from constants import *
-from agent import Agent
+import os
 
-# Arguments management
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--ip', type=str, default=HOST, help='IP address of the host')
-parser.add_argument('--port', type=int, default=PORT, help='Port of the server')
-parser.add_argument('--player_name', type=str, help='Player name')
-parser.add_argument('--ai_player', help='Play with the AI agent', action='store_true')
-args = parser.parse_args()
-
-ip = args.ip
-port = args.port
-agent = ""
-
-if args.ai_player is not False:
-    print(args.ai_player)
-    playerName = 'AI'
-    agent = Agent(playerName)
-
+if len(argv) < 4:
+    print("You need the player name to start the game.")
+    #exit(-1)
+    playerName = "Test" # For debug
+    ip = HOST
+    port = PORT
 else:
-    if args is None:
-        print("You need the player name to start the game, or play with the AI by specifying '--ai_player'.")
-        exit(-1)
-    else:
-        playerName = args.player_name
+    playerName = argv[3]
+    ip = argv[1]
+    port = int(argv[2])
 
 run = True
+
 statuses = ["Lobby", "Game", "GameHint"]
+
 status = statuses[0]
+
 hintState = ("", "")
-wait_move = 1
-observation = []
-
-
-def agentPlay():
-    global run
-    global status
-    while run:
-        # TODO:ask Lise
-        if status == statuses[0]: #Lobby
-            # 4) Communicate to the server that you are ready
-            print("I am ready to start the game.")
-            request = GameData.ClientPlayerStartRequest(playerName)
-            s.send(request.serialize())
-            # TODO
-
-        # wait to feel more human
-        time.sleep(wait_move)
-        # Get observation
-        # ask to show the data to the server - should be the "obs"
-        request = GameData.ClientGetGameStateRequest(playerName)
-        s.send(request.serialize())
-        time.sleep(wait_move)
-        # should wait to get the updated observation
-        # Compute action and send to server
-        # action = agent.simple_heuristic_choice(observation)
-        action = agent.dummy_agent_choice(observation)
-        s.send(action)
-
-        # leave replay lobby when game has ended
-        # if self.game_ended:
-            # self.ws.send(cmd.gameUnattend())
-            # self.game_ended = False
-            # self.gameHasStarted = False
-
-    time.sleep(1)
-
 
 def manageInput():
     global run
@@ -136,64 +84,32 @@ def manageInput():
             continue
         stdout.flush()
 
-
-
-## --- MAIN ---
-
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    # 0) open the connection
-    s.connect((ip, port))
-
-    # 1) request a connection from the server
-    print("Trying to establish a connection with the server...")
     request = GameData.ClientPlayerAddData(playerName)
+    s.connect((HOST, PORT))
     s.send(request.serialize())
-
-    # 2) wait the response of the server
-    data = s.recv(DATASIZE)  # blocking till it does not get it
+    data = s.recv(DATASIZE)
     data = GameData.GameData.deserialize(data)
     if type(data) is GameData.ServerPlayerConnectionOk:
         print("Connection accepted by the server. Welcome " + playerName)
     print("[" + playerName + " - " + status + "]: ", end="")
-
-    # 3) Wait until all the players entered in the lobby -> sleep some seconds
-    # TODO: (This is an andrea suggestion)
-    time.sleep(6)
-
-
-    if type(agent) == Agent:
-        Thread(target=agentPlay).start()
-    else:
-        Thread(target=manageInput).start()
-
+    Thread(target=manageInput).start()
     while run:
         dataOk = False
-
-        # 5) Wait the response from the server
         data = s.recv(DATASIZE)
         if not data:
             continue
         data = GameData.GameData.deserialize(data)
         if type(data) is GameData.ServerPlayerStartRequestAccepted:
             dataOk = True
-            print("Ready: " + str(data.acceptedStartRequests) + "/" + str(data.connectedPlayers) + " players")
-
-            # 6) Wait until everyone is ready and the game can start.
+            print("Ready: " + str(data.acceptedStartRequests) + "/"  + str(data.connectedPlayers) + " players")
             data = s.recv(DATASIZE)
             data = GameData.GameData.deserialize(data)
-            players = data.players
-
         if type(data) is GameData.ServerStartGameData:
             dataOk = True
-            print("Game start! My team mates are: ", players)
-
-            # 7) The game can finally start
+            print("Game start!")
             s.send(GameData.ClientPlayerReadyData(playerName).serialize())
-
-            # 8) Set the status from lobby to game.
             status = statuses[1]
-            print("---Starting game process done----")
-
         if type(data) is GameData.ServerGameStateData:
             dataOk = True
             print("Current player: " + data.currentPlayer)
@@ -208,64 +124,33 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print("]")
             print("Discard pile: ")
             for c in data.discardPile:
-                print("\t" + c.toClientString())
+                print("\t" + c.toClientString())            
             print("Note tokens used: " + str(data.usedNoteTokens) + "/8")
             print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
-
-            # should implement the return observation here
-            observation = {
-                'current_player': data.currentPlayer,  # should return the player name
-                'current_player_offset': 0,
-                'usedStormTokens': data.usedStormTokens,
-                'usedNoteTokens': data.usedNoteTokens,
-                'players': data.players,
-                'num_players': data.players.size,
-                # 'deck_size': self.deck_size,
-                # 'fireworks': self.fireworks,
-                # 'legal_moves': self.get_legal_moves(),
-                # 'observed_hands': self.get_observed_hands(),  # moves own hand to front
-                'discard_pile': data.discard_pile,
-                # 'card_knowledge': self.get_card_knowledge(),
-                # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
-
-                'tableCards': data.tableCards,
-            }
-
-            # legal_moves_as_int, legal_moves_as_int_formated = self.get_legal_moves_as_int(observation['legal_moves'])
-            # observation["legal_moves_as_int"] = legal_moves_as_int
-            # observation["legal_moves_as_int_formated"] = legal_moves_as_int_formated
-            # observation['vectorized'] = self.get_vectorized(observation)
-
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True
             print("Invalid action performed. Reason:")
             print(data.message)
-
         if type(data) is GameData.ServerActionValid:
             dataOk = True
             print("Action valid!")
             print("Current player: " + data.player)
-
         if type(data) is GameData.ServerPlayerMoveOk:
             dataOk = True
             print("Nice move!")
             print("Current player: " + data.player)
-
         if type(data) is GameData.ServerPlayerThunderStrike:
             dataOk = True
             print("OH NO! The Gods are unhappy with you!")
-
         if type(data) is GameData.ServerHintData:
             dataOk = True
             print("Hint type: " + data.type)
             print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
             for i in data.positions:
                 print("\t" + str(i))
-
         if type(data) is GameData.ServerInvalidDataReceived:
             dataOk = True
             print(data.data)
-
         if type(data) is GameData.ServerGameOver:
             dataOk = True
             print(data.message)
@@ -273,8 +158,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(data.scoreMessage)
             stdout.flush()
             run = False
-
         if not dataOk:
-            print("Unknown or unimplemented data type: " + str(type(data)))
+            print("Unknown or unimplemented data type: " +  str(type(data)))
         print("[" + playerName + " - " + status + "]: ", end="")
         stdout.flush()

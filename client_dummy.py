@@ -112,7 +112,7 @@ def show():
         playerTurn = data.currentPlayer
         playerHands = data.players
         tableCards = data.tableCards
-        discardPile =data.discardPile
+        discardPile = data.discardPile
         usedNoteTokens = data.usedNoteTokens
         usedStormTokens= data.usedStormTokens
 
@@ -163,6 +163,35 @@ def dummy_agent_choice():
         print(">>>discard some random card")
         return GameData.ClientPlayerDiscardCardRequest(playerName, card_pos)
 
+def more_smart_agent_choice():
+    
+    if usedNoteTokens < 3 and random.randint(0,2) == 0:
+        # give random hint to the next player
+        next_player_index = (players.index(playerName)+1) % len(players)
+        destination = players[next_player_index]
+        card = random.choice([card for card in playerHands[next_player_index].hand if card is not None])
+        
+        if random.randint(0,1) == 0:
+            type= "color"
+            value = card.color
+        else:
+            type=  "value"
+            value = card.value
+        
+        print(">>>give some random hint")
+        return GameData.ClientHintData(playerName, destination, type, value)
+        
+    elif random.randint(0,1) == 0:
+        # play random card
+        card_pos = random.choice([0,1,2,3,4])
+        print(">>>play some random card")
+        return GameData.ClientPlayerPlayCardRequest(playerName, card_pos)
+    
+    else:
+        # discard random card
+        card_pos = random.choice([0,1,2,3,4])
+        print(">>>discard some random card")
+        return GameData.ClientPlayerDiscardCardRequest(playerName, card_pos)
 
 # ------------- MAIN -------------
 

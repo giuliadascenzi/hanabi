@@ -5,3 +5,553 @@
 01/05/2022 09:19:27 AM INFO: Connected by: ('127.0.0.1', 63276)
 01/05/2022 09:19:27 AM INFO: Player connected: AI
 01/05/2022 09:19:33 AM INFO: Player ready: AI
+01/05/2022 10:31:44 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/05/2022 10:31:54 AM INFO: Connected by: ('127.0.0.1', 55944)
+01/05/2022 10:31:54 AM INFO: Player connected: dummy
+01/05/2022 10:32:00 AM INFO: Player ready: dummy
+01/05/2022 10:34:42 AM INFO: Closing the server...
+01/05/2022 10:37:42 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/05/2022 10:37:46 AM INFO: Connected by: ('127.0.0.1', 52811)
+01/05/2022 10:37:46 AM INFO: Player connected: AI
+01/05/2022 10:37:52 AM INFO: Player ready: AI
+01/05/2022 10:38:38 AM INFO: Connected by: ('127.0.0.1', 50559)
+01/05/2022 10:38:38 AM INFO: Player connected: dummy
+01/05/2022 10:38:44 AM INFO: Player ready: dummy
+01/05/2022 10:38:44 AM INFO: Game start! Between: ['AI', 'dummy']
+01/05/2022 10:38:44 AM INFO: Ok, let's start the game!
+01/05/2022 10:38:44 AM INFO: Showing hand to: dummy
+01/05/2022 10:41:02 AM INFO: Closing the server...
+01/05/2022 10:41:39 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/05/2022 10:41:50 AM INFO: Connected by: ('127.0.0.1', 50573)
+01/05/2022 10:41:50 AM INFO: Player connected: AI
+01/05/2022 10:41:56 AM INFO: Player ready: AI
+01/05/2022 10:42:20 AM INFO: Connected by: ('127.0.0.1', 50578)
+01/05/2022 10:42:20 AM INFO: Player connected: giulia2
+01/05/2022 10:42:26 AM INFO: Player ready: giulia2
+01/05/2022 10:42:26 AM INFO: Game start! Between: ['AI', 'giulia2']
+01/05/2022 10:42:26 AM INFO: Ok, let's start the game!
+01/05/2022 10:48:31 AM INFO: Connected by: ('127.0.0.1', 63832)
+01/05/2022 10:48:31 AM INFO: Player connected: AI
+01/05/2022 10:48:37 AM INFO: Player ready: AI
+01/05/2022 11:30:26 AM INFO: Closing the server...
+01/05/2022 11:30:45 AM INFO: Closing the server...
+01/05/2022 11:30:56 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/05/2022 11:31:34 AM INFO: Connected by: ('127.0.0.1', 56237)
+01/05/2022 11:31:34 AM INFO: Player connected: pippo
+01/05/2022 11:31:52 AM INFO: Connected by: ('127.0.0.1', 56239)
+01/05/2022 11:31:52 AM INFO: Player connected: AI
+01/05/2022 11:31:58 AM INFO: Player ready: AI
+01/05/2022 11:38:39 AM INFO: Closing the server...
+01/06/2022 10:31:41 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:32:33 AM INFO: Connected by: ('127.0.0.1', 59651)
+01/06/2022 10:32:33 AM INFO: Player connected: pippo
+01/06/2022 10:36:53 AM INFO: Connected by: ('127.0.0.1', 65311)
+01/06/2022 10:36:53 AM INFO: Player connected: dummy
+01/06/2022 10:36:59 AM INFO: Player ready: pippo
+01/06/2022 10:36:59 AM INFO: Player ready: dummy
+01/06/2022 10:36:59 AM INFO: Game start! Between: ['pippo', 'dummy']
+01/06/2022 10:36:59 AM INFO: Ok, let's start the game!
+01/06/2022 10:37:16 AM INFO: Showing hand to: pippo
+01/06/2022 10:37:16 AM WARNING: Player disconnected: pippo
+01/06/2022 10:39:15 AM INFO: Closing the server...
+01/06/2022 10:40:02 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:40:07 AM INFO: Connected by: ('127.0.0.1', 65339)
+01/06/2022 10:40:07 AM INFO: Player connected: manual
+01/06/2022 10:40:28 AM INFO: Connected by: ('127.0.0.1', 61725)
+01/06/2022 10:40:28 AM INFO: Player connected: AI
+01/06/2022 10:40:34 AM INFO: Player ready: AI
+01/06/2022 10:40:39 AM INFO: Player ready: manual
+01/06/2022 10:40:39 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 10:40:39 AM INFO: Ok, let's start the game!
+01/06/2022 10:40:39 AM INFO: Showing hand to: AI
+01/06/2022 10:40:39 AM WARNING: Player disconnected: AI
+01/06/2022 10:40:47 AM INFO: Showing hand to: manual
+01/06/2022 10:40:59 AM INFO: Showing hand to: manual
+01/06/2022 10:41:47 AM INFO: Closing the server...
+01/06/2022 10:42:01 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:42:13 AM INFO: Connected by: ('127.0.0.1', 61734)
+01/06/2022 10:42:13 AM INFO: Player connected: manual
+01/06/2022 10:42:23 AM INFO: Connected by: ('127.0.0.1', 61735)
+01/06/2022 10:42:23 AM INFO: Player connected: AI
+01/06/2022 10:42:26 AM INFO: Player ready: manual
+01/06/2022 10:42:29 AM INFO: Player ready: AI
+01/06/2022 10:42:29 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 10:42:29 AM INFO: Ok, let's start the game!
+01/06/2022 10:42:29 AM INFO: Showing hand to: AI
+01/06/2022 10:42:29 AM INFO: Showing hand to: AI
+01/06/2022 10:42:29 AM WARNING: Player disconnected: AI
+01/06/2022 10:44:32 AM INFO: Closing the server...
+01/06/2022 10:44:50 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:44:54 AM INFO: Connected by: ('127.0.0.1', 63876)
+01/06/2022 10:44:54 AM INFO: Player connected: manual
+01/06/2022 10:45:01 AM INFO: Connected by: ('127.0.0.1', 63878)
+01/06/2022 10:45:01 AM INFO: Player connected: AI
+01/06/2022 10:45:07 AM INFO: Player ready: AI
+01/06/2022 10:45:16 AM INFO: Player ready: manual
+01/06/2022 10:45:16 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 10:45:16 AM INFO: Ok, let's start the game!
+01/06/2022 10:45:16 AM INFO: Showing hand to: AI
+01/06/2022 10:45:16 AM INFO: Showing hand to: AI
+01/06/2022 10:45:16 AM WARNING: Player disconnected: AI
+01/06/2022 10:46:44 AM INFO: Closing the server...
+01/06/2022 10:47:01 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:47:05 AM INFO: Connected by: ('127.0.0.1', 63898)
+01/06/2022 10:47:05 AM INFO: Player connected: manual
+01/06/2022 10:47:09 AM INFO: Connected by: ('127.0.0.1', 63899)
+01/06/2022 10:47:09 AM INFO: Player connected: AI
+01/06/2022 10:47:12 AM INFO: Player ready: manual
+01/06/2022 10:47:15 AM INFO: Player ready: AI
+01/06/2022 10:47:15 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 10:47:15 AM INFO: Ok, let's start the game!
+01/06/2022 10:47:15 AM INFO: Showing hand to: AI
+01/06/2022 10:47:15 AM INFO: Showing hand to: AI
+01/06/2022 10:47:28 AM INFO: Showing hand to: manual
+01/06/2022 10:47:57 AM INFO: Player manual providing hint to AI: cards with value 1 are in positions: [1, 3]
+01/06/2022 10:47:57 AM INFO: Showing hand to: AI
+01/06/2022 10:48:30 AM INFO: Showing hand to: manual
+01/06/2022 10:56:38 AM INFO: Closing the server...
+01/06/2022 10:56:52 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 10:56:59 AM INFO: Connected by: ('127.0.0.1', 52960)
+01/06/2022 10:56:59 AM INFO: Player connected: manual
+01/06/2022 10:57:04 AM INFO: Connected by: ('127.0.0.1', 52961)
+01/06/2022 10:57:04 AM INFO: Player connected: AI
+01/06/2022 10:57:08 AM INFO: Player ready: manual
+01/06/2022 10:57:10 AM INFO: Player ready: AI
+01/06/2022 10:57:10 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 10:57:10 AM INFO: Ok, let's start the game!
+01/06/2022 10:57:10 AM INFO: Showing hand to: AI
+01/06/2022 10:57:10 AM INFO: Showing hand to: AI
+01/06/2022 10:57:23 AM INFO: Showing hand to: manual
+01/06/2022 10:57:34 AM INFO: Player manual providing hint to AI: cards with value 1 are in positions: [3]
+01/06/2022 10:57:34 AM INFO: Showing hand to: AI
+01/06/2022 10:59:56 AM INFO: Closing the server...
+01/06/2022 11:00:06 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:00:14 AM INFO: Connected by: ('127.0.0.1', 57958)
+01/06/2022 11:00:14 AM INFO: Player connected: manual
+01/06/2022 11:00:18 AM INFO: Connected by: ('127.0.0.1', 57959)
+01/06/2022 11:00:18 AM INFO: Player connected: AI
+01/06/2022 11:00:21 AM INFO: Player ready: manual
+01/06/2022 11:00:24 AM INFO: Player ready: AI
+01/06/2022 11:00:24 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 11:00:24 AM INFO: Ok, let's start the game!
+01/06/2022 11:00:24 AM INFO: Showing hand to: AI
+01/06/2022 11:00:24 AM INFO: Showing hand to: AI
+01/06/2022 11:00:34 AM INFO: manual: card played and correctly put on the table
+01/06/2022 11:00:34 AM INFO: Showing hand to: AI
+01/06/2022 11:00:34 AM WARNING: Player disconnected: AI
+01/06/2022 11:02:20 AM INFO: Closing the server...
+01/06/2022 11:02:31 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:02:36 AM INFO: Connected by: ('127.0.0.1', 57979)
+01/06/2022 11:02:36 AM INFO: Player connected: manual
+01/06/2022 11:02:41 AM INFO: Connected by: ('127.0.0.1', 57980)
+01/06/2022 11:02:41 AM INFO: Player connected: AI
+01/06/2022 11:02:45 AM INFO: Player ready: manual
+01/06/2022 11:02:47 AM INFO: Player ready: AI
+01/06/2022 11:02:47 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 11:02:47 AM INFO: Ok, let's start the game!
+01/06/2022 11:02:47 AM INFO: Showing hand to: AI
+01/06/2022 11:02:47 AM INFO: Showing hand to: AI
+01/06/2022 11:02:52 AM INFO: Showing hand to: AI
+01/06/2022 11:02:52 AM WARNING: Player disconnected: AI
+01/06/2022 11:03:56 AM INFO: Closing the server...
+01/06/2022 11:04:06 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:04:10 AM INFO: Connected by: ('127.0.0.1', 57985)
+01/06/2022 11:04:10 AM INFO: Player connected: manual
+01/06/2022 11:04:16 AM INFO: Connected by: ('127.0.0.1', 49276)
+01/06/2022 11:04:16 AM INFO: Player connected: AI
+01/06/2022 11:04:21 AM INFO: Player ready: manual
+01/06/2022 11:04:22 AM INFO: Player ready: AI
+01/06/2022 11:04:22 AM INFO: Game start! Between: ['manual', 'AI']
+01/06/2022 11:04:22 AM INFO: Ok, let's start the game!
+01/06/2022 11:04:22 AM INFO: Showing hand to: AI
+01/06/2022 11:04:22 AM INFO: Showing hand to: AI
+01/06/2022 11:04:28 AM INFO: Showing hand to: AI
+01/06/2022 11:04:28 AM INFO: Showing hand to: AI
+01/06/2022 11:04:28 AM INFO: Showing hand to: AI
+01/06/2022 11:04:28 AM INFO: Showing hand to: AI
+01/06/2022 11:04:54 AM INFO: Showing hand to: manual
+01/06/2022 11:05:32 AM INFO: Closing the server...
+01/06/2022 11:05:50 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:06:01 AM INFO: Connected by: ('127.0.0.1', 49298)
+01/06/2022 11:06:01 AM INFO: Player connected: dummy1
+01/06/2022 11:06:07 AM INFO: Player ready: dummy1
+01/06/2022 11:06:27 AM INFO: Connected by: ('127.0.0.1', 49299)
+01/06/2022 11:06:27 AM INFO: Player connected: Ai2
+01/06/2022 11:06:33 AM INFO: Player ready: Ai2
+01/06/2022 11:06:33 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:06:33 AM INFO: Ok, let's start the game!
+01/06/2022 11:06:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:06:33 AM INFO: Showing hand to: Ai2
+01/06/2022 11:06:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:06:33 AM INFO: Showing hand to: Ai2
+01/06/2022 11:06:33 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:07:25 AM INFO: Closing the server...
+01/06/2022 11:07:41 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:07:44 AM INFO: Connected by: ('127.0.0.1', 49308)
+01/06/2022 11:07:44 AM INFO: Player connected: dummy1
+01/06/2022 11:07:48 AM INFO: Connected by: ('127.0.0.1', 49309)
+01/06/2022 11:07:48 AM INFO: Player connected: Ai2
+01/06/2022 11:07:50 AM INFO: Player ready: dummy1
+01/06/2022 11:07:54 AM INFO: Player ready: Ai2
+01/06/2022 11:07:54 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:07:54 AM INFO: Ok, let's start the game!
+01/06/2022 11:07:54 AM INFO: Showing hand to: dummy1
+01/06/2022 11:07:54 AM INFO: Showing hand to: Ai2
+01/06/2022 11:07:54 AM INFO: Showing hand to: dummy1
+01/06/2022 11:07:54 AM INFO: Showing hand to: Ai2
+01/06/2022 11:07:54 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:14:05 AM INFO: Closing the server...
+01/06/2022 11:14:21 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:14:25 AM INFO: Connected by: ('127.0.0.1', 60819)
+01/06/2022 11:14:25 AM INFO: Player connected: dummy1
+01/06/2022 11:14:30 AM INFO: Connected by: ('127.0.0.1', 60821)
+01/06/2022 11:14:30 AM INFO: Player connected: Ai2
+01/06/2022 11:14:31 AM INFO: Player ready: dummy1
+01/06/2022 11:14:36 AM INFO: Player ready: Ai2
+01/06/2022 11:14:36 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:14:36 AM INFO: Ok, let's start the game!
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Player Ai2 providing hint to dummy1: cards with value 1 are in positions: [4]
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Player: Ai2: card 5 discarded successfully
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: dummy1
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Showing hand to: Ai2
+01/06/2022 11:14:36 AM INFO: Game over, people.
+01/06/2022 11:14:36 AM INFO: Please, close the server now
+01/06/2022 11:14:36 AM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 11:16:53 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:17:11 AM INFO: Connected by: ('127.0.0.1', 57716)
+01/06/2022 11:17:11 AM INFO: Player connected: dummy1
+01/06/2022 11:17:17 AM INFO: Player ready: dummy1
+01/06/2022 11:17:19 AM INFO: Connected by: ('127.0.0.1', 57717)
+01/06/2022 11:17:19 AM INFO: Player connected: Ai2
+01/06/2022 11:17:25 AM INFO: Player ready: Ai2
+01/06/2022 11:17:25 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:17:25 AM INFO: Ok, let's start the game!
+01/06/2022 11:17:25 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:25 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:27 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:27 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:27 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:17:27 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:27 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:29 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:29 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:29 AM INFO: Player Ai2 providing hint to dummy1: cards with value 4 are in positions: [0]
+01/06/2022 11:17:29 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:29 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:31 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:31 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:31 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:17:31 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:31 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:33 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:33 AM INFO: Player Ai2 providing hint to dummy1: cards with value 3 are in positions: [4]
+01/06/2022 11:17:33 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:35 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:35 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:35 AM INFO: Player: dummy1: card 35 discarded successfully
+01/06/2022 11:17:35 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:35 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:37 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:37 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:37 AM INFO: Ai2: card played and correctly put on the table
+01/06/2022 11:17:37 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:37 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:39 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:39 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:39 AM INFO: Player: dummy1: card 43 discarded successfully
+01/06/2022 11:17:39 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:39 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:41 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:41 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:41 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:41 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:43 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:43 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:43 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:43 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:45 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:45 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:45 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:17:45 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:47 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:47 AM INFO: Player Ai2 providing hint to dummy1: cards with color white are in positions: [2]
+01/06/2022 11:17:47 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:47 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:49 AM INFO: Showing hand to: Ai2
+01/06/2022 11:17:49 AM INFO: Showing hand to: dummy1
+01/06/2022 11:17:49 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:20:52 AM INFO: Closing the server...
+01/06/2022 11:21:32 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:21:37 AM INFO: Connected by: ('127.0.0.1', 60708)
+01/06/2022 11:21:37 AM INFO: Player connected: dummy1
+01/06/2022 11:21:41 AM INFO: Connected by: ('127.0.0.1', 60709)
+01/06/2022 11:21:41 AM INFO: Player connected: Ai2
+01/06/2022 11:21:43 AM INFO: Player ready: dummy1
+01/06/2022 11:21:47 AM INFO: Player ready: Ai2
+01/06/2022 11:21:47 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:21:47 AM INFO: Ok, let's start the game!
+01/06/2022 11:21:47 AM INFO: Showing hand to: dummy1
+01/06/2022 11:21:47 AM INFO: Showing hand to: Ai2
+01/06/2022 11:21:52 AM INFO: Showing hand to: Ai2
+01/06/2022 11:21:52 AM INFO: Showing hand to: dummy1
+01/06/2022 11:21:52 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:21:52 AM INFO: Showing hand to: dummy1
+01/06/2022 11:21:52 AM INFO: Showing hand to: Ai2
+01/06/2022 11:21:57 AM INFO: Showing hand to: dummy1
+01/06/2022 11:21:57 AM INFO: Showing hand to: Ai2
+01/06/2022 11:21:57 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:21:57 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:02 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:02 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:02 AM INFO: Showing hand to: dummy1
+01/06/2022 11:22:07 AM INFO: Showing hand to: dummy1
+01/06/2022 11:22:07 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:07 AM INFO: Showing hand to: dummy1
+01/06/2022 11:22:07 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:12 AM INFO: Showing hand to: dummy1
+01/06/2022 11:22:12 AM INFO: Showing hand to: Ai2
+01/06/2022 11:22:12 AM INFO: Game over, people.
+01/06/2022 11:22:12 AM INFO: Please, close the server now
+01/06/2022 11:22:12 AM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 11:23:46 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:23:50 AM INFO: Connected by: ('127.0.0.1', 60728)
+01/06/2022 11:23:50 AM INFO: Player connected: dummy1
+01/06/2022 11:23:54 AM INFO: Connected by: ('127.0.0.1', 60729)
+01/06/2022 11:23:54 AM INFO: Player connected: Ai2
+01/06/2022 11:23:56 AM INFO: Player ready: dummy1
+01/06/2022 11:24:00 AM INFO: Player ready: Ai2
+01/06/2022 11:24:00 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:24:00 AM INFO: Ok, let's start the game!
+01/06/2022 11:24:00 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:00 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:05 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:05 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:05 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:24:05 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:10 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:10 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:10 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:15 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:15 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:15 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:15 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:20 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:20 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:20 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:24:20 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:20 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:25 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:25 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:25 AM WARNING: Impossible discarding a card: there is no used token available
+01/06/2022 11:24:25 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:30 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:30 AM INFO: Player Ai2 providing hint to dummy1: cards with color yellow are in positions: [1]
+01/06/2022 11:24:30 AM INFO: Showing hand to: Ai2
+01/06/2022 11:24:30 AM INFO: Showing hand to: dummy1
+01/06/2022 11:24:34 AM INFO: Closing the server...
+01/06/2022 11:24:53 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:24:56 AM INFO: Connected by: ('127.0.0.1', 58764)
+01/06/2022 11:24:56 AM INFO: Player connected: dummy1
+01/06/2022 11:25:00 AM INFO: Connected by: ('127.0.0.1', 58765)
+01/06/2022 11:25:00 AM INFO: Player connected: Ai2
+01/06/2022 11:25:02 AM INFO: Player ready: dummy1
+01/06/2022 11:25:06 AM INFO: Player ready: Ai2
+01/06/2022 11:25:06 AM INFO: Game start! Between: ['dummy1', 'Ai2']
+01/06/2022 11:25:06 AM INFO: Ok, let's start the game!
+01/06/2022 11:25:06 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:06 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:11 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:11 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:11 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:11 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:16 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:16 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:16 AM INFO: Player Ai2 providing hint to dummy1: cards with value 2 are in positions: [0, 4]
+01/06/2022 11:25:16 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:16 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:21 AM INFO: Showing hand to: dummy1
+01/06/2022 11:25:21 AM INFO: Showing hand to: Ai2
+01/06/2022 11:25:21 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:41:46 AM INFO: Closing the server...
+01/06/2022 11:42:04 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:42:10 AM INFO: Connected by: ('127.0.0.1', 61455)
+01/06/2022 11:42:10 AM INFO: Player connected: AI
+01/06/2022 11:42:14 AM INFO: Connected by: ('127.0.0.1', 61457)
+01/06/2022 11:42:14 AM INFO: Player connected: dummy1
+01/06/2022 11:42:16 AM INFO: Player ready: AI
+01/06/2022 11:42:20 AM INFO: Player ready: dummy1
+01/06/2022 11:42:20 AM INFO: Game start! Between: ['AI', 'dummy1']
+01/06/2022 11:42:20 AM INFO: Ok, let's start the game!
+01/06/2022 11:42:20 AM INFO: Showing hand to: AI
+01/06/2022 11:42:20 AM INFO: Showing hand to: dummy1
+01/06/2022 11:42:25 AM INFO: Showing hand to: AI
+01/06/2022 11:42:25 AM WARNING: Player disconnected: AI
+01/06/2022 11:42:25 AM INFO: Showing hand to: dummy1
+01/06/2022 11:42:25 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:45:40 AM INFO: Closing the server...
+01/06/2022 11:45:51 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:45:57 AM INFO: Connected by: ('127.0.0.1', 60907)
+01/06/2022 11:45:57 AM INFO: Player connected: AI
+01/06/2022 11:46:01 AM INFO: Connected by: ('127.0.0.1', 60913)
+01/06/2022 11:46:01 AM INFO: Player connected: dummy1
+01/06/2022 11:46:03 AM INFO: Player ready: AI
+01/06/2022 11:46:07 AM INFO: Player ready: dummy1
+01/06/2022 11:46:07 AM INFO: Game start! Between: ['AI', 'dummy1']
+01/06/2022 11:46:07 AM INFO: Ok, let's start the game!
+01/06/2022 11:46:07 AM INFO: Showing hand to: AI
+01/06/2022 11:46:07 AM INFO: Showing hand to: dummy1
+01/06/2022 11:46:12 AM INFO: Showing hand to: AI
+01/06/2022 11:46:12 AM INFO: Showing hand to: dummy1
+01/06/2022 11:46:12 AM INFO: Showing hand to: AI
+01/06/2022 11:46:12 AM INFO: Showing hand to: dummy1
+01/06/2022 11:46:12 AM WARNING: Player disconnected: AI
+01/06/2022 11:46:12 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:47:40 AM INFO: Closing the server...
+01/06/2022 11:47:50 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:47:53 AM INFO: Connected by: ('127.0.0.1', 60926)
+01/06/2022 11:47:53 AM INFO: Player connected: AI
+01/06/2022 11:47:56 AM INFO: Connected by: ('127.0.0.1', 60927)
+01/06/2022 11:47:56 AM INFO: Player connected: dummy1
+01/06/2022 11:47:59 AM INFO: Player ready: AI
+01/06/2022 11:48:02 AM INFO: Player ready: dummy1
+01/06/2022 11:48:02 AM INFO: Game start! Between: ['AI', 'dummy1']
+01/06/2022 11:48:02 AM INFO: Ok, let's start the game!
+01/06/2022 11:48:02 AM INFO: Showing hand to: dummy1
+01/06/2022 11:48:02 AM INFO: Showing hand to: AI
+01/06/2022 11:48:07 AM INFO: Showing hand to: AI
+01/06/2022 11:48:07 AM INFO: Showing hand to: dummy1
+01/06/2022 11:48:07 AM WARNING: Player disconnected: AI
+01/06/2022 11:48:39 AM INFO: Closing the server...
+01/06/2022 11:48:58 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:49:01 AM INFO: Connected by: ('127.0.0.1', 57758)
+01/06/2022 11:49:01 AM INFO: Player connected: AI
+01/06/2022 11:49:05 AM INFO: Connected by: ('127.0.0.1', 57759)
+01/06/2022 11:49:05 AM INFO: Player connected: dummy1
+01/06/2022 11:49:07 AM INFO: Player ready: AI
+01/06/2022 11:49:11 AM INFO: Player ready: dummy1
+01/06/2022 11:49:11 AM INFO: Game start! Between: ['AI', 'dummy1']
+01/06/2022 11:49:11 AM INFO: Ok, let's start the game!
+01/06/2022 11:49:11 AM INFO: Showing hand to: dummy1
+01/06/2022 11:49:11 AM INFO: Showing hand to: AI
+01/06/2022 11:49:16 AM INFO: Showing hand to: dummy1
+01/06/2022 11:49:16 AM INFO: Showing hand to: AI
+01/06/2022 11:49:16 AM INFO: Showing hand to: AI
+01/06/2022 11:49:16 AM INFO: Showing hand to: dummy1
+01/06/2022 11:49:16 AM WARNING: Player disconnected: dummy1
+01/06/2022 11:49:16 AM WARNING: Player disconnected: AI
+01/06/2022 11:51:51 AM INFO: Closing the server...
+01/06/2022 11:52:01 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 11:52:04 AM INFO: Connected by: ('127.0.0.1', 57785)
+01/06/2022 11:52:04 AM INFO: Player connected: AI
+01/06/2022 11:52:07 AM INFO: Connected by: ('127.0.0.1', 57786)
+01/06/2022 11:52:07 AM INFO: Player connected: dummy1
+01/06/2022 11:52:10 AM INFO: Player ready: AI
+01/06/2022 11:52:13 AM INFO: Player ready: dummy1
+01/06/2022 11:52:13 AM INFO: Game start! Between: ['AI', 'dummy1']
+01/06/2022 11:52:13 AM INFO: Ok, let's start the game!
+01/06/2022 11:52:13 AM INFO: Showing hand to: AI
+01/06/2022 11:52:13 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:18 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:18 AM INFO: Showing hand to: AI
+01/06/2022 11:52:18 AM INFO: Player AI providing hint to dummy1: cards with value 4 are in positions: [3]
+01/06/2022 11:52:18 AM INFO: Showing hand to: AI
+01/06/2022 11:52:18 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:23 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:23 AM INFO: Showing hand to: AI
+01/06/2022 11:52:23 AM INFO: Player dummy1 providing hint to AI: cards with color blue are in positions: [1, 2, 3, 4]
+01/06/2022 11:52:23 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:23 AM INFO: Showing hand to: AI
+01/06/2022 11:52:28 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:28 AM INFO: Showing hand to: AI
+01/06/2022 11:52:28 AM INFO: Player AI providing hint to dummy1: cards with value 2 are in positions: [4]
+01/06/2022 11:52:28 AM INFO: Showing hand to: AI
+01/06/2022 11:52:28 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:33 AM INFO: Showing hand to: AI
+01/06/2022 11:52:33 AM INFO: Player: dummy1: card 24 discarded successfully
+01/06/2022 11:52:33 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:33 AM INFO: Showing hand to: AI
+01/06/2022 11:52:38 AM INFO: Showing hand to: AI
+01/06/2022 11:52:38 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:38 AM INFO: Player: AI: card 38 discarded successfully
+01/06/2022 11:52:38 AM INFO: Showing hand to: AI
+01/06/2022 11:52:38 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:43 AM INFO: Showing hand to: AI
+01/06/2022 11:52:43 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:43 AM INFO: Player: dummy1: card 6 discarded successfully
+01/06/2022 11:52:43 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:43 AM INFO: Showing hand to: AI
+01/06/2022 11:52:48 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:48 AM INFO: Showing hand to: AI
+01/06/2022 11:52:48 AM INFO: Showing hand to: AI
+01/06/2022 11:52:48 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:53 AM INFO: Showing hand to: AI
+01/06/2022 11:52:53 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:53 AM INFO: Player dummy1 providing hint to AI: cards with value 3 are in positions: [1]
+01/06/2022 11:52:53 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:53 AM INFO: Showing hand to: AI
+01/06/2022 11:52:58 AM INFO: Showing hand to: dummy1
+01/06/2022 11:52:58 AM INFO: Showing hand to: AI
+01/06/2022 11:52:58 AM INFO: AI: card played and correctly put on the table
+01/06/2022 11:52:58 AM INFO: Showing hand to: AI
+01/06/2022 11:52:58 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:03 AM INFO: Showing hand to: AI
+01/06/2022 11:53:03 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:03 AM INFO: dummy1: card played and correctly put on the table
+01/06/2022 11:53:03 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:03 AM INFO: Showing hand to: AI
+01/06/2022 11:53:08 AM INFO: Showing hand to: AI
+01/06/2022 11:53:08 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:08 AM INFO: Player AI providing hint to dummy1: cards with color red are in positions: [4]
+01/06/2022 11:53:08 AM INFO: Showing hand to: AI
+01/06/2022 11:53:08 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:13 AM INFO: Showing hand to: AI
+01/06/2022 11:53:13 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:13 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:13 AM INFO: Showing hand to: AI
+01/06/2022 11:53:18 AM INFO: Showing hand to: AI
+01/06/2022 11:53:18 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:18 AM INFO: Player: AI: card 18 discarded successfully
+01/06/2022 11:53:18 AM INFO: Showing hand to: AI
+01/06/2022 11:53:18 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:23 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:23 AM INFO: Showing hand to: AI
+01/06/2022 11:53:23 AM INFO: Player: dummy1: card 4 discarded successfully
+01/06/2022 11:53:23 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:23 AM INFO: Showing hand to: AI
+01/06/2022 11:53:28 AM INFO: Showing hand to: AI
+01/06/2022 11:53:28 AM INFO: Showing hand to: dummy1
+01/06/2022 11:53:28 AM INFO: Game over, people.
+01/06/2022 11:53:28 AM INFO: Please, close the server now
+01/06/2022 11:53:28 AM INFO: Score: 0; message: Booooooooooooring!
