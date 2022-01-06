@@ -604,3 +604,612 @@
 01/06/2022 12:23:06 PM INFO: Game over, people.
 01/06/2022 12:23:06 PM INFO: Please, close the server now
 01/06/2022 12:23:06 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 01:18:16 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:18:23 PM INFO: Connected by: ('127.0.0.1', 60612)
+01/06/2022 01:18:23 PM INFO: Player connected: giulia
+01/06/2022 01:18:29 PM INFO: Player ready: giulia
+01/06/2022 01:18:32 PM INFO: Connected by: ('127.0.0.1', 60613)
+01/06/2022 01:18:32 PM INFO: Player connected: mario
+01/06/2022 01:18:38 PM INFO: Player ready: mario
+01/06/2022 01:18:38 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:18:38 PM INFO: Ok, let's start the game!
+01/06/2022 01:18:38 PM INFO: Showing hand to: mario
+01/06/2022 01:18:38 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:41 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:41 PM INFO: Showing hand to: mario
+01/06/2022 01:18:41 PM INFO: Player giulia providing hint to mario: cards with value 2 are in positions: [2]
+01/06/2022 01:18:41 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:41 PM INFO: Showing hand to: mario
+01/06/2022 01:18:44 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:44 PM INFO: Showing hand to: mario
+01/06/2022 01:18:44 PM INFO: Showing hand to: mario
+01/06/2022 01:18:44 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:47 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:47 PM INFO: Showing hand to: mario
+01/06/2022 01:18:47 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 01:18:47 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:47 PM INFO: Showing hand to: mario
+01/06/2022 01:18:50 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:50 PM INFO: Showing hand to: mario
+01/06/2022 01:18:50 PM INFO: mario: card played and correctly put on the table
+01/06/2022 01:18:50 PM INFO: Showing hand to: mario
+01/06/2022 01:18:50 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:53 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:53 PM INFO: Showing hand to: mario
+01/06/2022 01:18:53 PM INFO: Player giulia providing hint to mario: cards with value 1 are in positions: [3]
+01/06/2022 01:18:53 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:53 PM INFO: Showing hand to: mario
+01/06/2022 01:18:56 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:56 PM INFO: Showing hand to: mario
+01/06/2022 01:18:56 PM INFO: Showing hand to: mario
+01/06/2022 01:18:56 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:59 PM INFO: Showing hand to: mario
+01/06/2022 01:18:59 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:59 PM INFO: Player giulia providing hint to mario: cards with color yellow are in positions: [2]
+01/06/2022 01:18:59 PM INFO: Showing hand to: giulia
+01/06/2022 01:18:59 PM INFO: Showing hand to: mario
+01/06/2022 01:19:02 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:02 PM INFO: Showing hand to: mario
+01/06/2022 01:19:02 PM INFO: Player: mario: card 29 discarded successfully
+01/06/2022 01:19:02 PM INFO: Showing hand to: mario
+01/06/2022 01:19:02 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:05 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:05 PM INFO: Showing hand to: mario
+01/06/2022 01:19:05 PM INFO: Player: giulia: card 13 discarded successfully
+01/06/2022 01:19:05 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:05 PM INFO: Showing hand to: mario
+01/06/2022 01:19:08 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:08 PM INFO: Showing hand to: mario
+01/06/2022 01:19:08 PM INFO: Player mario providing hint to giulia: cards with color green are in positions: [2]
+01/06/2022 01:19:08 PM INFO: Showing hand to: mario
+01/06/2022 01:19:08 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:11 PM INFO: Showing hand to: giulia
+01/06/2022 01:19:11 PM INFO: Showing hand to: mario
+01/06/2022 01:19:11 PM INFO: Game over, people.
+01/06/2022 01:19:11 PM INFO: Please, close the server now
+01/06/2022 01:19:11 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 01:19:39 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:19:46 PM INFO: Connected by: ('127.0.0.1', 60616)
+01/06/2022 01:19:46 PM INFO: Player connected: giulia
+01/06/2022 01:19:51 PM INFO: Connected by: ('127.0.0.1', 60618)
+01/06/2022 01:19:51 PM INFO: Player connected: mario
+01/06/2022 01:19:52 PM INFO: Player ready: giulia
+01/06/2022 01:19:57 PM INFO: Player ready: mario
+01/06/2022 01:19:57 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:19:57 PM INFO: Ok, let's start the game!
+01/06/2022 01:19:57 PM INFO: Showing hand to: mario
+01/06/2022 01:19:57 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:00 PM INFO: Showing hand to: mario
+01/06/2022 01:20:00 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:00 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:00 PM INFO: Showing hand to: mario
+01/06/2022 01:20:03 PM INFO: Showing hand to: mario
+01/06/2022 01:20:03 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:03 PM INFO: Showing hand to: mario
+01/06/2022 01:20:03 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:06 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:06 PM INFO: Showing hand to: mario
+01/06/2022 01:20:06 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 01:20:06 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:06 PM INFO: Showing hand to: mario
+01/06/2022 01:20:09 PM INFO: Showing hand to: giulia
+01/06/2022 01:20:09 PM INFO: Showing hand to: mario
+01/06/2022 01:20:09 PM INFO: Game over, people.
+01/06/2022 01:20:09 PM INFO: Please, close the server now
+01/06/2022 01:20:09 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 01:23:20 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:23:25 PM INFO: Connected by: ('127.0.0.1', 60636)
+01/06/2022 01:23:25 PM INFO: Player connected: giulia
+01/06/2022 01:23:29 PM INFO: Connected by: ('127.0.0.1', 60637)
+01/06/2022 01:23:29 PM INFO: Player connected: mario
+01/06/2022 01:23:31 PM INFO: Player ready: giulia
+01/06/2022 01:23:35 PM INFO: Player ready: mario
+01/06/2022 01:23:35 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:23:35 PM INFO: Ok, let's start the game!
+01/06/2022 01:23:35 PM WARNING: Player disconnected: mario
+01/06/2022 01:23:35 PM WARNING: Player disconnected: giulia
+01/06/2022 01:23:50 PM INFO: Closing the server...
+01/06/2022 01:23:53 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:23:57 PM INFO: Connected by: ('127.0.0.1', 60641)
+01/06/2022 01:23:57 PM INFO: Player connected: giulia
+01/06/2022 01:24:00 PM INFO: Connected by: ('127.0.0.1', 60642)
+01/06/2022 01:24:00 PM INFO: Player connected: mario
+01/06/2022 01:24:03 PM INFO: Player ready: giulia
+01/06/2022 01:24:06 PM INFO: Player ready: mario
+01/06/2022 01:24:06 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:24:06 PM INFO: Ok, let's start the game!
+01/06/2022 01:24:06 PM WARNING: Player disconnected: giulia
+01/06/2022 01:24:06 PM WARNING: Player disconnected: mario
+01/06/2022 01:24:34 PM INFO: Closing the server...
+01/06/2022 01:24:36 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:25:35 PM INFO: Closing the server...
+01/06/2022 01:25:37 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:25:41 PM INFO: Connected by: ('127.0.0.1', 60653)
+01/06/2022 01:25:41 PM INFO: Player connected: giulia
+01/06/2022 01:25:45 PM INFO: Connected by: ('127.0.0.1', 60658)
+01/06/2022 01:25:45 PM INFO: Player connected: mario
+01/06/2022 01:25:47 PM INFO: Player ready: giulia
+01/06/2022 01:25:51 PM INFO: Player ready: mario
+01/06/2022 01:25:51 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:25:51 PM INFO: Ok, let's start the game!
+01/06/2022 01:25:51 PM INFO: Showing hand to: giulia
+01/06/2022 01:25:54 PM INFO: Showing hand to: giulia
+01/06/2022 01:25:54 PM INFO: Player giulia providing hint to mario: cards with color white are in positions: [2, 3]
+01/06/2022 01:25:54 PM INFO: Showing hand to: giulia
+01/06/2022 01:25:54 PM WARNING: Player disconnected: mario
+01/06/2022 01:25:57 PM INFO: Showing hand to: giulia
+01/06/2022 01:29:17 PM INFO: Closing the server...
+01/06/2022 01:29:20 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:29:32 PM INFO: Connected by: ('127.0.0.1', 59686)
+01/06/2022 01:29:32 PM INFO: Player connected: giulia
+01/06/2022 01:29:36 PM INFO: Connected by: ('127.0.0.1', 59688)
+01/06/2022 01:29:36 PM INFO: Player connected: mario
+01/06/2022 01:29:38 PM INFO: Player ready: giulia
+01/06/2022 01:29:42 PM INFO: Player ready: mario
+01/06/2022 01:29:42 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:29:42 PM INFO: Ok, let's start the game!
+01/06/2022 01:29:42 PM INFO: Showing hand to: mario
+01/06/2022 01:29:42 PM INFO: Showing hand to: giulia
+01/06/2022 01:29:45 PM INFO: Showing hand to: giulia
+01/06/2022 01:29:45 PM INFO: Showing hand to: mario
+01/06/2022 01:29:45 PM WARNING: Player disconnected: giulia
+01/06/2022 01:41:24 PM INFO: Closing the server...
+01/06/2022 01:41:26 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:41:30 PM INFO: Connected by: ('127.0.0.1', 59742)
+01/06/2022 01:41:30 PM INFO: Player connected: giulia
+01/06/2022 01:41:34 PM INFO: Connected by: ('127.0.0.1', 59745)
+01/06/2022 01:41:34 PM INFO: Player connected: mario
+01/06/2022 01:41:36 PM INFO: Player ready: giulia
+01/06/2022 01:41:40 PM INFO: Player ready: mario
+01/06/2022 01:41:40 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:41:40 PM INFO: Ok, let's start the game!
+01/06/2022 01:41:40 PM INFO: Showing hand to: mario
+01/06/2022 01:41:40 PM INFO: Showing hand to: giulia
+01/06/2022 01:41:43 PM INFO: Showing hand to: giulia
+01/06/2022 01:41:43 PM INFO: Showing hand to: mario
+01/06/2022 01:41:43 PM WARNING: Player disconnected: giulia
+01/06/2022 01:43:18 PM INFO: Closing the server...
+01/06/2022 01:43:20 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 01:43:25 PM INFO: Connected by: ('127.0.0.1', 59752)
+01/06/2022 01:43:25 PM INFO: Player connected: giulia
+01/06/2022 01:43:29 PM INFO: Connected by: ('127.0.0.1', 59754)
+01/06/2022 01:43:29 PM INFO: Player connected: mario
+01/06/2022 01:43:31 PM INFO: Player ready: giulia
+01/06/2022 01:43:35 PM INFO: Player ready: mario
+01/06/2022 01:43:35 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 01:43:35 PM INFO: Ok, let's start the game!
+01/06/2022 01:43:35 PM INFO: Showing hand to: mario
+01/06/2022 01:43:35 PM INFO: Showing hand to: giulia
+01/06/2022 01:43:38 PM INFO: Showing hand to: mario
+01/06/2022 01:43:38 PM INFO: Showing hand to: giulia
+01/06/2022 01:43:38 PM WARNING: Player disconnected: giulia
+01/06/2022 04:33:32 PM INFO: Closing the server...
+01/06/2022 04:33:34 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:33:39 PM INFO: Connected by: ('127.0.0.1', 63904)
+01/06/2022 04:33:39 PM INFO: Player connected: giulia
+01/06/2022 04:33:42 PM INFO: Connected by: ('127.0.0.1', 63908)
+01/06/2022 04:33:42 PM INFO: Player connected: mario
+01/06/2022 04:33:45 PM INFO: Player ready: giulia
+01/06/2022 04:33:48 PM INFO: Player ready: mario
+01/06/2022 04:33:48 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:33:48 PM INFO: Ok, let's start the game!
+01/06/2022 04:33:48 PM INFO: Showing hand to: mario
+01/06/2022 04:33:48 PM INFO: Showing hand to: giulia
+01/06/2022 04:33:51 PM INFO: Showing hand to: mario
+01/06/2022 04:33:51 PM INFO: Showing hand to: giulia
+01/06/2022 04:33:51 PM WARNING: Player disconnected: giulia
+01/06/2022 04:37:15 PM INFO: Closing the server...
+01/06/2022 04:37:17 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:37:22 PM INFO: Connected by: ('127.0.0.1', 63923)
+01/06/2022 04:37:22 PM INFO: Player connected: giulia
+01/06/2022 04:37:27 PM INFO: Connected by: ('127.0.0.1', 63924)
+01/06/2022 04:37:27 PM INFO: Player connected: mario
+01/06/2022 04:37:28 PM INFO: Player ready: giulia
+01/06/2022 04:37:33 PM INFO: Player ready: mario
+01/06/2022 04:37:33 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:37:33 PM INFO: Ok, let's start the game!
+01/06/2022 04:37:33 PM INFO: Showing hand to: mario
+01/06/2022 04:37:33 PM INFO: Showing hand to: giulia
+01/06/2022 04:37:36 PM INFO: Showing hand to: mario
+01/06/2022 04:37:36 PM INFO: Showing hand to: giulia
+01/06/2022 04:37:36 PM WARNING: Player disconnected: giulia
+01/06/2022 04:39:32 PM INFO: Closing the server...
+01/06/2022 04:39:33 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:39:37 PM INFO: Connected by: ('127.0.0.1', 63938)
+01/06/2022 04:39:37 PM INFO: Player connected: giulia
+01/06/2022 04:39:41 PM INFO: Connected by: ('127.0.0.1', 63940)
+01/06/2022 04:39:41 PM INFO: Player connected: mario
+01/06/2022 04:39:43 PM INFO: Player ready: giulia
+01/06/2022 04:39:47 PM INFO: Player ready: mario
+01/06/2022 04:39:47 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:39:47 PM INFO: Ok, let's start the game!
+01/06/2022 04:39:47 PM INFO: Showing hand to: mario
+01/06/2022 04:39:47 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:50 PM INFO: Showing hand to: mario
+01/06/2022 04:39:50 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:50 PM INFO: Player giulia providing hint to mario: cards with value 2 are in positions: [3, 4]
+01/06/2022 04:39:50 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:50 PM INFO: Showing hand to: mario
+01/06/2022 04:39:53 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:53 PM INFO: Showing hand to: mario
+01/06/2022 04:39:53 PM INFO: Player mario providing hint to giulia: cards with value 3 are in positions: [2]
+01/06/2022 04:39:53 PM INFO: Showing hand to: mario
+01/06/2022 04:39:53 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:56 PM INFO: Showing hand to: mario
+01/06/2022 04:39:56 PM INFO: Showing hand to: giulia
+01/06/2022 04:39:56 PM WARNING: Player disconnected: giulia
+01/06/2022 04:41:07 PM INFO: Closing the server...
+01/06/2022 04:41:09 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:41:14 PM INFO: Connected by: ('127.0.0.1', 63947)
+01/06/2022 04:41:14 PM INFO: Player connected: giulia
+01/06/2022 04:41:17 PM INFO: Connected by: ('127.0.0.1', 63949)
+01/06/2022 04:41:17 PM INFO: Player connected: mario
+01/06/2022 04:41:20 PM INFO: Player ready: giulia
+01/06/2022 04:41:23 PM INFO: Player ready: mario
+01/06/2022 04:41:23 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:41:23 PM INFO: Ok, let's start the game!
+01/06/2022 04:41:23 PM INFO: Showing hand to: giulia
+01/06/2022 04:41:23 PM INFO: Showing hand to: mario
+01/06/2022 04:41:26 PM INFO: Showing hand to: giulia
+01/06/2022 04:41:26 PM INFO: Showing hand to: mario
+01/06/2022 04:41:26 PM WARNING: Player disconnected: giulia
+01/06/2022 04:43:14 PM INFO: Closing the server...
+01/06/2022 04:43:17 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:43:22 PM INFO: Connected by: ('127.0.0.1', 63957)
+01/06/2022 04:43:22 PM INFO: Player connected: giulia
+01/06/2022 04:43:27 PM INFO: Connected by: ('127.0.0.1', 63958)
+01/06/2022 04:43:27 PM INFO: Player connected: mario
+01/06/2022 04:43:28 PM INFO: Player ready: giulia
+01/06/2022 04:43:33 PM INFO: Player ready: mario
+01/06/2022 04:43:33 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:43:33 PM INFO: Ok, let's start the game!
+01/06/2022 04:43:33 PM INFO: Showing hand to: mario
+01/06/2022 04:43:33 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:36 PM INFO: Showing hand to: mario
+01/06/2022 04:43:36 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:36 PM INFO: Player giulia providing hint to mario: cards with value 1 are in positions: [0, 2, 3]
+01/06/2022 04:43:36 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:36 PM INFO: Showing hand to: mario
+01/06/2022 04:43:39 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:39 PM INFO: Showing hand to: mario
+01/06/2022 04:43:39 PM INFO: Player: mario: card 12 discarded successfully
+01/06/2022 04:43:39 PM INFO: Showing hand to: mario
+01/06/2022 04:43:39 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:42 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:42 PM INFO: Showing hand to: mario
+01/06/2022 04:43:42 PM INFO: Player giulia providing hint to mario: cards with value 4 are in positions: [4]
+01/06/2022 04:43:42 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:42 PM INFO: Showing hand to: mario
+01/06/2022 04:43:45 PM INFO: Showing hand to: mario
+01/06/2022 04:43:45 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:45 PM INFO: Player mario providing hint to giulia: cards with value 2 are in positions: [0, 4]
+01/06/2022 04:43:45 PM INFO: Showing hand to: mario
+01/06/2022 04:43:45 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:48 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:48 PM INFO: Showing hand to: mario
+01/06/2022 04:43:48 PM INFO: Player: giulia: card 18 discarded successfully
+01/06/2022 04:43:48 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:48 PM INFO: Showing hand to: mario
+01/06/2022 04:43:51 PM INFO: Showing hand to: mario
+01/06/2022 04:43:51 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:51 PM INFO: Player: mario: card 33 discarded successfully
+01/06/2022 04:43:51 PM INFO: Showing hand to: mario
+01/06/2022 04:43:51 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:54 PM INFO: Showing hand to: mario
+01/06/2022 04:43:54 PM INFO: Showing hand to: giulia
+01/06/2022 04:43:54 PM WARNING: Player disconnected: giulia
+01/06/2022 04:53:19 PM INFO: Closing the server...
+01/06/2022 04:53:20 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:53:24 PM INFO: Connected by: ('127.0.0.1', 52140)
+01/06/2022 04:53:24 PM INFO: Player connected: giulia
+01/06/2022 04:53:27 PM INFO: Connected by: ('127.0.0.1', 52141)
+01/06/2022 04:53:27 PM INFO: Player connected: mario
+01/06/2022 04:53:30 PM INFO: Player ready: giulia
+01/06/2022 04:53:33 PM INFO: Player ready: mario
+01/06/2022 04:53:33 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:53:33 PM INFO: Ok, let's start the game!
+01/06/2022 04:53:33 PM INFO: Showing hand to: mario
+01/06/2022 04:53:33 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:36 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:36 PM INFO: Showing hand to: mario
+01/06/2022 04:53:36 PM INFO: Player giulia providing hint to mario: cards with color white are in positions: [2, 3]
+01/06/2022 04:53:36 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:36 PM INFO: Showing hand to: mario
+01/06/2022 04:53:39 PM INFO: Showing hand to: mario
+01/06/2022 04:53:39 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:39 PM INFO: Player mario providing hint to giulia: cards with value 3 are in positions: [1, 4]
+01/06/2022 04:53:39 PM INFO: Showing hand to: mario
+01/06/2022 04:53:39 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:42 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:42 PM INFO: Showing hand to: mario
+01/06/2022 04:53:42 PM INFO: Player giulia providing hint to mario: cards with value 5 are in positions: [0, 2]
+01/06/2022 04:53:42 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:42 PM INFO: Showing hand to: mario
+01/06/2022 04:53:45 PM INFO: Showing hand to: mario
+01/06/2022 04:53:45 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:45 PM INFO: Player mario providing hint to giulia: cards with color blue are in positions: [0, 2]
+01/06/2022 04:53:45 PM INFO: Showing hand to: mario
+01/06/2022 04:53:45 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:48 PM INFO: Showing hand to: mario
+01/06/2022 04:53:48 PM INFO: Showing hand to: giulia
+01/06/2022 04:53:48 PM WARNING: Player disconnected: giulia
+01/06/2022 04:55:30 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:55:34 PM INFO: Connected by: ('127.0.0.1', 52182)
+01/06/2022 04:55:34 PM INFO: Player connected: giulia
+01/06/2022 04:55:38 PM INFO: Connected by: ('127.0.0.1', 52183)
+01/06/2022 04:55:38 PM INFO: Player connected: mario
+01/06/2022 04:55:40 PM INFO: Player ready: giulia
+01/06/2022 04:55:44 PM INFO: Player ready: mario
+01/06/2022 04:55:44 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:55:44 PM INFO: Ok, let's start the game!
+01/06/2022 04:55:44 PM INFO: Showing hand to: mario
+01/06/2022 04:55:44 PM INFO: Showing hand to: giulia
+01/06/2022 04:55:47 PM INFO: Showing hand to: giulia
+01/06/2022 04:55:47 PM INFO: Showing hand to: mario
+01/06/2022 04:55:47 PM WARNING: Player disconnected: giulia
+01/06/2022 04:57:25 PM INFO: Closing the server...
+01/06/2022 04:57:26 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:57:31 PM INFO: Connected by: ('127.0.0.1', 52194)
+01/06/2022 04:57:31 PM INFO: Player connected: giulia
+01/06/2022 04:57:34 PM INFO: Connected by: ('127.0.0.1', 52198)
+01/06/2022 04:57:34 PM INFO: Player connected: mario
+01/06/2022 04:57:37 PM INFO: Player ready: giulia
+01/06/2022 04:57:40 PM INFO: Player ready: mario
+01/06/2022 04:57:40 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:57:40 PM INFO: Ok, let's start the game!
+01/06/2022 04:57:40 PM INFO: Showing hand to: mario
+01/06/2022 04:57:40 PM INFO: Showing hand to: giulia
+01/06/2022 04:57:43 PM INFO: Showing hand to: mario
+01/06/2022 04:57:43 PM INFO: Showing hand to: giulia
+01/06/2022 04:57:43 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 04:57:43 PM INFO: Showing hand to: giulia
+01/06/2022 04:57:43 PM INFO: Showing hand to: mario
+01/06/2022 04:57:46 PM INFO: Showing hand to: giulia
+01/06/2022 04:57:46 PM INFO: Showing hand to: mario
+01/06/2022 04:57:46 PM WARNING: Player disconnected: mario
+01/06/2022 04:58:33 PM INFO: Closing the server...
+01/06/2022 04:58:34 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:58:38 PM INFO: Connected by: ('127.0.0.1', 52205)
+01/06/2022 04:58:38 PM INFO: Player connected: giulia
+01/06/2022 04:58:42 PM INFO: Connected by: ('127.0.0.1', 52207)
+01/06/2022 04:58:42 PM INFO: Player connected: mario
+01/06/2022 04:58:44 PM INFO: Player ready: giulia
+01/06/2022 04:58:48 PM INFO: Player ready: mario
+01/06/2022 04:58:48 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:58:48 PM INFO: Ok, let's start the game!
+01/06/2022 04:58:48 PM INFO: Showing hand to: mario
+01/06/2022 04:58:48 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:51 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:51 PM INFO: Showing hand to: mario
+01/06/2022 04:58:51 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:51 PM INFO: Showing hand to: mario
+01/06/2022 04:58:54 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:54 PM INFO: Showing hand to: mario
+01/06/2022 04:58:54 PM INFO: Showing hand to: mario
+01/06/2022 04:58:54 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:57 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:57 PM INFO: Showing hand to: mario
+01/06/2022 04:58:57 PM INFO: Player giulia providing hint to mario: cards with value 2 are in positions: [0, 1]
+01/06/2022 04:58:57 PM INFO: Showing hand to: giulia
+01/06/2022 04:58:57 PM INFO: Showing hand to: mario
+01/06/2022 04:59:00 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:00 PM INFO: Showing hand to: mario
+01/06/2022 04:59:00 PM INFO: Game over, people.
+01/06/2022 04:59:00 PM INFO: Please, close the server now
+01/06/2022 04:59:00 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 04:59:08 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:59:12 PM INFO: Connected by: ('127.0.0.1', 52209)
+01/06/2022 04:59:12 PM INFO: Player connected: giulia
+01/06/2022 04:59:15 PM INFO: Connected by: ('127.0.0.1', 52210)
+01/06/2022 04:59:15 PM INFO: Player connected: mario
+01/06/2022 04:59:18 PM INFO: Player ready: giulia
+01/06/2022 04:59:21 PM INFO: Player ready: mario
+01/06/2022 04:59:21 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 04:59:21 PM INFO: Ok, let's start the game!
+01/06/2022 04:59:21 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:21 PM INFO: Showing hand to: mario
+01/06/2022 04:59:24 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:24 PM INFO: Showing hand to: mario
+01/06/2022 04:59:25 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:25 PM INFO: Showing hand to: mario
+01/06/2022 04:59:28 PM INFO: Showing hand to: mario
+01/06/2022 04:59:28 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:28 PM INFO: Showing hand to: mario
+01/06/2022 04:59:28 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:31 PM INFO: Showing hand to: giulia
+01/06/2022 04:59:31 PM INFO: Showing hand to: mario
+01/06/2022 04:59:31 PM INFO: Game over, people.
+01/06/2022 04:59:31 PM INFO: Please, close the server now
+01/06/2022 04:59:31 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 04:59:49 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 04:59:52 PM INFO: Connected by: ('127.0.0.1', 52212)
+01/06/2022 04:59:52 PM INFO: Player connected: giulia
+01/06/2022 04:59:55 PM INFO: Connected by: ('127.0.0.1', 52213)
+01/06/2022 04:59:55 PM INFO: Player connected: mario
+01/06/2022 04:59:58 PM INFO: Player ready: giulia
+01/06/2022 05:00:01 PM INFO: Player ready: mario
+01/06/2022 05:00:01 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 05:00:01 PM INFO: Ok, let's start the game!
+01/06/2022 05:00:01 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:01 PM INFO: Showing hand to: mario
+01/06/2022 05:00:04 PM INFO: Showing hand to: mario
+01/06/2022 05:00:04 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:04 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:04 PM INFO: Showing hand to: mario
+01/06/2022 05:00:07 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:07 PM INFO: Showing hand to: mario
+01/06/2022 05:00:07 PM INFO: Player mario providing hint to giulia: cards with value 1 are in positions: [0, 1, 4]
+01/06/2022 05:00:07 PM INFO: Showing hand to: mario
+01/06/2022 05:00:07 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:10 PM INFO: Showing hand to: mario
+01/06/2022 05:00:10 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:10 PM INFO: Player giulia providing hint to mario: cards with value 5 are in positions: [4]
+01/06/2022 05:00:10 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:10 PM INFO: Showing hand to: mario
+01/06/2022 05:00:13 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:13 PM INFO: Showing hand to: mario
+01/06/2022 05:00:13 PM INFO: Player: mario: card 19 discarded successfully
+01/06/2022 05:00:13 PM INFO: Showing hand to: mario
+01/06/2022 05:00:13 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:16 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:16 PM INFO: Showing hand to: mario
+01/06/2022 05:00:16 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:16 PM INFO: Showing hand to: mario
+01/06/2022 05:00:19 PM INFO: Showing hand to: mario
+01/06/2022 05:00:19 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:19 PM INFO: mario: card played and correctly put on the table
+01/06/2022 05:00:19 PM INFO: Showing hand to: mario
+01/06/2022 05:00:19 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:22 PM INFO: Showing hand to: mario
+01/06/2022 05:00:22 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:22 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 05:00:22 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:22 PM INFO: Showing hand to: mario
+01/06/2022 05:00:25 PM INFO: Showing hand to: mario
+01/06/2022 05:00:25 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:25 PM INFO: Player: mario: card 9 discarded successfully
+01/06/2022 05:00:25 PM INFO: Showing hand to: mario
+01/06/2022 05:00:25 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:28 PM INFO: Showing hand to: giulia
+01/06/2022 05:00:28 PM INFO: Showing hand to: mario
+01/06/2022 05:00:28 PM INFO: Game over, people.
+01/06/2022 05:00:28 PM INFO: Please, close the server now
+01/06/2022 05:00:28 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 05:09:18 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 05:09:23 PM INFO: Connected by: ('127.0.0.1', 52251)
+01/06/2022 05:09:23 PM INFO: Player connected: giulia
+01/06/2022 05:09:26 PM INFO: Connected by: ('127.0.0.1', 52253)
+01/06/2022 05:09:26 PM INFO: Player connected: mario
+01/06/2022 05:09:29 PM INFO: Player ready: giulia
+01/06/2022 05:09:32 PM INFO: Player ready: mario
+01/06/2022 05:09:32 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 05:09:32 PM INFO: Ok, let's start the game!
+01/06/2022 05:09:32 PM INFO: Showing hand to: mario
+01/06/2022 05:09:32 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:35 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:35 PM INFO: Showing hand to: mario
+01/06/2022 05:09:35 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 05:09:35 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:35 PM INFO: Showing hand to: mario
+01/06/2022 05:09:38 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:38 PM INFO: Showing hand to: mario
+01/06/2022 05:09:38 PM INFO: Player mario providing hint to giulia: cards with value 3 are in positions: [0, 2, 4]
+01/06/2022 05:09:38 PM INFO: Showing hand to: mario
+01/06/2022 05:09:38 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:41 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:41 PM INFO: Showing hand to: mario
+01/06/2022 05:09:41 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:41 PM INFO: Showing hand to: mario
+01/06/2022 05:09:44 PM INFO: Showing hand to: mario
+01/06/2022 05:09:44 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:44 PM INFO: Player: mario: card 32 discarded successfully
+01/06/2022 05:09:44 PM INFO: Showing hand to: mario
+01/06/2022 05:09:44 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:47 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:47 PM INFO: Showing hand to: mario
+01/06/2022 05:09:47 PM INFO: Player giulia providing hint to mario: cards with color yellow are in positions: [1, 2, 4]
+01/06/2022 05:09:47 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:47 PM INFO: Showing hand to: mario
+01/06/2022 05:09:50 PM INFO: Showing hand to: mario
+01/06/2022 05:09:50 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:50 PM INFO: Player: mario: card 16 discarded successfully
+01/06/2022 05:09:50 PM INFO: Showing hand to: mario
+01/06/2022 05:09:50 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:53 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:53 PM INFO: Showing hand to: mario
+01/06/2022 05:09:53 PM INFO: Player giulia providing hint to mario: cards with color green are in positions: [2]
+01/06/2022 05:09:53 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:53 PM INFO: Showing hand to: mario
+01/06/2022 05:09:56 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:56 PM INFO: Showing hand to: mario
+01/06/2022 05:09:56 PM INFO: Player mario providing hint to giulia: cards with value 4 are in positions: [1, 4]
+01/06/2022 05:09:56 PM INFO: Showing hand to: mario
+01/06/2022 05:09:56 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:59 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:59 PM INFO: Showing hand to: mario
+01/06/2022 05:09:59 PM INFO: Player giulia providing hint to mario: cards with color blue are in positions: [0]
+01/06/2022 05:09:59 PM INFO: Showing hand to: giulia
+01/06/2022 05:09:59 PM INFO: Showing hand to: mario
+01/06/2022 05:10:02 PM INFO: Showing hand to: mario
+01/06/2022 05:10:02 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:02 PM INFO: Player: mario: card 38 discarded successfully
+01/06/2022 05:10:02 PM INFO: Showing hand to: mario
+01/06/2022 05:10:02 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:05 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:05 PM INFO: Showing hand to: mario
+01/06/2022 05:10:05 PM INFO: Player giulia providing hint to mario: cards with color yellow are in positions: [0, 2, 3]
+01/06/2022 05:10:05 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:05 PM INFO: Showing hand to: mario
+01/06/2022 05:10:08 PM INFO: Showing hand to: mario
+01/06/2022 05:10:08 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:08 PM INFO: Player: mario: card 41 discarded successfully
+01/06/2022 05:10:08 PM INFO: Showing hand to: mario
+01/06/2022 05:10:08 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:11 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:11 PM INFO: Showing hand to: mario
+01/06/2022 05:10:11 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:11 PM INFO: Showing hand to: mario
+01/06/2022 05:10:14 PM INFO: Showing hand to: mario
+01/06/2022 05:10:14 PM INFO: Showing hand to: giulia
+01/06/2022 05:10:14 PM INFO: Game over, people.
+01/06/2022 05:10:14 PM INFO: Please, close the server now
+01/06/2022 05:10:14 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 05:12:37 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 05:12:41 PM INFO: Connected by: ('127.0.0.1', 52267)
+01/06/2022 05:12:41 PM INFO: Player connected: giulia
+01/06/2022 05:12:47 PM INFO: Connected by: ('127.0.0.1', 52269)
+01/06/2022 05:12:47 PM INFO: Player connected: mario
+01/06/2022 05:12:47 PM INFO: Player ready: giulia
+01/06/2022 05:12:53 PM INFO: Player ready: mario
+01/06/2022 05:12:53 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 05:12:53 PM INFO: Ok, let's start the game!
+01/06/2022 05:12:53 PM INFO: Showing hand to: mario
+01/06/2022 05:12:53 PM INFO: Showing hand to: giulia
+01/06/2022 05:12:56 PM INFO: Showing hand to: giulia
+01/06/2022 05:12:56 PM INFO: Showing hand to: mario
+01/06/2022 05:12:59 PM INFO: Showing hand to: mario
+01/06/2022 05:12:59 PM INFO: Showing hand to: giulia
+01/06/2022 05:13:02 PM INFO: giulia: card played and correctly put on the table
+01/06/2022 05:13:02 PM INFO: Showing hand to: giulia
+01/06/2022 05:13:02 PM INFO: Showing hand to: mario
+01/06/2022 05:13:05 PM INFO: Game over, people.
+01/06/2022 05:13:05 PM INFO: Please, close the server now
+01/06/2022 05:13:05 PM INFO: Score: 0; message: Booooooooooooring!
+01/06/2022 05:47:57 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 05:48:01 PM INFO: Connected by: ('127.0.0.1', 52546)
+01/06/2022 05:48:01 PM INFO: Player connected: giulia
+01/06/2022 05:48:04 PM INFO: Connected by: ('127.0.0.1', 52547)
+01/06/2022 05:48:04 PM INFO: Player connected: mario
+01/06/2022 05:48:07 PM INFO: Player ready: giulia
+01/06/2022 05:48:10 PM INFO: Player ready: mario
+01/06/2022 05:48:10 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 05:48:10 PM INFO: Ok, let's start the game!
+01/06/2022 05:48:10 PM INFO: Showing hand to: mario
+01/06/2022 05:48:10 PM INFO: Showing hand to: giulia
+01/06/2022 05:48:10 PM WARNING: Player disconnected: mario
+01/06/2022 05:48:10 PM WARNING: Player disconnected: giulia
+01/06/2022 05:48:39 PM INFO: Closing the server...
+01/06/2022 05:48:40 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/06/2022 05:48:44 PM INFO: Connected by: ('127.0.0.1', 52551)
+01/06/2022 05:48:44 PM INFO: Player connected: giulia
+01/06/2022 05:48:48 PM INFO: Connected by: ('127.0.0.1', 52553)
+01/06/2022 05:48:48 PM INFO: Player connected: mario
+01/06/2022 05:48:50 PM INFO: Player ready: giulia
+01/06/2022 05:48:54 PM INFO: Player ready: mario
+01/06/2022 05:48:54 PM INFO: Game start! Between: ['giulia', 'mario']
+01/06/2022 05:48:54 PM INFO: Ok, let's start the game!
+01/06/2022 05:48:54 PM INFO: Showing hand to: mario
+01/06/2022 05:48:54 PM INFO: Showing hand to: giulia
+01/06/2022 05:48:57 PM INFO: Showing hand to: giulia
+01/06/2022 05:48:57 PM INFO: Showing hand to: mario
+01/06/2022 05:49:00 PM INFO: Showing hand to: mario
+01/06/2022 05:49:00 PM INFO: Showing hand to: giulia
+01/06/2022 05:49:03 PM INFO: Player giulia providing hint to mario: cards with value 4 are in positions: [0, 3]
+01/06/2022 05:49:03 PM INFO: Showing hand to: giulia
+01/06/2022 05:49:03 PM INFO: Showing hand to: mario
+01/06/2022 05:49:06 PM INFO: Player mario providing hint to giulia: cards with value 2 are in positions: [0, 1]
+01/06/2022 05:49:06 PM INFO: Showing hand to: mario
+01/06/2022 05:49:06 PM INFO: Showing hand to: giulia
+01/06/2022 05:49:09 PM INFO: Game over, people.
+01/06/2022 05:49:09 PM INFO: Please, close the server now
+01/06/2022 05:49:09 PM INFO: Score: 0; message: Booooooooooooring!
