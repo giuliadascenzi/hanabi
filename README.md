@@ -24,7 +24,7 @@ To start it:
 ```python client.py --ip server_ip server_port name_player```
 ex:
 
-```python client.py 127.0.0.1 1024 giulia```
+```python client_AI.py 127.0.0.1 1024 giulia```
 
 new: ```python client.py --ip 127.0.0.1 --port 1024 --player_name pippo```  (manual)
     ```python client.py --ip 127.0.0.1 --port 1024 --ai_player``` (AI)
