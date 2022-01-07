@@ -36,11 +36,11 @@ class Agent(Player):
             print("Discard some random card")
             return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
 
-    def simple_heuristic_choice(self, observation):
+    def simple_heuristic_choice(self, observation, hints):
         """Act based on an observation."""
 
         # Check if there are any pending hints and play the card corresponding to the hint.
-        for d in observation['card_knowledge']:
+        for d in hints:
             if d['player'] == self.name:
                 return GameData.ClientPlayerPlayCardRequest(self.name, d['card_index'])
 
@@ -51,7 +51,7 @@ class Agent(Player):
             for player in observation['players']:
                 player_hand = player.hand
                 player_hints = []
-                for d in observation['card_knowledge']:
+                for d in hints:
                     if d['player'] == player.name:
                         player_hints.append(d)
                 # Check if the card in the hand of the opponent is playable.

@@ -2657,3 +2657,361 @@
 01/06/2022 08:33:17 PM INFO: Showing hand to: dummy1
 01/06/2022 08:33:18 PM INFO: Player dummy1 providing hint to dummy2: cards with value 1 are in positions: [3, 4]
 01/06/2022 08:33:19 PM INFO: Closing the server...
+01/07/2022 07:39:42 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 07:52:34 PM INFO: Connected by: ('127.0.0.1', 54157)
+01/07/2022 07:52:34 PM INFO: Player connected: lise
+01/07/2022 07:52:47 PM INFO: Connected by: ('127.0.0.1', 54159)
+01/07/2022 07:52:47 PM INFO: Player connected: AI
+01/07/2022 07:52:47 PM INFO: Player ready: AI
+01/07/2022 07:52:51 PM INFO: Player ready: lise
+01/07/2022 07:52:51 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 07:52:51 PM INFO: Ok, let's start the game!
+01/07/2022 07:53:59 PM WARNING: Player disconnected: lise
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:01 PM INFO: Showing hand to: AI
+01/07/2022 07:54:08 PM INFO: AI: card played and correctly put on the table
+01/07/2022 07:54:12 PM INFO: Closing the server...
+01/07/2022 07:54:47 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 07:54:51 PM INFO: Connected by: ('127.0.0.1', 54161)
+01/07/2022 07:54:51 PM INFO: Player connected: lise
+01/07/2022 07:54:54 PM INFO: Connected by: ('127.0.0.1', 54162)
+01/07/2022 07:54:54 PM INFO: Player connected: AI
+01/07/2022 07:54:54 PM INFO: Player ready: AI
+01/07/2022 07:55:04 PM INFO: Player ready: lise
+01/07/2022 07:55:04 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 07:55:04 PM INFO: Ok, let's start the game!
+01/07/2022 07:55:04 PM INFO: Showing hand to: AI
+01/07/2022 07:55:11 PM INFO: Showing hand to: AI
+01/07/2022 07:55:12 PM INFO: Showing hand to: lise
+01/07/2022 07:55:18 PM INFO: Showing hand to: AI
+01/07/2022 07:55:19 PM INFO: Player lise providing hint to AI: cards with value 1 are in positions: [0, 4]
+01/07/2022 07:55:25 PM INFO: Showing hand to: AI
+01/07/2022 07:55:32 PM INFO: AI: card played and correctly put on the table
+01/07/2022 07:55:32 PM INFO: Showing hand to: AI
+01/07/2022 07:55:37 PM INFO: Showing hand to: lise
+01/07/2022 07:55:39 PM INFO: Showing hand to: AI
+01/07/2022 07:55:43 PM WARNING: Player disconnected: lise
+01/07/2022 07:55:46 PM INFO: Showing hand to: AI
+01/07/2022 07:55:47 PM INFO: Closing the server...
+01/07/2022 08:00:20 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:00:22 PM INFO: Connected by: ('127.0.0.1', 54163)
+01/07/2022 08:00:22 PM INFO: Player connected: lise
+01/07/2022 08:00:25 PM INFO: Connected by: ('127.0.0.1', 54164)
+01/07/2022 08:00:25 PM INFO: Player connected: AI
+01/07/2022 08:00:25 PM INFO: Player ready: AI
+01/07/2022 08:00:28 PM INFO: Player ready: lise
+01/07/2022 08:00:28 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:00:28 PM INFO: Ok, let's start the game!
+01/07/2022 08:00:28 PM INFO: Showing hand to: AI
+01/07/2022 08:00:30 PM INFO: Showing hand to: lise
+01/07/2022 08:00:35 PM INFO: Showing hand to: AI
+01/07/2022 08:00:39 PM INFO: Player lise providing hint to AI: cards with value 1 are in positions: [1, 2, 3]
+01/07/2022 08:00:42 PM INFO: Showing hand to: AI
+01/07/2022 08:00:49 PM INFO: AI: card played and correctly put on the table
+01/07/2022 08:00:49 PM INFO: Showing hand to: AI
+01/07/2022 08:00:56 PM INFO: Showing hand to: AI
+01/07/2022 08:01:00 PM INFO: Showing hand to: lise
+01/07/2022 08:01:03 PM INFO: Showing hand to: AI
+01/07/2022 08:01:10 PM INFO: Showing hand to: AI
+01/07/2022 08:01:17 PM INFO: Showing hand to: AI
+01/07/2022 08:01:24 PM INFO: Showing hand to: AI
+01/07/2022 08:01:31 PM INFO: Showing hand to: AI
+01/07/2022 08:01:38 PM INFO: AI: card played and correctly put on the table
+01/07/2022 08:01:42 PM INFO: Showing hand to: lise
+01/07/2022 08:01:52 PM INFO: Showing hand to: AI
+01/07/2022 08:01:53 PM WARNING: Player disconnected: lise
+01/07/2022 08:01:58 PM INFO: Closing the server...
+01/07/2022 08:03:22 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:03:24 PM INFO: Connected by: ('127.0.0.1', 54165)
+01/07/2022 08:03:24 PM INFO: Player connected: lise
+01/07/2022 08:03:26 PM INFO: Connected by: ('127.0.0.1', 54166)
+01/07/2022 08:03:26 PM INFO: Player connected: AI
+01/07/2022 08:03:26 PM INFO: Player ready: AI
+01/07/2022 08:03:30 PM INFO: Player ready: lise
+01/07/2022 08:03:30 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:03:30 PM INFO: Ok, let's start the game!
+01/07/2022 08:03:30 PM INFO: Showing hand to: AI
+01/07/2022 08:03:33 PM INFO: Showing hand to: lise
+01/07/2022 08:03:37 PM INFO: Showing hand to: AI
+01/07/2022 08:03:44 PM INFO: Showing hand to: AI
+01/07/2022 08:03:51 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:03:51 PM INFO: Showing hand to: AI
+01/07/2022 08:03:58 PM INFO: Player AI providing hint to lise: cards with value 1 are in positions: [4]
+01/07/2022 08:03:58 PM INFO: Showing hand to: AI
+01/07/2022 08:04:05 PM INFO: Showing hand to: AI
+01/07/2022 08:04:06 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:04:12 PM INFO: Showing hand to: AI
+01/07/2022 08:04:19 PM INFO: Player AI providing hint to lise: cards with value 1 are in positions: [4]
+01/07/2022 08:04:26 PM INFO: Showing hand to: AI
+01/07/2022 08:04:27 PM INFO: Showing hand to: lise
+01/07/2022 08:04:31 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:04:33 PM INFO: Showing hand to: AI
+01/07/2022 08:04:40 PM INFO: Player AI providing hint to lise: cards with color green are in positions: [0, 3]
+01/07/2022 08:04:40 PM INFO: Showing hand to: AI
+01/07/2022 08:04:47 PM INFO: Showing hand to: AI
+01/07/2022 08:04:53 PM INFO: Showing hand to: lise
+01/07/2022 08:04:54 PM INFO: Showing hand to: AI
+01/07/2022 08:05:01 PM INFO: Showing hand to: AI
+01/07/2022 08:05:08 PM INFO: Showing hand to: AI
+01/07/2022 08:05:15 PM INFO: Showing hand to: AI
+01/07/2022 08:05:22 PM INFO: Showing hand to: AI
+01/07/2022 08:05:29 PM INFO: Showing hand to: AI
+01/07/2022 08:05:36 PM INFO: Showing hand to: AI
+01/07/2022 08:05:43 PM INFO: Showing hand to: AI
+01/07/2022 08:05:50 PM INFO: Showing hand to: AI
+01/07/2022 08:05:57 PM INFO: Showing hand to: AI
+01/07/2022 08:05:57 PM INFO: Player lise providing hint to AI: cards with value 2 are in positions: [3]
+01/07/2022 08:06:04 PM INFO: Showing hand to: AI
+01/07/2022 08:06:11 PM INFO: AI: card played and correctly put on the table
+01/07/2022 08:06:11 PM INFO: Showing hand to: AI
+01/07/2022 08:06:18 PM INFO: Showing hand to: AI
+01/07/2022 08:06:25 PM INFO: Showing hand to: AI
+01/07/2022 08:06:32 PM INFO: Showing hand to: AI
+01/07/2022 08:06:39 PM INFO: Showing hand to: AI
+01/07/2022 08:06:46 PM INFO: Showing hand to: AI
+01/07/2022 08:06:53 PM INFO: Showing hand to: AI
+01/07/2022 08:06:56 PM WARNING: Player disconnected: lise
+01/07/2022 08:07:00 PM INFO: Showing hand to: AI
+01/07/2022 08:07:02 PM INFO: Closing the server...
+01/07/2022 08:07:59 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:08:01 PM INFO: Connected by: ('127.0.0.1', 54171)
+01/07/2022 08:08:01 PM INFO: Player connected: lise
+01/07/2022 08:08:04 PM INFO: Connected by: ('127.0.0.1', 54172)
+01/07/2022 08:08:04 PM INFO: Player connected: AI
+01/07/2022 08:08:04 PM INFO: Player ready: AI
+01/07/2022 08:08:06 PM INFO: Player ready: lise
+01/07/2022 08:08:06 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:08:06 PM INFO: Ok, let's start the game!
+01/07/2022 08:08:09 PM WARNING: Player disconnected: lise
+01/07/2022 08:08:13 PM INFO: Showing hand to: AI
+01/07/2022 08:08:13 PM INFO: Connected by: ('127.0.0.1', 54173)
+01/07/2022 08:08:19 PM WARNING: Player disconnected: AI
+01/07/2022 08:08:22 PM INFO: Connected by: ('127.0.0.1', 54174)
+01/07/2022 08:08:36 PM INFO: Closing the server...
+01/07/2022 08:09:04 PM INFO: Closing the server...
+01/07/2022 08:09:47 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:09:50 PM INFO: Connected by: ('127.0.0.1', 54178)
+01/07/2022 08:09:50 PM INFO: Player connected: lise
+01/07/2022 08:09:53 PM INFO: Connected by: ('127.0.0.1', 54179)
+01/07/2022 08:09:53 PM INFO: Player connected: AI
+01/07/2022 08:09:53 PM INFO: Player ready: AI
+01/07/2022 08:09:56 PM INFO: Player ready: lise
+01/07/2022 08:09:56 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:09:56 PM INFO: Ok, let's start the game!
+01/07/2022 08:09:56 PM INFO: Showing hand to: AI
+01/07/2022 08:09:59 PM INFO: Showing hand to: lise
+01/07/2022 08:10:03 PM INFO: Showing hand to: AI
+01/07/2022 08:10:10 PM INFO: Showing hand to: AI
+01/07/2022 08:10:17 PM INFO: Player AI providing hint to lise: cards with value 1 are in positions: [0, 1, 2, 3, 4]
+01/07/2022 08:10:17 PM INFO: Showing hand to: AI
+01/07/2022 08:10:24 PM INFO: Showing hand to: AI
+01/07/2022 08:10:27 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:10:31 PM INFO: Showing hand to: AI
+01/07/2022 08:10:38 PM INFO: Player AI providing hint to lise: cards with color white are in positions: [0, 1, 2]
+01/07/2022 08:10:38 PM INFO: Showing hand to: AI
+01/07/2022 08:10:45 PM INFO: Showing hand to: AI
+01/07/2022 08:10:52 PM INFO: Showing hand to: AI
+01/07/2022 08:10:58 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:10:59 PM INFO: Showing hand to: AI
+01/07/2022 08:11:06 PM INFO: Player AI providing hint to lise: cards with value 1 are in positions: [0, 1, 2]
+01/07/2022 08:11:13 PM INFO: Showing hand to: AI
+01/07/2022 08:11:16 PM INFO: Closing the server...
+01/07/2022 08:12:14 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:12:16 PM INFO: Connected by: ('127.0.0.1', 54180)
+01/07/2022 08:12:16 PM INFO: Player connected: lise
+01/07/2022 08:12:18 PM INFO: Connected by: ('127.0.0.1', 54181)
+01/07/2022 08:12:18 PM INFO: Player connected: AI
+01/07/2022 08:12:18 PM INFO: Player ready: AI
+01/07/2022 08:12:21 PM INFO: Player ready: lise
+01/07/2022 08:12:21 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:12:21 PM INFO: Ok, let's start the game!
+01/07/2022 08:12:21 PM INFO: Showing hand to: AI
+01/07/2022 08:12:22 PM INFO: Showing hand to: lise
+01/07/2022 08:12:28 PM INFO: Showing hand to: AI
+01/07/2022 08:12:30 PM INFO: Player lise providing hint to AI: cards with value 1 are in positions: [4]
+01/07/2022 08:12:35 PM INFO: Showing hand to: AI
+01/07/2022 08:12:42 PM INFO: AI: card played and correctly put on the table
+01/07/2022 08:12:42 PM INFO: Showing hand to: AI
+01/07/2022 08:12:49 PM INFO: Showing hand to: AI
+01/07/2022 08:12:56 PM INFO: Showing hand to: AI
+01/07/2022 08:13:03 PM INFO: Showing hand to: AI
+01/07/2022 08:13:04 PM WARNING: Player disconnected: lise
+01/07/2022 08:13:06 PM INFO: Closing the server...
+01/07/2022 08:13:55 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:13:58 PM INFO: Connected by: ('127.0.0.1', 54183)
+01/07/2022 08:13:58 PM INFO: Player connected: lise
+01/07/2022 08:14:00 PM INFO: Connected by: ('127.0.0.1', 54184)
+01/07/2022 08:14:00 PM INFO: Player connected: AI
+01/07/2022 08:14:00 PM INFO: Player ready: AI
+01/07/2022 08:14:03 PM INFO: Player ready: lise
+01/07/2022 08:14:03 PM INFO: Game start! Between: ['lise', 'AI']
+01/07/2022 08:14:03 PM INFO: Ok, let's start the game!
+01/07/2022 08:14:03 PM INFO: Showing hand to: AI
+01/07/2022 08:14:05 PM INFO: Showing hand to: lise
+01/07/2022 08:14:10 PM INFO: Showing hand to: AI
+01/07/2022 08:14:15 PM INFO: Player lise providing hint to AI: cards with value 1 are in positions: [0]
+01/07/2022 08:14:17 PM INFO: Showing hand to: AI
+01/07/2022 08:14:24 PM INFO: AI: card played and correctly put on the table
+01/07/2022 08:14:24 PM INFO: Showing hand to: AI
+01/07/2022 08:14:31 PM INFO: Showing hand to: AI
+01/07/2022 08:14:38 PM INFO: Showing hand to: AI
+01/07/2022 08:14:45 PM INFO: Showing hand to: AI
+01/07/2022 08:14:52 PM INFO: Showing hand to: AI
+01/07/2022 08:14:59 PM INFO: Showing hand to: AI
+01/07/2022 08:15:06 PM INFO: Showing hand to: AI
+01/07/2022 08:15:13 PM INFO: Showing hand to: AI
+01/07/2022 08:15:20 PM INFO: Showing hand to: AI
+01/07/2022 08:15:27 PM INFO: Showing hand to: AI
+01/07/2022 08:15:34 PM INFO: Showing hand to: AI
+01/07/2022 08:15:41 PM INFO: Showing hand to: AI
+01/07/2022 08:15:48 PM INFO: Showing hand to: AI
+01/07/2022 08:15:55 PM INFO: Showing hand to: AI
+01/07/2022 08:16:02 PM INFO: Showing hand to: AI
+01/07/2022 08:16:02 PM INFO: lise: card played and correctly put on the table
+01/07/2022 08:16:09 PM INFO: Showing hand to: AI
+01/07/2022 08:16:16 PM INFO: Player AI providing hint to lise: cards with value 2 are in positions: [0]
+01/07/2022 08:16:16 PM INFO: Showing hand to: AI
+01/07/2022 08:16:20 PM WARNING: Player disconnected: lise
+01/07/2022 08:16:25 PM WARNING: Player disconnected: AI
+01/07/2022 08:18:06 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:18:14 PM INFO: Connected by: ('127.0.0.1', 54185)
+01/07/2022 08:18:14 PM INFO: Player connected: AI
+01/07/2022 08:18:14 PM INFO: Player ready: AI
+01/07/2022 08:18:16 PM INFO: Connected by: ('127.0.0.1', 54186)
+01/07/2022 08:18:16 PM INFO: Player connected: AI
+01/07/2022 08:18:16 PM INFO: Player ready: AI
+01/07/2022 08:18:51 PM INFO: Connected by: ('127.0.0.1', 54187)
+01/07/2022 08:18:51 PM INFO: Player connected: AI
+01/07/2022 08:18:51 PM INFO: Player ready: AI
+01/07/2022 08:19:57 PM WARNING: Player disconnected: AI
+01/07/2022 08:20:15 PM INFO: Closing the server...
+01/07/2022 08:21:37 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:21:41 PM INFO: Connected by: ('127.0.0.1', 54189)
+01/07/2022 08:21:41 PM INFO: Player connected: AI
+01/07/2022 08:21:41 PM INFO: Player ready: AI
+01/07/2022 08:21:43 PM INFO: Connected by: ('127.0.0.1', 54190)
+01/07/2022 08:21:43 PM INFO: Player connected: AI
+01/07/2022 08:21:43 PM INFO: Player ready: AI
+01/07/2022 08:21:50 PM WARNING: Player disconnected: AI
+01/07/2022 08:21:59 PM INFO: Closing the server...
+01/07/2022 08:22:36 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:22:39 PM INFO: Connected by: ('127.0.0.1', 54191)
+01/07/2022 08:22:39 PM INFO: Player connected: AI
+01/07/2022 08:22:41 PM INFO: Connected by: ('127.0.0.1', 54192)
+01/07/2022 08:22:41 PM INFO: Player connected: AI
+01/07/2022 08:22:46 PM INFO: Player ready: AI
+01/07/2022 08:22:48 PM INFO: Player ready: AI
+01/07/2022 08:23:01 PM WARNING: Player disconnected: AI
+01/07/2022 08:23:10 PM INFO: Closing the server...
+01/07/2022 08:27:18 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:27:27 PM INFO: Connected by: ('127.0.0.1', 54198)
+01/07/2022 08:27:27 PM INFO: Player connected: AI
+01/07/2022 08:27:35 PM WARNING: Player disconnected: AI
+01/07/2022 08:27:59 PM INFO: Closing the server...
+01/07/2022 08:28:46 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:28:49 PM INFO: Connected by: ('127.0.0.1', 54199)
+01/07/2022 08:28:49 PM INFO: Player connected: AI
+01/07/2022 08:28:49 PM INFO: Player ready: AI
+01/07/2022 08:28:54 PM INFO: Connected by: ('127.0.0.1', 54200)
+01/07/2022 08:28:54 PM INFO: Player connected: AI
+01/07/2022 08:28:54 PM INFO: Player ready: AI
+01/07/2022 08:28:57 PM WARNING: Player disconnected: AI
+01/07/2022 08:29:05 PM INFO: Closing the server...
+01/07/2022 08:29:27 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:29:34 PM INFO: Connected by: ('127.0.0.1', 54201)
+01/07/2022 08:29:34 PM INFO: Player connected: lise
+01/07/2022 08:29:36 PM INFO: Player ready: lise
+01/07/2022 08:29:55 PM INFO: Connected by: ('127.0.0.1', 54202)
+01/07/2022 08:29:55 PM INFO: Player connected: matt
+01/07/2022 08:29:58 PM INFO: Player ready: matt
+01/07/2022 08:29:58 PM INFO: Game start! Between: ['lise', 'matt']
+01/07/2022 08:29:58 PM INFO: Ok, let's start the game!
+01/07/2022 08:30:12 PM WARNING: Player disconnected: matt
+01/07/2022 08:30:16 PM WARNING: Player disconnected: lise
+01/07/2022 08:30:25 PM INFO: Connected by: ('127.0.0.1', 54203)
+01/07/2022 08:30:31 PM INFO: Closing the server...
+01/07/2022 08:30:52 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:30:55 PM INFO: Connected by: ('127.0.0.1', 54204)
+01/07/2022 08:30:55 PM INFO: Player connected: AI
+01/07/2022 08:30:55 PM INFO: Player ready: AI
+01/07/2022 08:31:00 PM INFO: Connected by: ('127.0.0.1', 54205)
+01/07/2022 08:31:00 PM INFO: Player connected: matt
+01/07/2022 08:31:05 PM INFO: Player ready: matt
+01/07/2022 08:31:05 PM INFO: Game start! Between: ['AI', 'matt']
+01/07/2022 08:31:05 PM INFO: Ok, let's start the game!
+01/07/2022 08:31:13 PM INFO: Closing the server...
+01/07/2022 08:31:33 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:31:36 PM INFO: Connected by: ('127.0.0.1', 54206)
+01/07/2022 08:31:36 PM INFO: Player connected: AI
+01/07/2022 08:31:36 PM INFO: Player ready: AI
+01/07/2022 08:31:42 PM INFO: Connected by: ('127.0.0.1', 54207)
+01/07/2022 08:31:42 PM INFO: Player connected: AI
+01/07/2022 08:31:42 PM INFO: Player ready: AI
+01/07/2022 08:31:54 PM INFO: Closing the server...
+01/07/2022 08:33:58 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/07/2022 08:34:06 PM INFO: Connected by: ('127.0.0.1', 54208)
+01/07/2022 08:34:06 PM INFO: Player connected: lise
+01/07/2022 08:34:06 PM INFO: Player ready: lise
+01/07/2022 08:34:10 PM INFO: Connected by: ('127.0.0.1', 54209)
+01/07/2022 08:34:10 PM INFO: Player connected: matt
+01/07/2022 08:34:10 PM INFO: Player ready: matt
+01/07/2022 08:34:10 PM INFO: Game start! Between: ['lise', 'matt']
+01/07/2022 08:34:10 PM INFO: Ok, let's start the game!
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
+01/07/2022 08:34:10 PM INFO: Showing hand to: lise
