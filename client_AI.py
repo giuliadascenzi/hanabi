@@ -202,14 +202,18 @@ def main():
             if type(data) is GameData.ServerActionValid:
                 print("Action valid!")
                 print("Current player: " + data.player)
+                playing_agent.feed_turn(playerTurn,data)
             if type(data) is GameData.ServerPlayerMoveOk:
                 print("Nice move!")
-                print("Current player: " + data.player)
+                print("Current player: " + data.player)                
+                playing_agent.feed_turn(playerTurn,data)
             if type(data) is GameData.ServerPlayerThunderStrike:
-                print("OH NO! The Gods are unhappy with you!")
+                print("OH NO! The Gods are unhappy with you!")                
+                playing_agent.feed_turn(playerTurn,data)
             if type(data) is GameData.ServerHintData:
                 print("Hint type: " + data.type)
-                print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
+                print("Player " + data.destination + " cards with value " + str(data.value) + " are:")                
+                playing_agent.feed_turn(playerTurn,data)
                 for i in data.positions:
                     print("\t" + str(i))
             if type(data) is GameData.ServerGameOver:
@@ -228,7 +232,8 @@ def main():
             s.send(request.serialize())
             data = s.recv(DATASIZE)
             data = GameData.GameData.deserialize(data)
-            print(data.action)
+            playing_agent.feed_turn(playerName,data)
+
         
         time.sleep(2)
         update_data()

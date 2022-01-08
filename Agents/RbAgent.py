@@ -4,6 +4,7 @@ from game import Player, Card
 import GameData
 from collections import Counter
 import copy
+from .hints_manager import BaseHintsManager, PlayabilityHintsManager
 
 
 def get_full_deck():
@@ -104,7 +105,47 @@ class Knowledge:
         """
         return self.color and (self.number or self.playable)
 
-
+class HintsScheduler:
+    """
+    Decides which HintsManager should be used each time.
+    """
+    def __init__(self, strategy):
+        self.strategy = strategy
+        
+        # copy something from the strategy
+        self.name = strategy.name
+        self.num_players = strategy.num_players
+        self.k = strategy.k
+        self.my_hand = strategy.my_hand
+        self.players_info = strategy.players_info
+        self.full_deck = strategy.full_deck_composition
+        self.board = strategy.board
+        self.discard_pile = strategy.discard_pile
+        self.knowledge = strategy.knowledge
+        
+        # hints manager(s)
+        #self.value_hints_manager = ValueHintsManager(strategy)
+        self.playability_hints_manager = BaseHintsManager(strategy)#PlayabilityHintsManager(strategy)
+        #self.card_hints_manager = CardHintsManager(strategy)
+    
+    
+    def select_hints_manager(self):
+        """
+        Select the suitable hints manager to be used this time.
+        # TODO: should check usability via hints_manager.is_usable()?
+        if self.strategy.difficulty == self.strategy.MODERATE:
+            return self.value_hints_manager
+        elif self.strategy.difficulty == self.strategy.HARD:
+            if self.playability_hints_manager.is_usable(player_id):
+                return self.playability_hints_manager
+            else:
+                return self.value_hints_manager
+        elif self.strategy.difficulty == self.strategy.HARDEST:
+            return self.card_hints_manager
+        else:
+            raise NotImplementedError()
+        """
+        return self.playability_hints_manager
 
 
 class RbAgent(BaseAgent):
@@ -132,6 +173,8 @@ class RbAgent(BaseAgent):
         self.players_info = players_info
         self.discard_pile = self.counterOfCards(discard_pile)
 
+        self.my_hand = [None for i in range(self.k)]
+
         # store a copy of the full deck
         self.full_deck = get_full_deck()
         self.deck_size = len(self.full_deck)
@@ -146,7 +189,8 @@ class RbAgent(BaseAgent):
         
         
         # knowledge of all players
-        self.knowledge = [[Knowledge(color=False, number=False) for j in range(k)] for i in range(num_players)]
+        self.knowledge = {name:[Knowledge(color=False, number=False) for j in range(k)] for name in self.players_names }
+        self.hints_scheduler = HintsScheduler(self)
 
     def counterOfCards(self, cardList):
         """
@@ -225,30 +269,31 @@ class RbAgent(BaseAgent):
             print(">>>give the hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
 
-    def feed_turn(self, player_id, action):
+    def feed_turn(self, playerName, data):
         # TODO farla con messaggi ottenuti dal server
+        # data is the object coming from the server
+        ## maybe we could use a dict to map playerName into index to not modify class Knowledge
         """
         Receive information about a played turn. (either of the same player)
         """
-        '''
-        if action.type in [Action.PLAY, Action.DISCARD]:
+        if type(data) is not GameData.ServerHintData:      #PLAY or DISCARD if data.type is none 
             # reset knowledge of the player
-            new_card = self.my_hand[action.card_pos] if player_id == self.id else self.hands[player_id][action.card_pos]
-            self.reset_knowledge(player_id, action.card_pos, new_card is not None)
+            new_card = self.my_hand[data.cardHandIndex] if playerName == self.name else (player.hand[data.cardHandIndex]  for player in self.players_info if player.name == playerName) 
+            self.reset_knowledge(playerName, data.cardHandIndex, new_card is not None)
             
-            if player_id == self.id:
+            if playerName == self.name:
                 # check for my new card
-                self.possibilities[action.card_pos] = Counter(self.full_deck) if self.my_hand[action.card_pos] is not None else Counter()
+                self.possibilities[data.cardHandIndex] = Counter(self.full_deck_composition) if self.my_hand[data.cardHandIndex] is not None else Counter()
         
-        elif action.type == Action.HINT:
+        else:
             # someone gave a hint!
             # the suitable hints manager must process it
-            hints_manager = self.hints_scheduler.select_hints_manager(player_id, action.turn)
-            hints_manager.receive_hint(player_id, action)
+            hints_manager = self.hints_scheduler.select_hints_manager()
+            hints_manager.receive_hint(data)
         
         # update possibilities with visible cards
         self.update_possibilities()
-        '''
+        
         pass
 
 
@@ -271,7 +316,7 @@ class RbAgent(BaseAgent):
                     color = card[0]
                     value = card[1]
                     fake_board = copy.copy(self.board)
-                    fake_board[color] += 1
+                    fake_board[color].append(value)
                     for i in range(p[card]):
                         num_playable.append(sum(1 for player_info in self.players_info for c in player_info.hand if c is not None and self.playable_card(c, fake_board)))
                 
@@ -368,7 +413,7 @@ class RbAgent(BaseAgent):
         """
         Counter of all the cards visible by me.
         """
-        res = self.counterOfCards(self.discard_pile)
+        res = self.discard_pile
         for player_info in self.players_info: 
             res += self.counterOfCards(player_info.hand)
         
@@ -388,11 +433,11 @@ class RbAgent(BaseAgent):
         
         return False
 
-    def playable_card(card, board):
+    def playable_card(self, card, board):
         """
         Is this card playable on the board?
         """
-        return card.number == board[card.color] + 1
+        return card.value == len(board[card.color]) + 1
 
     def useful_card(self, card, board, full_deck, discard_pile):
         """
@@ -429,5 +474,6 @@ class RbAgent(BaseAgent):
         
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
 
-        
+    def reset_knowledge(self, playername, card_pos, new_card_exists):
+        self.knowledge[playername][card_pos] = Knowledge(False, False)       
 
