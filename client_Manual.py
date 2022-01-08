@@ -115,39 +115,36 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print("Current player: " + data.currentPlayer)
             print("Player hands: ")
             for p in data.players:
-                print(p.toClientString())
+                print("   " + p.toClientString() + "," , end="")
+            print()
             print("Table cards: ")
             for pos in data.tableCards:
-                print(pos + ": [ ")
+                print(" "+pos + ": [ ", end="")
                 for c in data.tableCards[pos]:
-                    print(c.toClientString() + " ")
-                print("]")
+                    print(c.toClientString() + ", ", end="")
+                print("]", end="")
+            print()
             print("Discard pile: ")
-            for c in data.discardPile:
-                print("\t" + c.toClientString())            
+            for c in data.discardPile :
+                print("\t" + c.toClientString()+ ", ", end="") 
+            print()
             print("Note tokens used: " + str(data.usedNoteTokens) + "/8")
             print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True
-            print("Invalid action performed. Reason:")
-            print(data.message)
+            print("Invalid action performed. Reason:" + data.message)
         if type(data) is GameData.ServerActionValid:
             dataOk = True
-            print("Action valid!")
-            print("Current player: " + data.player)
+            print("> [", data.lastPlayer, "] : discarded", data.card.toString())
         if type(data) is GameData.ServerPlayerMoveOk:
             dataOk = True
-            print("Nice move!")
-            print("Current player: " + data.player)
+            print("> [", data.lastPlayer, "] :", data.action, data.card.toString()) 
         if type(data) is GameData.ServerPlayerThunderStrike:
             dataOk = True
-            print("OH NO! The Gods are unhappy with you!")
+            print("> [", data.lastPlayer, "] :", data.action, data.card.toString())
         if type(data) is GameData.ServerHintData:
             dataOk = True
-            print("Hint type: " + data.type)
-            print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
-            for i in data.positions:
-                print("\t" + str(i))
+            print("> ["+ data.sender + "] :" + "Hinted to"+ data.destination  + " cards with value " + str(data.value) + " are: " , data.positions)    
         if type(data) is GameData.ServerInvalidDataReceived:
             dataOk = True
             print(data.data)

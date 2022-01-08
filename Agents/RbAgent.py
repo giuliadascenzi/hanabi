@@ -5,7 +5,9 @@ import GameData
 from collections import Counter
 import copy
 from .hints_manager import BaseHintsManager, PlayabilityHintsManager
-
+import logging
+logging.basicConfig(filename="possibilities.log")
+redf = open('possibilities.txt', 'w')
 
 def get_full_deck():
     """
@@ -183,9 +185,12 @@ class RbAgent(BaseAgent):
 
         # for each of my card, store its possibilities
         self.possibilities = [self.counterOfCards(self.full_deck) for i in range(self.k)]
-        
+        print("Stampo:")
+        self.print_possibilities()
         # remove cards of other players from possibilities
         self.update_possibilities()
+
+        
         
         
         # knowledge of all players
@@ -270,21 +275,20 @@ class RbAgent(BaseAgent):
             return GameData.ClientHintData(self.name, destination_name, type, value)
 
     def feed_turn(self, playerName, data):
-        # TODO farla con messaggi ottenuti dal server
-        # data is the object coming from the server
-        ## maybe we could use a dict to map playerName into index to not modify class Knowledge
         """
         Receive information about a played turn. (either of the same player)
+        data is the object coming from the server
         """
         if type(data) is not GameData.ServerHintData:      #PLAY or DISCARD if data.type is none 
-            # reset knowledge of the player
-            new_card = self.my_hand[data.cardHandIndex] if playerName == self.name else (player.hand[data.cardHandIndex]  for player in self.players_info if player.name == playerName) 
-            self.reset_knowledge(playerName, data.cardHandIndex, new_card is not None)
+            # A card has been removed (played or discarded), we need to remove the information about it + add  new default ones for the new card
+            cardHandIndex = data.cardHandIndex
+            # 1) Remove it from the knowledge list 
+            self.reset_knowledge(playerName, cardHandIndex)
             
             if playerName == self.name:
-                # check for my new card
-                self.possibilities[data.cardHandIndex] = Counter(self.full_deck_composition) if self.my_hand[data.cardHandIndex] is not None else Counter()
-        
+                # 2) If the player is me, remove the possibilities belonging to the discarded/played card + add a new default one for the new card
+                self.reset_possibilities(cardHandIndex)
+               
         else:
             # someone gave a hint!
             # the suitable hints manager must process it
@@ -294,6 +298,22 @@ class RbAgent(BaseAgent):
         # update possibilities with visible cards
         self.update_possibilities()
         
+        pass
+
+    def print_possibilities(self):
+        import pandas as pd
+        tables = []
+        for (card_pos, p) in enumerate(self.possibilities):
+            table = {"red": [0]*self.k , "green": [0]*self.k, "blue": [0]*self.k, "white": [0]*self.k, "yellow": [0]*self.k  }
+            table = pd.DataFrame(table, index= [1,2,3,4,5])
+            for card in p:
+                table.loc[card[1],card[0]] = p[card]
+
+            print("Card pos:" + str(card_pos), file=redf, flush=True)
+            print(table, file=redf, flush=True)
+            print("--------------------------------------", file=redf, flush=True)
+
+    def print_knowledge(self):
         pass
 
 
@@ -322,9 +342,9 @@ class RbAgent(BaseAgent):
                 
                 avg_num_playable = float(sum(num_playable)) / len(num_playable)
                 
-                avg_weight = float(sum(WEIGHT[card.number] * p[card] for card in p)) / sum(p.values())
+                avg_weight = float(sum(WEIGHT[card[1]] * p[card] for card in p)) / sum(p.values())
                 if avg_num_playable > best_avg_num_playable + tolerance or avg_num_playable > best_avg_num_playable - tolerance and avg_weight > best_avg_weight:
-                    self.log("update card to be played, pos %d, score %f, %f" % (card_pos, avg_num_playable, avg_weight))
+                    print("update card to be played, pos %d, score %f, %f" % (card_pos, avg_num_playable, avg_weight))
                     best_card_pos, best_avg_num_playable, best_avg_weight = card_pos, avg_num_playable, avg_weight
 
         if best_card_pos is not None:
@@ -345,7 +365,7 @@ class RbAgent(BaseAgent):
             # representing the possible (color,value) for a card in pos card_pos
             # one for each card
             if len(p) > 0 and all(not self.useful_card(card, self.board, self.full_deck_composition, self.discard_pile) for card in p):
-                self.log("considering to discard useless card")
+                print("considering to discard useless card")
                 return card_pos, 0.0, 0.0
         
         # Try to avoid cards that are (on average) more relevant, then choose cards that are (on average) less useful
@@ -382,7 +402,7 @@ class RbAgent(BaseAgent):
                     best_cards_pos.append((useful_weight, card_pos))
         
         assert len(best_cards_pos) > 0
-        print(best_cards_pos)
+        print("Best card pos: ", best_cards_pos)
         useful_weight, card_pos = min(best_cards_pos, key= lambda t: t[0]) #consider the one with minor useful_weight
         
         print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)" % (card_pos, best_relevant_weight, useful_weight))
@@ -395,15 +415,24 @@ class RbAgent(BaseAgent):
         for player_info in self.players_info:
             if player_info.name== destination_name:
                 destination_hand= player_info.hand
-        card = random.choice([card for card in destination_hand if card is not None])
 
+
+
+        #card = random.choice([card for card in destination_hand if card is not None])
+        destination_hand.sort(key = lambda c: c.value)
+        card = destination_hand[0]
+        type=  "value"
+        value = card.value
+        '''
         if random.randint(0,1) == 0:
             type= "color"
             value = card.color
         else:
             type=  "value"
             value = card.value
+        '''
         return destination_name, value, type
+        
 
     ########################
     ### ---> Card functions
@@ -474,6 +503,19 @@ class RbAgent(BaseAgent):
         
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
 
-    def reset_knowledge(self, playername, card_pos, new_card_exists):
-        self.knowledge[playername][card_pos] = Knowledge(False, False)       
+    def reset_knowledge(self, playername, card_pos):
+        # Remove the card played/discarded
+        self.knowledge[playername].pop(card_pos) 
+        # Append a new knowledge object for the new card
+        self.knowledge[playername].append( Knowledge(False, False) ) 
+        return     
+
+    def reset_possibilities(self, card_pos):
+        # Remove the card played/discarded
+        self.possibilities.pop(card_pos) 
+        # Append a new Counter of possibilities object for the new card (with the default value)
+        self.possibilities.append( self.counterOfCards(self.full_deck) ) 
+        return     
+
+
 
