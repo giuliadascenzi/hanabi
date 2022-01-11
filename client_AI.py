@@ -209,7 +209,7 @@ def main():
             continue
         data = GameData.GameData.deserialize(data)
         if type(data) is GameData.ServerActionValid:
-            print("> [", data.lastPlayer, "] : discarded", data.card.toString())
+            print("> [", data.lastPlayer, "] :" , data.action, data.card.toString())
             #print("Current player: " + data.player)
             playing_agent.feed_turn(data.lastPlayer,data)
         elif type(data) is GameData.ServerPlayerMoveOk:
@@ -219,11 +219,11 @@ def main():
             print("> [", data.lastPlayer, "] :", data.action, data.card.toString())               
             playing_agent.feed_turn(data.lastPlayer, data)
         elif type(data) is GameData.ServerHintData:
-            print("> ["+ data.sender + "]: " + "Hinted to"+ data.destination  + " cards with value " + str(data.value) + " are: ", data.positions)
+            print("> ["+ data.source + "]: " + "Hinted to"+ data.destination  + " cards with value " + str(data.value) + " are: ", data.positions)
             #print("Player " + data.destination + " cards with value " + str(data.value) + " are:")                
             #for i in data.positions:
             #    print("\t" + str(i))
-            playing_agent.feed_turn(data.sender,data)
+            playing_agent.feed_turn(data.source,data)
         elif type(data) is GameData.ServerGameOver:
             print(data.message)
             print(data.score)

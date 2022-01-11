@@ -118,7 +118,7 @@ class HintsScheduler:
         self.name = strategy.name
         self.num_players = strategy.num_players
         self.k = strategy.k
-        self.my_hand = strategy.my_hand
+        #self.my_hand = strategy.my_hand
         self.players_info = strategy.players_info
         self.full_deck = strategy.full_deck_composition
         self.board = strategy.board
@@ -164,6 +164,7 @@ class RbAgent(BaseAgent):
         """
         To be called once before the beginning.
         """
+        print("K= ", k)
 
         self.num_players = num_players
         self.players_names = players_names
@@ -175,26 +176,23 @@ class RbAgent(BaseAgent):
         self.players_info = players_info
         self.discard_pile = self.counterOfCards(discard_pile)
 
-        self.my_hand = [None for i in range(self.k)]
+        #self.my_hand = [None for i in range(self.k)]
 
         # store a copy of the full deck
         self.full_deck = get_full_deck()
         self.deck_size = len(self.full_deck)
         self.full_deck_composition = self.counterOfCards(self.full_deck)
         
+        # knowledge of all players
+        self.knowledge = {name:[Knowledge(color=False, number=False) for j in range(k)] for name in self.players_names }
 
         # for each of my card, store its possibilities
         self.possibilities = [self.counterOfCards(self.full_deck) for i in range(self.k)]
-        print("Stampo:")
+        print("----- INITIALIZE AGENT:", file=redf, flush=True)
         self.print_possibilities()
         # remove cards of other players from possibilities
         self.update_possibilities()
 
-        
-        
-        
-        # knowledge of all players
-        self.knowledge = {name:[Knowledge(color=False, number=False) for j in range(k)] for name in self.players_names }
         self.hints_scheduler = HintsScheduler(self)
 
     def counterOfCards(self, cardList):
@@ -243,7 +241,10 @@ class RbAgent(BaseAgent):
                         # remove this card
                         del p[card]
         
-        assert all(sum(p.values()) > 0 or self.my_hand[card_pos] is None for (card_pos, p) in enumerate(self.possibilities))    # check to have at least one possible card!
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities()
+        
+        #assert all(sum(p.values()) > 0 or self.my_hand[card_pos] is None for (card_pos, p) in enumerate(self.possibilities))    # check to have at least one possible card!
     
     
     def get_turn_action(self):
@@ -279,15 +280,19 @@ class RbAgent(BaseAgent):
         Receive information about a played turn. (either of the same player)
         data is the object coming from the server
         """
+
+        print("handlength",  data.handLength)
         if type(data) is not GameData.ServerHintData:      #PLAY or DISCARD if data.type is none 
-            # A card has been removed (played or discarded), we need to remove the information about it + add  new default ones for the new card
+            # A card has been removed (played or discarded), we need to remove the information about it + add  new default ones for the new card (if exists)
             cardHandIndex = data.cardHandIndex
+            
+            print("handlength",  data.handLength)
             # 1) Remove it from the knowledge list 
-            self.reset_knowledge(playerName, cardHandIndex)
+            self.reset_knowledge(playerName, cardHandIndex, self.k == data.handLength)
             
             if playerName == self.name:
-                # 2) If the player is me, remove the possibilities belonging to the discarded/played card + add a new default one for the new card
-                self.reset_possibilities(cardHandIndex)
+                # 2) If the player is me, remove the possibilities belonging to the discarded/played card + add a new default one for the new card (if exists)
+                self.reset_possibilities(cardHandIndex, self.k == data.handLength)
                
         else:
             # someone gave a hint!
@@ -302,7 +307,6 @@ class RbAgent(BaseAgent):
 
     def print_possibilities(self):
         import pandas as pd
-        tables = []
         for (card_pos, p) in enumerate(self.possibilities):
             table = {"red": [0]*self.k , "green": [0]*self.k, "blue": [0]*self.k, "white": [0]*self.k, "yellow": [0]*self.k  }
             table = pd.DataFrame(table, index= [1,2,3,4,5])
@@ -311,10 +315,13 @@ class RbAgent(BaseAgent):
 
             print("Card pos:" + str(card_pos), file=redf, flush=True)
             print(table, file=redf, flush=True)
+            self.print_knowledge(self.name, card_pos)
             print("--------------------------------------", file=redf, flush=True)
 
-    def print_knowledge(self):
-        pass
+    def print_knowledge(self, player, card_pos):
+        print("knowledge:" + str(self.knowledge[player][card_pos].color) + " "+ str(self.knowledge[player][card_pos].number), file=redf, flush=True)
+        return
+        
 
 
     def get_best_play(self):
@@ -503,18 +510,20 @@ class RbAgent(BaseAgent):
         
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
 
-    def reset_knowledge(self, playername, card_pos):
+    def reset_knowledge(self, playername, card_pos, new_card = True):
         # Remove the card played/discarded
         self.knowledge[playername].pop(card_pos) 
-        # Append a new knowledge object for the new card
-        self.knowledge[playername].append( Knowledge(False, False) ) 
+        if (new_card): # if there are still cards to draw in the deck
+            # Append a new knowledge object for the new card
+            self.knowledge[playername].append( Knowledge(False, False) ) 
         return     
 
-    def reset_possibilities(self, card_pos):
+    def reset_possibilities(self, card_pos, new_card = True):
         # Remove the card played/discarded
         self.possibilities.pop(card_pos) 
-        # Append a new Counter of possibilities object for the new card (with the default value)
-        self.possibilities.append( self.counterOfCards(self.full_deck) ) 
+        if (new_card): # if there are still cards to draw in the deck
+            # Append a new Counter of possibilities object for the new card (with the default value)
+            self.possibilities.append( self.counterOfCards(self.full_deck) ) 
         return     
 
 
