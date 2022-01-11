@@ -5,7 +5,6 @@ from threading import Thread
 import GameData
 import socket
 import os
-import time
 import argparse
 
 from constants import *
@@ -181,7 +180,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         if type(data) is GameData.ServerStartGameData:
             dataOk = True
-            # print("Game start! My team mates are: ", players)
+            print("Game start!")
 
             # 7) The game can finally start
             s.send(GameData.ClientPlayerReadyData(playerName).serialize())
