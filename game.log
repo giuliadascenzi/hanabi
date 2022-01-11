@@ -423,3 +423,20 @@
 01/11/2022 11:26:19 AM INFO: Showing hand to: dummy2
 01/11/2022 11:26:20 AM WARNING: Player disconnected: dummy2
 01/11/2022 11:34:36 AM INFO: Closing the server...
+01/11/2022 11:34:38 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 11:34:41 AM INFO: Connected by: ('127.0.0.1', 60038)
+01/11/2022 11:34:41 AM INFO: Player connected: dummy2
+01/11/2022 11:34:44 AM INFO: Connected by: ('127.0.0.1', 60040)
+01/11/2022 11:34:44 AM INFO: Player connected: giulia
+01/11/2022 11:34:46 AM INFO: Player ready: giulia
+01/11/2022 11:34:47 AM INFO: Player ready: dummy2
+01/11/2022 11:34:47 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 11:34:47 AM INFO: Ok, let's start the game!
+01/11/2022 11:34:52 AM INFO: Showing hand to: dummy2
+01/11/2022 11:34:54 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [0, 1]
+01/11/2022 11:34:54 AM INFO: Showing hand to: dummy2
+01/11/2022 11:35:52 AM INFO: Showing hand to: giulia
+01/11/2022 11:36:40 AM INFO: giulia: card played and correctly put on the table
+01/11/2022 11:36:40 AM INFO: Showing hand to: dummy2
+01/11/2022 11:36:42 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [0, 4]
+01/11/2022 11:36:42 AM INFO: Showing hand to: dummy2

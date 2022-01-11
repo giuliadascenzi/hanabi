@@ -245,7 +245,8 @@ def main():
             print(data.score)
             print(data.scoreMessage)
             stdout.flush()
-            run = False
+            #run = False
+            print("Ready for a new game")
         elif type(data) is GameData.ServerActionInvalid:
             print("Invalid action performed. Reason:")
             print(data.message)
