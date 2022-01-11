@@ -4,7 +4,7 @@ from game import Player, Card
 import GameData
 from collections import Counter
 import copy
-from .hints_manager import BaseHintsManager, PlayabilityHintsManager
+from .hints_manager import BaseHintsManager, CardHintsManager, PlayabilityHintsManager
 import logging
 logging.basicConfig(filename="possibilities.log")
 redf = open('possibilities.txt', 'w')
@@ -78,9 +78,9 @@ class Knowledge:
     An instance of this class represents what a player knows about a card, as known by everyone.
     """
     
-    def __init__(self, color=False, number=False):
+    def __init__(self, color=False, value=False):
         self.color = color                  # know the color
-        self.number = number                # know the number
+        self.value = value                # know the number
         self.playable = False               # at some point, this card was playable
         self.non_playable = False           # at some point, this card was not playable
         self.useless = False                # this card is useless
@@ -88,7 +88,7 @@ class Knowledge:
     
     
     def __repr__(self):
-        return ("C" if self.color else "-") + ("N" if self.number else "-") + ("P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
+        return ("C" if self.color else "-") + ("N" if self.value else "-") + ("P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
     
     
     def knows(self, hint_type):
@@ -99,13 +99,13 @@ class Knowledge:
         if hint_type == Action.COLOR:
             return self.color
         else:
-            return self.number
+            return self.value
     
     def knows_exactly(self):
         """
         Does the player know exactly this card?
         """
-        return self.color and (self.number or self.playable)
+        return self.color and (self.value or self.playable)
 
 class HintsScheduler:
     """
@@ -127,8 +127,8 @@ class HintsScheduler:
         
         # hints manager(s)
         #self.value_hints_manager = ValueHintsManager(strategy)
-        self.playability_hints_manager = BaseHintsManager(strategy)#PlayabilityHintsManager(strategy)
-        #self.card_hints_manager = CardHintsManager(strategy)
+        #self.playability_hints_manager = BaseHintsManager(strategy)#PlayabilityHintsManager(strategy)
+        self.card_hints_manager = CardHintsManager(strategy)
     
     
     def select_hints_manager(self):
@@ -147,7 +147,7 @@ class HintsScheduler:
         else:
             raise NotImplementedError()
         """
-        return self.playability_hints_manager
+        return self.card_hints_manager
 
 
 class RbAgent(BaseAgent):
@@ -164,7 +164,6 @@ class RbAgent(BaseAgent):
         """
         To be called once before the beginning.
         """
-        print("K= ", k)
 
         self.num_players = num_players
         self.players_names = players_names
@@ -183,8 +182,8 @@ class RbAgent(BaseAgent):
         self.deck_size = len(self.full_deck)
         self.full_deck_composition = self.counterOfCards(self.full_deck)
         
-        # knowledge of all players
-        self.knowledge = {name:[Knowledge(color=False, number=False) for j in range(k)] for name in self.players_names }
+        # knowledge of all players         
+        self.knowledge = {name: [Knowledge(color=False, value=False) for j in range(self.k)] for name in self.players_names }
 
         # for each of my card, store its possibilities
         self.possibilities = [self.counterOfCards(self.full_deck) for i in range(self.k)]
@@ -194,6 +193,7 @@ class RbAgent(BaseAgent):
         self.update_possibilities()
 
         self.hints_scheduler = HintsScheduler(self)
+
 
     def counterOfCards(self, cardList):
         """
@@ -224,6 +224,7 @@ class RbAgent(BaseAgent):
         self.players_info = players_info
         self.discard_pile = self.counterOfCards(discardPile)
         self.board= board
+        self.update_possibilities()
              
     def update_possibilities(self):
         """
@@ -271,6 +272,12 @@ class RbAgent(BaseAgent):
         else:
             # give the best hint
             destination_name, value, type = self.get_best_hint()
+
+            if (destination_name, value, type) == (None, None, None): #failed to find an hint
+                card_pos,_,_ = self.get_best_discard()
+                print(">>>discard the card number:", card_pos)
+                return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+
             
             print(">>>give the hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
@@ -281,12 +288,11 @@ class RbAgent(BaseAgent):
         data is the object coming from the server
         """
 
-        print("handlength",  data.handLength)
         if type(data) is not GameData.ServerHintData:      #PLAY or DISCARD if data.type is none 
             # A card has been removed (played or discarded), we need to remove the information about it + add  new default ones for the new card (if exists)
             cardHandIndex = data.cardHandIndex
+            # 0) put the card in the 
             
-            print("handlength",  data.handLength)
             # 1) Remove it from the knowledge list 
             self.reset_knowledge(playerName, cardHandIndex, self.k == data.handLength)
             
@@ -301,7 +307,7 @@ class RbAgent(BaseAgent):
             hints_manager.receive_hint(data)
         
         # update possibilities with visible cards
-        self.update_possibilities()
+        #self.update_possibilities()
         
         pass
 
@@ -319,7 +325,7 @@ class RbAgent(BaseAgent):
             print("--------------------------------------", file=redf, flush=True)
 
     def print_knowledge(self, player, card_pos):
-        print("knowledge:" + str(self.knowledge[player][card_pos].color) + " "+ str(self.knowledge[player][card_pos].number), file=redf, flush=True)
+        print("knowledge:" + str(self.knowledge[player][card_pos] ), file=redf, flush=True)
         return
         
 
@@ -416,12 +422,21 @@ class RbAgent(BaseAgent):
         return card_pos, relevant_weight, useful_weight
 
     def get_best_hint(self):
+        '''
         next_player_index = (self.players_names.index(self.name)+1) % self.num_players
         destination_name = self.players_names[next_player_index]
         destination_hand = ""
         for player_info in self.players_info:
             if player_info.name== destination_name:
                 destination_hand= player_info.hand
+        '''
+        # try to give hint, using the right hints manager
+        hints_manager = self.hints_scheduler.select_hints_manager()
+        assert hints_manager.is_usable(self.id)
+        hint_action = hints_manager.get_hint()
+        
+        if hint_action is not None:
+            return hint_action
 
 
 
@@ -449,10 +464,14 @@ class RbAgent(BaseAgent):
         """
         Counter of all the cards visible by me.
         """
+        # consider the discard_pile
         res = self.discard_pile
+        # consider the cards of the team mates
         for player_info in self.players_info: 
             res += self.counterOfCards(player_info.hand)
-        
+        # consider the cards already played
+        for color, cards in self.board.items():
+            res += self.counterOfCards(cards)
         return res
 
     def is_playable(self, card):

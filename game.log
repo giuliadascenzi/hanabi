@@ -173,3 +173,253 @@
 01/11/2022 09:39:54 AM INFO: Showing hand to: dummy2
 01/11/2022 09:39:55 AM INFO: Player dummy1 providing hint to dummy2: cards with value 2 are in positions: [1, 4]
 01/11/2022 09:41:01 AM INFO: Closing the server...
+01/11/2022 09:41:05 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:41:08 AM INFO: Connected by: ('127.0.0.1', 61907)
+01/11/2022 09:41:08 AM INFO: Player connected: dummy2
+01/11/2022 09:41:14 AM INFO: Player ready: dummy2
+01/11/2022 09:41:15 AM INFO: Connected by: ('127.0.0.1', 61908)
+01/11/2022 09:41:15 AM INFO: Player connected: dummy2
+01/11/2022 09:41:21 AM INFO: Player ready: dummy2
+01/11/2022 09:47:04 AM INFO: Closing the server...
+01/11/2022 09:47:14 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:47:18 AM INFO: Connected by: ('127.0.0.1', 54121)
+01/11/2022 09:47:18 AM INFO: Player connected: dummy2
+01/11/2022 09:47:24 AM INFO: Player ready: dummy2
+01/11/2022 09:47:24 AM INFO: Connected by: ('127.0.0.1', 54123)
+01/11/2022 09:47:24 AM INFO: Player connected: dummy1
+01/11/2022 09:47:30 AM INFO: Player ready: dummy1
+01/11/2022 09:47:30 AM INFO: Game start! Between: ['dummy2', 'dummy1']
+01/11/2022 09:47:30 AM INFO: Ok, let's start the game!
+01/11/2022 09:47:32 AM INFO: Showing hand to: dummy2
+01/11/2022 09:47:32 AM INFO: Showing hand to: dummy1
+01/11/2022 09:47:33 AM INFO: Player dummy2 providing hint to dummy1: cards with value 1 are in positions: [2]
+01/11/2022 09:49:58 AM INFO: Closing the server...
+01/11/2022 09:50:23 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:50:27 AM INFO: Connected by: ('127.0.0.1', 56478)
+01/11/2022 09:50:27 AM INFO: Player connected: dummy2
+01/11/2022 09:50:33 AM INFO: Connected by: ('127.0.0.1', 56479)
+01/11/2022 09:50:33 AM INFO: Player connected: giulia
+01/11/2022 09:50:33 AM INFO: Player ready: dummy2
+01/11/2022 09:50:35 AM INFO: Player ready: giulia
+01/11/2022 09:50:35 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 09:50:35 AM INFO: Ok, let's start the game!
+01/11/2022 09:50:37 AM INFO: Showing hand to: dummy2
+01/11/2022 09:50:38 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [1, 3, 4]
+01/11/2022 09:51:27 AM INFO: Closing the server...
+01/11/2022 09:53:55 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:53:58 AM INFO: Connected by: ('127.0.0.1', 59442)
+01/11/2022 09:53:58 AM INFO: Player connected: dummy2
+01/11/2022 09:54:01 AM INFO: Connected by: ('127.0.0.1', 59443)
+01/11/2022 09:54:01 AM INFO: Player connected: giulia
+01/11/2022 09:54:04 AM INFO: Player ready: dummy2
+01/11/2022 09:54:07 AM INFO: Player ready: giulia
+01/11/2022 09:54:07 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 09:54:07 AM INFO: Ok, let's start the game!
+01/11/2022 09:54:09 AM INFO: Showing hand to: dummy2
+01/11/2022 09:54:09 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [3]
+01/11/2022 09:54:55 AM INFO: Closing the server...
+01/11/2022 09:54:58 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:55:01 AM INFO: Connected by: ('127.0.0.1', 59450)
+01/11/2022 09:55:01 AM INFO: Player connected: giulia
+01/11/2022 09:55:04 AM INFO: Connected by: ('127.0.0.1', 59451)
+01/11/2022 09:55:04 AM INFO: Player connected: dummy2
+01/11/2022 09:55:07 AM INFO: Player ready: giulia
+01/11/2022 09:55:10 AM INFO: Player ready: dummy2
+01/11/2022 09:55:10 AM INFO: Game start! Between: ['giulia', 'dummy2']
+01/11/2022 09:55:10 AM INFO: Ok, let's start the game!
+01/11/2022 09:55:12 AM INFO: Showing hand to: dummy2
+01/11/2022 09:55:25 AM INFO: Showing hand to: dummy2
+01/11/2022 09:55:28 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [0, 2]
+01/11/2022 09:55:28 AM INFO: Showing hand to: dummy2
+01/11/2022 09:56:19 AM INFO: Player: giulia: card 1 discarded successfully
+01/11/2022 09:56:19 AM INFO: Showing hand to: dummy2
+01/11/2022 09:56:19 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [1]
+01/11/2022 09:56:19 AM INFO: Showing hand to: dummy2
+01/11/2022 09:56:54 AM INFO: Closing the server...
+01/11/2022 09:57:22 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:57:31 AM INFO: Connected by: ('127.0.0.1', 60794)
+01/11/2022 09:57:31 AM INFO: Player connected: dummy1
+01/11/2022 09:57:36 AM INFO: Connected by: ('127.0.0.1', 60796)
+01/11/2022 09:57:36 AM INFO: Player connected: giulia
+01/11/2022 09:57:37 AM INFO: Player ready: dummy1
+01/11/2022 09:57:38 AM INFO: Player ready: giulia
+01/11/2022 09:57:38 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 09:57:38 AM INFO: Ok, let's start the game!
+01/11/2022 09:57:40 AM INFO: Showing hand to: dummy1
+01/11/2022 09:57:41 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [3, 4]
+01/11/2022 09:58:03 AM INFO: Closing the server...
+01/11/2022 09:59:29 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 09:59:34 AM INFO: Connected by: ('127.0.0.1', 60809)
+01/11/2022 09:59:34 AM INFO: Player connected: dummy1
+01/11/2022 09:59:38 AM INFO: Connected by: ('127.0.0.1', 60810)
+01/11/2022 09:59:38 AM INFO: Player connected: giulia
+01/11/2022 09:59:39 AM INFO: Player ready: giulia
+01/11/2022 09:59:40 AM INFO: Player ready: dummy1
+01/11/2022 09:59:40 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 09:59:40 AM INFO: Ok, let's start the game!
+01/11/2022 09:59:45 AM INFO: Showing hand to: dummy1
+01/11/2022 09:59:46 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [3]
+01/11/2022 09:59:56 AM INFO: Closing the server...
+01/11/2022 10:02:00 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:02:20 AM INFO: Connected by: ('127.0.0.1', 53342)
+01/11/2022 10:02:20 AM INFO: Player connected: dummy2
+01/11/2022 10:02:26 AM INFO: Player ready: dummy2
+01/11/2022 10:02:28 AM INFO: Connected by: ('127.0.0.1', 53347)
+01/11/2022 10:02:28 AM INFO: Player connected: giulia
+01/11/2022 10:02:29 AM INFO: Player ready: giulia
+01/11/2022 10:02:29 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 10:02:29 AM INFO: Ok, let's start the game!
+01/11/2022 10:02:34 AM INFO: Showing hand to: dummy2
+01/11/2022 10:02:35 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [0]
+01/11/2022 10:02:49 AM INFO: Closing the server...
+01/11/2022 10:05:51 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:05:56 AM INFO: Connected by: ('127.0.0.1', 52811)
+01/11/2022 10:05:56 AM INFO: Player connected: dummy1
+01/11/2022 10:06:02 AM INFO: Player ready: dummy1
+01/11/2022 10:06:04 AM INFO: Connected by: ('127.0.0.1', 52814)
+01/11/2022 10:06:04 AM INFO: Player connected: giulia
+01/11/2022 10:06:07 AM INFO: Player ready: giulia
+01/11/2022 10:06:07 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:06:07 AM INFO: Ok, let's start the game!
+01/11/2022 10:06:12 AM INFO: Showing hand to: dummy1
+01/11/2022 10:06:13 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [0]
+01/11/2022 10:08:10 AM INFO: Closing the server...
+01/11/2022 10:08:24 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:08:28 AM INFO: Connected by: ('127.0.0.1', 65485)
+01/11/2022 10:08:28 AM INFO: Player connected: dummy1
+01/11/2022 10:08:33 AM INFO: Connected by: ('127.0.0.1', 65486)
+01/11/2022 10:08:33 AM INFO: Player connected: giulia
+01/11/2022 10:08:34 AM INFO: Player ready: giulia
+01/11/2022 10:08:34 AM INFO: Player ready: dummy1
+01/11/2022 10:08:34 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:08:34 AM INFO: Ok, let's start the game!
+01/11/2022 10:08:39 AM INFO: Showing hand to: dummy1
+01/11/2022 10:08:40 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [3]
+01/11/2022 10:09:53 AM INFO: Closing the server...
+01/11/2022 10:10:06 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:10:10 AM INFO: Connected by: ('127.0.0.1', 65507)
+01/11/2022 10:10:10 AM INFO: Player connected: dummy1
+01/11/2022 10:10:15 AM INFO: Connected by: ('127.0.0.1', 65508)
+01/11/2022 10:10:15 AM INFO: Player connected: giulia
+01/11/2022 10:10:16 AM INFO: Player ready: giulia
+01/11/2022 10:10:16 AM INFO: Player ready: dummy1
+01/11/2022 10:10:16 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:10:16 AM INFO: Ok, let's start the game!
+01/11/2022 10:10:21 AM INFO: Showing hand to: dummy1
+01/11/2022 10:10:22 AM INFO: Player dummy1 providing hint to giulia: cards with value 3 are in positions: [0, 4]
+01/11/2022 10:11:31 AM INFO: Closing the server...
+01/11/2022 10:11:40 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:11:44 AM INFO: Connected by: ('127.0.0.1', 65519)
+01/11/2022 10:11:44 AM INFO: Player connected: dummy1
+01/11/2022 10:11:49 AM INFO: Connected by: ('127.0.0.1', 65520)
+01/11/2022 10:11:49 AM INFO: Player connected: giulia
+01/11/2022 10:11:50 AM INFO: Player ready: dummy1
+01/11/2022 10:11:51 AM INFO: Player ready: giulia
+01/11/2022 10:11:51 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:11:51 AM INFO: Ok, let's start the game!
+01/11/2022 10:11:56 AM INFO: Showing hand to: dummy1
+01/11/2022 10:11:57 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [1, 3, 4]
+01/11/2022 10:17:58 AM INFO: Closing the server...
+01/11/2022 10:18:02 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:18:07 AM INFO: Connected by: ('127.0.0.1', 63516)
+01/11/2022 10:18:07 AM INFO: Player connected: dummy1
+01/11/2022 10:18:10 AM INFO: Connected by: ('127.0.0.1', 63517)
+01/11/2022 10:18:10 AM INFO: Player connected: giulia
+01/11/2022 10:18:12 AM INFO: Player ready: giulia
+01/11/2022 10:18:13 AM INFO: Player ready: dummy1
+01/11/2022 10:18:13 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:18:13 AM INFO: Ok, let's start the game!
+01/11/2022 10:18:18 AM INFO: Showing hand to: dummy1
+01/11/2022 10:18:19 AM INFO: Player dummy1 providing hint to giulia: cards with value 2 are in positions: [0, 2]
+01/11/2022 10:26:21 AM INFO: Closing the server...
+01/11/2022 10:26:24 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:26:30 AM INFO: Connected by: ('127.0.0.1', 52520)
+01/11/2022 10:26:30 AM INFO: Player connected: dummy1
+01/11/2022 10:26:33 AM INFO: Connected by: ('127.0.0.1', 52521)
+01/11/2022 10:26:33 AM INFO: Player connected: giulia
+01/11/2022 10:26:34 AM INFO: Player ready: giulia
+01/11/2022 10:26:36 AM INFO: Player ready: dummy1
+01/11/2022 10:26:36 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:26:36 AM INFO: Ok, let's start the game!
+01/11/2022 10:26:41 AM INFO: Showing hand to: dummy1
+01/11/2022 10:26:42 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [0, 2]
+01/11/2022 10:27:50 AM INFO: Closing the server...
+01/11/2022 10:28:00 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:28:03 AM INFO: Connected by: ('127.0.0.1', 52535)
+01/11/2022 10:28:03 AM INFO: Player connected: dummy1
+01/11/2022 10:28:07 AM INFO: Connected by: ('127.0.0.1', 52537)
+01/11/2022 10:28:07 AM INFO: Player connected: giulia
+01/11/2022 10:28:09 AM INFO: Player ready: dummy1
+01/11/2022 10:28:55 AM INFO: Player ready: giulia
+01/11/2022 10:28:55 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:28:55 AM INFO: Ok, let's start the game!
+01/11/2022 10:29:00 AM INFO: Showing hand to: dummy1
+01/11/2022 10:29:01 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [1, 2]
+01/11/2022 10:32:25 AM INFO: Closing the server...
+01/11/2022 10:32:27 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:32:32 AM INFO: Connected by: ('127.0.0.1', 53005)
+01/11/2022 10:32:32 AM INFO: Player connected: dummy1
+01/11/2022 10:32:36 AM INFO: Connected by: ('127.0.0.1', 53007)
+01/11/2022 10:32:36 AM INFO: Player connected: giulia
+01/11/2022 10:32:37 AM INFO: Player ready: giulia
+01/11/2022 10:32:38 AM INFO: Player ready: dummy1
+01/11/2022 10:32:38 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 10:32:38 AM INFO: Ok, let's start the game!
+01/11/2022 10:32:43 AM INFO: Showing hand to: dummy1
+01/11/2022 10:32:44 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [0, 1, 3]
+01/11/2022 10:32:44 AM INFO: Showing hand to: dummy1
+01/11/2022 10:35:12 AM INFO: Closing the server...
+01/11/2022 10:35:29 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 10:35:34 AM INFO: Connected by: ('127.0.0.1', 53034)
+01/11/2022 10:35:34 AM INFO: Player connected: dummy2
+01/11/2022 10:35:38 AM INFO: Connected by: ('127.0.0.1', 53035)
+01/11/2022 10:35:38 AM INFO: Player connected: giulia
+01/11/2022 10:35:40 AM INFO: Player ready: giulia
+01/11/2022 10:35:40 AM INFO: Player ready: dummy2
+01/11/2022 10:35:40 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 10:35:40 AM INFO: Ok, let's start the game!
+01/11/2022 10:35:46 AM INFO: Showing hand to: dummy2
+01/11/2022 10:35:47 AM INFO: Player dummy2 providing hint to giulia: cards with value 1 are in positions: [2]
+01/11/2022 10:35:47 AM INFO: Showing hand to: dummy2
+01/11/2022 10:37:57 AM INFO: Showing hand to: giulia
+01/11/2022 10:38:54 AM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [1, 3, 4]
+01/11/2022 10:38:54 AM INFO: Showing hand to: dummy2
+01/11/2022 10:38:56 AM INFO: dummy2: card played and correctly put on the table
+01/11/2022 10:38:57 AM INFO: Showing hand to: dummy2
+01/11/2022 10:43:13 AM INFO: Showing hand to: giulia
+01/11/2022 10:45:25 AM INFO: Player giulia providing hint to dummy2: cards with color red are in positions: [3]
+01/11/2022 10:45:25 AM INFO: Showing hand to: dummy2
+01/11/2022 10:45:28 AM INFO: dummy2: card played and correctly put on the table
+01/11/2022 10:45:28 AM INFO: Showing hand to: dummy2
+01/11/2022 11:07:55 AM INFO: Closing the server...
+01/11/2022 11:08:05 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 11:08:11 AM INFO: Connected by: ('127.0.0.1', 60146)
+01/11/2022 11:08:11 AM INFO: Player connected: dummy1
+01/11/2022 11:08:14 AM INFO: Connected by: ('127.0.0.1', 60147)
+01/11/2022 11:08:14 AM INFO: Player connected: giulia
+01/11/2022 11:08:16 AM INFO: Player ready: giulia
+01/11/2022 11:08:17 AM INFO: Player ready: dummy1
+01/11/2022 11:08:17 AM INFO: Game start! Between: ['dummy1', 'giulia']
+01/11/2022 11:08:17 AM INFO: Ok, let's start the game!
+01/11/2022 11:08:21 AM INFO: Showing hand to: giulia
+01/11/2022 11:08:22 AM INFO: Showing hand to: dummy1
+01/11/2022 11:08:23 AM INFO: Player dummy1 providing hint to giulia: cards with value 1 are in positions: [1]
+01/11/2022 11:08:23 AM INFO: Showing hand to: dummy1
+01/11/2022 11:09:25 AM INFO: Player giulia providing hint to dummy1: cards with value 1 are in positions: [3]
+01/11/2022 11:09:25 AM INFO: Showing hand to: dummy1
+01/11/2022 11:09:26 AM INFO: dummy1: card played and correctly put on the table
+01/11/2022 11:09:26 AM INFO: Showing hand to: dummy1
+01/11/2022 11:11:08 AM INFO: Showing hand to: giulia
+01/11/2022 11:25:50 AM INFO: Closing the server...
+01/11/2022 11:26:03 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/11/2022 11:26:08 AM INFO: Connected by: ('127.0.0.1', 56336)
+01/11/2022 11:26:08 AM INFO: Player connected: dummy2
+01/11/2022 11:26:11 AM INFO: Connected by: ('127.0.0.1', 56337)
+01/11/2022 11:26:11 AM INFO: Player connected: giulia
+01/11/2022 11:26:13 AM INFO: Player ready: giulia
+01/11/2022 11:26:14 AM INFO: Player ready: dummy2
+01/11/2022 11:26:14 AM INFO: Game start! Between: ['dummy2', 'giulia']
+01/11/2022 11:26:14 AM INFO: Ok, let's start the game!
+01/11/2022 11:26:19 AM INFO: Showing hand to: dummy2
+01/11/2022 11:26:20 AM WARNING: Player disconnected: dummy2
+01/11/2022 11:34:36 AM INFO: Closing the server...

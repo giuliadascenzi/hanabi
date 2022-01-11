@@ -26,6 +26,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 playerTurn = ""
 playing_agent = ""
 
+CARDS_PER_PLAYER = {2: 5, 3: 5, 4: 4, 5: 4}
+
 
 
 def start_game():
@@ -131,6 +133,7 @@ def show(data=None):
 def init_data(playerName, players_names):
     global playing_agent
     global playerTurn
+    
 
     '''
     HERE: Choose which agent to use 
@@ -150,7 +153,8 @@ def init_data(playerName, players_names):
         discardPile = data.discardPile
         usedNoteTokens = data.usedNoteTokens # = 0
         usedStormTokens= data.usedStormTokens # = 0
-        playing_agent.initialize(num_players= len(players_names), players_names= players_names, k=len(playersInfo[0].hand), board= tableCards, players_info= playersInfo, discard_pile=discardPile)
+        print(len(playersInfo))
+        playing_agent.initialize(num_players= len(players_names), players_names= players_names, k=CARDS_PER_PLAYER[len(players_names)], board= tableCards, players_info= playersInfo, discard_pile=discardPile)
         show(data)
     return
 
@@ -180,11 +184,17 @@ def update_data():
 def agentPlay():
     global playerTurn
     global playerName
+    global run
     while run:
         if (playerTurn == playerName):
             print("[" + playerName + " - " + status + "]: ", end="")
             request = playing_agent.get_turn_action()
-            s.send(request.serialize())
+            try:
+                s.send(request.serialize())
+            except:
+                print("Error")
+                run = False
+
         time.sleep(3)
     return
 # ------------- MAIN -------------
@@ -198,13 +208,19 @@ def main():
     global playerName
 
     playerName, players_names = start_game()
-    time.sleep(2)
+    #time.sleep(5)
     init_data(playerName, players_names)
 
-    Thread(target=agentPlay).start()
+    t = Thread(target=agentPlay)
+    t.start()
 
     while run: # while the game is going
-        data = s.recv(DATASIZE)
+        try:
+            data = s.recv(DATASIZE)
+        except:
+            run = False
+            t.join()
+            os._exit(0)
         if not data:
             continue
         data = GameData.GameData.deserialize(data)

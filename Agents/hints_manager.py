@@ -78,7 +78,7 @@ class BaseHintsManager(object):
             if info_action.type == "color":
                 kn.color = True
             else:
-                kn.number = True
+                kn.value = True
         
         #assert self.possibilities is self.strategy.possibilities
         #assert self.board is self.strategy.board
@@ -162,15 +162,15 @@ class SumBasedHintsManager(BaseHintsManager):
         return self.hash_range(hinter_id) <= self.modulo(hinter_id)
     
     
-    def compute_hash_sum(self, hinter_id):
+    def compute_hash_sum(self, hinter_name):
         """
         Compute the sum of the hashes of the hands of the other players, excluding the hinter and myself.
         """
         res = 0
-        for (player_id, hand) in self.strategy.hands.iteritems():
-            if player_id != hinter_id:
-                h = self.hash(hand, player_id, hinter_id)
-                assert 0 <= h < self.modulo(hinter_id)
+        for player_name in self.strategy.players_names:
+            if player_name != hinter_name:
+                h = self.hash(self.strategy[player_name].hand, player_name, hinter_name)
+                assert 0 <= h < self.modulo(hinter_name)
                 res += h
         return res
     
@@ -211,7 +211,7 @@ class SumBasedHintsManager(BaseHintsManager):
                 matching[(Action.COLOR, color)] = card_pos
         
         # analyze hints on numbers
-        for number in xrange(1, Card.NUM_NUMBERS+1):
+        for number in range(1, Card.NUM_NUMBERS+1):
             cards_pos = [card_pos for (card_pos, card) in enumerate(hand) if card is not None and card.matches(number=number)]
             if len(cards_pos) > 0:
                 # pick the rightmost
@@ -222,20 +222,20 @@ class SumBasedHintsManager(BaseHintsManager):
         return matching
     
     
-    def hint_to_card(self, action):
+    def hint_to_card(self, info_action):
         """
         From the hint, understand the important card.
         This is the inverse of cards_to_hints.
         """
-        if action.hint_type == Action.COLOR:
+        if info_action.type == "color":
             # pick the leftmost card
-            return min(action.cards_pos)
+            return min(info_action.positions)
         else:
             # pick the rightmost card
-            return max(action.cards_pos)
+            return max(info_action.positions)
         
     
-    def relevant_cards(self, hinter_id):
+    def relevant_cards(self, hinterName):
         """
         Matching between integers and cards of players other than the hinter, in the form (player_id, card_pos).
         For example:
@@ -249,31 +249,31 @@ class SumBasedHintsManager(BaseHintsManager):
         matching = {}
         counter = 0
         
-        for player_id in xrange(self.num_players):
-            if player_id == hinter_id:
+        for player_name in self.players_names:
+            if player_name == hinterName:
                 # skip the hinter
                 continue
             
-            if player_id == self.id:
-                hand = self.strategy.my_hand
+            if player_name == self.name:
+                hand = self.strategy.my_hand  # TODO: myhand!
             else:
-                hand = self.strategy.hands[player_id]
+                hand = self.strategy.players_info[player_name].hand
             
             for (card_pos, card) in enumerate(hand):
                 if card is not None:
-                    matching[counter] = (player_id, card_pos)
-                    matching[(player_id, card_pos)] = counter
+                    matching[counter] = (player_name, card_pos)
+                    matching[(player_name, card_pos)] = counter
                     counter += 1
         
         return matching
     
     
-    def modulo(self, hinter_id):
+    def modulo(self, hinterName):
         """
         Returns the number of different choices for the integer that needs to be communicated.
         """
         # for our protocol, such number is the number of cards of the other players
-        return len(self.relevant_cards(hinter_id)) / 2
+        return len(self.relevant_cards(hinterName)) / 2
     
     
     def get_hint(self):
@@ -297,119 +297,42 @@ class SumBasedHintsManager(BaseHintsManager):
             return None
     
     
-    def hint_to_integer(self, hinter_id, action):
+    def hint_to_integer(self, hinterName, info_action ):
         """
         Decode an HintAction and get my integer.
         """
         # this only makes sense if I am not the hinter
-        assert self.id != hinter_id
+        assert self.id != hinterName
         
         # compute passed integer
-        player_id = action.player_id
-        card_pos = self.hint_to_card(action)
+        player_id = info_action.destination
+        card_pos = self.hint_to_card(info_action)
         
-        relevant_cards = self.relevant_cards(hinter_id)
+        relevant_cards = self.relevant_cards(hinterName)
         x = relevant_cards[(player_id, card_pos)]
-        
-        # self.log("received message %d" % x)
-        
+                
         # compute difference with other hashes
-        y = (x - self.compute_hash_sum(hinter_id)) % self.modulo(hinter_id)
+        y = (x - self.compute_hash_sum(hinterName)) % self.modulo(hinterName)
         
         return y
     
     
-    def receive_hint(self, player_id, action):
-        if self.id != player_id:
+    def receive_hint(self, info_action):
+        hinterName = info_action.source
+        if self.name != hinterName:
             # I am not the hinter
-            x = self.hint_to_integer(player_id, action)
+            x = self.hint_to_integer(hinterName, info_action)
             # self.log("the hash of my hand is %d" % x)
-            data = self.process_hash(x, player_id)
+            data = self.process_hash(x, hinterName)
         else:
             data = None
         
-        self.update_knowledge(player_id, data)
+        self.update_knowledge(hinterName, data)
         
-        super(SumBasedHintsManager, self).receive_hint(player_id, action)
+        super(SumBasedHintsManager, self).receive_hint(info_action)
         
 
-class PlayabilityHintsManager(SumBasedHintsManager):
-    """
-    Playability hints manager.
-    A hint communicates to every other player which of their cards are playable (duplicate cards are excluded).
-    """
-    
-    def hash(self, hand, player_id, hinter_id):
-        """
-        This hash encodes which cards are playable (as a binary integer).
-        """
-        string = "".join(["1" if card.playable(self.board) and not self.is_duplicate(card) else "0" for card in hand])
-        return int(string, 2)
-    
-    
-    def hash_range(self, hinter_id):
-        """
-        Return H such that 0 <= hash < H.
-        """
-        return 2 ** self.k
-    
-    
-    def process_hash(self, x, hinter_id):
-        """
-        Process the given hash of my hand, passed through a hint.
-        """
-        assert 0 <= x < 2 ** self.k
-        string = str(bin(x))[2:].zfill(self.k)
-        assert len(string) == self.k
-        playable_list = [True if c == "1" else False for c in string]
-        self.log("received playable string %s" % string)
-        
-        # update possibilities
-        for (card_pos, playable) in enumerate(playable_list):
-            for card in self.full_deck:
-                p = self.possibilities[card_pos]
-                if card in p:
-                    if playable and (not card.playable(self.board) or self.is_duplicate(card)):
-                        # self.log("removing %r from position %d" % (card, card_pos))
-                        del p[card]
-                    elif not playable and card.playable(self.board) and not self.is_duplicate(card):
-                        # self.log("removing %r from position %d" % (card, card_pos))
-                        del p[card]
-        
-        # return data for update_knowledge
-        return playable_list
-    
-    
-    def update_knowledge(self, hinter_id, data):
-        """
-        Update knowledge after a hint has been given.
-        """
-        if hinter_id != self.id:
-            # update my knowledge
-            playable_list = data
-            for (card_pos, playable) in enumerate(playable_list):
-                kn = self.knowledge[self.id][card_pos]
-                if playable:
-                    kn.playable = True
-                else:
-                    kn.non_playable = True
-        
-        # update knowledge of players different by me and the hinter
-        for (p_id, hand) in self.strategy.hands.iteritems():
-            if p_id == hinter_id:
-                # skip the hinter
-                continue
-            
-            for (card_pos, card) in enumerate(hand):
-                kn = self.knowledge[p_id][card_pos]
-                if card.playable(self.board):
-                    kn.playable = True
-                else:
-                    kn.non_playable = True
-    
-
-
-
+class CardHintsManager(SumBasedHintsManager):
     """
     Card hints manager.
     A hint communicates to every other player information about one of his cards.
