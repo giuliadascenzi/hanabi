@@ -6,7 +6,7 @@ from collections import Counter
 import copy
 from .hints_manager import BaseHintsManager, CardHintsManager, PlayabilityHintsManager
 import logging
-logging.basicConfig(filename="possibilities.log")
+
 redf = open('possibilities.txt', 'w')
 
 def get_full_deck():
@@ -80,11 +80,11 @@ class Knowledge:
     
     def __init__(self, color=False, value=False):
         self.color = color                  # know the color
-        self.value = value                # know the number
+        self.value = value                  # know the number
         self.playable = False               # at some point, this card was playable
         self.non_playable = False           # at some point, this card was not playable
         self.useless = False                # this card is useless
-        self.high = False                   # at some point, this card was high (see CardHintsManager)
+        self.high = False                   # at some point, this card was high (relevant/discardable)(see CardHintsManager)
     
     
     def __repr__(self):
@@ -95,8 +95,7 @@ class Knowledge:
         """
         Does the player know the color/number?
         """
-        assert hint_type in Action.HINT_TYPES
-        if hint_type == Action.COLOR:
+        if hint_type == "color":
             return self.color
         else:
             return self.value
@@ -165,6 +164,10 @@ class RbAgent(BaseAgent):
         To be called once before the beginning.
         """
 
+        self.NUM_NUMBERS = 5
+        self.NUM_COLORS = 5
+        self.COLORS = ["red", "yellow", "green", "white", "blue"]
+
         self.num_players = num_players
         self.players_names = players_names
         self.k = k  # number of cards per hand
@@ -175,7 +178,8 @@ class RbAgent(BaseAgent):
         self.players_info = players_info
         self.discard_pile = self.counterOfCards(discard_pile)
 
-        #self.my_hand = [None for i in range(self.k)]
+        self.my_hand = [0 for i in range(self.k)] # hand of the player (does not know the cards, so all set to 0 or to None if there is no a card anymore at that position).
+                                                     
 
         # store a copy of the full deck
         self.full_deck = get_full_deck()
@@ -277,7 +281,6 @@ class RbAgent(BaseAgent):
                 card_pos,_,_ = self.get_best_discard()
                 print(">>>discard the card number:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
-
             
             print(">>>give the hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
@@ -291,7 +294,6 @@ class RbAgent(BaseAgent):
         if type(data) is not GameData.ServerHintData:      #PLAY or DISCARD if data.type is none 
             # A card has been removed (played or discarded), we need to remove the information about it + add  new default ones for the new card (if exists)
             cardHandIndex = data.cardHandIndex
-            # 0) put the card in the 
             
             # 1) Remove it from the knowledge list 
             self.reset_knowledge(playerName, cardHandIndex, self.k == data.handLength)
@@ -299,6 +301,10 @@ class RbAgent(BaseAgent):
             if playerName == self.name:
                 # 2) If the player is me, remove the possibilities belonging to the discarded/played card + add a new default one for the new card (if exists)
                 self.reset_possibilities(cardHandIndex, self.k == data.handLength)
+                # 3) if the card played/discarded was mine and there are no cards left in the deck -> set to null the card_pos of my hand that do not corrispond to cards anymore 
+                if (self.k != data.handLength):
+                    self.hand[data.handLength] = None
+
                
         else:
             # someone gave a hint!
@@ -331,8 +337,8 @@ class RbAgent(BaseAgent):
 
 
     def get_best_play(self):
-        WEIGHT = {number: self.k - number for number in range(1, self.k)}
-        WEIGHT[self.k] = self.k
+        WEIGHT = {number: self.NUM_NUMBERS - number for number in range(1,  self.NUM_NUMBERS)}
+        WEIGHT[ self.NUM_NUMBERS] =  self.NUM_NUMBERS
         
         tolerance = 1e-3
         best_card_pos = None
@@ -386,7 +392,7 @@ class RbAgent(BaseAgent):
         best_cards_pos = []
         best_relevant_ratio = 1.0
         
-        WEIGHT = {number: self.k + 1 - number for number in range(1, self.k + 1)}
+        WEIGHT = {number: self.NUM_NUMBERS + 1 - number for number in range(1, self.NUM_NUMBERS + 1)}
         best_relevant_weight = max(WEIGHT.values())
         
         for (card_pos, p) in enumerate(self.possibilities):
@@ -433,19 +439,17 @@ class RbAgent(BaseAgent):
         # try to give hint, using the right hints manager
         hints_manager = self.hints_scheduler.select_hints_manager()
         assert hints_manager.is_usable(self.id)
-        hint_action = hints_manager.get_hint()
-        
-        if hint_action is not None:
-            return hint_action
+        destination_name, value, type = hints_manager.get_hint()
 
 
 
+        '''
         #card = random.choice([card for card in destination_hand if card is not None])
         destination_hand.sort(key = lambda c: c.value)
         card = destination_hand[0]
         type=  "value"
         value = card.value
-        '''
+        
         if random.randint(0,1) == 0:
             type= "color"
             value = card.color
