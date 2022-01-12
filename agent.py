@@ -93,9 +93,12 @@ class HanabiMoveType(enum.IntEnum):
 
 
 class RuleBasedAgent(Player):
-    def __init__(self, name, players):
+    def __init__(self, name):
         super().__init__(name)
         self.ready = True
+        self.index = None
+        self.rightPlayer = None
+        self.leftPlayer = None
 
     @staticmethod
     def playable_card(card, fireworks):
@@ -104,26 +107,29 @@ class RuleBasedAgent(Player):
         else:
             return False
 
+    def set_LR_players(self, index, idxL, idxR):
+        self.index = index
+        self.leftPlayer = idxL
+        self.rightPlayer = idxR
+
     def check_if_not_playable_hint(self, observation):
         # check if rank hint was hinted for discard or not,
-        last_moves = observation['pyhanabi'].last_moves()
+        last_move = observation['last_move']
 
-        own_cards_knowledge = observation['pyhanabi'].card_knowledge()[0]
-
-        for last_move in last_moves:
-            player_idx = last_move.player()
-            move = last_move.move()
-            target_offset = move.target_offset()
-            if move.type() == HanabiMoveType.REVEAL_RANK and move.target_offset() == 1 \
-                    and 0 in last_move.card_info_revealed() and \
-                    move.rank() is not None:
-                player_target_idx = (player_idx + 1) % (self.players - 1)
+        # for l in last_move:
+        if last_move['player'] is not None:
+            player = last_move['player']
+            for i in range(len(observation['players'])):
+                if observation['players'][i].name == player:
+                    player_idx = i
+            if last_move['move_type'] == HanabiMoveType.REVEAL_RANK and player_idx == self.leftPlayer and 0 in last_move['card']:
+                player_target_idx = (player_idx + 1) % len(observation['players'])
                 # hint is from left partner, not useful hint though (just hint to free tokens)')
-                for card_idx in last_move.card_info_revealed():
-                    self.rank_hinted_but_no_play[player_target_idx][card_idx] = True
-                break
-            elif move.type() == HanabiMoveType.DISCARD or move.type() == HanabiMoveType.PLAY:
-                observation['rankHintedButNoPlay'][player_idx].pop(move.card_index())
+                for card_idx in last_move['card']:
+                    observation['rankHintedButNoPlay'][player_target_idx][card_idx] = True
+                # break
+            elif last_move['move_type'] == HanabiMoveType.DISCARD or last_move['move_type'] == HanabiMoveType.PLAY:
+                observation['rankHintedButNoPlay'][player_idx].pop(last_move['card'])
                 observation['rankHintedButNoPlay'][player_idx].append(False)
 
     def maybe_play_lowest_playable_card(self, observation):
@@ -137,19 +143,18 @@ class RuleBasedAgent(Player):
             if p['player'] == self.name:
                 own_card_knowledge = p['knowledge']
 
-        for index, own_card_know in enumerate(own_card_knowledge):
-            if own_card_know.color() is not None:
+        for k in own_card_knowledge:
+            if k[2] is not None:
                 # verify that index 0 correspond to the correct player
-                observation['rankHintedButNoPlay'][0].pop(index)
-                observation['rankHintedButNoPlay'][0].append(False)
-                return GameData.ClientPlayerPlayCardRequest(self.name, index)
+                observation['rankHintedButNoPlay'][self.index].pop(k[0])
+                observation['rankHintedButNoPlay'][self.index].append(False)
+                return GameData.ClientPlayerPlayCardRequest(self.name, k[0])
 
-        for index, own_card_know in enumerate(own_card_knowledge):
-            if own_card_know.rank() is not None and \
-                    not observation['rankHintedButNoPlay'][0][index]:
-                observation['rankHintedButNoPlay'][0].pop(index)
-                observation['rankHintedButNoPlay'][0].append(False)
-                return GameData.ClientPlayerPlayCardRequest(self.name, index)
+        for k in own_card_knowledge:
+            if k[1] is not None and not observation['rankHintedButNoPlay'][self.index][k[0]]:
+                observation['rankHintedButNoPlay'][self.index].pop(k[0])
+                observation['rankHintedButNoPlay'][self.index].append(False)
+                return GameData.ClientPlayerPlayCardRequest(self.name, k[0])
 
     def maybe_give_helpful_hint(self, observation):
         if observation['usedNoteTokens'] == 8:
@@ -165,6 +170,7 @@ class RuleBasedAgent(Player):
         for player in observation['players']:
             player_hand = player.hand
             player_knowledge = []
+            player_idx = observation['players'].index(player)
             for p in observation['playersKnowledge']:
                 if p['player'] == player.name:
                     player_knowledge = p['knowledge']
@@ -173,6 +179,9 @@ class RuleBasedAgent(Player):
             card_is_really_playable = [False, False, False, False, False]
             playable_colors = []
             playable_ranks = []
+
+            # TODO: fix the zip so the index in the hand corresponds to the card in the knowledge
+
             for index, (card, val, color) in enumerate(zip(player_hand, player_knowledge)):
                 if self.playable_card(card, fireworks):
                     card_is_really_playable[index] = True
@@ -212,7 +221,7 @@ class RuleBasedAgent(Player):
                     if card['rank'] is not rank:
                         continue
                     if self.playable_card(card, fireworks) and \
-                            (knowledge.rank() is None or observation['rankHintedButNoPlay'][player.name][index]):
+                            (knowledge.rank() is None or observation['rankHintedButNoPlay'][player_idx][index]):
                         information_content += 1
                     elif not self.playable_card(card, fireworks):
                         missInformative = True
@@ -270,10 +279,35 @@ class RuleBasedAgent(Player):
             isDiscardingAllowed = False
         if not isDiscardingAllowed:
             # Assume next player in turn is player on right
-            hand_on_right = observation['players'][1].hand
-            return GameData.ClientHintData(self.name, observation['players'][1].name, 'value', hand_on_right[0].value)
+            hand_on_right = observation['players'][self.rightPlayer].hand
+            return GameData.ClientHintData(self.name, observation['players'][self.rightPlayer].name, 'value', hand_on_right[0].value)
         else:
             # Discard our oldest card
-            observation['rankHintedButNoPlay'][0].pop(0)
-            observation['rankHintedButNoPlay'][0].append(False)
+            observation['rankHintedButNoPlay'][self.index].pop(0)
+            observation['rankHintedButNoPlay'][self.index].append(False)
             return GameData.ClientPlayerDiscardCardRequest(self.name, 0)
+
+
+"""if __name__ == "__main__":
+    agent = RuleBasedAgent("Lise")
+
+    player = Player("matt")
+
+    observation = {
+        'current_player': agent,  # should return the player name
+        'usedStormTokens': 0,
+        'usedNoteTokens': 0,
+        'players': [agent, player],
+        'num_players': 2,
+        # 'deck_size': self.deck_size,
+        'fireworks': [],
+        # 'legal_moves': self.get_legal_moves(),
+        'discard_pile': data.discardPile,
+        'hints': hintState,
+        'playersKnowledge': playersKnowledge,
+        'rankHintedButNoPlay': rankHintedButNoPlay,
+        'last_move': lastMove
+    }
+
+    agent.act(observation)"""
+

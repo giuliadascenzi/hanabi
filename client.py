@@ -9,7 +9,7 @@ import os
 import argparse
 
 from constants import *
-from agent import Agent
+from agent import Agent, HanabiMoveType, RuleBasedAgent
 
 # Arguments management
 
@@ -19,6 +19,7 @@ parser.add_argument('--port', type=int, default=PORT, help='Port of the server')
 player = parser.add_mutually_exclusive_group()
 player.add_argument('--player-name', type=str, help='Player name')
 player.add_argument('--ai-player', type=str, help='Play with the AI agent')
+player.add_argument('--ai-rl', type=str, help='Play with the AI rule based agent')
 args = parser.parse_args()
 
 ip = args.ip
@@ -29,6 +30,10 @@ playerName = ""
 if args.ai_player is not None:
     playerName = args.ai_player
     agent = Agent(playerName)
+
+elif args.ai_rl is not None:
+    playerName = args.ai_rl
+    agent = RuleBasedAgent(playerName)
 
 else:
     if args.player_name is None:
@@ -45,6 +50,7 @@ players = []
 rankHintedButNoPlay = None
 hintState = []
 playersKnowledge = []
+lastMove = {'player': None, 'move_type': None, 'card': None, 'value': None, 'destination': None}
 wait_move = 7
 observation = {'current_player': None,
                'usedStormTokens': 0,
@@ -55,8 +61,7 @@ observation = {'current_player': None,
                'fireworks': None,
                # 'legal_moves': self.get_legal_moves(),
                'discard_pile': None,
-               # 'card_knowledge': self.get_card_knowledge(),
-               # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
+               'last_moves': lastMove,
                'hints': hintState,
                'playersKnowledge': playersKnowledge,
                'rankHintedButNoPlay': rankHintedButNoPlay
@@ -82,6 +87,7 @@ def agentPlay():
                 print("I am the current player (", playerName, ") and I will play now")
                 # action = agent.dummy_agent_choice(observation)
                 action = agent.simple_heuristic_choice(observation)
+                # action = agent.act(observation)
                 print("My action is: ", action)
                 s.send(action.serialize())
                 time.sleep(10)
@@ -163,7 +169,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("Connection accepted by the server. Welcome " + playerName)
     print("[" + playerName + " - " + status + "]: ", end="")
 
-    if type(agent) == Agent:
+    if type(agent) == Agent or type(agent) == RuleBasedAgent:
         Thread(target=agentPlay).start()
     else:
         Thread(target=manageInput).start()
@@ -188,14 +194,22 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if type(data) is GameData.ServerStartGameData:
             dataOk = True
             players = data.players
-            for p in players:
-                playersKnowledge.append({'player': p.name, 'knowledge': []})
 
-            if players < 4:
+            if args.ai_rl is not None:
+                index = players.index(playerName)
+                rightPlayer_idx = (index + 1) % len(players)
+                leftPlayer_idx = (index - 1) % len(players)
+                agent.set_LR_players(index, leftPlayer_idx, rightPlayer_idx)
+                print("I am", playerName, ". My left player is", leftPlayer_idx, "and my right player is", rightPlayer_idx)
+
+            for p in players:
+                playersKnowledge.append({'player': p, 'knowledge': []})
+
+            if len(players) < 4:
                 num_cards = 5
             else:
                 num_cards = 4
-            rankHintedButNoPlay = [0] * players
+            rankHintedButNoPlay = [0] * len(players)
             for i in range(len(rankHintedButNoPlay)):
                 rankHintedButNoPlay[i] = [False] * num_cards
 
@@ -211,7 +225,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if type(data) is GameData.ServerGameStateData:
             dataOk = True
 
-            if args.ai_player is None:
+            if args.ai_player is None and args.ai_rl is None:
                 print("Current player: " + data.currentPlayer)
                 print("Player hands: ")
                 for p in data.players:
@@ -244,8 +258,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     'discard_pile': data.discardPile,
                     'hints': hintState,
                     'playersKnowledge': playersKnowledge,
-                    'rankHintedButNoPlay': rankHintedButNoPlay
-                    # 'last_moves': self.last_moves,  # actually not contained in the returned dict of the
+                    'rankHintedButNoPlay': rankHintedButNoPlay,
+                    'last_move': lastMove
                 }
 
                 # legal_moves_as_int, legal_moves_as_int_formated = self.get_legal_moves_as_int(observation['legal_moves'])
@@ -262,6 +276,16 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             dataOk = True
             print("Action valid!")
             print("Current player: " + data.player)
+            for hint in hintState:
+                if hint['player'] == data.lastPlayer and hint['card_index'] == data.cardHandIndex:
+                    hintState.remove(hint)
+            for p in playersKnowledge:
+                if p['player'] == data.lastPlayer:
+                    for k in p['knowledge']:
+                        if k[0] == data.cardHandIndex:
+                            p['knowledge'].remove(k)
+            lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.DISCARD, 'card': data.cardHandIndex,
+                        'value': None, 'destination': None}
 
         if type(data) is GameData.ServerPlayerMoveOk:
             dataOk = True
@@ -275,11 +299,24 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     for k in p['knowledge']:
                         if k[0] == data.cardHandIndex:
                             p['knowledge'].remove(k)
+            lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.PLAY, 'card': data.cardHandIndex,
+                        'value': data.card.value, 'destination': None}
 
         if type(data) is GameData.ServerPlayerThunderStrike:
             dataOk = True
             print("OH NO! The Gods are unhappy with you!")
             print("Current player: " + data.player)
+            for hint in hintState:
+                if hint['player'] == data.lastPlayer and hint['card_index'] == data.cardHandIndex:
+                    hintState.remove(hint)
+            for p in playersKnowledge:
+                if p['player'] == data.lastPlayer:
+                    for k in p['knowledge']:
+                        if k[0] == data.cardHandIndex:
+                            p['knowledge'].remove(k)
+            lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.PLAY, 'card': data.cardHandIndex,
+                        'value': data.card.value, 'destination': None}
+
 
         if type(data) is GameData.ServerHintData:
             dataOk = True
@@ -287,8 +324,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             d_val = d_col = None
             if data.type == 'value':
                 d_val = data.value
+                lastMove = {'player': data.source, 'move_type': HanabiMoveType.REVEAL_RANK, 'card': data.positions,
+                            'value': d_val, 'destination': data.destination}
             else:
                 d_col = data.value
+                lastMove = {'player': data.source, 'move_type': HanabiMoveType.REVEAL_COLOR, 'card': data.positions,
+                            'value': d_col, 'destination': data.destination}
             print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
             for i in data.positions:
                 print("\t" + str(i))
@@ -304,7 +345,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                         break
                 if not notedHint:
                     notedHint = True
-                    hintState.append({'player': data.destination, 'value': d_val, 'color': d_col, 'card_index': i})
+                    hintState.append({'sender': data.source, 'player': data.destination, 'value': d_val, 'color': d_col,
+                                      'card_index': i})
 
                 notedKnowledge = False
                 for p in playersKnowledge:
@@ -317,9 +359,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                 else:
                                     k[2] = d_col
                         if not notedKnowledge:
-                            p['knowledge'].append((i, d_val, d_col))
-                if not notedKnowledge:
-                    playersKnowledge.append({'player': data.destination, 'knowledge': [(i, d_val, d_col)]})
+                            p['knowledge'].append([i, d_val, d_col])
             print("Current player: " + data.player)
 
         if type(data) is GameData.ServerInvalidDataReceived:
