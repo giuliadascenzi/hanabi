@@ -1657,195 +1657,638 @@
 01/11/2022 09:42:17 PM INFO: Score: 0; message: Booooooooooooring!
 01/11/2022 09:42:17 PM INFO: Game over
 01/11/2022 09:44:04 PM INFO: Closing the server...
-01/13/2022 12:00:22 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:00:28 PM INFO: Connected by: ('127.0.0.1', 58456)
-01/13/2022 12:00:28 PM INFO: Player connected: giulia
-01/13/2022 12:00:33 PM INFO: Player ready: giulia
-01/13/2022 12:01:05 PM INFO: Connected by: ('127.0.0.1', 58475)
-01/13/2022 12:01:05 PM INFO: Player connected: dummy1
-01/13/2022 12:01:11 PM INFO: Player ready: dummy1
-01/13/2022 12:01:11 PM INFO: Game start! Between: ['giulia', 'dummy1']
-01/13/2022 12:01:11 PM INFO: Ok, let's start the game!
-01/13/2022 12:01:11 PM INFO: Showing hand to: dummy1
-01/13/2022 12:01:34 PM INFO: Showing hand to: giulia
-01/13/2022 12:02:16 PM INFO: Player giulia providing hint to dummy1: cards with value 1 are in positions: [3]
-01/13/2022 12:03:39 PM INFO: Closing the server...
-01/13/2022 12:04:03 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:04:07 PM INFO: Connected by: ('127.0.0.1', 57694)
-01/13/2022 12:04:07 PM INFO: Player connected: giulia
-01/13/2022 12:04:08 PM INFO: Player ready: giulia
-01/13/2022 12:04:13 PM INFO: Connected by: ('127.0.0.1', 57704)
-01/13/2022 12:04:13 PM INFO: Player connected: dummy2
-01/13/2022 12:04:19 PM INFO: Player ready: dummy2
-01/13/2022 12:04:19 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:04:19 PM INFO: Ok, let's start the game!
-01/13/2022 12:04:19 PM INFO: Showing hand to: dummy2
-01/13/2022 12:04:27 PM INFO: Showing hand to: giulia
-01/13/2022 12:04:43 PM INFO: Player giulia providing hint to dummy2: cards with value 2 are in positions: [0, 4]
-01/13/2022 12:07:18 PM INFO: Closing the server...
-01/13/2022 12:07:44 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:07:50 PM INFO: Connected by: ('127.0.0.1', 57823)
-01/13/2022 12:07:50 PM INFO: Player connected: giulia
-01/13/2022 12:07:52 PM INFO: Player ready: giulia
-01/13/2022 12:07:58 PM INFO: Connected by: ('127.0.0.1', 54021)
-01/13/2022 12:07:58 PM INFO: Player connected: dummy2
-01/13/2022 12:08:04 PM INFO: Player ready: dummy2
-01/13/2022 12:08:04 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:08:04 PM INFO: Ok, let's start the game!
-01/13/2022 12:08:04 PM INFO: Showing hand to: dummy2
-01/13/2022 12:08:10 PM INFO: Showing hand to: giulia
-01/13/2022 12:08:34 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [3]
-01/13/2022 12:10:01 PM INFO: Closing the server...
-01/13/2022 12:10:04 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:10:11 PM INFO: Connected by: ('127.0.0.1', 54116)
-01/13/2022 12:10:11 PM INFO: Player connected: giulia
-01/13/2022 12:10:12 PM INFO: Player ready: giulia
-01/13/2022 12:10:19 PM INFO: Connected by: ('127.0.0.1', 54122)
-01/13/2022 12:10:19 PM INFO: Player connected: dummy2
-01/13/2022 12:10:25 PM INFO: Player ready: dummy2
-01/13/2022 12:10:25 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:10:25 PM INFO: Ok, let's start the game!
-01/13/2022 12:10:25 PM INFO: Showing hand to: dummy2
-01/13/2022 12:10:34 PM INFO: Showing hand to: giulia
-01/13/2022 12:10:40 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [3]
-01/13/2022 12:12:39 PM INFO: Closing the server...
-01/13/2022 12:12:54 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:13:05 PM INFO: Closing the server...
-01/13/2022 12:13:13 PM INFO: Connected by: ('127.0.0.1', 56786)
-01/13/2022 12:13:13 PM INFO: Player connected: giulia
-01/13/2022 12:13:18 PM INFO: Player ready: giulia
-01/13/2022 12:13:26 PM INFO: Connected by: ('127.0.0.1', 56792)
-01/13/2022 12:13:26 PM INFO: Player connected: dummy2
-01/13/2022 12:13:32 PM INFO: Player ready: dummy2
-01/13/2022 12:13:32 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:13:32 PM INFO: Ok, let's start the game!
-01/13/2022 12:13:38 PM INFO: Showing hand to: giulia
-01/13/2022 12:13:52 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [0, 2, 3, 4]
-01/13/2022 12:14:42 PM INFO: Showing hand to: giulia
-01/13/2022 12:19:57 PM INFO: Closing the server...
-01/13/2022 12:20:00 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:20:08 PM INFO: Connected by: ('127.0.0.1', 49229)
-01/13/2022 12:20:08 PM INFO: Player connected: giulia
-01/13/2022 12:20:10 PM INFO: Player ready: giulia
-01/13/2022 12:20:21 PM INFO: Connected by: ('127.0.0.1', 49236)
-01/13/2022 12:20:21 PM INFO: Player connected: dummy2
-01/13/2022 12:20:27 PM INFO: Player ready: dummy2
-01/13/2022 12:20:27 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:20:27 PM INFO: Ok, let's start the game!
-01/13/2022 12:20:32 PM INFO: Showing hand to: giulia
-01/13/2022 12:20:38 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [2]
-01/13/2022 12:23:06 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:23:11 PM INFO: Connected by: ('127.0.0.1', 49333)
-01/13/2022 12:23:11 PM INFO: Player connected: giulia
-01/13/2022 12:23:12 PM INFO: Player ready: giulia
-01/13/2022 12:23:17 PM INFO: Connected by: ('127.0.0.1', 49337)
-01/13/2022 12:23:17 PM INFO: Player connected: giulia
-01/13/2022 12:23:25 PM INFO: Connected by: ('127.0.0.1', 49342)
-01/13/2022 12:23:25 PM INFO: Player connected: dummy2
-01/13/2022 12:23:31 PM INFO: Player ready: dummy2
-01/13/2022 12:23:47 PM INFO: Closing the server...
-01/13/2022 12:23:50 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:23:54 PM INFO: Connected by: ('127.0.0.1', 49358)
-01/13/2022 12:23:54 PM INFO: Player connected: giulia
-01/13/2022 12:23:55 PM INFO: Player ready: giulia
-01/13/2022 12:24:01 PM INFO: Connected by: ('127.0.0.1', 51756)
-01/13/2022 12:24:01 PM INFO: Player connected: dummy2
-01/13/2022 12:24:07 PM INFO: Player ready: dummy2
-01/13/2022 12:24:07 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:24:07 PM INFO: Ok, let's start the game!
-01/13/2022 12:24:07 PM INFO: Showing hand to: dummy2
-01/13/2022 12:24:34 PM INFO: Showing hand to: giulia
-01/13/2022 12:25:08 PM INFO: Player giulia providing hint to dummy2: cards with value 2 are in positions: [2]
-01/13/2022 12:37:35 PM INFO: Closing the server...
-01/13/2022 12:37:41 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:37:45 PM INFO: Connected by: ('127.0.0.1', 57229)
-01/13/2022 12:37:45 PM INFO: Player connected: giulia
-01/13/2022 12:37:47 PM INFO: Player ready: giulia
-01/13/2022 12:37:51 PM INFO: Connected by: ('127.0.0.1', 57233)
-01/13/2022 12:37:51 PM INFO: Player connected: dummy2
-01/13/2022 12:37:57 PM INFO: Player ready: dummy2
-01/13/2022 12:37:57 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:37:57 PM INFO: Ok, let's start the game!
-01/13/2022 12:37:57 PM INFO: Showing hand to: dummy2
-01/13/2022 12:38:05 PM INFO: Showing hand to: giulia
-01/13/2022 12:38:12 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [0, 4]
-01/13/2022 12:41:43 PM INFO: Closing the server...
-01/13/2022 12:45:13 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:45:16 PM INFO: Connected by: ('127.0.0.1', 51016)
-01/13/2022 12:45:16 PM INFO: Player connected: giulia
-01/13/2022 12:45:17 PM INFO: Player ready: giulia
-01/13/2022 12:45:23 PM INFO: Connected by: ('127.0.0.1', 51024)
-01/13/2022 12:45:23 PM INFO: Player connected: dummy2
-01/13/2022 12:45:29 PM INFO: Player ready: dummy2
-01/13/2022 12:45:29 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:45:29 PM INFO: Ok, let's start the game!
-01/13/2022 12:45:29 PM INFO: Showing hand to: dummy2
-01/13/2022 12:45:34 PM INFO: Showing hand to: giulia
-01/13/2022 12:45:42 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [0, 1]
-01/13/2022 12:50:07 PM INFO: Closing the server...
-01/13/2022 12:50:20 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:50:28 PM INFO: Connected by: ('127.0.0.1', 55119)
-01/13/2022 12:50:28 PM INFO: Player connected: dummy2
-01/13/2022 12:50:32 PM INFO: Connected by: ('127.0.0.1', 55125)
-01/13/2022 12:50:32 PM INFO: Player connected: giulia
-01/13/2022 12:50:34 PM INFO: Player ready: dummy2
-01/13/2022 12:50:34 PM INFO: Player ready: giulia
-01/13/2022 12:50:34 PM INFO: Game start! Between: ['dummy2', 'giulia']
-01/13/2022 12:50:34 PM INFO: Ok, let's start the game!
-01/13/2022 12:50:34 PM INFO: Showing hand to: dummy2
-01/13/2022 12:50:40 PM INFO: Showing hand to: giulia
-01/13/2022 12:51:00 PM INFO: Closing the server...
-01/13/2022 12:51:07 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:51:11 PM INFO: Connected by: ('127.0.0.1', 62952)
-01/13/2022 12:51:11 PM INFO: Player connected: giulia
-01/13/2022 12:51:13 PM INFO: Player ready: giulia
-01/13/2022 12:51:18 PM INFO: Connected by: ('127.0.0.1', 62957)
-01/13/2022 12:51:18 PM INFO: Player connected: dummy2
-01/13/2022 12:51:24 PM INFO: Player ready: dummy2
-01/13/2022 12:51:24 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:51:24 PM INFO: Ok, let's start the game!
-01/13/2022 12:51:24 PM INFO: Showing hand to: dummy2
-01/13/2022 12:51:29 PM INFO: Showing hand to: giulia
-01/13/2022 12:51:55 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [0, 1, 2, 4]
-01/13/2022 12:52:27 PM INFO: Closing the server...
-01/13/2022 12:52:30 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:52:37 PM INFO: Connected by: ('127.0.0.1', 49222)
-01/13/2022 12:52:37 PM INFO: Player connected: giulia
-01/13/2022 12:52:38 PM INFO: Player ready: giulia
-01/13/2022 12:52:42 PM INFO: Connected by: ('127.0.0.1', 49228)
-01/13/2022 12:52:42 PM INFO: Player connected: dummy2
-01/13/2022 12:52:48 PM INFO: Player ready: dummy2
-01/13/2022 12:52:48 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:52:48 PM INFO: Ok, let's start the game!
-01/13/2022 12:52:57 PM INFO: Showing hand to: giulia
-01/13/2022 12:53:01 PM INFO: Player giulia providing hint to dummy2: cards with value 1 are in positions: [2]
-01/13/2022 12:53:18 PM INFO: Closing the server...
-01/13/2022 12:53:28 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 12:53:31 PM INFO: Connected by: ('127.0.0.1', 49255)
-01/13/2022 12:53:31 PM INFO: Player connected: giulia
-01/13/2022 12:53:32 PM INFO: Player ready: giulia
-01/13/2022 12:53:37 PM INFO: Connected by: ('127.0.0.1', 49259)
-01/13/2022 12:53:37 PM INFO: Player connected: dummy2
-01/13/2022 12:53:43 PM INFO: Player ready: dummy2
-01/13/2022 12:53:43 PM INFO: Game start! Between: ['giulia', 'dummy2']
-01/13/2022 12:53:43 PM INFO: Ok, let's start the game!
-01/13/2022 12:53:43 PM INFO: Showing hand to: dummy2
-01/13/2022 12:53:51 PM INFO: Showing hand to: giulia
-01/13/2022 12:53:57 PM INFO: Player giulia providing hint to dummy2: cards with value 2 are in positions: [2, 3, 4]
-01/13/2022 12:58:45 PM INFO: Closing the server...
-01/13/2022 01:06:33 PM INFO: Hanabi server started on 127.0.0.1:1024
-01/13/2022 01:06:42 PM INFO: Connected by: ('127.0.0.1', 59650)
-01/13/2022 01:06:42 PM INFO: Player connected: giulia
-01/13/2022 01:06:45 PM INFO: Player ready: giulia
-01/13/2022 01:06:54 PM INFO: Connected by: ('127.0.0.1', 59657)
-01/13/2022 01:06:54 PM INFO: Player connected: dummy1
-01/13/2022 01:07:00 PM INFO: Player ready: dummy1
-01/13/2022 01:07:00 PM INFO: Game start! Between: ['giulia', 'dummy1']
-01/13/2022 01:07:00 PM INFO: Ok, let's start the game!
-01/13/2022 01:07:00 PM INFO: Showing hand to: dummy1
-01/13/2022 01:07:19 PM INFO: Showing hand to: giulia
-01/13/2022 01:07:52 PM INFO: Player giulia providing hint to dummy1: cards with value 1 are in positions: [2]
-01/13/2022 01:07:52 PM INFO: Showing hand to: dummy1
-01/13/2022 01:07:55 PM INFO: Player: dummy1: card 27 discarded successfully
-01/13/2022 01:07:55 PM INFO: Showing hand to: dummy1
-01/13/2022 01:26:38 PM INFO: Closing the server...
+01/12/2022 08:49:02 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 08:49:24 PM INFO: Connected by: ('127.0.0.1', 53100)
+01/12/2022 08:49:24 PM INFO: Player connected: lise
+01/12/2022 08:49:24 PM INFO: Player ready: lise
+01/12/2022 08:49:47 PM INFO: Connected by: ('127.0.0.1', 53101)
+01/12/2022 08:49:47 PM INFO: Player connected: matt
+01/12/2022 08:49:47 PM INFO: Player ready: matt
+01/12/2022 08:49:47 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 08:49:47 PM INFO: Ok, let's start the game!
+01/12/2022 08:49:47 PM WARNING: Player disconnected: lise
+01/12/2022 08:50:07 PM INFO: Closing the server...
+01/12/2022 08:51:26 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 08:51:28 PM INFO: Connected by: ('127.0.0.1', 53109)
+01/12/2022 08:51:28 PM INFO: Player connected: lise
+01/12/2022 08:51:28 PM INFO: Player ready: lise
+01/12/2022 08:51:30 PM INFO: Connected by: ('127.0.0.1', 53110)
+01/12/2022 08:51:30 PM INFO: Player connected: matt
+01/12/2022 08:51:30 PM INFO: Player ready: matt
+01/12/2022 08:51:30 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 08:51:30 PM INFO: Ok, let's start the game!
+01/12/2022 08:51:30 PM WARNING: Player disconnected: lise
+01/12/2022 08:51:36 PM INFO: Closing the server...
+01/12/2022 08:52:17 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 08:52:18 PM INFO: Connected by: ('127.0.0.1', 53112)
+01/12/2022 08:52:18 PM INFO: Player connected: lise
+01/12/2022 08:52:18 PM INFO: Player ready: lise
+01/12/2022 08:52:20 PM INFO: Connected by: ('127.0.0.1', 53113)
+01/12/2022 08:52:20 PM INFO: Player connected: matt
+01/12/2022 08:52:20 PM INFO: Player ready: matt
+01/12/2022 08:52:20 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 08:52:20 PM INFO: Ok, let's start the game!
+01/12/2022 08:52:20 PM INFO: Showing hand to: lise
+01/12/2022 08:52:20 PM INFO: Showing hand to: matt
+01/12/2022 08:52:25 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [2]
+01/12/2022 08:52:25 PM INFO: Showing hand to: matt
+01/12/2022 08:52:30 PM INFO: matt: card played and correctly put on the table
+01/12/2022 08:52:35 PM INFO: Showing hand to: lise
+01/12/2022 08:52:40 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [4]
+01/12/2022 08:52:40 PM INFO: Showing hand to: matt
+01/12/2022 08:52:45 PM INFO: matt: card played and correctly put on the table
+01/12/2022 08:52:50 PM INFO: Showing hand to: lise
+01/12/2022 08:52:55 PM INFO: Player: lise: card 1 discarded successfully
+01/12/2022 08:52:55 PM WARNING: Player disconnected: matt
+01/12/2022 08:52:55 PM WARNING: Player disconnected: lise
+01/12/2022 08:52:55 PM INFO: Shutting down server
+01/12/2022 08:56:13 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 08:56:15 PM INFO: Connected by: ('127.0.0.1', 53118)
+01/12/2022 08:56:15 PM INFO: Player connected: lise
+01/12/2022 08:56:15 PM INFO: Player ready: lise
+01/12/2022 08:56:17 PM INFO: Connected by: ('127.0.0.1', 53119)
+01/12/2022 08:56:17 PM INFO: Player connected: matt
+01/12/2022 08:56:17 PM INFO: Player ready: matt
+01/12/2022 08:56:17 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 08:56:17 PM INFO: Ok, let's start the game!
+01/12/2022 08:56:17 PM INFO: Showing hand to: lise
+01/12/2022 08:56:17 PM INFO: Showing hand to: matt
+01/12/2022 08:56:22 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [2, 3, 4]
+01/12/2022 08:56:22 PM INFO: Showing hand to: matt
+01/12/2022 08:56:27 PM INFO: matt: card played and correctly put on the table
+01/12/2022 08:56:32 PM INFO: Showing hand to: lise
+01/12/2022 08:56:37 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [2, 3]
+01/12/2022 08:56:37 PM WARNING: Player disconnected: matt
+01/12/2022 08:56:37 PM WARNING: Player disconnected: lise
+01/12/2022 08:56:37 PM INFO: Shutting down server
+01/12/2022 08:58:32 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 08:58:34 PM INFO: Connected by: ('127.0.0.1', 53123)
+01/12/2022 08:58:34 PM INFO: Player connected: lise
+01/12/2022 08:58:34 PM INFO: Player ready: lise
+01/12/2022 08:58:36 PM INFO: Connected by: ('127.0.0.1', 53124)
+01/12/2022 08:58:36 PM INFO: Player connected: matt
+01/12/2022 08:58:36 PM INFO: Player ready: matt
+01/12/2022 08:58:36 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 08:58:36 PM INFO: Ok, let's start the game!
+01/12/2022 08:58:36 PM INFO: Showing hand to: lise
+01/12/2022 08:58:36 PM INFO: Showing hand to: matt
+01/12/2022 08:58:41 PM INFO: Showing hand to: matt
+01/12/2022 08:58:41 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [0]
+01/12/2022 08:58:46 PM INFO: Showing hand to: matt
+01/12/2022 08:58:51 PM INFO: Showing hand to: lise
+01/12/2022 08:58:51 PM INFO: matt: card played and correctly put on the table
+01/12/2022 08:58:56 PM INFO: Showing hand to: lise
+01/12/2022 08:59:01 PM INFO: Showing hand to: matt
+01/12/2022 08:59:01 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [4]
+01/12/2022 08:59:06 PM INFO: Showing hand to: matt
+01/12/2022 08:59:11 PM INFO: Showing hand to: lise
+01/12/2022 08:59:11 PM INFO: matt: card played and correctly put on the table
+01/12/2022 08:59:16 PM INFO: Showing hand to: lise
+01/12/2022 08:59:21 PM INFO: Showing hand to: matt
+01/12/2022 08:59:21 PM INFO: Player: lise: card 10 discarded successfully
+01/12/2022 08:59:26 PM INFO: Showing hand to: matt
+01/12/2022 08:59:31 PM INFO: Showing hand to: lise
+01/12/2022 08:59:31 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [1]
+01/12/2022 08:59:36 PM INFO: Showing hand to: lise
+01/12/2022 08:59:41 PM INFO: Showing hand to: matt
+01/12/2022 08:59:41 PM INFO: lise: card played and correctly put on the table
+01/12/2022 08:59:46 PM INFO: Showing hand to: matt
+01/12/2022 08:59:51 PM INFO: Showing hand to: lise
+01/12/2022 08:59:51 PM INFO: Player: matt: card 49 discarded successfully
+01/12/2022 08:59:56 PM INFO: Showing hand to: lise
+01/12/2022 09:00:01 PM INFO: Showing hand to: matt
+01/12/2022 09:00:01 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [0]
+01/12/2022 09:00:06 PM INFO: Showing hand to: matt
+01/12/2022 09:00:11 PM INFO: Showing hand to: lise
+01/12/2022 09:00:11 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:00:16 PM INFO: Showing hand to: lise
+01/12/2022 09:00:21 PM INFO: Showing hand to: matt
+01/12/2022 09:00:21 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [1]
+01/12/2022 09:00:26 PM INFO: Showing hand to: matt
+01/12/2022 09:00:31 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:00:31 PM INFO: Showing hand to: lise
+01/12/2022 09:00:36 PM INFO: Player lise providing hint to matt: cards with value 4 are in positions: [0, 3]
+01/12/2022 09:00:41 PM INFO: Showing hand to: matt
+01/12/2022 09:00:46 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:00:46 PM INFO: Showing hand to: lise
+01/12/2022 09:00:51 PM INFO: Player lise providing hint to matt: cards with color red are in positions: [0, 4]
+01/12/2022 09:00:56 PM INFO: Showing hand to: matt
+01/12/2022 09:01:01 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:01:01 PM INFO: Showing hand to: lise
+01/12/2022 09:01:06 PM INFO: Player lise providing hint to matt: cards with value 5 are in positions: [0, 1]
+01/12/2022 09:01:11 PM INFO: Showing hand to: matt
+01/12/2022 09:01:16 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:01:16 PM INFO: red pile has been filled.
+01/12/2022 09:01:16 PM INFO: Giving 1 free note token.
+01/12/2022 09:01:16 PM INFO: Showing hand to: lise
+01/12/2022 09:01:21 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [4]
+01/12/2022 09:01:26 PM INFO: Showing hand to: matt
+01/12/2022 09:01:31 PM INFO: Showing hand to: lise
+01/12/2022 09:01:31 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:01:36 PM INFO: Showing hand to: lise
+01/12/2022 09:01:41 PM INFO: Showing hand to: matt
+01/12/2022 09:01:41 PM INFO: Player: lise: card 44 discarded successfully
+01/12/2022 09:01:46 PM INFO: Showing hand to: matt
+01/12/2022 09:01:51 PM INFO: Showing hand to: lise
+01/12/2022 09:01:56 PM INFO: Showing hand to: lise
+01/12/2022 09:02:01 PM INFO: Showing hand to: matt
+01/12/2022 09:02:01 PM INFO: Player: lise: card 28 discarded successfully
+01/12/2022 09:02:06 PM INFO: Showing hand to: matt
+01/12/2022 09:02:11 PM INFO: Player matt providing hint to lise: cards with value 2 are in positions: [0, 4]
+01/12/2022 09:02:11 PM INFO: Showing hand to: lise
+01/12/2022 09:02:16 PM INFO: lise: card played and correctly put on the table
+01/12/2022 09:02:21 PM INFO: Showing hand to: matt
+01/12/2022 09:02:26 PM INFO: Showing hand to: lise
+01/12/2022 09:02:26 PM INFO: Player: matt: card 46 discarded successfully
+01/12/2022 09:02:31 PM INFO: Showing hand to: lise
+01/12/2022 09:02:36 PM INFO: Showing hand to: matt
+01/12/2022 09:02:41 PM INFO: Showing hand to: matt
+01/12/2022 09:02:46 PM INFO: Showing hand to: lise
+01/12/2022 09:02:46 PM INFO: Player: matt: card 30 discarded successfully
+01/12/2022 09:02:51 PM INFO: Showing hand to: lise
+01/12/2022 09:02:56 PM INFO: Showing hand to: matt
+01/12/2022 09:02:56 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [4]
+01/12/2022 09:03:01 PM INFO: Showing hand to: matt
+01/12/2022 09:03:06 PM INFO: Showing hand to: lise
+01/12/2022 09:03:06 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:03:11 PM INFO: Showing hand to: lise
+01/12/2022 09:03:16 PM INFO: Showing hand to: matt
+01/12/2022 09:03:16 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [4]
+01/12/2022 09:03:21 PM INFO: Showing hand to: matt
+01/12/2022 09:03:26 PM INFO: Showing hand to: lise
+01/12/2022 09:03:26 PM INFO: matt: card played and correctly put on the table
+01/12/2022 09:03:31 PM INFO: Showing hand to: lise
+01/12/2022 09:03:36 PM INFO: Showing hand to: matt
+01/12/2022 09:03:36 PM INFO: Player lise providing hint to matt: cards with value 4 are in positions: [0, 1, 4]
+01/12/2022 09:03:41 PM INFO: Showing hand to: matt
+01/12/2022 09:03:46 PM INFO: Showing hand to: lise
+01/12/2022 09:03:46 PM INFO: Game over, people.
+01/12/2022 09:03:46 PM INFO: Please, close the server now
+01/12/2022 09:03:46 PM INFO: Score: 0; message: Booooooooooooring!
+01/12/2022 09:03:46 PM INFO: Game over
+01/12/2022 09:05:32 PM INFO: Closing the server...
+01/12/2022 09:06:02 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:06:04 PM INFO: Connected by: ('127.0.0.1', 53135)
+01/12/2022 09:06:04 PM INFO: Player connected: lise
+01/12/2022 09:06:04 PM INFO: Player ready: lise
+01/12/2022 09:06:25 PM INFO: Closing the server...
+01/12/2022 09:07:01 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:07:04 PM INFO: Connected by: ('127.0.0.1', 53150)
+01/12/2022 09:07:04 PM INFO: Player connected: matt
+01/12/2022 09:07:04 PM INFO: Player ready: matt
+01/12/2022 09:07:06 PM INFO: Connected by: ('127.0.0.1', 53151)
+01/12/2022 09:07:06 PM INFO: Player connected: jeano
+01/12/2022 09:07:06 PM INFO: Player ready: jeano
+01/12/2022 09:07:08 PM INFO: Connected by: ('127.0.0.1', 53152)
+01/12/2022 09:07:08 PM INFO: Player connected: lise
+01/12/2022 09:07:08 PM INFO: Player ready: lise
+01/12/2022 09:07:08 PM INFO: Game start! Between: ['matt', 'jeano', 'lise']
+01/12/2022 09:07:08 PM INFO: Ok, let's start the game!
+01/12/2022 09:07:45 PM INFO: Closing the server...
+01/12/2022 09:08:25 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:08:30 PM INFO: Connected by: ('127.0.0.1', 53155)
+01/12/2022 09:08:30 PM INFO: Player connected: matt
+01/12/2022 09:08:30 PM INFO: Player ready: matt
+01/12/2022 09:08:32 PM INFO: Connected by: ('127.0.0.1', 53156)
+01/12/2022 09:08:32 PM INFO: Player connected: jeano
+01/12/2022 09:08:32 PM INFO: Player ready: jeano
+01/12/2022 09:08:48 PM INFO: Connected by: ('127.0.0.1', 53157)
+01/12/2022 09:08:48 PM INFO: Player connected: lise
+01/12/2022 09:08:48 PM INFO: Player ready: lise
+01/12/2022 09:08:48 PM INFO: Game start! Between: ['matt', 'jeano', 'lise']
+01/12/2022 09:08:48 PM INFO: Ok, let's start the game!
+01/12/2022 09:09:13 PM WARNING: Player disconnected: lise
+01/12/2022 09:09:13 PM INFO: Showing hand to: matt
+01/12/2022 09:09:13 PM INFO: Showing hand to: matt
+01/12/2022 09:09:13 PM INFO: Showing hand to: matt
+01/12/2022 09:09:13 PM INFO: Showing hand to: matt
+01/12/2022 09:09:13 PM INFO: Showing hand to: matt
+01/12/2022 09:09:13 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:13 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:13 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:13 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:13 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:13 PM INFO: Player matt providing hint to jeano: cards with value 1 are in positions: [3]
+01/12/2022 09:09:18 PM INFO: Showing hand to: jeano
+01/12/2022 09:09:20 PM INFO: Closing the server...
+01/12/2022 09:32:51 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:32:58 PM INFO: Connected by: ('127.0.0.1', 53192)
+01/12/2022 09:32:58 PM INFO: Player connected: matt
+01/12/2022 09:33:11 PM INFO: Connected by: ('127.0.0.1', 53193)
+01/12/2022 09:33:11 PM INFO: Player connected: lise
+01/12/2022 09:33:15 PM INFO: Closing the server...
+01/12/2022 09:38:29 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:38:33 PM INFO: Connected by: ('127.0.0.1', 53200)
+01/12/2022 09:38:33 PM INFO: Player connected: matt
+01/12/2022 09:38:35 PM INFO: Connected by: ('127.0.0.1', 53201)
+01/12/2022 09:38:35 PM INFO: Player connected: lise
+01/12/2022 09:38:48 PM INFO: Closing the server...
+01/12/2022 09:40:56 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:40:58 PM INFO: Connected by: ('127.0.0.1', 53205)
+01/12/2022 09:40:58 PM INFO: Player connected: matt
+01/12/2022 09:40:58 PM INFO: Player ready: matt
+01/12/2022 09:41:01 PM INFO: Connected by: ('127.0.0.1', 53206)
+01/12/2022 09:41:01 PM INFO: Player connected: lise
+01/12/2022 09:41:01 PM INFO: Player ready: lise
+01/12/2022 09:41:01 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:41:01 PM INFO: Ok, let's start the game!
+01/12/2022 09:41:01 PM WARNING: Player disconnected: lise
+01/12/2022 09:41:01 PM INFO: Showing hand to: matt
+01/12/2022 09:41:10 PM INFO: Closing the server...
+01/12/2022 09:41:50 PM INFO: Closing the server...
+01/12/2022 09:42:37 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:42:40 PM INFO: Connected by: ('127.0.0.1', 53213)
+01/12/2022 09:42:40 PM INFO: Player connected: matt
+01/12/2022 09:42:40 PM INFO: Player ready: matt
+01/12/2022 09:42:42 PM INFO: Connected by: ('127.0.0.1', 53214)
+01/12/2022 09:42:42 PM INFO: Player connected: lise
+01/12/2022 09:42:42 PM INFO: Player ready: lise
+01/12/2022 09:42:42 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:42:42 PM INFO: Ok, let's start the game!
+01/12/2022 09:42:42 PM INFO: Showing hand to: matt
+01/12/2022 09:42:42 PM INFO: Showing hand to: lise
+01/12/2022 09:42:47 PM INFO: Showing hand to: lise
+01/12/2022 09:42:52 PM INFO: Showing hand to: lise
+01/12/2022 09:42:57 PM INFO: Showing hand to: lise
+01/12/2022 09:43:02 PM INFO: Showing hand to: lise
+01/12/2022 09:43:04 PM INFO: Closing the server...
+01/12/2022 09:44:44 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:44:46 PM INFO: Connected by: ('127.0.0.1', 53219)
+01/12/2022 09:44:46 PM INFO: Player connected: matt
+01/12/2022 09:44:46 PM INFO: Player ready: matt
+01/12/2022 09:44:48 PM INFO: Connected by: ('127.0.0.1', 53220)
+01/12/2022 09:44:48 PM INFO: Player connected: lise
+01/12/2022 09:44:48 PM INFO: Player ready: lise
+01/12/2022 09:44:48 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:44:48 PM INFO: Ok, let's start the game!
+01/12/2022 09:44:48 PM INFO: Showing hand to: matt
+01/12/2022 09:44:48 PM INFO: Showing hand to: lise
+01/12/2022 09:44:53 PM INFO: Showing hand to: lise
+01/12/2022 09:44:57 PM INFO: Closing the server...
+01/12/2022 09:47:56 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:47:59 PM INFO: Connected by: ('127.0.0.1', 53226)
+01/12/2022 09:47:59 PM INFO: Player connected: matt
+01/12/2022 09:47:59 PM INFO: Player ready: matt
+01/12/2022 09:48:01 PM INFO: Connected by: ('127.0.0.1', 53227)
+01/12/2022 09:48:01 PM INFO: Player connected: lise
+01/12/2022 09:48:01 PM INFO: Player ready: lise
+01/12/2022 09:48:01 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:48:01 PM INFO: Ok, let's start the game!
+01/12/2022 09:48:01 PM INFO: Showing hand to: matt
+01/12/2022 09:48:01 PM INFO: Showing hand to: lise
+01/12/2022 09:48:06 PM INFO: Showing hand to: lise
+01/12/2022 09:48:11 PM INFO: Closing the server...
+01/12/2022 09:50:27 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:50:29 PM INFO: Connected by: ('127.0.0.1', 53232)
+01/12/2022 09:50:29 PM INFO: Player connected: matt
+01/12/2022 09:50:29 PM INFO: Player ready: matt
+01/12/2022 09:50:31 PM INFO: Connected by: ('127.0.0.1', 53233)
+01/12/2022 09:50:31 PM INFO: Player connected: lise
+01/12/2022 09:50:31 PM INFO: Player ready: lise
+01/12/2022 09:50:31 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:50:31 PM INFO: Ok, let's start the game!
+01/12/2022 09:50:31 PM INFO: Showing hand to: matt
+01/12/2022 09:50:36 PM INFO: Showing hand to: lise
+01/12/2022 09:50:41 PM INFO: Showing hand to: lise
+01/12/2022 09:50:46 PM INFO: Closing the server...
+01/12/2022 09:52:00 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:52:02 PM INFO: Connected by: ('127.0.0.1', 53235)
+01/12/2022 09:52:02 PM INFO: Player connected: matt
+01/12/2022 09:52:02 PM INFO: Player ready: matt
+01/12/2022 09:52:04 PM INFO: Connected by: ('127.0.0.1', 53236)
+01/12/2022 09:52:04 PM INFO: Player connected: lise
+01/12/2022 09:52:04 PM INFO: Player ready: lise
+01/12/2022 09:52:04 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:52:04 PM INFO: Ok, let's start the game!
+01/12/2022 09:52:04 PM INFO: Showing hand to: matt
+01/12/2022 09:52:04 PM INFO: Showing hand to: lise
+01/12/2022 09:52:09 PM INFO: Showing hand to: lise
+01/12/2022 09:52:14 PM INFO: Showing hand to: lise
+01/12/2022 09:52:18 PM INFO: Closing the server...
+01/12/2022 09:54:56 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:54:58 PM INFO: Connected by: ('127.0.0.1', 53242)
+01/12/2022 09:54:58 PM INFO: Player connected: matt
+01/12/2022 09:54:58 PM INFO: Player ready: matt
+01/12/2022 09:55:00 PM INFO: Connected by: ('127.0.0.1', 53243)
+01/12/2022 09:55:00 PM INFO: Player connected: lise
+01/12/2022 09:55:00 PM INFO: Player ready: lise
+01/12/2022 09:55:00 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:55:00 PM INFO: Ok, let's start the game!
+01/12/2022 09:55:00 PM INFO: Showing hand to: matt
+01/12/2022 09:55:00 PM INFO: Showing hand to: lise
+01/12/2022 09:55:05 PM INFO: Showing hand to: lise
+01/12/2022 09:55:10 PM INFO: Showing hand to: lise
+01/12/2022 09:55:15 PM INFO: Showing hand to: lise
+01/12/2022 09:55:20 PM INFO: Showing hand to: lise
+01/12/2022 09:55:22 PM INFO: Closing the server...
+01/12/2022 09:56:16 PM INFO: Closing the server...
+01/12/2022 09:56:48 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 09:56:50 PM INFO: Connected by: ('127.0.0.1', 53246)
+01/12/2022 09:56:50 PM INFO: Player connected: matt
+01/12/2022 09:56:50 PM INFO: Player ready: matt
+01/12/2022 09:56:53 PM INFO: Connected by: ('127.0.0.1', 53247)
+01/12/2022 09:56:53 PM INFO: Player connected: lise
+01/12/2022 09:56:53 PM INFO: Player ready: lise
+01/12/2022 09:56:53 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 09:56:53 PM INFO: Ok, let's start the game!
+01/12/2022 09:56:53 PM INFO: Showing hand to: lise
+01/12/2022 09:56:58 PM INFO: Showing hand to: matt
+01/12/2022 09:56:58 PM INFO: Showing hand to: lise
+01/12/2022 09:57:03 PM INFO: Showing hand to: lise
+01/12/2022 09:57:08 PM INFO: Showing hand to: lise
+01/12/2022 09:57:12 PM INFO: Closing the server...
+01/12/2022 10:03:25 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:03:44 PM INFO: Connected by: ('127.0.0.1', 53263)
+01/12/2022 10:03:44 PM INFO: Player connected: lise
+01/12/2022 10:03:56 PM INFO: Connected by: ('127.0.0.1', 53264)
+01/12/2022 10:03:56 PM INFO: Player connected: matt
+01/12/2022 10:03:58 PM INFO: Player ready: matt
+01/12/2022 10:04:04 PM INFO: Player ready: lise
+01/12/2022 10:04:04 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 10:04:04 PM INFO: Ok, let's start the game!
+01/12/2022 10:04:07 PM INFO: Showing hand to: lise
+01/12/2022 10:04:27 PM INFO: Closing the server...
+01/12/2022 10:11:53 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:11:58 PM INFO: Connected by: ('127.0.0.1', 53277)
+01/12/2022 10:11:58 PM INFO: Player connected: matt
+01/12/2022 10:11:58 PM INFO: Player ready: matt
+01/12/2022 10:12:02 PM INFO: Connected by: ('127.0.0.1', 53278)
+01/12/2022 10:12:02 PM INFO: Player connected: lise
+01/12/2022 10:12:02 PM INFO: Player ready: lise
+01/12/2022 10:12:02 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:12:02 PM INFO: Ok, let's start the game!
+01/12/2022 10:12:09 PM INFO: Closing the server...
+01/12/2022 10:13:19 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:13:21 PM INFO: Connected by: ('127.0.0.1', 53282)
+01/12/2022 10:13:21 PM INFO: Player connected: matt
+01/12/2022 10:13:21 PM INFO: Player ready: matt
+01/12/2022 10:13:23 PM INFO: Connected by: ('127.0.0.1', 53283)
+01/12/2022 10:13:23 PM INFO: Player connected: lise
+01/12/2022 10:13:23 PM INFO: Player ready: lise
+01/12/2022 10:13:23 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:13:23 PM INFO: Ok, let's start the game!
+01/12/2022 10:13:28 PM INFO: Showing hand to: matt
+01/12/2022 10:13:28 PM INFO: Showing hand to: lise
+01/12/2022 10:13:33 PM INFO: Showing hand to: lise
+01/12/2022 10:13:33 PM INFO: Player matt providing hint to lise: cards with value 4 are in positions: [0, 1, 2]
+01/12/2022 10:13:38 PM INFO: Showing hand to: lise
+01/12/2022 10:13:43 PM INFO: Showing hand to: matt
+01/12/2022 10:13:48 PM INFO: Showing hand to: matt
+01/12/2022 10:13:53 PM INFO: Showing hand to: matt
+01/12/2022 10:13:58 PM INFO: Showing hand to: matt
+01/12/2022 10:14:03 PM INFO: Closing the server...
+01/12/2022 10:17:00 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:17:02 PM INFO: Connected by: ('127.0.0.1', 53287)
+01/12/2022 10:17:02 PM INFO: Player connected: matt
+01/12/2022 10:17:02 PM INFO: Player ready: matt
+01/12/2022 10:17:04 PM INFO: Connected by: ('127.0.0.1', 53288)
+01/12/2022 10:17:04 PM INFO: Player connected: lise
+01/12/2022 10:17:04 PM INFO: Player ready: lise
+01/12/2022 10:17:04 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:17:04 PM INFO: Ok, let's start the game!
+01/12/2022 10:17:08 PM INFO: Closing the server...
+01/12/2022 10:18:00 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:18:02 PM INFO: Connected by: ('127.0.0.1', 53290)
+01/12/2022 10:18:02 PM INFO: Player connected: matt
+01/12/2022 10:18:02 PM INFO: Player ready: matt
+01/12/2022 10:18:04 PM INFO: Connected by: ('127.0.0.1', 53291)
+01/12/2022 10:18:04 PM INFO: Player connected: lise
+01/12/2022 10:18:04 PM INFO: Player ready: lise
+01/12/2022 10:18:04 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:18:04 PM INFO: Ok, let's start the game!
+01/12/2022 10:18:04 PM INFO: Showing hand to: matt
+01/12/2022 10:18:04 PM INFO: Showing hand to: lise
+01/12/2022 10:18:09 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [0]
+01/12/2022 10:18:09 PM INFO: Showing hand to: lise
+01/12/2022 10:18:19 PM INFO: Showing hand to: matt
+01/12/2022 10:18:24 PM INFO: Showing hand to: matt
+01/12/2022 10:18:29 PM INFO: Showing hand to: matt
+01/12/2022 10:18:34 PM INFO: Showing hand to: matt
+01/12/2022 10:18:39 PM INFO: Showing hand to: matt
+01/12/2022 10:18:44 PM INFO: Showing hand to: matt
+01/12/2022 10:18:49 PM INFO: Showing hand to: matt
+01/12/2022 10:18:54 PM INFO: Showing hand to: matt
+01/12/2022 10:18:59 PM INFO: Showing hand to: matt
+01/12/2022 10:19:04 PM INFO: Showing hand to: matt
+01/12/2022 10:19:09 PM INFO: Showing hand to: matt
+01/12/2022 10:19:14 PM INFO: Showing hand to: matt
+01/12/2022 10:19:17 PM INFO: Closing the server...
+01/12/2022 10:22:16 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:22:18 PM INFO: Connected by: ('127.0.0.1', 53299)
+01/12/2022 10:22:18 PM INFO: Player connected: matt
+01/12/2022 10:22:18 PM INFO: Player ready: matt
+01/12/2022 10:22:20 PM INFO: Connected by: ('127.0.0.1', 53300)
+01/12/2022 10:22:20 PM INFO: Player connected: lise
+01/12/2022 10:22:20 PM INFO: Player ready: lise
+01/12/2022 10:22:20 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:22:20 PM INFO: Ok, let's start the game!
+01/12/2022 10:22:25 PM INFO: Showing hand to: lise
+01/12/2022 10:22:25 PM INFO: Showing hand to: matt
+01/12/2022 10:22:30 PM INFO: Showing hand to: lise
+01/12/2022 10:22:30 PM INFO: Player matt providing hint to lise: cards with value 4 are in positions: [0, 2]
+01/12/2022 10:22:35 PM INFO: Showing hand to: lise
+01/12/2022 10:22:40 PM INFO: Showing hand to: matt
+01/12/2022 10:22:45 PM INFO: Showing hand to: matt
+01/12/2022 10:22:50 PM INFO: Showing hand to: matt
+01/12/2022 10:22:55 PM INFO: Showing hand to: matt
+01/12/2022 10:23:00 PM INFO: Showing hand to: matt
+01/12/2022 10:23:05 PM INFO: Showing hand to: matt
+01/12/2022 10:23:07 PM INFO: Closing the server...
+01/12/2022 10:23:44 PM INFO: Closing the server...
+01/12/2022 10:23:47 PM INFO: Closing the server...
+01/12/2022 10:24:29 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:24:32 PM INFO: Connected by: ('127.0.0.1', 53304)
+01/12/2022 10:24:32 PM INFO: Player connected: matt
+01/12/2022 10:24:32 PM INFO: Player ready: matt
+01/12/2022 10:24:34 PM INFO: Connected by: ('127.0.0.1', 53305)
+01/12/2022 10:24:34 PM INFO: Player connected: lise
+01/12/2022 10:24:34 PM INFO: Player ready: lise
+01/12/2022 10:24:34 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:24:34 PM INFO: Ok, let's start the game!
+01/12/2022 10:24:34 PM INFO: Showing hand to: matt
+01/12/2022 10:24:39 PM INFO: Player matt providing hint to lise: cards with value 5 are in positions: [0, 3]
+01/12/2022 10:24:39 PM INFO: Showing hand to: lise
+01/12/2022 10:24:49 PM INFO: Showing hand to: matt
+01/12/2022 10:24:50 PM INFO: Closing the server...
+01/12/2022 10:26:50 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:26:52 PM INFO: Connected by: ('127.0.0.1', 53308)
+01/12/2022 10:26:52 PM INFO: Player connected: matt
+01/12/2022 10:26:52 PM INFO: Player ready: matt
+01/12/2022 10:26:55 PM INFO: Connected by: ('127.0.0.1', 53309)
+01/12/2022 10:26:55 PM INFO: Player connected: lise
+01/12/2022 10:26:55 PM INFO: Player ready: lise
+01/12/2022 10:26:55 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:26:55 PM INFO: Ok, let's start the game!
+01/12/2022 10:26:55 PM INFO: Showing hand to: lise
+01/12/2022 10:27:00 PM INFO: Showing hand to: matt
+01/12/2022 10:27:00 PM INFO: Showing hand to: lise
+01/12/2022 10:27:05 PM INFO: Player matt providing hint to lise: cards with value 3 are in positions: [0]
+01/12/2022 10:27:05 PM INFO: Showing hand to: lise
+01/12/2022 10:27:15 PM INFO: Showing hand to: matt
+01/12/2022 10:27:18 PM INFO: Closing the server...
+01/12/2022 10:31:27 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:31:29 PM INFO: Connected by: ('127.0.0.1', 53315)
+01/12/2022 10:31:29 PM INFO: Player connected: matt
+01/12/2022 10:31:29 PM INFO: Player ready: matt
+01/12/2022 10:31:31 PM INFO: Connected by: ('127.0.0.1', 53316)
+01/12/2022 10:31:31 PM INFO: Player connected: lise
+01/12/2022 10:31:31 PM INFO: Player ready: lise
+01/12/2022 10:31:31 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:31:31 PM INFO: Ok, let's start the game!
+01/12/2022 10:31:31 PM INFO: Showing hand to: matt
+01/12/2022 10:31:31 PM INFO: Showing hand to: lise
+01/12/2022 10:31:36 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [0, 1]
+01/12/2022 10:31:36 PM INFO: Showing hand to: lise
+01/12/2022 10:31:46 PM INFO: Showing hand to: matt
+01/12/2022 10:31:51 PM INFO: Showing hand to: matt
+01/12/2022 10:31:56 PM INFO: Showing hand to: matt
+01/12/2022 10:32:01 PM INFO: Showing hand to: matt
+01/12/2022 10:32:06 PM INFO: Showing hand to: matt
+01/12/2022 10:32:11 PM INFO: Closing the server...
+01/12/2022 10:35:26 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:35:28 PM INFO: Connected by: ('127.0.0.1', 53322)
+01/12/2022 10:35:28 PM INFO: Player connected: matt
+01/12/2022 10:35:28 PM INFO: Player ready: matt
+01/12/2022 10:35:30 PM INFO: Connected by: ('127.0.0.1', 53323)
+01/12/2022 10:35:30 PM INFO: Player connected: lise
+01/12/2022 10:35:30 PM INFO: Player ready: lise
+01/12/2022 10:35:30 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:35:30 PM INFO: Ok, let's start the game!
+01/12/2022 10:35:30 PM INFO: Showing hand to: matt
+01/12/2022 10:35:30 PM INFO: Showing hand to: lise
+01/12/2022 10:35:35 PM INFO: Player matt providing hint to lise: cards with value 4 are in positions: [0, 2, 4]
+01/12/2022 10:35:35 PM INFO: Showing hand to: lise
+01/12/2022 10:35:44 PM INFO: Closing the server...
+01/12/2022 10:37:09 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:37:11 PM INFO: Connected by: ('127.0.0.1', 53325)
+01/12/2022 10:37:11 PM INFO: Player connected: matt
+01/12/2022 10:37:11 PM INFO: Player ready: matt
+01/12/2022 10:37:12 PM INFO: Connected by: ('127.0.0.1', 53326)
+01/12/2022 10:37:12 PM INFO: Player connected: lise
+01/12/2022 10:37:12 PM INFO: Player ready: lise
+01/12/2022 10:37:12 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:37:12 PM INFO: Ok, let's start the game!
+01/12/2022 10:37:12 PM INFO: Showing hand to: matt
+01/12/2022 10:37:12 PM INFO: Showing hand to: lise
+01/12/2022 10:37:17 PM INFO: Showing hand to: lise
+01/12/2022 10:37:22 PM INFO: Showing hand to: lise
+01/12/2022 10:37:27 PM INFO: Showing hand to: lise
+01/12/2022 10:37:32 PM INFO: Showing hand to: lise
+01/12/2022 10:37:37 PM INFO: Showing hand to: lise
+01/12/2022 10:37:38 PM INFO: Closing the server...
+01/12/2022 10:41:51 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:41:53 PM INFO: Connected by: ('127.0.0.1', 53333)
+01/12/2022 10:41:53 PM INFO: Player connected: matt
+01/12/2022 10:41:53 PM INFO: Player ready: matt
+01/12/2022 10:41:55 PM INFO: Connected by: ('127.0.0.1', 53334)
+01/12/2022 10:41:55 PM INFO: Player connected: lise
+01/12/2022 10:41:55 PM INFO: Player ready: lise
+01/12/2022 10:41:55 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:41:55 PM INFO: Ok, let's start the game!
+01/12/2022 10:41:55 PM INFO: Showing hand to: matt
+01/12/2022 10:41:55 PM INFO: Showing hand to: lise
+01/12/2022 10:42:00 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [0, 1, 2, 3]
+01/12/2022 10:42:00 PM INFO: Showing hand to: lise
+01/12/2022 10:42:10 PM INFO: Showing hand to: matt
+01/12/2022 10:42:15 PM INFO: Showing hand to: matt
+01/12/2022 10:42:20 PM INFO: Showing hand to: matt
+01/12/2022 10:42:24 PM INFO: Closing the server...
+01/12/2022 10:46:08 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:46:10 PM INFO: Connected by: ('127.0.0.1', 53343)
+01/12/2022 10:46:10 PM INFO: Player connected: matt
+01/12/2022 10:46:10 PM INFO: Player ready: matt
+01/12/2022 10:46:12 PM INFO: Connected by: ('127.0.0.1', 53344)
+01/12/2022 10:46:12 PM INFO: Player connected: lise
+01/12/2022 10:46:12 PM INFO: Player ready: lise
+01/12/2022 10:46:12 PM INFO: Game start! Between: ['matt', 'lise']
+01/12/2022 10:46:12 PM INFO: Ok, let's start the game!
+01/12/2022 10:46:12 PM INFO: Showing hand to: matt
+01/12/2022 10:46:17 PM INFO: Showing hand to: lise
+01/12/2022 10:46:17 PM INFO: Player matt providing hint to lise: cards with value 3 are in positions: [0]
+01/12/2022 10:46:22 PM INFO: Showing hand to: lise
+01/12/2022 10:46:27 PM INFO: Showing hand to: matt
+01/12/2022 10:46:27 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [0]
+01/12/2022 10:46:32 PM INFO: Showing hand to: matt
+01/12/2022 10:46:37 PM INFO: Showing hand to: lise
+01/12/2022 10:46:42 PM INFO: Showing hand to: lise
+01/12/2022 10:46:46 PM INFO: Closing the server...
+01/12/2022 10:52:12 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:52:20 PM INFO: Connected by: ('127.0.0.1', 53353)
+01/12/2022 10:52:20 PM INFO: Player connected: lise
+01/12/2022 10:52:20 PM INFO: Player ready: lise
+01/12/2022 10:52:28 PM INFO: Connected by: ('127.0.0.1', 53354)
+01/12/2022 10:52:28 PM INFO: Player connected: matt
+01/12/2022 10:52:28 PM INFO: Player ready: matt
+01/12/2022 10:52:28 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 10:52:28 PM INFO: Ok, let's start the game!
+01/12/2022 10:52:28 PM INFO: Showing hand to: lise
+01/12/2022 10:52:28 PM INFO: Showing hand to: matt
+01/12/2022 10:52:33 PM INFO: Showing hand to: matt
+01/12/2022 10:52:38 PM INFO: Showing hand to: matt
+01/12/2022 10:52:40 PM INFO: Closing the server...
+01/12/2022 10:53:09 PM INFO: Closing the server...
+01/12/2022 10:55:13 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:55:14 PM INFO: Connected by: ('127.0.0.1', 53359)
+01/12/2022 10:55:14 PM INFO: Player connected: lise
+01/12/2022 10:55:14 PM INFO: Player ready: lise
+01/12/2022 10:55:16 PM INFO: Connected by: ('127.0.0.1', 53360)
+01/12/2022 10:55:16 PM INFO: Player connected: matt
+01/12/2022 10:55:16 PM INFO: Player ready: matt
+01/12/2022 10:55:16 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 10:55:16 PM INFO: Ok, let's start the game!
+01/12/2022 10:55:22 PM INFO: Closing the server...
+01/12/2022 10:56:21 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:56:22 PM INFO: Connected by: ('127.0.0.1', 53362)
+01/12/2022 10:56:22 PM INFO: Player connected: lise
+01/12/2022 10:56:22 PM INFO: Player ready: lise
+01/12/2022 10:56:25 PM INFO: Connected by: ('127.0.0.1', 53363)
+01/12/2022 10:56:25 PM INFO: Player connected: matt
+01/12/2022 10:56:25 PM INFO: Player ready: matt
+01/12/2022 10:56:25 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 10:56:25 PM INFO: Ok, let's start the game!
+01/12/2022 10:56:31 PM WARNING: Player disconnected: matt
+01/12/2022 10:56:34 PM INFO: Closing the server...
+01/12/2022 10:57:50 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/12/2022 10:57:52 PM INFO: Connected by: ('127.0.0.1', 53365)
+01/12/2022 10:57:52 PM INFO: Player connected: lise
+01/12/2022 10:57:52 PM INFO: Player ready: lise
+01/12/2022 10:57:54 PM INFO: Connected by: ('127.0.0.1', 53366)
+01/12/2022 10:57:54 PM INFO: Player connected: matt
+01/12/2022 10:57:54 PM INFO: Player ready: matt
+01/12/2022 10:57:54 PM INFO: Game start! Between: ['lise', 'matt']
+01/12/2022 10:57:54 PM INFO: Ok, let's start the game!
+01/12/2022 10:57:54 PM INFO: Showing hand to: lise
+01/12/2022 10:57:59 PM INFO: Showing hand to: matt
+01/12/2022 10:57:59 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [0, 3]
+01/12/2022 10:58:04 PM INFO: Showing hand to: matt
+01/12/2022 10:58:09 PM INFO: Showing hand to: lise
+01/12/2022 10:58:09 PM INFO: matt: card played and correctly put on the table
+01/12/2022 10:58:14 PM INFO: Showing hand to: lise
+01/12/2022 10:58:19 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [2]
+01/12/2022 10:58:19 PM INFO: Showing hand to: matt
+01/12/2022 10:58:29 PM INFO: Showing hand to: lise
+01/12/2022 10:58:34 PM INFO: Showing hand to: matt
+01/12/2022 10:58:34 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [2]
+01/12/2022 10:58:39 PM INFO: Showing hand to: matt
+01/12/2022 10:58:44 PM INFO: Showing hand to: lise
+01/12/2022 10:58:44 PM INFO: matt: card played and correctly put on the table
+01/12/2022 10:58:49 PM INFO: Showing hand to: lise
+01/12/2022 10:58:54 PM INFO: Showing hand to: matt
+01/12/2022 10:58:54 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [1]
+01/12/2022 10:58:59 PM INFO: Showing hand to: matt
+01/12/2022 10:59:04 PM INFO: Showing hand to: lise
+01/12/2022 10:59:04 PM INFO: matt: card played and correctly put on the table
+01/12/2022 10:59:09 PM INFO: Showing hand to: lise
+01/12/2022 10:59:14 PM INFO: Showing hand to: matt
+01/12/2022 10:59:14 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [0, 1]
+01/12/2022 10:59:19 PM INFO: Showing hand to: matt
+01/12/2022 10:59:24 PM INFO: Showing hand to: lise
+01/12/2022 10:59:29 PM INFO: Showing hand to: lise
+01/12/2022 10:59:34 PM INFO: Showing hand to: matt
+01/12/2022 10:59:34 PM INFO: Player lise providing hint to matt: cards with color red are in positions: [0]
+01/12/2022 10:59:39 PM INFO: Showing hand to: matt
+01/12/2022 10:59:44 PM INFO: Showing hand to: lise
+01/12/2022 10:59:44 PM INFO: Game over, people.
+01/12/2022 10:59:44 PM INFO: Please, close the server now
+01/12/2022 10:59:44 PM INFO: Score: 0; message: Booooooooooooring!
+01/12/2022 10:59:44 PM INFO: Game over
