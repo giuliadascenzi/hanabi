@@ -4,7 +4,7 @@ from game import Player, Card
 import GameData
 from collections import Counter
 import copy
-from .hints_manager import BaseHintsManager, CardHintsManager, PlayabilityHintsManager
+from .hints_manager import BaseHintsManager, CardHintsManager
 import logging
 
 redf = open('possibilities.txt', 'w')
@@ -163,13 +163,14 @@ class RbAgent(BaseAgent):
         """
         To be called once before the beginning.
         """
-
+        print("Initializing agent: ", self.name)
+        self.turn = 0
         self.NUM_NUMBERS = 5
         self.NUM_COLORS = 5
         self.COLORS = ["red", "yellow", "green", "white", "blue"]
 
         self.num_players = num_players
-        self.players_names = players_names
+        self.players_names = players_names 
         self.k = k  # number of cards per hand
         self.usedNoteTokens = 0
         self.usedStormTokens= 0
@@ -312,6 +313,7 @@ class RbAgent(BaseAgent):
             hints_manager = self.hints_scheduler.select_hints_manager()
             hints_manager.receive_hint(data)
         
+        self.turn = self.turn+1
         # update possibilities with visible cards
         #self.update_possibilities()
         
@@ -438,7 +440,6 @@ class RbAgent(BaseAgent):
         '''
         # try to give hint, using the right hints manager
         hints_manager = self.hints_scheduler.select_hints_manager()
-        assert hints_manager.is_usable(self.id)
         destination_name, value, type = hints_manager.get_hint()
 
 
@@ -532,6 +533,13 @@ class RbAgent(BaseAgent):
         copies_in_discard_pile = discard_pile[(color, value)]
         
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
+
+    def card_matches(self, card1, card2):
+        if (card1[0]!=None and card1[0] != card2[0]):
+            return False
+        if (card1[1]!=None and card1[1] != card2[1]):
+            return False
+        else: return True
 
     def reset_knowledge(self, playername, card_pos, new_card = True):
         # Remove the card played/discarded
