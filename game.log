@@ -2292,3 +2292,498 @@
 01/12/2022 10:59:44 PM INFO: Please, close the server now
 01/12/2022 10:59:44 PM INFO: Score: 0; message: Booooooooooooring!
 01/12/2022 10:59:44 PM INFO: Game over
+01/13/2022 09:12:57 PM INFO: Closing the server...
+01/13/2022 09:21:10 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:21:14 PM INFO: Connected by: ('127.0.0.1', 54192)
+01/13/2022 09:21:14 PM INFO: Player connected: lise
+01/13/2022 09:21:14 PM INFO: Player ready: lise
+01/13/2022 09:21:31 PM INFO: Closing the server...
+01/13/2022 09:24:22 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:24:25 PM INFO: Connected by: ('127.0.0.1', 54193)
+01/13/2022 09:24:25 PM INFO: Player connected: matt
+01/13/2022 09:24:25 PM INFO: Player ready: matt
+01/13/2022 09:24:28 PM INFO: Connected by: ('127.0.0.1', 54194)
+01/13/2022 09:24:28 PM INFO: Player connected: lise
+01/13/2022 09:24:28 PM INFO: Player ready: lise
+01/13/2022 09:24:28 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:24:28 PM INFO: Ok, let's start the game!
+01/13/2022 09:24:28 PM INFO: Showing hand to: matt
+01/13/2022 09:24:28 PM INFO: Showing hand to: lise
+01/13/2022 09:24:33 PM INFO: Showing hand to: lise
+01/13/2022 09:24:38 PM INFO: Showing hand to: lise
+01/13/2022 09:24:39 PM INFO: Closing the server...
+01/13/2022 09:25:37 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:25:39 PM INFO: Connected by: ('127.0.0.1', 54195)
+01/13/2022 09:25:39 PM INFO: Player connected: matt
+01/13/2022 09:25:39 PM INFO: Player ready: matt
+01/13/2022 09:25:41 PM INFO: Connected by: ('127.0.0.1', 54196)
+01/13/2022 09:25:41 PM INFO: Player connected: lise
+01/13/2022 09:25:41 PM INFO: Player ready: lise
+01/13/2022 09:25:41 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:25:41 PM INFO: Ok, let's start the game!
+01/13/2022 09:25:42 PM INFO: Showing hand to: matt
+01/13/2022 09:25:42 PM INFO: Showing hand to: lise
+01/13/2022 09:25:47 PM INFO: Showing hand to: lise
+01/13/2022 09:25:52 PM INFO: Showing hand to: lise
+01/13/2022 09:25:57 PM INFO: Showing hand to: lise
+01/13/2022 09:26:00 PM INFO: Closing the server...
+01/13/2022 09:27:34 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:27:35 PM INFO: Connected by: ('127.0.0.1', 54197)
+01/13/2022 09:27:35 PM INFO: Player connected: matt
+01/13/2022 09:27:35 PM INFO: Player ready: matt
+01/13/2022 09:27:37 PM INFO: Connected by: ('127.0.0.1', 54198)
+01/13/2022 09:27:37 PM INFO: Player connected: lise
+01/13/2022 09:27:37 PM INFO: Player ready: lise
+01/13/2022 09:27:37 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:27:37 PM INFO: Ok, let's start the game!
+01/13/2022 09:27:37 PM INFO: Showing hand to: matt
+01/13/2022 09:27:42 PM INFO: Showing hand to: lise
+01/13/2022 09:27:45 PM WARNING: Player disconnected: matt
+01/13/2022 09:27:47 PM INFO: Showing hand to: lise
+01/13/2022 09:31:10 PM INFO: Closing the server...
+01/13/2022 09:33:05 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:33:07 PM INFO: Connected by: ('127.0.0.1', 54202)
+01/13/2022 09:33:07 PM INFO: Player connected: matt
+01/13/2022 09:33:07 PM INFO: Player ready: matt
+01/13/2022 09:33:09 PM INFO: Connected by: ('127.0.0.1', 54203)
+01/13/2022 09:33:09 PM INFO: Player connected: lise
+01/13/2022 09:33:09 PM INFO: Player ready: lise
+01/13/2022 09:33:09 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:33:09 PM INFO: Ok, let's start the game!
+01/13/2022 09:33:09 PM INFO: Showing hand to: matt
+01/13/2022 09:33:09 PM INFO: Showing hand to: lise
+01/13/2022 09:33:14 PM INFO: Showing hand to: lise
+01/13/2022 09:33:19 PM INFO: Closing the server...
+01/13/2022 09:39:54 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:39:56 PM INFO: Connected by: ('127.0.0.1', 54207)
+01/13/2022 09:39:56 PM INFO: Player connected: matt
+01/13/2022 09:39:56 PM INFO: Player ready: matt
+01/13/2022 09:39:58 PM INFO: Connected by: ('127.0.0.1', 54208)
+01/13/2022 09:39:58 PM INFO: Player connected: lise
+01/13/2022 09:39:58 PM INFO: Player ready: lise
+01/13/2022 09:39:58 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:39:58 PM INFO: Ok, let's start the game!
+01/13/2022 09:39:58 PM INFO: Showing hand to: matt
+01/13/2022 09:39:58 PM INFO: Showing hand to: lise
+01/13/2022 09:40:03 PM INFO: Showing hand to: lise
+01/13/2022 09:40:08 PM INFO: Showing hand to: lise
+01/13/2022 09:40:09 PM INFO: Closing the server...
+01/13/2022 09:42:21 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:42:23 PM INFO: Connected by: ('127.0.0.1', 54209)
+01/13/2022 09:42:23 PM INFO: Player connected: matt
+01/13/2022 09:42:23 PM INFO: Player ready: matt
+01/13/2022 09:42:25 PM INFO: Connected by: ('127.0.0.1', 54210)
+01/13/2022 09:42:25 PM INFO: Player connected: lise
+01/13/2022 09:42:25 PM INFO: Player ready: lise
+01/13/2022 09:42:25 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:42:25 PM INFO: Ok, let's start the game!
+01/13/2022 09:42:25 PM INFO: Showing hand to: matt
+01/13/2022 09:42:25 PM INFO: Showing hand to: lise
+01/13/2022 09:42:30 PM INFO: Showing hand to: lise
+01/13/2022 09:42:35 PM INFO: Showing hand to: lise
+01/13/2022 09:42:36 PM INFO: Closing the server...
+01/13/2022 09:43:31 PM INFO: Closing the server...
+01/13/2022 09:44:26 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:44:28 PM INFO: Connected by: ('127.0.0.1', 54211)
+01/13/2022 09:44:28 PM INFO: Player connected: matt
+01/13/2022 09:44:28 PM INFO: Player ready: matt
+01/13/2022 09:44:48 PM INFO: Closing the server...
+01/13/2022 09:48:02 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:48:04 PM INFO: Connected by: ('127.0.0.1', 54212)
+01/13/2022 09:48:04 PM INFO: Player connected: matt
+01/13/2022 09:48:04 PM INFO: Player ready: matt
+01/13/2022 09:48:06 PM INFO: Connected by: ('127.0.0.1', 54213)
+01/13/2022 09:48:06 PM INFO: Player connected: lise
+01/13/2022 09:48:06 PM INFO: Player ready: lise
+01/13/2022 09:48:06 PM INFO: Game start! Between: ['matt', 'lise']
+01/13/2022 09:48:06 PM INFO: Ok, let's start the game!
+01/13/2022 09:48:06 PM INFO: Showing hand to: matt
+01/13/2022 09:48:06 PM INFO: Showing hand to: lise
+01/13/2022 09:48:11 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [0]
+01/13/2022 09:48:11 PM INFO: Showing hand to: lise
+01/13/2022 09:48:16 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [0, 2]
+01/13/2022 09:48:21 PM INFO: Showing hand to: matt
+01/13/2022 09:48:26 PM INFO: Player: matt: card 9 discarded successfully
+01/13/2022 09:48:26 PM INFO: Showing hand to: lise
+01/13/2022 09:48:31 PM INFO: Player lise providing hint to matt: cards with color yellow are in positions: [1]
+01/13/2022 09:48:36 PM INFO: Showing hand to: matt
+01/13/2022 09:48:41 PM INFO: matt: card played and correctly put on the table
+01/13/2022 09:48:41 PM INFO: Showing hand to: lise
+01/13/2022 09:48:46 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [4]
+01/13/2022 09:48:51 PM INFO: Showing hand to: matt
+01/13/2022 09:48:56 PM INFO: Showing hand to: lise
+01/13/2022 09:49:01 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [3]
+01/13/2022 09:49:06 PM INFO: Showing hand to: matt
+01/13/2022 09:49:11 PM INFO: matt: card played and correctly put on the table
+01/13/2022 09:49:11 PM INFO: Showing hand to: lise
+01/13/2022 09:49:16 PM INFO: Player: lise: card 1 discarded successfully
+01/13/2022 09:49:21 PM INFO: Showing hand to: matt
+01/13/2022 09:49:26 PM INFO: Showing hand to: lise
+01/13/2022 09:49:31 PM INFO: Player: lise: card 34 discarded successfully
+01/13/2022 09:49:36 PM INFO: Showing hand to: matt
+01/13/2022 09:49:41 PM INFO: Player matt providing hint to lise: cards with color green are in positions: [4]
+01/13/2022 09:49:41 PM INFO: Showing hand to: lise
+01/13/2022 09:49:46 PM INFO: lise: card played and correctly put on the table
+01/13/2022 09:49:51 PM INFO: Showing hand to: matt
+01/13/2022 09:49:56 PM INFO: Player: matt: card 38 discarded successfully
+01/13/2022 09:49:56 PM INFO: Showing hand to: lise
+01/13/2022 09:50:01 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [0]
+01/13/2022 09:50:06 PM INFO: Showing hand to: matt
+01/13/2022 09:50:11 PM INFO: Player: matt: card 17 discarded successfully
+01/13/2022 09:50:11 PM INFO: Showing hand to: lise
+01/13/2022 09:50:16 PM INFO: Player lise providing hint to matt: cards with value 2 are in positions: [4]
+01/13/2022 09:50:21 PM INFO: Showing hand to: matt
+01/13/2022 09:50:26 PM INFO: matt: card played and correctly put on the table
+01/13/2022 09:50:26 PM INFO: Showing hand to: lise
+01/13/2022 09:50:31 PM INFO: Player: lise: card 26 discarded successfully
+01/13/2022 09:50:36 PM INFO: Showing hand to: matt
+01/13/2022 09:50:41 PM INFO: Player matt providing hint to lise: cards with color yellow are in positions: [0]
+01/13/2022 09:50:41 PM INFO: Showing hand to: lise
+01/13/2022 09:50:46 PM INFO: lise: card played and correctly put on the table
+01/13/2022 09:50:51 PM INFO: Showing hand to: matt
+01/13/2022 09:50:56 PM INFO: Player matt providing hint to lise: cards with color white are in positions: [3]
+01/13/2022 09:50:56 PM INFO: Showing hand to: lise
+01/13/2022 09:51:01 PM INFO: lise: card played and correctly put on the table
+01/13/2022 09:51:06 PM INFO: Showing hand to: matt
+01/13/2022 09:51:11 PM INFO: Player: matt: card 40 discarded successfully
+01/13/2022 09:51:11 PM INFO: Showing hand to: lise
+01/13/2022 09:51:16 PM INFO: Player lise providing hint to matt: cards with color white are in positions: [3]
+01/13/2022 09:51:21 PM INFO: Showing hand to: matt
+01/13/2022 09:51:26 PM INFO: Showing hand to: lise
+01/13/2022 09:51:26 PM INFO: matt: card played and correctly put on the table
+01/13/2022 09:51:31 PM INFO: Showing hand to: lise
+01/13/2022 09:51:36 PM INFO: Showing hand to: matt
+01/13/2022 09:51:36 PM INFO: Player: lise: card 43 discarded successfully
+01/13/2022 09:51:41 PM INFO: Showing hand to: matt
+01/13/2022 09:51:46 PM INFO: Showing hand to: lise
+01/13/2022 09:51:46 PM INFO: Player: matt: card 35 discarded successfully
+01/13/2022 09:51:51 PM INFO: Showing hand to: lise
+01/13/2022 09:51:56 PM INFO: Showing hand to: matt
+01/13/2022 09:51:56 PM INFO: Player lise providing hint to matt: cards with color red are in positions: [3]
+01/13/2022 09:52:01 PM INFO: Showing hand to: matt
+01/13/2022 09:52:06 PM INFO: matt: card played and correctly put on the table
+01/13/2022 09:52:06 PM INFO: Showing hand to: lise
+01/13/2022 09:52:11 PM INFO: Player: lise: card 45 discarded successfully
+01/13/2022 09:52:16 PM INFO: Showing hand to: matt
+01/13/2022 09:52:21 PM INFO: Showing hand to: lise
+01/13/2022 09:52:21 PM INFO: Player: matt: card 47 discarded successfully
+01/13/2022 09:52:26 PM INFO: Showing hand to: lise
+01/13/2022 09:52:31 PM INFO: Showing hand to: matt
+01/13/2022 09:52:31 PM INFO: Player lise providing hint to matt: cards with value 5 are in positions: [0]
+01/13/2022 09:52:36 PM INFO: Showing hand to: matt
+01/13/2022 09:52:41 PM INFO: Showing hand to: lise
+01/13/2022 09:52:41 PM INFO: Player: matt: card 46 discarded successfully
+01/13/2022 09:52:46 PM INFO: Showing hand to: lise
+01/13/2022 09:52:51 PM INFO: Showing hand to: matt
+01/13/2022 09:52:51 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [0, 2]
+01/13/2022 09:52:56 PM INFO: Showing hand to: matt
+01/13/2022 09:53:01 PM INFO: Showing hand to: lise
+01/13/2022 09:53:01 PM INFO: Player: matt: card 33 discarded successfully
+01/13/2022 09:53:06 PM INFO: Showing hand to: lise
+01/13/2022 09:53:11 PM INFO: Showing hand to: matt
+01/13/2022 09:53:11 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [0, 2, 4]
+01/13/2022 09:53:16 PM INFO: Showing hand to: matt
+01/13/2022 09:53:21 PM INFO: Showing hand to: lise
+01/13/2022 09:53:21 PM INFO: Player: matt: card 2 discarded successfully
+01/13/2022 09:53:26 PM INFO: Showing hand to: lise
+01/13/2022 09:53:31 PM INFO: Showing hand to: matt
+01/13/2022 09:53:31 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [0]
+01/13/2022 09:53:36 PM INFO: Showing hand to: matt
+01/13/2022 09:53:41 PM INFO: Showing hand to: lise
+01/13/2022 09:53:41 PM INFO: Game over, people.
+01/13/2022 09:53:41 PM INFO: Please, close the server now
+01/13/2022 09:53:41 PM INFO: Score: 0; message: Booooooooooooring!
+01/13/2022 09:53:41 PM INFO: Game over
+01/13/2022 09:54:24 PM INFO: Closing the server...
+01/13/2022 09:55:18 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:55:20 PM INFO: Connected by: ('127.0.0.1', 54222)
+01/13/2022 09:55:20 PM INFO: Player connected: matt
+01/13/2022 09:55:20 PM INFO: Player ready: matt
+01/13/2022 09:55:22 PM INFO: Connected by: ('127.0.0.1', 54223)
+01/13/2022 09:55:22 PM INFO: Player connected: lise
+01/13/2022 09:55:22 PM INFO: Player ready: lise
+01/13/2022 09:55:39 PM INFO: Connected by: ('127.0.0.1', 54224)
+01/13/2022 09:55:39 PM INFO: Player connected: jeano
+01/13/2022 09:55:39 PM INFO: Player ready: jeano
+01/13/2022 09:55:39 PM INFO: Game start! Between: ['matt', 'lise', 'jeano']
+01/13/2022 09:55:39 PM INFO: Ok, let's start the game!
+01/13/2022 09:57:54 PM INFO: Closing the server...
+01/13/2022 09:58:43 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/13/2022 09:58:45 PM INFO: Connected by: ('127.0.0.1', 54230)
+01/13/2022 09:58:45 PM INFO: Player connected: matt
+01/13/2022 09:58:45 PM INFO: Player ready: matt
+01/13/2022 09:58:52 PM INFO: Connected by: ('127.0.0.1', 54231)
+01/13/2022 09:58:52 PM INFO: Player connected: lise
+01/13/2022 09:58:52 PM INFO: Player ready: lise
+01/13/2022 09:58:54 PM INFO: Connected by: ('127.0.0.1', 54232)
+01/13/2022 09:58:54 PM INFO: Player connected: jeano
+01/13/2022 09:58:54 PM INFO: Player ready: jeano
+01/13/2022 09:58:54 PM INFO: Game start! Between: ['matt', 'lise', 'jeano']
+01/13/2022 09:58:54 PM INFO: Ok, let's start the game!
+01/13/2022 09:58:54 PM INFO: Showing hand to: matt
+01/13/2022 09:58:59 PM INFO: Showing hand to: lise
+01/13/2022 09:58:59 PM INFO: Showing hand to: jeano
+01/13/2022 09:58:59 PM INFO: Player matt providing hint to lise: cards with value 1 are in positions: [0, 2, 4]
+01/13/2022 09:59:04 PM INFO: Showing hand to: lise
+01/13/2022 09:59:04 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:09 PM INFO: Player lise providing hint to jeano: cards with value 1 are in positions: [2, 4]
+01/13/2022 09:59:09 PM INFO: Showing hand to: matt
+01/13/2022 09:59:09 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:14 PM INFO: Showing hand to: matt
+01/13/2022 09:59:14 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 09:59:19 PM INFO: Showing hand to: lise
+01/13/2022 09:59:19 PM INFO: Showing hand to: matt
+01/13/2022 09:59:24 PM INFO: Showing hand to: lise
+01/13/2022 09:59:24 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:25 PM INFO: Player matt providing hint to lise: cards with color green are in positions: [2]
+01/13/2022 09:59:29 PM INFO: Showing hand to: lise
+01/13/2022 09:59:30 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:34 PM INFO: lise: card played and correctly put on the table
+01/13/2022 09:59:35 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:35 PM INFO: Showing hand to: matt
+01/13/2022 09:59:40 PM INFO: Showing hand to: matt
+01/13/2022 09:59:40 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 09:59:44 PM INFO: Showing hand to: lise
+01/13/2022 09:59:45 PM INFO: Showing hand to: matt
+01/13/2022 09:59:49 PM INFO: Showing hand to: lise
+01/13/2022 09:59:50 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:50 PM INFO: Player matt providing hint to lise: cards with color green are in positions: [4]
+01/13/2022 09:59:54 PM INFO: Showing hand to: lise
+01/13/2022 09:59:55 PM INFO: Showing hand to: jeano
+01/13/2022 09:59:59 PM INFO: lise: card played and correctly put on the table
+01/13/2022 10:00:00 PM INFO: Showing hand to: matt
+01/13/2022 10:00:00 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:05 PM INFO: Showing hand to: matt
+01/13/2022 10:00:05 PM INFO: Player jeano providing hint to matt: cards with color white are in positions: [2]
+01/13/2022 10:00:09 PM INFO: Showing hand to: lise
+01/13/2022 10:00:10 PM INFO: Showing hand to: matt
+01/13/2022 10:00:15 PM INFO: Showing hand to: lise
+01/13/2022 10:00:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:15 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:00:20 PM INFO: Showing hand to: lise
+01/13/2022 10:00:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:25 PM INFO: Player lise providing hint to matt: cards with value 1 are in positions: [0]
+01/13/2022 10:00:25 PM INFO: Showing hand to: matt
+01/13/2022 10:00:25 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:30 PM INFO: Showing hand to: matt
+01/13/2022 10:00:30 PM INFO: Player jeano providing hint to lise: cards with color white are in positions: [1]
+01/13/2022 10:00:35 PM INFO: Showing hand to: lise
+01/13/2022 10:00:35 PM INFO: Showing hand to: matt
+01/13/2022 10:00:40 PM INFO: Showing hand to: lise
+01/13/2022 10:00:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:40 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:00:45 PM INFO: Showing hand to: lise
+01/13/2022 10:00:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:50 PM INFO: Showing hand to: matt
+01/13/2022 10:00:50 PM INFO: lise: card played and correctly put on the table
+01/13/2022 10:00:50 PM INFO: Showing hand to: jeano
+01/13/2022 10:00:55 PM INFO: Showing hand to: matt
+01/13/2022 10:00:55 PM INFO: Player: jeano: card 21 discarded successfully
+01/13/2022 10:01:00 PM INFO: Showing hand to: lise
+01/13/2022 10:01:00 PM INFO: Showing hand to: matt
+01/13/2022 10:01:05 PM INFO: Showing hand to: lise
+01/13/2022 10:01:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:05 PM INFO: Player: matt: card 42 discarded successfully
+01/13/2022 10:01:10 PM INFO: Showing hand to: lise
+01/13/2022 10:01:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:15 PM INFO: Showing hand to: matt
+01/13/2022 10:01:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:15 PM INFO: Player: lise: card 1 discarded successfully
+01/13/2022 10:01:20 PM INFO: Showing hand to: matt
+01/13/2022 10:01:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:25 PM INFO: Showing hand to: lise
+01/13/2022 10:01:25 PM INFO: Showing hand to: matt
+01/13/2022 10:01:25 PM INFO: Player jeano providing hint to lise: cards with color green are in positions: [4]
+01/13/2022 10:01:30 PM INFO: Showing hand to: lise
+01/13/2022 10:01:30 PM INFO: Showing hand to: matt
+01/13/2022 10:01:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:35 PM INFO: Showing hand to: lise
+01/13/2022 10:01:35 PM INFO: Player: matt: card 47 discarded successfully
+01/13/2022 10:01:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:40 PM INFO: Showing hand to: lise
+01/13/2022 10:01:45 PM INFO: Showing hand to: matt
+01/13/2022 10:01:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:45 PM INFO: lise: card played and correctly put on the table
+01/13/2022 10:01:50 PM INFO: Showing hand to: jeano
+01/13/2022 10:01:50 PM INFO: Showing hand to: matt
+01/13/2022 10:01:55 PM INFO: Showing hand to: matt
+01/13/2022 10:01:55 PM INFO: Showing hand to: lise
+01/13/2022 10:01:55 PM INFO: Player: jeano: card 28 discarded successfully
+01/13/2022 10:02:00 PM INFO: Showing hand to: matt
+01/13/2022 10:02:00 PM INFO: Showing hand to: lise
+01/13/2022 10:02:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:05 PM INFO: Showing hand to: lise
+01/13/2022 10:02:05 PM INFO: Player: matt: card 43 discarded successfully
+01/13/2022 10:02:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:10 PM INFO: Showing hand to: lise
+01/13/2022 10:02:15 PM INFO: Showing hand to: matt
+01/13/2022 10:02:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:15 PM INFO: Player lise providing hint to matt: cards with color red are in positions: [4]
+01/13/2022 10:02:20 PM INFO: Showing hand to: matt
+01/13/2022 10:02:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:25 PM INFO: Showing hand to: lise
+01/13/2022 10:02:25 PM INFO: Showing hand to: matt
+01/13/2022 10:02:25 PM INFO: Player: jeano: card 29 discarded successfully
+01/13/2022 10:02:30 PM INFO: Showing hand to: lise
+01/13/2022 10:02:30 PM INFO: Showing hand to: matt
+01/13/2022 10:02:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:35 PM INFO: Showing hand to: lise
+01/13/2022 10:02:35 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:02:40 PM INFO: Showing hand to: lise
+01/13/2022 10:02:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:45 PM INFO: Showing hand to: matt
+01/13/2022 10:02:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:45 PM INFO: Player lise providing hint to matt: cards with value 4 are in positions: [4]
+01/13/2022 10:02:50 PM INFO: Showing hand to: matt
+01/13/2022 10:02:50 PM INFO: Showing hand to: jeano
+01/13/2022 10:02:55 PM INFO: Showing hand to: matt
+01/13/2022 10:02:55 PM INFO: Player: jeano: card 9 discarded successfully
+01/13/2022 10:02:55 PM INFO: Showing hand to: lise
+01/13/2022 10:03:00 PM INFO: Showing hand to: matt
+01/13/2022 10:03:00 PM INFO: Showing hand to: lise
+01/13/2022 10:03:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:05 PM INFO: Showing hand to: lise
+01/13/2022 10:03:05 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:03:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:10 PM INFO: Showing hand to: lise
+01/13/2022 10:03:15 PM INFO: Showing hand to: matt
+01/13/2022 10:03:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:15 PM INFO: Player lise providing hint to matt: cards with color red are in positions: [4]
+01/13/2022 10:03:20 PM INFO: Showing hand to: matt
+01/13/2022 10:03:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:25 PM INFO: Showing hand to: lise
+01/13/2022 10:03:25 PM INFO: Showing hand to: matt
+01/13/2022 10:03:25 PM INFO: Player: jeano: card 40 discarded successfully
+01/13/2022 10:03:30 PM INFO: Showing hand to: matt
+01/13/2022 10:03:30 PM INFO: Showing hand to: lise
+01/13/2022 10:03:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:35 PM INFO: Showing hand to: lise
+01/13/2022 10:03:35 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:03:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:40 PM INFO: Showing hand to: lise
+01/13/2022 10:03:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:45 PM INFO: Showing hand to: matt
+01/13/2022 10:03:45 PM INFO: Player lise providing hint to jeano: cards with color white are in positions: [0, 4]
+01/13/2022 10:03:50 PM INFO: Showing hand to: jeano
+01/13/2022 10:03:50 PM INFO: Showing hand to: matt
+01/13/2022 10:03:55 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 10:03:55 PM INFO: Showing hand to: matt
+01/13/2022 10:03:55 PM INFO: Showing hand to: lise
+01/13/2022 10:04:00 PM INFO: Showing hand to: lise
+01/13/2022 10:04:00 PM INFO: Player matt providing hint to jeano: cards with value 2 are in positions: [1, 4]
+01/13/2022 10:04:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:05 PM INFO: Showing hand to: lise
+01/13/2022 10:04:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:10 PM INFO: Showing hand to: matt
+01/13/2022 10:04:10 PM INFO: Player lise providing hint to jeano: cards with color blue are in positions: [4]
+01/13/2022 10:04:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:15 PM INFO: Showing hand to: matt
+01/13/2022 10:04:20 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 10:04:20 PM INFO: Showing hand to: matt
+01/13/2022 10:04:20 PM INFO: Showing hand to: lise
+01/13/2022 10:04:25 PM INFO: Showing hand to: lise
+01/13/2022 10:04:25 PM INFO: Player: matt: card 33 discarded successfully
+01/13/2022 10:04:30 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:30 PM INFO: Showing hand to: lise
+01/13/2022 10:04:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:35 PM INFO: Showing hand to: matt
+01/13/2022 10:04:35 PM INFO: Player: lise: card 26 discarded successfully
+01/13/2022 10:04:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:40 PM INFO: Showing hand to: matt
+01/13/2022 10:04:45 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 10:04:45 PM INFO: Showing hand to: lise
+01/13/2022 10:04:45 PM INFO: Showing hand to: matt
+01/13/2022 10:04:50 PM INFO: Showing hand to: lise
+01/13/2022 10:04:50 PM INFO: Player matt providing hint to jeano: cards with value 3 are in positions: [4]
+01/13/2022 10:04:55 PM INFO: Showing hand to: jeano
+01/13/2022 10:04:55 PM INFO: Showing hand to: lise
+01/13/2022 10:05:00 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:00 PM INFO: Showing hand to: matt
+01/13/2022 10:05:00 PM INFO: Player: lise: card 11 discarded successfully
+01/13/2022 10:05:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:05 PM INFO: Showing hand to: matt
+01/13/2022 10:05:10 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 10:05:10 PM INFO: Showing hand to: lise
+01/13/2022 10:05:10 PM INFO: Showing hand to: matt
+01/13/2022 10:05:15 PM INFO: Showing hand to: lise
+01/13/2022 10:05:15 PM INFO: Player matt providing hint to lise: cards with color yellow are in positions: [2]
+01/13/2022 10:05:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:20 PM INFO: Showing hand to: lise
+01/13/2022 10:05:25 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:25 PM INFO: lise: card played and correctly put on the table
+01/13/2022 10:05:25 PM INFO: Showing hand to: matt
+01/13/2022 10:05:30 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:30 PM INFO: Showing hand to: matt
+01/13/2022 10:05:35 PM INFO: Player jeano providing hint to matt: cards with color yellow are in positions: [0]
+01/13/2022 10:05:35 PM INFO: Showing hand to: lise
+01/13/2022 10:05:35 PM INFO: Showing hand to: matt
+01/13/2022 10:05:40 PM INFO: Showing hand to: lise
+01/13/2022 10:05:40 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:05:40 PM INFO: yellow pile has been filled.
+01/13/2022 10:05:40 PM INFO: Giving 1 free note token.
+01/13/2022 10:05:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:45 PM INFO: Showing hand to: lise
+01/13/2022 10:05:50 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:50 PM INFO: Player lise providing hint to matt: cards with value 3 are in positions: [4]
+01/13/2022 10:05:50 PM INFO: Showing hand to: matt
+01/13/2022 10:05:55 PM INFO: Showing hand to: jeano
+01/13/2022 10:05:55 PM INFO: Showing hand to: matt
+01/13/2022 10:06:00 PM INFO: Showing hand to: lise
+01/13/2022 10:06:00 PM INFO: Player: jeano: card 35 discarded successfully
+01/13/2022 10:06:00 PM INFO: Showing hand to: matt
+01/13/2022 10:06:05 PM INFO: Showing hand to: lise
+01/13/2022 10:06:05 PM INFO: matt: card played and correctly put on the table
+01/13/2022 10:06:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:10 PM INFO: Showing hand to: lise
+01/13/2022 10:06:15 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:15 PM INFO: Player lise providing hint to jeano: cards with value 5 are in positions: [3]
+01/13/2022 10:06:15 PM INFO: Showing hand to: matt
+01/13/2022 10:06:20 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:20 PM INFO: Showing hand to: matt
+01/13/2022 10:06:25 PM INFO: jeano: card played and correctly put on the table
+01/13/2022 10:06:25 PM INFO: white pile has been filled.
+01/13/2022 10:06:25 PM INFO: Giving 1 free note token.
+01/13/2022 10:06:25 PM INFO: Showing hand to: lise
+01/13/2022 10:06:25 PM INFO: Showing hand to: matt
+01/13/2022 10:06:30 PM INFO: Showing hand to: lise
+01/13/2022 10:06:30 PM INFO: Player: matt: card 17 discarded successfully
+01/13/2022 10:06:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:35 PM INFO: Showing hand to: lise
+01/13/2022 10:06:40 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:40 PM INFO: Player: lise: card 3 discarded successfully
+01/13/2022 10:06:40 PM INFO: Showing hand to: matt
+01/13/2022 10:06:45 PM INFO: Showing hand to: jeano
+01/13/2022 10:06:45 PM INFO: Showing hand to: matt
+01/13/2022 10:06:50 PM INFO: Player: jeano: card 41 discarded successfully
+01/13/2022 10:06:50 PM INFO: Showing hand to: lise
+01/13/2022 10:06:50 PM INFO: Showing hand to: matt
+01/13/2022 10:06:55 PM INFO: Showing hand to: lise
+01/13/2022 10:06:55 PM INFO: Player matt providing hint to lise: cards with value 5 are in positions: [0]
+01/13/2022 10:07:00 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:00 PM INFO: Showing hand to: lise
+01/13/2022 10:07:05 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:05 PM INFO: Showing hand to: matt
+01/13/2022 10:07:05 PM INFO: Player: lise: card 45 discarded successfully
+01/13/2022 10:07:10 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:10 PM INFO: Showing hand to: matt
+01/13/2022 10:07:15 PM INFO: Player jeano providing hint to matt: cards with value 1 are in positions: [0, 2, 4]
+01/13/2022 10:07:15 PM INFO: Showing hand to: lise
+01/13/2022 10:07:15 PM INFO: Showing hand to: matt
+01/13/2022 10:07:20 PM INFO: Showing hand to: lise
+01/13/2022 10:07:20 PM INFO: Player: matt: card 2 discarded successfully
+01/13/2022 10:07:25 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:25 PM INFO: Showing hand to: lise
+01/13/2022 10:07:30 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:30 PM INFO: Showing hand to: matt
+01/13/2022 10:07:30 PM INFO: Player lise providing hint to jeano: cards with value 4 are in positions: [0]
+01/13/2022 10:07:35 PM INFO: Showing hand to: jeano
+01/13/2022 10:07:35 PM INFO: Showing hand to: matt
+01/13/2022 10:07:40 PM INFO: Player: jeano: card 44 discarded successfully
+01/13/2022 10:07:40 PM INFO: Showing hand to: lise
+01/13/2022 10:07:40 PM INFO: Showing hand to: matt
+01/13/2022 10:07:45 PM INFO: Showing hand to: lise
+01/13/2022 10:07:45 PM INFO: Game over, people.
+01/13/2022 10:07:45 PM INFO: Please, close the server now
+01/13/2022 10:07:45 PM INFO: Score: 19; message: Outstanding!
+01/13/2022 10:07:45 PM INFO: Game over
+01/13/2022 10:10:55 PM INFO: Closing the server...

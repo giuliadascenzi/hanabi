@@ -86,8 +86,8 @@ def agentPlay():
             if observation['current_player'] == playerName:
                 print("I am the current player (", playerName, ") and I will play now")
                 # action = agent.dummy_agent_choice(observation)
-                action = agent.simple_heuristic_choice(observation)
-                # action = agent.act(observation)
+                # action = agent.simple_heuristic_choice(observation)
+                action = agent.act(observation)
                 print("My action is: ", action)
                 s.send(action.serialize())
                 time.sleep(10)
@@ -187,9 +187,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print("Ready: " + str(data.acceptedStartRequests) + "/" + str(data.connectedPlayers) + " players")
 
             # 6) Wait until everyone is ready and the game can start.
-            data = s.recv(DATASIZE)
-            data = GameData.GameData.deserialize(data)
-            # players = data.players
+            # data = s.recv(DATASIZE)
+            # data = GameData.GameData.deserialize(data)
 
         if type(data) is GameData.ServerStartGameData:
             dataOk = True
@@ -202,13 +201,17 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 agent.set_LR_players(index, leftPlayer_idx, rightPlayer_idx)
                 print("I am", playerName, ". My left player is", leftPlayer_idx, "and my right player is", rightPlayer_idx)
 
-            for p in players:
-                playersKnowledge.append({'player': p, 'knowledge': []})
-
             if len(players) < 4:
                 num_cards = 5
             else:
                 num_cards = 4
+
+            for p in players:
+                knowledge = []
+                for i in range(num_cards):
+                    knowledge.append((i, None, None))
+                playersKnowledge.append({'player': p, 'knowledge': knowledge})
+
             rankHintedButNoPlay = [0] * len(players)
             for i in range(len(rankHintedButNoPlay)):
                 rankHintedButNoPlay[i] = [False] * num_cards
@@ -281,9 +284,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     hintState.remove(hint)
             for p in playersKnowledge:
                 if p['player'] == data.lastPlayer:
-                    for k in p['knowledge']:
-                        if k[0] == data.cardHandIndex:
-                            p['knowledge'].remove(k)
+                    p['knowledge'][data.cardHandIndex] = (data.cardHandIndex, None, None)
             lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.DISCARD, 'card': data.cardHandIndex,
                         'value': None, 'destination': None}
 
@@ -296,9 +297,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     hintState.remove(hint)
             for p in playersKnowledge:
                 if p['player'] == data.lastPlayer:
-                    for k in p['knowledge']:
-                        if k[0] == data.cardHandIndex:
-                            p['knowledge'].remove(k)
+                    p['knowledge'][data.cardHandIndex] = (data.cardHandIndex, None, None)
             lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.PLAY, 'card': data.cardHandIndex,
                         'value': data.card.value, 'destination': None}
 
@@ -311,12 +310,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     hintState.remove(hint)
             for p in playersKnowledge:
                 if p['player'] == data.lastPlayer:
-                    for k in p['knowledge']:
-                        if k[0] == data.cardHandIndex:
-                            p['knowledge'].remove(k)
+                    p['knowledge'][data.cardHandIndex] = (data.cardHandIndex, None, None)
             lastMove = {'player': data.lastPlayer, 'move_type': HanabiMoveType.PLAY, 'card': data.cardHandIndex,
                         'value': data.card.value, 'destination': None}
-
 
         if type(data) is GameData.ServerHintData:
             dataOk = True
@@ -348,18 +344,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     hintState.append({'sender': data.source, 'player': data.destination, 'value': d_val, 'color': d_col,
                                       'card_index': i})
 
-                notedKnowledge = False
                 for p in playersKnowledge:
                     if p['player'] == data.destination:
-                        for k in p['knowledge']:
-                            if k[0] == i:
-                                notedKnowledge = True
-                                if data.type == 'value':
-                                    k[1] = d_val
-                                else:
-                                    k[2] = d_col
-                        if not notedKnowledge:
-                            p['knowledge'].append([i, d_val, d_col])
+                        p['knowledge'][i] = (i, d_val, d_col)
             print("Current player: " + data.player)
 
         if type(data) is GameData.ServerInvalidDataReceived:
