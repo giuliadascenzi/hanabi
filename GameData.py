@@ -89,6 +89,10 @@ class ClientPlayerPlayCardRequest(ClientToServerData):
         (card 0 is the leftmost, card N is the rightmost).
     '''
     def __init__(self, sender, handCardOrdered: int) -> None:
+        """
+
+        @rtype: object
+        """
         action = "Play card request"
         self.handCardOrdered = handCardOrdered
         super().__init__(sender, action)
