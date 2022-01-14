@@ -1,8 +1,5 @@
 from game import Player
 
-
-
-
 class BaseAgent(Player):
     """
     Subclass this class once for each AI.
@@ -25,8 +22,6 @@ class BaseAgent(Player):
         self.discard_pile = discard_pile
 
 
-
-    
     
     def update(self, board, hands, discardPile, usedNoteTokens, usedStormTokens, turn= 0, last_turn=0 ):
         """

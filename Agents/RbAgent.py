@@ -4,10 +4,10 @@ from game import Player, Card
 import GameData
 from collections import Counter
 import copy
-from .hints_manager import BaseHintsManager, CardHintsManager
-import logging
+from .hints_manager import HintsManager
 
-redf = open('possibilities.txt', 'w')
+redf = ""
+
 
 def get_full_deck():
     """
@@ -106,47 +106,6 @@ class Knowledge:
         """
         return self.color and (self.value or self.playable)
 
-class HintsScheduler:
-    """
-    Decides which HintsManager should be used each time.
-    """
-    def __init__(self, strategy):
-        self.strategy = strategy
-        
-        # copy something from the strategy
-        self.name = strategy.name
-        self.num_players = strategy.num_players
-        self.k = strategy.k
-        #self.my_hand = strategy.my_hand
-        self.players_info = strategy.players_info
-        self.full_deck = strategy.full_deck_composition
-        self.board = strategy.board
-        self.discard_pile = strategy.discard_pile
-        self.knowledge = strategy.knowledge
-        
-        # hints manager(s)
-        #self.value_hints_manager = ValueHintsManager(strategy)
-        #self.playability_hints_manager = BaseHintsManager(strategy)#PlayabilityHintsManager(strategy)
-        self.card_hints_manager = CardHintsManager(strategy)
-    
-    
-    def select_hints_manager(self):
-        """
-        Select the suitable hints manager to be used this time.
-        # TODO: should check usability via hints_manager.is_usable()?
-        if self.strategy.difficulty == self.strategy.MODERATE:
-            return self.value_hints_manager
-        elif self.strategy.difficulty == self.strategy.HARD:
-            if self.playability_hints_manager.is_usable(player_id):
-                return self.playability_hints_manager
-            else:
-                return self.value_hints_manager
-        elif self.strategy.difficulty == self.strategy.HARDEST:
-            return self.card_hints_manager
-        else:
-            raise NotImplementedError()
-        """
-        return self.card_hints_manager
 
 
 class RbAgent(BaseAgent):
@@ -163,6 +122,8 @@ class RbAgent(BaseAgent):
         """
         To be called once before the beginning.
         """
+        global redf
+        redf = open('possibilities' + self.name + '.txt', 'w')
         print("Initializing agent: ", self.name)
         self.turn = 0
         self.NUM_NUMBERS = 5
@@ -187,7 +148,7 @@ class RbAgent(BaseAgent):
         self.deck_size = len(self.full_deck)
         self.full_deck_composition = self.counterOfCards(self.full_deck)
         
-        # knowledge of all players         
+        # knowledge of all players  "player_name" : [list of Knowledge objects (one for each card, sorted by card_pos) ]       
         self.knowledge = {name: [Knowledge(color=False, value=False) for j in range(self.k)] for name in self.players_names }
 
         # for each of my card, store its possibilities
@@ -197,7 +158,7 @@ class RbAgent(BaseAgent):
         # remove cards of other players from possibilities
         self.update_possibilities()
 
-        self.hints_scheduler = HintsScheduler(self)
+        self.card_hints_manager = HintsManager(self)
 
 
     def counterOfCards(self, cardList):
@@ -214,8 +175,7 @@ class RbAgent(BaseAgent):
             else:
                 counterCard[key] += 1
         return Counter(counterCard)
-
-            
+           
 
     def update(self, board, players_info, discardPile, usedNoteTokens, usedStormTokens, turn= 0, last_turn=0 ):
         """
@@ -250,8 +210,6 @@ class RbAgent(BaseAgent):
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities()
         
-        #assert all(sum(p.values()) > 0 or self.my_hand[card_pos] is None for (card_pos, p) in enumerate(self.possibilities))    # check to have at least one possible card!
-    
     
     def get_turn_action(self):
         """
@@ -267,24 +225,38 @@ class RbAgent(BaseAgent):
         if (card_pos is not None):
             print(">>>play the card number:", card_pos)
             return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
-
-        if (self.usedNoteTokens > 0 and random.randint(0,1) == 0) or self.usedNoteTokens==8:
-            # discard card
+        
+        # 2) If a usefull hint can be done do it:
+        destination_name, value, type = self.get_best_hint()
+        if (destination_name, value, type) != (None, None, None): # found a best hint
+            print(">>>give the hint ", type, " ", value, " to ", destination_name)
+            return GameData.ClientHintData(self.name, destination_name, type, value)
+        # 3) If I can not discard, give a random hint
+        if (self.usedNoteTokens == 0):
+            destination_name, value, type = self.get_low_value_hint()
+            print(">>>give the hint ", type, " ", value, " to ", destination_name)
+            return GameData.ClientHintData(self.name, destination_name, type, value)
+        # 4) If it is not possible to hint
+        if (self.usedNoteTokens == 8): 
             card_pos,_,_ = self.get_best_discard()
             print(">>>discard the card number:", card_pos)
             return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+
+        # Else: randomly choose between discard or give a random
+        elif (random.randint(0,1) == 0) : 
+            # discard 
+            card_pos,_,_ = self.get_best_discard()
+            print(">>>discard the card number:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+         
         
         else:
-            # give the best hint
-            destination_name, value, type = self.get_best_hint()
-
-            if (destination_name, value, type) == (None, None, None): #failed to find an hint
-                card_pos,_,_ = self.get_best_discard()
-                print(">>>discard the card number:", card_pos)
-                return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
-            
+            destination_name, value, type = self.get_low_value_hint()
             print(">>>give the hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
+        
+
+            
 
     def feed_turn(self, playerName, data):
         """
@@ -302,15 +274,16 @@ class RbAgent(BaseAgent):
             if playerName == self.name:
                 # 2) If the player is me, remove the possibilities belonging to the discarded/played card + add a new default one for the new card (if exists)
                 self.reset_possibilities(cardHandIndex, self.k == data.handLength)
+                '''
                 # 3) if the card played/discarded was mine and there are no cards left in the deck -> set to null the card_pos of my hand that do not corrispond to cards anymore 
                 if (self.k != data.handLength):
                     self.hand[data.handLength] = None
-
+                '''
                
         else:
             # someone gave a hint!
             # the suitable hints manager must process it
-            hints_manager = self.hints_scheduler.select_hints_manager()
+            hints_manager =self.card_hints_manager.select_hints_manager()
             hints_manager.receive_hint(data)
         
         self.turn = self.turn+1
@@ -322,7 +295,7 @@ class RbAgent(BaseAgent):
     def print_possibilities(self):
         import pandas as pd
         for (card_pos, p) in enumerate(self.possibilities):
-            table = {"red": [0]*self.k , "green": [0]*self.k, "blue": [0]*self.k, "white": [0]*self.k, "yellow": [0]*self.k  }
+            table = {"red": [0]*5 , "green": [0]*5, "blue": [0]*5, "white": [0]*5, "yellow": [0]*5  }
             table = pd.DataFrame(table, index= [1,2,3,4,5])
             for card in p:
                 table.loc[card[1],card[0]] = p[card]
@@ -371,8 +344,7 @@ class RbAgent(BaseAgent):
         if best_card_pos is not None:
             print("playing card in position %d gives %f playable cards on average and weight %f" % (best_card_pos, best_avg_num_playable, best_avg_weight))
             return best_card_pos
-        #elif random.randint(0,3) == 0:
-        #    return random.randint(0,4)
+
         else:
             return best_card_pos
 
@@ -430,36 +402,18 @@ class RbAgent(BaseAgent):
         return card_pos, relevant_weight, useful_weight
 
     def get_best_hint(self):
-        '''
-        next_player_index = (self.players_names.index(self.name)+1) % self.num_players
-        destination_name = self.players_names[next_player_index]
-        destination_hand = ""
-        for player_info in self.players_info:
-            if player_info.name== destination_name:
-                destination_hand= player_info.hand
-        '''
-        # try to give hint, using the right hints manager
-        hints_manager = self.hints_scheduler.select_hints_manager()
-        destination_name, value, type = hints_manager.get_hint()
 
+        # try to give hint
+        destination_name, value, type = self.card_hints_manager.get_hint()
 
-
-        '''
-        #card = random.choice([card for card in destination_hand if card is not None])
-        destination_hand.sort(key = lambda c: c.value)
-        card = destination_hand[0]
-        type=  "value"
-        value = card.value
-        
-        if random.randint(0,1) == 0:
-            type= "color"
-            value = card.color
-        else:
-            type=  "value"
-            value = card.value
-        '''
         return destination_name, value, type
-        
+
+    def get_low_value_hint(self):
+
+        # try to give hint
+        destination_name, value, type = self.card_hints_manager.get_low_value_hint()
+
+        return destination_name, value, type
 
     ########################
     ### ---> Card functions

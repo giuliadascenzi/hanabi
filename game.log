@@ -2787,3 +2787,1050 @@
 01/13/2022 10:07:45 PM INFO: Score: 19; message: Outstanding!
 01/13/2022 10:07:45 PM INFO: Game over
 01/13/2022 10:10:55 PM INFO: Closing the server...
+01/14/2022 10:08:18 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:08:25 AM INFO: Connected by: ('127.0.0.1', 57730)
+01/14/2022 10:08:25 AM INFO: Player connected: giulia
+01/14/2022 10:08:30 AM INFO: Player ready: giulia
+01/14/2022 10:08:43 AM INFO: Connected by: ('127.0.0.1', 57734)
+01/14/2022 10:08:43 AM INFO: Player connected: giulia2
+01/14/2022 10:08:46 AM INFO: Player ready: giulia2
+01/14/2022 10:08:46 AM INFO: Game start! Between: ['giulia', 'giulia2']
+01/14/2022 10:08:46 AM INFO: Ok, let's start the game!
+01/14/2022 10:08:50 AM INFO: Showing hand to: giulia2
+01/14/2022 10:09:12 AM INFO: Showing hand to: giulia
+01/14/2022 10:09:20 AM INFO: giulia: card played and correctly put on the table
+01/14/2022 10:09:22 AM INFO: Showing hand to: giulia
+01/14/2022 10:09:49 AM INFO: Showing hand to: giulia2
+01/14/2022 10:48:00 AM INFO: Closing the server...
+01/14/2022 10:49:57 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:50:01 AM INFO: Connected by: ('127.0.0.1', 55756)
+01/14/2022 10:50:01 AM INFO: Player connected: giulia
+01/14/2022 10:50:03 AM INFO: Player ready: giulia
+01/14/2022 10:50:09 AM INFO: Connected by: ('127.0.0.1', 55757)
+01/14/2022 10:50:09 AM INFO: Player connected: dummy1
+01/14/2022 10:50:15 AM INFO: Player ready: dummy1
+01/14/2022 10:50:15 AM INFO: Game start! Between: ['giulia', 'dummy1']
+01/14/2022 10:50:15 AM INFO: Ok, let's start the game!
+01/14/2022 10:50:15 AM INFO: Showing hand to: dummy1
+01/14/2022 10:50:18 AM WARNING: Player disconnected: dummy1
+01/14/2022 10:51:13 AM INFO: Closing the server...
+01/14/2022 10:51:16 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:51:19 AM INFO: Connected by: ('127.0.0.1', 58096)
+01/14/2022 10:51:19 AM INFO: Player connected: giulia
+01/14/2022 10:51:20 AM INFO: Player ready: giulia
+01/14/2022 10:51:25 AM INFO: Connected by: ('127.0.0.1', 58098)
+01/14/2022 10:51:25 AM INFO: Player connected: dummy1
+01/14/2022 10:51:31 AM INFO: Player ready: dummy1
+01/14/2022 10:51:31 AM INFO: Game start! Between: ['giulia', 'dummy1']
+01/14/2022 10:51:31 AM INFO: Ok, let's start the game!
+01/14/2022 10:51:31 AM INFO: Showing hand to: dummy1
+01/14/2022 10:51:41 AM INFO: Showing hand to: giulia
+01/14/2022 10:51:49 AM INFO: Player giulia providing hint to dummy1: cards with value 1 are in positions: [0, 1]
+01/14/2022 10:51:49 AM INFO: Showing hand to: dummy1
+01/14/2022 10:51:50 AM INFO: dummy1: card played and correctly put on the table
+01/14/2022 10:51:50 AM INFO: Showing hand to: dummy1
+01/14/2022 10:52:40 AM INFO: Closing the server...
+01/14/2022 10:52:43 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:52:55 AM INFO: Connected by: ('127.0.0.1', 58107)
+01/14/2022 10:52:55 AM INFO: Player connected: dummy1
+01/14/2022 10:53:01 AM INFO: Player ready: dummy1
+01/14/2022 10:53:03 AM INFO: Closing the server...
+01/14/2022 10:53:13 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:53:20 AM INFO: Connected by: ('127.0.0.1', 58121)
+01/14/2022 10:53:20 AM INFO: Player connected: dummy1
+01/14/2022 10:53:26 AM INFO: Connected by: ('127.0.0.1', 58123)
+01/14/2022 10:53:26 AM INFO: Player connected: dummy2
+01/14/2022 10:53:26 AM INFO: Player ready: dummy1
+01/14/2022 10:53:32 AM INFO: Player ready: dummy2
+01/14/2022 10:53:32 AM INFO: Connected by: ('127.0.0.1', 58125)
+01/14/2022 10:53:32 AM INFO: Player connected: dummy3
+01/14/2022 10:53:38 AM INFO: Connected by: ('127.0.0.1', 58127)
+01/14/2022 10:53:38 AM INFO: Player connected: dummy4
+01/14/2022 10:53:38 AM INFO: Player ready: dummy3
+01/14/2022 10:53:44 AM INFO: Player ready: dummy4
+01/14/2022 10:53:44 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 10:53:44 AM INFO: Ok, let's start the game!
+01/14/2022 10:53:44 AM INFO: Showing hand to: dummy1
+01/14/2022 10:53:44 AM INFO: Showing hand to: dummy3
+01/14/2022 10:53:44 AM INFO: Showing hand to: dummy2
+01/14/2022 10:53:45 AM WARNING: Player disconnected: dummy1
+01/14/2022 10:53:45 AM WARNING: Player disconnected: dummy3
+01/14/2022 10:53:45 AM WARNING: Player disconnected: dummy2
+01/14/2022 10:55:59 AM INFO: Closing the server...
+01/14/2022 10:56:03 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 10:56:08 AM INFO: Connected by: ('127.0.0.1', 49221)
+01/14/2022 10:56:08 AM INFO: Player connected: dummy1
+01/14/2022 10:56:14 AM INFO: Player ready: dummy1
+01/14/2022 10:56:16 AM INFO: Connected by: ('127.0.0.1', 49226)
+01/14/2022 10:56:16 AM INFO: Player connected: dummy2
+01/14/2022 10:56:22 AM INFO: Player ready: dummy2
+01/14/2022 10:56:22 AM INFO: Connected by: ('127.0.0.1', 49227)
+01/14/2022 10:56:22 AM INFO: Player connected: dummy3
+01/14/2022 10:56:28 AM INFO: Connected by: ('127.0.0.1', 49228)
+01/14/2022 10:56:28 AM INFO: Player connected: dummy4
+01/14/2022 10:56:28 AM INFO: Player ready: dummy3
+01/14/2022 10:56:34 AM INFO: Player ready: dummy4
+01/14/2022 10:56:34 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 10:56:34 AM INFO: Ok, let's start the game!
+01/14/2022 10:56:34 AM INFO: Showing hand to: dummy1
+01/14/2022 10:56:34 AM INFO: Showing hand to: dummy3
+01/14/2022 10:56:34 AM INFO: Showing hand to: dummy2
+01/14/2022 10:56:34 AM INFO: Showing hand to: dummy4
+01/14/2022 10:56:35 AM WARNING: Player disconnected: dummy1
+01/14/2022 10:56:35 AM WARNING: Player disconnected: dummy2
+01/14/2022 10:56:35 AM WARNING: Player disconnected: dummy3
+01/14/2022 10:56:36 AM WARNING: Player disconnected: dummy4
+01/14/2022 10:56:36 AM INFO: Shutting down server
+01/14/2022 11:01:23 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 11:01:27 AM INFO: Connected by: ('127.0.0.1', 55369)
+01/14/2022 11:01:27 AM INFO: Player connected: dummy1
+01/14/2022 11:01:30 AM INFO: Connected by: ('127.0.0.1', 55370)
+01/14/2022 11:01:30 AM INFO: Player connected: dummy2
+01/14/2022 11:01:33 AM INFO: Player ready: dummy1
+01/14/2022 11:01:34 AM INFO: Connected by: ('127.0.0.1', 55371)
+01/14/2022 11:01:34 AM INFO: Player connected: dummy3
+01/14/2022 11:01:36 AM INFO: Player ready: dummy2
+01/14/2022 11:01:38 AM INFO: Connected by: ('127.0.0.1', 55372)
+01/14/2022 11:01:38 AM INFO: Player connected: dummy4
+01/14/2022 11:01:40 AM INFO: Player ready: dummy3
+01/14/2022 11:01:44 AM INFO: Player ready: dummy4
+01/14/2022 11:01:44 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 11:01:44 AM INFO: Ok, let's start the game!
+01/14/2022 11:01:44 AM INFO: Showing hand to: dummy3
+01/14/2022 11:01:44 AM INFO: Showing hand to: dummy1
+01/14/2022 11:01:44 AM INFO: Showing hand to: dummy2
+01/14/2022 11:01:44 AM INFO: Showing hand to: dummy4
+01/14/2022 11:05:34 AM INFO: Closing the server...
+01/14/2022 11:06:06 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 11:06:10 AM INFO: Connected by: ('127.0.0.1', 56784)
+01/14/2022 11:06:10 AM INFO: Player connected: dummy1
+01/14/2022 11:06:13 AM INFO: Connected by: ('127.0.0.1', 56785)
+01/14/2022 11:06:13 AM INFO: Player connected: dummy2
+01/14/2022 11:06:16 AM INFO: Player ready: dummy1
+01/14/2022 11:06:16 AM INFO: Connected by: ('127.0.0.1', 56786)
+01/14/2022 11:06:16 AM INFO: Player connected: dummy3
+01/14/2022 11:06:19 AM INFO: Player ready: dummy2
+01/14/2022 11:06:20 AM INFO: Connected by: ('127.0.0.1', 56788)
+01/14/2022 11:06:20 AM INFO: Player connected: dummy4
+01/14/2022 11:06:22 AM INFO: Player ready: dummy3
+01/14/2022 11:06:26 AM INFO: Player ready: dummy4
+01/14/2022 11:06:26 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 11:06:26 AM INFO: Ok, let's start the game!
+01/14/2022 11:06:26 AM INFO: Showing hand to: dummy1
+01/14/2022 11:06:26 AM INFO: Showing hand to: dummy2
+01/14/2022 11:06:26 AM INFO: Showing hand to: dummy4
+01/14/2022 11:06:26 AM INFO: Showing hand to: dummy3
+01/14/2022 11:06:27 AM INFO: Player dummy1 providing hint to dummy3: cards with color blue are in positions: [2]
+01/14/2022 11:06:27 AM INFO: Showing hand to: dummy1
+01/14/2022 11:06:27 AM INFO: Showing hand to: dummy2
+01/14/2022 11:06:27 AM INFO: Showing hand to: dummy4
+01/14/2022 11:06:28 AM INFO: Showing hand to: dummy3
+01/14/2022 11:06:30 AM INFO: Player dummy2 providing hint to dummy4: cards with value 3 are in positions: [0]
+01/14/2022 11:14:46 AM INFO: Closing the server...
+01/14/2022 11:15:15 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 11:15:20 AM INFO: Connected by: ('127.0.0.1', 54977)
+01/14/2022 11:15:20 AM INFO: Player connected: dummy1
+01/14/2022 11:15:26 AM INFO: Player ready: dummy1
+01/14/2022 11:15:27 AM INFO: Connected by: ('127.0.0.1', 57575)
+01/14/2022 11:15:27 AM INFO: Player connected: dummy2
+01/14/2022 11:15:31 AM INFO: Connected by: ('127.0.0.1', 57576)
+01/14/2022 11:15:31 AM INFO: Player connected: dummy3
+01/14/2022 11:15:33 AM INFO: Player ready: dummy2
+01/14/2022 11:15:36 AM INFO: Connected by: ('127.0.0.1', 57577)
+01/14/2022 11:15:36 AM INFO: Player connected: dummy4
+01/14/2022 11:15:37 AM INFO: Player ready: dummy3
+01/14/2022 11:15:42 AM INFO: Player ready: dummy4
+01/14/2022 11:15:42 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 11:15:42 AM INFO: Ok, let's start the game!
+01/14/2022 11:15:42 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:42 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:42 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:42 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:44 AM INFO: Player dummy1 providing hint to dummy2: cards with color green are in positions: [3]
+01/14/2022 11:15:44 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:44 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:44 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:44 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:46 AM INFO: Player dummy2 providing hint to dummy3: cards with color green are in positions: [2, 3]
+01/14/2022 11:15:46 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:46 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:46 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:46 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:49 AM INFO: Player dummy3 providing hint to dummy4: cards with color blue are in positions: [0]
+01/14/2022 11:15:49 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:49 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:49 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:49 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:52 AM INFO: Player: dummy4: card 23 discarded successfully
+01/14/2022 11:15:52 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:52 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:52 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:52 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:53 AM INFO: Player dummy1 providing hint to dummy3: cards with color green are in positions: [2, 3]
+01/14/2022 11:15:53 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:53 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:53 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:53 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:55 AM INFO: Player: dummy2: card 46 discarded successfully
+01/14/2022 11:15:55 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:55 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:55 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:55 AM INFO: Showing hand to: dummy4
+01/14/2022 11:15:58 AM INFO: Player: dummy3: card 47 discarded successfully
+01/14/2022 11:15:58 AM INFO: Showing hand to: dummy1
+01/14/2022 11:15:58 AM INFO: Showing hand to: dummy3
+01/14/2022 11:15:58 AM INFO: Showing hand to: dummy2
+01/14/2022 11:15:58 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:01 AM INFO: Player dummy4 providing hint to dummy1: cards with color red are in positions: [0]
+01/14/2022 11:16:01 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:01 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:01 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:01 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:02 AM INFO: Player dummy1 providing hint to dummy3: cards with color green are in positions: [2]
+01/14/2022 11:16:02 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:02 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:02 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:02 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:04 AM INFO: Player: dummy2: card 43 discarded successfully
+01/14/2022 11:16:04 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:04 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:04 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:04 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:07 AM INFO: Player: dummy3: card 12 discarded successfully
+01/14/2022 11:16:07 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:07 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:07 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:07 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:10 AM INFO: Player dummy4 providing hint to dummy3: cards with value 1 are in positions: [2]
+01/14/2022 11:16:10 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:10 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:10 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:10 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:11 AM INFO: Player: dummy1: card 24 discarded successfully
+01/14/2022 11:16:11 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:11 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:11 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:11 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:14 AM INFO: Player dummy2 providing hint to dummy3: cards with value 1 are in positions: [2]
+01/14/2022 11:16:14 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:14 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:14 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:14 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:16 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:16:16 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:16 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:16 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:16 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:19 AM INFO: Player: dummy4: card 33 discarded successfully
+01/14/2022 11:16:19 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:19 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:19 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:19 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:20 AM INFO: Player dummy1 providing hint to dummy4: cards with value 1 are in positions: [3]
+01/14/2022 11:16:20 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:20 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:20 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:20 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:23 AM INFO: Player dummy2 providing hint to dummy1: cards with color red are in positions: [0]
+01/14/2022 11:16:23 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:23 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:23 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:23 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:25 AM INFO: Player: dummy3: card 5 discarded successfully
+01/14/2022 11:16:25 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:25 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:25 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:25 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:28 AM INFO: Player dummy4 providing hint to dummy2: cards with color green are in positions: [1]
+01/14/2022 11:16:28 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:28 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:28 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:28 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:29 AM INFO: Player dummy1 providing hint to dummy2: cards with value 3 are in positions: [1, 3]
+01/14/2022 11:16:29 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:29 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:29 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:29 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:32 AM INFO: Player: dummy2: card 27 discarded successfully
+01/14/2022 11:16:32 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:32 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:32 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:32 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:34 AM INFO: Player: dummy3: card 26 discarded successfully
+01/14/2022 11:16:34 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:34 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:34 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:34 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:37 AM INFO: Player dummy4 providing hint to dummy2: cards with color blue are in positions: [1, 3]
+01/14/2022 11:16:37 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:37 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:37 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:37 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:38 AM INFO: Player: dummy1: card 0 discarded successfully
+01/14/2022 11:16:38 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:38 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:38 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:38 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:41 AM INFO: Player dummy2 providing hint to dummy1: cards with color green are in positions: [0, 1, 2]
+01/14/2022 11:16:41 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:41 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:41 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:41 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:44 AM INFO: Player: dummy3: card 36 discarded successfully
+01/14/2022 11:16:44 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:44 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:44 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:44 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:46 AM INFO: Player dummy4 providing hint to dummy1: cards with value 1 are in positions: [1]
+01/14/2022 11:16:46 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:46 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:46 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:46 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:47 AM INFO: dummy1: card played and correctly put on the table
+01/14/2022 11:16:47 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:47 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:47 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:47 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:50 AM INFO: Player: dummy2: card 45 discarded successfully
+01/14/2022 11:16:50 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:50 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:50 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:50 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:53 AM INFO: Player: dummy3: card 15 discarded successfully
+01/14/2022 11:16:53 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:53 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:53 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:53 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:55 AM INFO: Player dummy4 providing hint to dummy2: cards with color blue are in positions: [0, 2]
+01/14/2022 11:16:55 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:55 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:55 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:55 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:56 AM INFO: Player dummy1 providing hint to dummy2: cards with value 1 are in positions: [2]
+01/14/2022 11:16:56 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:56 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:56 AM INFO: Showing hand to: dummy3
+01/14/2022 11:16:56 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:59 AM INFO: dummy2: card played and correctly put on the table
+01/14/2022 11:16:59 AM INFO: Showing hand to: dummy2
+01/14/2022 11:16:59 AM INFO: Showing hand to: dummy1
+01/14/2022 11:16:59 AM INFO: Showing hand to: dummy4
+01/14/2022 11:16:59 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:02 AM INFO: Player dummy3 providing hint to dummy2: cards with value 1 are in positions: [3]
+01/14/2022 11:17:02 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:02 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:02 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:02 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:04 AM INFO: Player: dummy4: card 4 discarded successfully
+01/14/2022 11:17:04 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:04 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:04 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:04 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:05 AM INFO: Player dummy1 providing hint to dummy2: cards with color red are in positions: [3]
+01/14/2022 11:17:05 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:05 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:05 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:05 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:08 AM INFO: dummy2: card played and correctly put on the table
+01/14/2022 11:17:08 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:08 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:08 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:08 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:11 AM INFO: Player dummy3 providing hint to dummy2: cards with color green are in positions: [3]
+01/14/2022 11:17:11 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:11 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:11 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:11 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:13 AM INFO: Player dummy4 providing hint to dummy3: cards with color green are in positions: [1]
+01/14/2022 11:17:13 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:13 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:13 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:13 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:14 AM INFO: Player dummy1 providing hint to dummy3: cards with value 2 are in positions: [1]
+01/14/2022 11:17:14 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:14 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:14 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:14 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:17 AM INFO: Player: dummy2: card 7 discarded successfully
+01/14/2022 11:17:17 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:17 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:17 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:17 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:20 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:17:20 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:20 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:20 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:20 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:22 AM INFO: Player dummy4 providing hint to dummy3: cards with color white are in positions: [3]
+01/14/2022 11:17:22 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:22 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:22 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:22 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:23 AM INFO: Player dummy1 providing hint to dummy4: cards with value 1 are in positions: [3]
+01/14/2022 11:17:23 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:23 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:23 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:23 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:26 AM INFO: Player: dummy2: card 34 discarded successfully
+01/14/2022 11:17:26 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:26 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:26 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:26 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:29 AM INFO: Player: dummy3: card 31 discarded successfully
+01/14/2022 11:17:29 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:29 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:29 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:29 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:31 AM INFO: Player: dummy4: card 3 discarded successfully
+01/14/2022 11:17:31 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:31 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:31 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:31 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:32 AM INFO: Player: dummy1: card 49 discarded successfully
+01/14/2022 11:17:32 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:32 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:32 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:32 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:35 AM INFO: Player: dummy2: card 44 discarded successfully
+01/14/2022 11:17:35 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:35 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:35 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:35 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:38 AM INFO: Player dummy3 providing hint to dummy1: cards with value 1 are in positions: [3]
+01/14/2022 11:17:38 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:38 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:38 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:38 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:40 AM INFO: Player dummy4 providing hint to dummy3: cards with value 2 are in positions: [2]
+01/14/2022 11:17:40 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:40 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:40 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:40 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:41 AM INFO: Player: dummy1: card 6 discarded successfully
+01/14/2022 11:17:41 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:41 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:41 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:41 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:44 AM INFO: Player: dummy2: card 18 discarded successfully
+01/14/2022 11:17:44 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:44 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:44 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:44 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:47 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:17:47 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:47 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:47 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:47 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:49 AM INFO: Player dummy4 providing hint to dummy3: cards with value 3 are in positions: [0, 3]
+01/14/2022 11:17:49 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:49 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:49 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:49 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:50 AM INFO: Player: dummy1: card 29 discarded successfully
+01/14/2022 11:17:50 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:50 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:50 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:50 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:53 AM INFO: Player dummy2 providing hint to dummy4: cards with color white are in positions: [3]
+01/14/2022 11:17:53 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:53 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:53 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:53 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:56 AM INFO: Player: dummy3: card 30 discarded successfully
+01/14/2022 11:17:56 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:56 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:56 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:56 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:58 AM INFO: Player: dummy4: card 9 discarded successfully
+01/14/2022 11:17:58 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy4
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:59 AM INFO: Player: dummy1: card 21 discarded successfully
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy1
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy2
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy3
+01/14/2022 11:17:59 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:02 AM INFO: Player dummy2 providing hint to dummy4: cards with color red are in positions: [0, 2]
+01/14/2022 11:18:02 AM INFO: Showing hand to: dummy1
+01/14/2022 11:18:02 AM INFO: Showing hand to: dummy2
+01/14/2022 11:18:02 AM INFO: Showing hand to: dummy3
+01/14/2022 11:18:02 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:05 AM INFO: Player: dummy3: card 28 discarded successfully
+01/14/2022 11:18:05 AM INFO: Showing hand to: dummy1
+01/14/2022 11:18:05 AM INFO: Showing hand to: dummy3
+01/14/2022 11:18:05 AM INFO: Showing hand to: dummy2
+01/14/2022 11:18:05 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:08 AM INFO: Player dummy4 providing hint to dummy3: cards with color yellow are in positions: [2]
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy1
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy2
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy3
+01/14/2022 11:18:08 AM INFO: Player: dummy1: card 41 discarded successfully
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy2
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy3
+01/14/2022 11:18:08 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:11 AM INFO: Player: dummy2: card 48 discarded successfully
+01/14/2022 11:18:11 AM INFO: Showing hand to: dummy3
+01/14/2022 11:18:11 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:14 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:18:14 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:17 AM INFO: Player dummy4 providing hint to dummy2: cards with value 1 are in positions: [1]
+01/14/2022 11:18:17 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:17 AM INFO: Player dummy1 providing hint to dummy3: cards with value 1 are in positions: [2]
+01/14/2022 11:18:17 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:20 AM INFO: Player: dummy2: card 25 discarded successfully
+01/14/2022 11:18:20 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:23 AM INFO: Player dummy3 providing hint to dummy4: cards with color red are in positions: [0, 2]
+01/14/2022 11:18:23 AM INFO: Showing hand to: dummy4
+01/14/2022 11:18:26 AM INFO: Player: dummy4: card 20 discarded successfully
+01/14/2022 11:18:26 AM INFO: Player: dummy1: card 32 discarded successfully
+01/14/2022 11:18:29 AM INFO: Player dummy2 providing hint to dummy1: cards with color green are in positions: [0, 1]
+01/14/2022 11:18:32 AM INFO: Player dummy3 providing hint to dummy4: cards with value 2 are in positions: [2]
+01/14/2022 11:18:35 AM INFO: Player: dummy4: card 37 discarded successfully
+01/14/2022 11:19:05 AM INFO: Player dummy1 providing hint to dummy4: cards with value 2 are in positions: [1]
+01/14/2022 11:19:14 AM INFO: Player dummy2 providing hint to dummy4: cards with color red are in positions: [0]
+01/14/2022 11:19:17 AM INFO: Player dummy3 providing hint to dummy4: cards with value 2 are in positions: [1]
+01/14/2022 11:19:20 AM INFO: Player: dummy4: card 35 discarded successfully
+01/14/2022 11:19:27 AM INFO: Player dummy1 providing hint to dummy4: cards with value 2 are in positions: [0]
+01/14/2022 11:19:29 AM INFO: Player dummy2 providing hint to dummy1: cards with color green are in positions: [0, 1]
+01/14/2022 11:19:32 AM INFO: Player dummy3 providing hint to dummy1: cards with value 2 are in positions: [1]
+01/14/2022 11:19:35 AM INFO: Player dummy4 providing hint to dummy3: cards with color blue are in positions: [2]
+01/14/2022 11:19:48 AM INFO: Player dummy1 providing hint to dummy2: cards with value 1 are in positions: [0]
+01/14/2022 11:19:50 AM WARNING: All the note tokens have been used. Impossible getting hints
+01/14/2022 11:19:53 AM INFO: Player: dummy2: card 11 discarded successfully
+01/14/2022 11:19:59 AM INFO: Player dummy3 providing hint to dummy1: cards with color green are in positions: [0, 1]
+01/14/2022 11:20:02 AM INFO: Player: dummy4: card 16 discarded successfully
+01/14/2022 11:20:09 AM INFO: Closing the server...
+01/14/2022 11:23:03 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 11:23:06 AM INFO: Connected by: ('127.0.0.1', 56347)
+01/14/2022 11:23:06 AM INFO: Player connected: dummy1
+01/14/2022 11:23:12 AM INFO: Player ready: dummy1
+01/14/2022 11:23:13 AM INFO: Connected by: ('127.0.0.1', 56350)
+01/14/2022 11:23:13 AM INFO: Player connected: dummy2
+01/14/2022 11:23:17 AM INFO: Connected by: ('127.0.0.1', 56352)
+01/14/2022 11:23:17 AM INFO: Player connected: dummy3
+01/14/2022 11:23:19 AM INFO: Player ready: dummy2
+01/14/2022 11:23:23 AM INFO: Connected by: ('127.0.0.1', 61263)
+01/14/2022 11:23:23 AM INFO: Player connected: dummy4
+01/14/2022 11:23:23 AM INFO: Player ready: dummy3
+01/14/2022 11:23:29 AM INFO: Player ready: dummy4
+01/14/2022 11:23:29 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 11:23:29 AM INFO: Ok, let's start the game!
+01/14/2022 11:23:29 AM INFO: Showing hand to: dummy1
+01/14/2022 11:23:29 AM INFO: Showing hand to: dummy3
+01/14/2022 11:23:29 AM INFO: Showing hand to: dummy2
+01/14/2022 11:23:30 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [0, 1, 2]
+01/14/2022 11:23:30 AM INFO: Showing hand to: dummy1
+01/14/2022 11:23:30 AM INFO: Showing hand to: dummy2
+01/14/2022 11:23:30 AM INFO: Showing hand to: dummy3
+01/14/2022 11:23:31 AM INFO: Player dummy2 providing hint to dummy4: cards with value 1 are in positions: [0, 1]
+01/14/2022 11:23:31 AM INFO: Showing hand to: dummy1
+01/14/2022 11:23:31 AM INFO: Showing hand to: dummy2
+01/14/2022 11:23:31 AM INFO: Showing hand to: dummy3
+01/14/2022 11:23:32 AM INFO: Player: dummy3: card 3 discarded successfully
+01/14/2022 11:23:32 AM INFO: Showing hand to: dummy3
+01/14/2022 11:23:32 AM INFO: Showing hand to: dummy1
+01/14/2022 11:23:32 AM INFO: Showing hand to: dummy2
+01/14/2022 11:28:31 AM INFO: Closing the server...
+01/14/2022 11:30:27 AM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 11:30:32 AM INFO: Connected by: ('127.0.0.1', 63753)
+01/14/2022 11:30:32 AM INFO: Player connected: dummy1
+01/14/2022 11:30:37 AM INFO: Connected by: ('127.0.0.1', 63755)
+01/14/2022 11:30:37 AM INFO: Player connected: dummy2
+01/14/2022 11:30:38 AM INFO: Player ready: dummy1
+01/14/2022 11:30:41 AM INFO: Connected by: ('127.0.0.1', 63757)
+01/14/2022 11:30:41 AM INFO: Player connected: dummy3
+01/14/2022 11:30:43 AM INFO: Player ready: dummy2
+01/14/2022 11:30:44 AM INFO: Connected by: ('127.0.0.1', 63758)
+01/14/2022 11:30:44 AM INFO: Player connected: dummy4
+01/14/2022 11:30:47 AM INFO: Player ready: dummy3
+01/14/2022 11:30:50 AM INFO: Player ready: dummy4
+01/14/2022 11:30:50 AM INFO: Game start! Between: ['dummy1', 'dummy2', 'dummy3', 'dummy4']
+01/14/2022 11:30:50 AM INFO: Ok, let's start the game!
+01/14/2022 11:30:50 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:50 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:50 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:50 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:54 AM INFO: Player dummy1 providing hint to dummy2: cards with value 3 are in positions: [2]
+01/14/2022 11:30:54 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:54 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:54 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:54 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:55 AM INFO: Player: dummy2: card 29 discarded successfully
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:55 AM INFO: Player dummy3 providing hint to dummy4: cards with color green are in positions: [1]
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:55 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:56 AM INFO: Player: dummy4: card 16 discarded successfully
+01/14/2022 11:30:56 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:56 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:56 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:56 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:57 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [0]
+01/14/2022 11:30:57 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:57 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:57 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:57 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:58 AM INFO: Player dummy2 providing hint to dummy4: cards with color green are in positions: [0]
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:58 AM INFO: Player dummy3 providing hint to dummy4: cards with value 1 are in positions: [0]
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy3
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:58 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:59 AM INFO: dummy4: card played and correctly put on the table
+01/14/2022 11:30:59 AM INFO: Showing hand to: dummy1
+01/14/2022 11:30:59 AM INFO: Showing hand to: dummy4
+01/14/2022 11:30:59 AM INFO: Showing hand to: dummy2
+01/14/2022 11:30:59 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:00 AM INFO: Player dummy1 providing hint to dummy4: cards with value 2 are in positions: [0]
+01/14/2022 11:31:00 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:00 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:00 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:00 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:01 AM INFO: Player dummy2 providing hint to dummy4: cards with color white are in positions: [0, 1]
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:01 AM INFO: Player dummy3 providing hint to dummy4: cards with color white are in positions: [0, 1]
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:01 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:02 AM INFO: Player: dummy4: card 45 discarded successfully
+01/14/2022 11:31:02 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:02 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:02 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:02 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:03 AM INFO: Player: dummy1: card 9 discarded successfully
+01/14/2022 11:31:03 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:03 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:03 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:03 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:04 AM INFO: Player: dummy2: card 43 discarded successfully
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:04 AM INFO: Player dummy3 providing hint to dummy4: cards with value 2 are in positions: [0]
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:04 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:05 AM INFO: Player: dummy4: card 25 discarded successfully
+01/14/2022 11:31:05 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:05 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:05 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:05 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:06 AM INFO: Player: dummy1: card 3 discarded successfully
+01/14/2022 11:31:06 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:06 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:06 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:06 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:07 AM INFO: Player: dummy2: card 37 discarded successfully
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:07 AM INFO: Player dummy3 providing hint to dummy1: cards with value 1 are in positions: [0]
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:07 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:08 AM INFO: Player dummy4 providing hint to dummy3: cards with color red are in positions: [0]
+01/14/2022 11:31:08 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:08 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:08 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:08 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:09 AM INFO: Player dummy1 providing hint to dummy2: cards with value 1 are in positions: [1]
+01/14/2022 11:31:09 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:09 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:09 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:09 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:10 AM INFO: Player dummy2 providing hint to dummy4: cards with color white are in positions: [0, 1]
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:10 AM INFO: Player dummy3 providing hint to dummy4: cards with color white are in positions: [0, 1]
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:10 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:11 AM INFO: Player dummy4 providing hint to dummy1: cards with value 1 are in positions: [0]
+01/14/2022 11:31:11 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:11 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:11 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:11 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:12 AM INFO: Player dummy1 providing hint to dummy2: cards with value 1 are in positions: [1]
+01/14/2022 11:31:12 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:12 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:12 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:12 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:13 AM INFO: Player: dummy2: card 40 discarded successfully
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:13 AM INFO: Player: dummy3: card 5 discarded successfully
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:13 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:14 AM INFO: Player: dummy4: card 39 discarded successfully
+01/14/2022 11:31:14 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:14 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:14 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:14 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:15 AM INFO: Player: dummy1: card 10 discarded successfully
+01/14/2022 11:31:15 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:15 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:15 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:15 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:16 AM INFO: Player dummy2 providing hint to dummy4: cards with color blue are in positions: [3]
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:16 AM INFO: Player dummy3 providing hint to dummy1: cards with value 2 are in positions: [2]
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:16 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:17 AM INFO: Player: dummy4: card 31 discarded successfully
+01/14/2022 11:31:17 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:17 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:17 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:17 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:18 AM INFO: Player dummy1 providing hint to dummy4: cards with value 1 are in positions: [2]
+01/14/2022 11:31:18 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:18 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:18 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:18 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:19 AM INFO: Player: dummy2: card 28 discarded successfully
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:19 AM INFO: Player: dummy3: card 32 discarded successfully
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:19 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:20 AM INFO: dummy4: card played and correctly put on the table
+01/14/2022 11:31:20 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:20 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:20 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:20 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:21 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [3]
+01/14/2022 11:31:21 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:21 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:21 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:21 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:22 AM INFO: Player dummy2 providing hint to dummy3: cards with value 1 are in positions: [1, 2, 3]
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:22 AM INFO: Player dummy3 providing hint to dummy4: cards with color green are in positions: [3]
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:22 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:23 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:23 AM INFO: Player: dummy4: card 19 discarded successfully
+01/14/2022 11:31:23 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:23 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:23 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:23 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:24 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [2]
+01/14/2022 11:31:24 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:24 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:24 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:24 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:25 AM INFO: Player: dummy2: card 12 discarded successfully
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:25 AM INFO: Player: dummy3: card 4 discarded successfully
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:25 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:26 AM INFO: Player: dummy4: card 36 discarded successfully
+01/14/2022 11:31:26 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:26 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:26 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:26 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:27 AM INFO: Player dummy1 providing hint to dummy2: cards with color white are in positions: [0, 1]
+01/14/2022 11:31:27 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:27 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:27 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:27 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:28 AM INFO: Player: dummy2: card 34 discarded successfully
+01/14/2022 11:31:28 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:28 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:28 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:28 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:29 AM INFO: Player: dummy3: card 17 discarded successfully
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:29 AM INFO: Player dummy4 providing hint to dummy1: cards with value 2 are in positions: [2]
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:29 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:30 AM INFO: Player: dummy1: card 46 discarded successfully
+01/14/2022 11:31:30 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:30 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:30 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:30 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:31 AM INFO: Player dummy2 providing hint to dummy4: cards with color green are in positions: [1, 3]
+01/14/2022 11:31:31 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:31 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:31 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:31 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:32 AM INFO: Player dummy3 providing hint to dummy1: cards with color blue are in positions: [0, 1]
+01/14/2022 11:31:32 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:32 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:32 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:32 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:33 AM INFO: Player: dummy4: card 48 discarded successfully
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:33 AM INFO: dummy1: card played and correctly put on the table
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:33 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:34 AM INFO: Player dummy2 providing hint to dummy3: cards with value 1 are in positions: [1, 2]
+01/14/2022 11:31:34 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:34 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:34 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:34 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:35 AM INFO: Player: dummy3: card 15 discarded successfully
+01/14/2022 11:31:35 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:35 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:35 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:35 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:36 AM INFO: Player: dummy4: card 30 discarded successfully
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:36 AM INFO: Player: dummy1: card 35 discarded successfully
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:36 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:37 AM INFO: Player: dummy2: card 44 discarded successfully
+01/14/2022 11:31:37 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:37 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:37 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:37 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:38 AM INFO: Player: dummy3: card 24 discarded successfully
+01/14/2022 11:31:38 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:38 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:38 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:38 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:39 AM INFO: Player dummy4 providing hint to dummy2: cards with color green are in positions: [2, 3]
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:39 AM INFO: Player: dummy1: card 21 discarded successfully
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:39 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:40 AM INFO: Player dummy2 providing hint to dummy3: cards with value 1 are in positions: [0, 1, 2, 3]
+01/14/2022 11:31:40 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:40 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:40 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:40 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:41 AM INFO: Player: dummy3: card 8 discarded successfully
+01/14/2022 11:31:41 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:41 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:41 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:41 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:42 AM INFO: Player dummy4 providing hint to dummy3: cards with color white are in positions: [0]
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:42 AM INFO: dummy1: card played and correctly put on the table
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:42 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:43 AM INFO: Player dummy2 providing hint to dummy4: cards with color green are in positions: [0, 1, 3]
+01/14/2022 11:31:43 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:43 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:43 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:43 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:44 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:31:44 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:44 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:44 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:44 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:45 AM INFO: Player: dummy4: card 2 discarded successfully
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:45 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [0, 2]
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:45 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:46 AM INFO: Player dummy2 providing hint to dummy3: cards with value 1 are in positions: [0, 1]
+01/14/2022 11:31:46 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:46 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:46 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:46 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:47 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:31:47 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:47 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:47 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:47 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:48 AM INFO: Player dummy4 providing hint to dummy2: cards with value 2 are in positions: [3]
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:48 AM INFO: Player dummy1 providing hint to dummy4: cards with color green are in positions: [0, 2]
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:48 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:49 AM INFO: dummy2: card played and correctly put on the table
+01/14/2022 11:31:49 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:49 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:49 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:49 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:50 AM INFO: dummy3: card played and correctly put on the table
+01/14/2022 11:31:50 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:50 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:50 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:50 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:51 AM INFO: Player dummy4 providing hint to dummy1: cards with color yellow are in positions: [1, 2]
+01/14/2022 11:31:51 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:51 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:51 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:51 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:52 AM INFO: Player: dummy1: card 6 discarded successfully
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:52 AM INFO: Player: dummy2: card 41 discarded successfully
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy2
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy1
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy4
+01/14/2022 11:31:52 AM INFO: Showing hand to: dummy3
+01/14/2022 11:31:53 AM INFO: Game over, people.
+01/14/2022 11:31:53 AM INFO: Please, close the server now
+01/14/2022 11:31:53 AM INFO: Score: 9; message: Meh!
+01/14/2022 11:31:53 AM INFO: Game over
+01/14/2022 12:36:21 PM INFO: Closing the server...
+01/14/2022 12:36:27 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 12:36:34 PM INFO: Closing the server...
+01/14/2022 12:36:46 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 12:36:56 PM INFO: Connected by: ('127.0.0.1', 58759)
+01/14/2022 12:36:56 PM INFO: Player connected: dummy2
+01/14/2022 12:37:01 PM INFO: Connected by: ('127.0.0.1', 58760)
+01/14/2022 12:37:01 PM INFO: Player connected: dummy4
+01/14/2022 12:37:02 PM INFO: Player ready: dummy2
+01/14/2022 12:37:07 PM INFO: Player ready: dummy4
+01/14/2022 12:37:07 PM INFO: Game start! Between: ['dummy2', 'dummy4']
+01/14/2022 12:37:07 PM INFO: Ok, let's start the game!
+01/14/2022 12:37:07 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:10 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:10 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:11 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:11 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:12 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:12 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:13 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:13 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:14 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:14 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:15 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:15 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:16 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:16 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:17 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:17 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:18 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:18 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:19 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:19 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:20 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:37:20 PM INFO: Showing hand to: dummy2
+01/14/2022 12:37:21 PM INFO: Closing the server...
+01/14/2022 12:51:07 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/14/2022 12:51:16 PM INFO: Connected by: ('127.0.0.1', 53765)
+01/14/2022 12:51:16 PM INFO: Player connected: dummy2
+01/14/2022 12:51:21 PM INFO: Connected by: ('127.0.0.1', 63505)
+01/14/2022 12:51:21 PM INFO: Player connected: dummy4
+01/14/2022 12:51:22 PM INFO: Player ready: dummy2
+01/14/2022 12:51:27 PM INFO: Player ready: dummy4
+01/14/2022 12:51:27 PM INFO: Game start! Between: ['dummy2', 'dummy4']
+01/14/2022 12:51:27 PM INFO: Ok, let's start the game!
+01/14/2022 12:51:27 PM INFO: Showing hand to: dummy4
+01/14/2022 12:51:27 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:30 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:30 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:31 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:31 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:32 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:32 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:33 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:33 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:34 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:34 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:35 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:35 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:36 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:36 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:37 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:37 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:38 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:38 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:39 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:39 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:40 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:40 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:41 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:41 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:42 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:42 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:43 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:43 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:44 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:44 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:45 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:45 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:46 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:46 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:47 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:47 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:48 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:48 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:49 PM WARNING: Impossible discarding a card: there is no used token available
+01/14/2022 12:51:49 PM INFO: Showing hand to: dummy2
+01/14/2022 12:51:50 PM INFO: Closing the server...

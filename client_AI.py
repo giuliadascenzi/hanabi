@@ -195,7 +195,7 @@ def agentPlay():
                 print("Error")
                 run = False
 
-        time.sleep(3)
+        time.sleep(1)
     return
 # ------------- MAIN -------------
 
@@ -208,9 +208,9 @@ def main():
     global playerName
 
     playerName, players_names = start_game()
-    #time.sleep(5)
+    
     init_data(playerName, players_names)
-
+    time.sleep(2)
     t = Thread(target=agentPlay)
     t.start()
 
