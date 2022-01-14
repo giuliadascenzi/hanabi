@@ -1,15 +1,47 @@
+import enum
 import random
 
 from game import Player
 import GameData
 
 
-class Agent(Player):
+class Knowledge:
+    """
+    An instance of this class represents what a player knows about a card, as known by everyone.
+    """
+
+    def __init__(self, color=None, value=None):
+        self.color = color  # know the color
+        self.value = value  # know the number
+        self.playable = False  # at some point, this card was playable
+        self.non_playable = False  # at some point, this card was not playable
+        self.useless = False  # this card is useless
+        self.high = False  # at some point, this card was high (relevant/discardable)(see CardHintsManager)
+
+    def __repr__(self):
+        return ("C" if self.color else "-") + ("N" if self.value else "-") + ("P" if self.playable else "-") + (
+            "Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
+
+    def knows(self, hint_type):
+        """
+        Does the player know the color/number?
+        """
+        if hint_type == "color":
+            return self.color
+        else:
+            return self.value
+
+    def knows_exactly(self):
+        """
+        Does the player know exactly this card?
+        """
+        return self.color and (self.value or self.playable)
+
+
+class SimpleAgent(Player):
     def __init__(self, name):
         super().__init__(name)
         self.ready = True
-        self.index = None
-        self.possibilities = None
 
     @staticmethod
     def playable_card(card, fireworks):
@@ -17,34 +49,6 @@ class Agent(Player):
             return True
         else:
             return False
-
-    def dummy_agent_choice(self, observation):
-        if observation['usedNoteTokens'] < 3 and random.randint(0, 2) == 0:
-            # give random hint to the next player
-            next_player_index = (observation['players'].index(self.name) + 1) % len(observation['players'])
-            destination = observation['players'][next_player_index]
-            card = random.choice([card for card in observation['playerHands'][next_player_index].hand
-                                  if card is not None])
-            if random.randint(0, 1) == 0:
-                type_ = "color"
-                value = card.color
-            else:
-                type_ = "value"
-                value = card.value
-            print("Give some random hint")
-            return GameData.ClientHintData(self.name, destination, type_, value)
-
-        elif random.randint(0, 1) == 0:
-            # play random card
-            card_pos = random.choice([0, 1, 2, 3, 4])
-            print("Play some random card")
-            return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
-
-        else:
-            # discard random card
-            card_pos = random.choice([0, 1, 2, 3, 4])
-            print("Discard some random card")
-            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
 
     def simple_heuristic_choice(self, observation):
         # Check if there are any pending hints and play the card corresponding to the hint.
@@ -80,7 +84,95 @@ class Agent(Player):
         else:
             return GameData.ClientPlayerPlayCardRequest(self.name, 0)
 
-    # Rule based agent
+    def rule_based_choice(self):
+        pass
+
+
+class DummyAgent(Player):
+    def __init__(self, name):
+        super().__init__(name)
+        self.ready = True
+
+    def dummy_agent_choice(self, game_state):
+        if game_state['usedNoteTokens'] < 3 and random.randint(0, 2) == 0:
+            # give random hint to the next player
+            next_player_index = (game_state['players'].index(self.name) + 1) % len(game_state['players'])
+            destination = game_state['players'][next_player_index]
+            card = random.choice([card for card in game_state['playerHands'][next_player_index].hand
+                                  if card is not None])
+            if random.randint(0, 1) == 0:
+                type_ = "color"
+                value = card.color
+            else:
+                type_ = "value"
+                value = card.value
+            print("Give some random hint")
+            return GameData.ClientHintData(self.name, destination, type_, value)
+
+        elif random.randint(0, 1) == 0:
+            # play random card
+            card_pos = random.choice([0, 1, 2, 3, 4])
+            print("Play some random card")
+            return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
+
+        else:
+            # discard random card
+            card_pos = random.choice([0, 1, 2, 3, 4])
+            print("Discard some random card")
+            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+
+
+class HanabiMoveType(enum.IntEnum):
+    INVALID = 0
+    PLAY = 1
+    DISCARD = 2
+    REVEAL_COLOR = 3
+    REVEAL_RANK = 4
+    DEAL = 5
+
+
+class RuleBasedAgent(Player):
+    def __init__(self, name):
+        super().__init__(name)
+        self.ready = True
+        self.index = None
+        self.rightPlayer = None
+        self.leftPlayer = None
+
+    @staticmethod
+    def playable_card(card, fireworks):
+        if card.value == len(fireworks[card.color]) + 1:
+            return True
+        else:
+            return False
+
+    def set_LR_players(self, index, idxL, idxR):
+        self.index = index
+        self.leftPlayer = idxL
+        self.rightPlayer = idxR
+
+    def check_if_not_playable_hint(self, observation):
+        # check if rank hint was hinted for discard or not,
+        last_move = observation['last_move']
+
+        # for l in last_move:
+        if last_move['player'] is not None:
+            player = last_move['player']
+            player_idx = None
+            for i in range(len(observation['players'])):
+                if observation['players'][i].name == player:
+                    player_idx = i
+            if last_move['move_type'] == HanabiMoveType.REVEAL_RANK and player_idx == self.leftPlayer and \
+                    0 in last_move['card']:
+                player_target_idx = (player_idx + 1) % len(observation['players'])
+                # hint is from left partner, not useful hint though (just hint to free tokens)')
+                for card_idx in last_move['card']:
+                    observation['rankHintedButNoPlay'][player_target_idx][card_idx] = True
+                # break
+            elif last_move['move_type'] == HanabiMoveType.DISCARD or last_move['move_type'] == HanabiMoveType.PLAY:
+                observation['rankHintedButNoPlay'][player_idx].pop(last_move['card'])
+                observation['rankHintedButNoPlay'][player_idx].append(False)
+
     def maybe_play_lowest_playable_card(self, observation):
         """
         The Bot checks if previously a card has been hinted to him,
@@ -94,10 +186,15 @@ class Agent(Player):
 
         for k in own_card_knowledge:
             if k.color is not None:
+                # verify that index 0 correspond to the correct player
+                observation['rankHintedButNoPlay'][self.index].pop(own_card_knowledge.index(k))
+                observation['rankHintedButNoPlay'][self.index].append(False)
                 return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
 
         for k in own_card_knowledge:
-            if k.value is not None:
+            if k.value is not None and not observation['rankHintedButNoPlay'][self.index][own_card_knowledge.index(k)]:
+                observation['rankHintedButNoPlay'][self.index].pop(own_card_knowledge.index(k))
+                observation['rankHintedButNoPlay'][self.index].append(False)
                 return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
 
     def maybe_give_helpful_hint(self, observation):
@@ -162,7 +259,8 @@ class Agent(Player):
                 for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                     if card.value is not rank:
                         continue
-                    if self.playable_card(card, fireworks) and knowledge.value is None:
+                    if self.playable_card(card, fireworks) and \
+                            (knowledge.value is None or observation['rankHintedButNoPlay'][player_idx][index]):
                         information_content += 1
                     elif not self.playable_card(card, fireworks):
                         missInformative = True
@@ -185,12 +283,16 @@ class Agent(Player):
         else:
             return None
 
-    def rl_choice(self, observation):
+    def act(self, observation):
         """
         Act by making a move, depending on the observations.
         :param observation: Dictionary containing all information over the Hanabi game, from the view of the players
         :return: Returns a dictionary, describing the action
         """
+
+        # check if in previous round, the left partner (index = num_players-1) has given us a VALUE-HINT, in which our
+        # latest card (index = 0) was hinted. These cards are not necessarily playable, therefore they need to be marked
+        self.check_if_not_playable_hint(observation)
 
         # If I have a playable card, play it.
         action = self.maybe_play_lowest_playable_card(observation)
@@ -205,51 +307,22 @@ class Agent(Player):
         # We couldn't find a good hint to give, or we are out of hint-stones.
         # We will discard a card, if possible.
         # Otherwise just hint the next play
+        """isDiscardingAllowed = False
+        for legal_moves in observation['legal_moves']:
+            if legal_moves['action_type'] is 'DISCARD':
+                isDiscardingAllowed = True
+                break """
         if observation['usedNoteTokens'] > 1:
             isDiscardingAllowed = True
         else:
             isDiscardingAllowed = False
         if not isDiscardingAllowed:
             # Assume next player in turn is player on right
-            # give a hint
-            pass
-
+            hand_on_right = observation['players'][self.rightPlayer].hand
+            return GameData.ClientHintData(self.name, observation['players'][self.rightPlayer].name, 'value',
+                                           hand_on_right[0].value)
         else:
             # Discard our oldest card
+            observation['rankHintedButNoPlay'][self.index].pop(0)
+            observation['rankHintedButNoPlay'][self.index].append(False)
             return GameData.ClientPlayerDiscardCardRequest(self.name, 0)
-
-    def set_index(self, index):
-        self.index = index
-
-
-class Knowledge:
-    """
-    An instance of this class represents what a player knows about a card, as known by everyone.
-    """
-
-    def __init__(self, color=None, value=None):
-        self.color = color  # know the color
-        self.value = value  # know the number
-        self.playable = False  # at some point, this card was playable
-        self.non_playable = False  # at some point, this card was not playable
-        self.useless = False  # this card is useless
-        self.high = False  # at some point, this card was high (relevant/discardable)(see CardHintsManager)
-
-    def __repr__(self):
-        return ("C" if self.color else "-") + ("N" if self.value else "-") + ("P" if self.playable else "-") + (
-            "Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
-
-    def knows(self, hint_type):
-        """
-        Does the player know the color/number?
-        """
-        if hint_type == "color":
-            return self.color
-        else:
-            return self.value
-
-    def knows_exactly(self):
-        """
-        Does the player know exactly this card?
-        """
-        return self.color and (self.value or self.playable)
