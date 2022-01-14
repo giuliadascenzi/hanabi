@@ -28,7 +28,7 @@ playing_agent = ""
 
 CARDS_PER_PLAYER = {2: 5, 3: 5, 4: 4, 5: 4}
 
-
+scores = []
 
 def start_game():
     global run
@@ -138,7 +138,8 @@ def init_data(playerName, players_names):
     '''
     HERE: Choose which agent to use 
     '''
-    playing_agent =  RbAgent(playerName)           ##DummyAgent(playerName)
+    playing_agent = None
+    playing_agent =  RbAgent(playerName)  
     
     # ask to show the data to the server
     request = GameData.ClientGetGameStateRequest(playerName)
@@ -155,7 +156,7 @@ def init_data(playerName, players_names):
         usedStormTokens= data.usedStormTokens # = 0
         print(len(playersInfo))
         playing_agent.initialize(num_players= len(players_names), players_names= players_names, k=CARDS_PER_PLAYER[len(players_names)], board= tableCards, players_info= playersInfo, discard_pile=discardPile)
-        show(data)
+        #show(data)
     return
 
 def update_data():
@@ -178,7 +179,7 @@ def update_data():
     
 
         playing_agent.update(board= tableCards, players_info= playersInfo, discardPile=discardPile, usedNoteTokens=usedNoteTokens, usedStormTokens=usedStormTokens )
-        show(data)
+        #show(data)
     return
 
 def agentPlay():
@@ -206,6 +207,7 @@ def main():
     global status
     global AI_type
     global playerName
+    global scores
 
     playerName, players_names = start_game()
     
@@ -244,6 +246,10 @@ def main():
             print(data.message)
             print(data.score)
             print(data.scoreMessage)
+            scores.append(data.score)
+            print(" Average score so far:  ", sum(scores)/len(scores))
+            del(playing_agent)
+            init_data(playerName, players_names)
             stdout.flush()
             #run = False
             print("Ready for a new game")
