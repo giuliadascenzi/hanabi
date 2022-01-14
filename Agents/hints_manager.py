@@ -97,7 +97,7 @@ class HintsManager(object):
                     # 'deck_size': self.deck_size,
                     'fireworks': self.agent.board,
                     # 'legal_moves': self.get_legal_moves(),
-                    'discard_pile': self.agent.discardPile,
+                    'discard_pile': self.agent.discard_pile,
                     #'hints': hintState,
                     'playersKnowledge': self.agent.knowledge,
                     #'rankHintedButNoPlay': rankHintedButNoPlay,
@@ -110,8 +110,8 @@ class HintsManager(object):
     def maybe_give_helpful_hint(self, observation):
 
         # give a hint that will make a card playable
-        if observation['usedNoteTokens'] == 8:
-            return None
+        assert observation['usedNoteTokens'] != 8
+
 
         fireworks = observation['fireworks']
 
@@ -188,11 +188,11 @@ class HintsManager(object):
         if best_so_far == 0:
             return None, None, None
         elif color_to_hint is not None:
-            return (player_to_hint, 'color', color_to_hint)
+            return (player_to_hint, color_to_hint, "color")
         elif value_to_hint != -1:
-            return (player_to_hint, 'value', value_to_hint)
+            return (player_to_hint, value_to_hint, "value")
         else:
-            return None
+            return None, None, None
 
 
     def get_low_value_hint(self):
@@ -201,7 +201,7 @@ class HintsManager(object):
         while (destination_name== self.agent.name):
             destination_name = self.agent.players_names[random.randint(0,self.agent.num_players-1)]
         destination_hand = ""
-        for player_info in self.players_info:
+        for player_info in self.agent.players_info:
             if player_info.name== destination_name:
                 destination_hand= player_info.hand
         

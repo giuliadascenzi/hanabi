@@ -65,7 +65,7 @@ def start_game():
         print(data.message)
     
     # 3) Wait until all the players entered in the lobby -> sleep some seconds TODO: (This is an andrea suggestion)
-    time.sleep(6)
+    # time.sleep(1)
 
     # 4) Comunicate to the server that you are ready
     print("I am ready to start the game.")

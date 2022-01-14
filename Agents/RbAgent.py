@@ -227,14 +227,15 @@ class RbAgent(BaseAgent):
             return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
         
         # 2) If a usefull hint can be done do it:
-        destination_name, value, type = self.get_best_hint()
-        if (destination_name, value, type) != (None, None, None): # found a best hint
-            print(">>>give the hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(self.name, destination_name, type, value)
+        if (self.usedNoteTokens < 8 ):
+            destination_name, value, type = self.get_best_hint()
+            if (destination_name, value, type) != (None, None, None): # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(self.name, destination_name, type, value)
         # 3) If I can not discard, give a random hint
         if (self.usedNoteTokens == 0):
             destination_name, value, type = self.get_low_value_hint()
-            print(">>>give the hint ", type, " ", value, " to ", destination_name)
+            print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
         # 4) If it is not possible to hint
         if (self.usedNoteTokens == 8): 
@@ -252,7 +253,7 @@ class RbAgent(BaseAgent):
         
         else:
             destination_name, value, type = self.get_low_value_hint()
-            print(">>>give the hint ", type, " ", value, " to ", destination_name)
+            print(">>>give the low_valuehint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(self.name, destination_name, type, value)
         
 
@@ -283,8 +284,7 @@ class RbAgent(BaseAgent):
         else:
             # someone gave a hint!
             # the suitable hints manager must process it
-            hints_manager =self.card_hints_manager.select_hints_manager()
-            hints_manager.receive_hint(data)
+            self.card_hints_manager.receive_hint(data)
         
         self.turn = self.turn+1
         # update possibilities with visible cards
