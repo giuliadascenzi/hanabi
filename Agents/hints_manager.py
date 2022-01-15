@@ -201,6 +201,7 @@ class HintsManager(object):
                 destination_hand = player_info.hand
 
         # card = random.choice([card for card in destination_hand if card is not None])
+        assert(len(destination_hand))
         destination_hand.sort(key=lambda c: c.value)
         card = destination_hand[0]
 

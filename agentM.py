@@ -11,6 +11,7 @@ from hints_managerM import HintsManager
 class Agent(Player):
     def __init__(self, name, players, index, num_cards):
         super().__init__(name)
+        print("Agent initialized: ", name )
         self.players_names = players
         self.players = None
         self.index = index
@@ -37,14 +38,10 @@ class Agent(Player):
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
-        print("In action !")
-
         # 1) Check if there is a playable card
         card_pos = self.get_best_play(observation)
         if card_pos is not None:
             print(">>>play the card number:", card_pos)
-            # TODO: should check if self.k == data.handLength for reset_possibilities
-            self.reset_possibilities(card_pos, self.num_cards == self.hand)
             return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
 
         # 2) If a usefull hint can be done do it:
@@ -52,6 +49,7 @@ class Agent(Player):
             destination_name, value, type = self.get_best_hint(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                ''''  TODO: Not helpful here since receive_hint is just for hint received by the agent not sent
                 positions = []
                 for player in self.players:
                     if player.name == destination_name:
@@ -59,6 +57,7 @@ class Agent(Player):
                             if card.value == value or card.color == value:
                                 positions.append(player.hand.index(card))
                 self.card_hints_manager.receive_hint(destination_name, type, value, positions)
+                '''
                 return GameData.ClientHintData(self.name, destination_name, type, value)
 
         # 3) If I can not discard, give a random hint
@@ -71,8 +70,6 @@ class Agent(Player):
         if observation['usedNoteTokens'] == 8:
             card_pos, _, _ = self.get_best_discard(observation)
             print(">>>discard the card number:", card_pos)
-            # TODO: should check if self.k == data.handLength for reset_possibilities
-            self.reset_possibilities(card_pos, self.num_cards == self.hand)
             return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
 
         # Else: randomly choose between discard or give a random
@@ -80,21 +77,18 @@ class Agent(Player):
             # discard
             card_pos, _, _ = self.get_best_discard(observation)
             print(">>>discard the card number:", card_pos)
-            # TODO: should check if self.k == data.handLength for reset_possibilities
-            self.reset_possibilities(card_pos, self.num_cards == self.hand)
             return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
 
         else:
             destination_name, value, type = self.get_low_value_hint(observation)
             print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
-            positions = []
-            for player in self.players:
-                if player.name == destination_name:
-                    for card in player.hand:
-                        if card.value == value or card.color == value:
-                            positions.append(player.hand.index(card))
-            self.card_hints_manager.receive_hint(destination_name, type, value, positions)
             return GameData.ClientHintData(self.name, destination_name, type, value)
+    
+    def receive_hint(self, destination, type, value, positions):
+        '''
+        the agent received an hint from outside
+        '''
+        self.card_hints_manager.receive_hint(destination, type, value, positions)
 
     @staticmethod
     def get_full_deck():
@@ -291,7 +285,6 @@ class Agent(Player):
         relevant_weight = None
 
         for (card_pos, p) in enumerate(self.possibilities):
-            print("do we enter?")
             # p = Counter of (color, value) tuples with the number of occurrences representing the possible
             # (color,value) for a card in pos card_pos, one for each card
             if len(p) > 0:

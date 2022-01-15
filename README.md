@@ -32,6 +32,7 @@ To start the server:
 
 ```bash
 python client.py <IP> <port> <PlayerName>
+client.py [-h] [--ip IP] [--port PORT] [--player-name PLAYER_NAME | --ai-player AI_PLAYER]
 ```
 
 Arguments:

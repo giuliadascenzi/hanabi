@@ -88,7 +88,7 @@ class Knowledge:
     
     
     def __repr__(self):
-        return ("C" if self.color else "-") + ("N" if self.value else "-") + ("P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
+        return ("C: "+ str(self.color) if self.color else "-") + ("N"+ str(self.value) if self.value else "-") + ("P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
     
     
     def knows(self, hint_type):

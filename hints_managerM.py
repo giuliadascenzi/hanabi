@@ -14,26 +14,7 @@ class HintsManager(object):
     def __init__(self, agent):
         self.agent = agent    # my agent object
 
-    '''      
-    def is_duplicate(self, card):
-        """
-        Says if the given card is owned by some player who knows everything about it.
-        """
-        # check other players' hands
-        for (player_id, hand) in self.agent.hands.iteritems():
-            for card_pos in range(self.k):
-                kn = self.agent.knowledge[player_id][card_pos]
-                if kn.knows_exactly() and hand[card_pos] is not None and hand[card_pos].equals(card):
-                    return True
-        
-        # check my hand
-        for card_pos in range(self.k):
-            kn = self.agent.knowledge[self.id][card_pos]
-            if kn.knows_exactly() and any(card.equals(c) for c in self.agent.possibilities[card_pos]):
-                return True
-        
-        return False
-    '''  
+
     
     def is_usable(self, hinter_id):
         """
@@ -43,7 +24,7 @@ class HintsManager(object):
     
     def receive_hint(self, destination, type, value, positions):
         """
-        Receive hint ***given by*** player_id and update knowledge. ****given to?!?****
+        Receive hint given to the destination update knowledge. 
         info_action is an object returned by the server after each hint
         """
         if destination == self.agent.name:
@@ -51,12 +32,11 @@ class HintsManager(object):
              for (i, p) in enumerate(self.agent.possibilities):
                 for card in self.agent.full_deck_composition:
                     if not self.card_matches_hint(card, type, value, positions, i) and card in p:
-                        # self.log("removing card %r from position %d due to hint" % (card, i))
+                        # removing card from position  due to hint" 
                         del p[card]
     
     def card_matches_hint(self, card, type, value, positions, card_pos):
         # does this card (in the given position) match the given hint?
-        # assert type(action) is GameData.ServerHintData
         matches = self.card_matches(card, type, value)
         # card in a hinted position with a possible value that matches the hint
         hinted_card = (card_pos in positions and matches)
