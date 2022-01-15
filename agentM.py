@@ -38,6 +38,9 @@ class Agent(Player):
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
+
         # 1) Check if there is a playable card
         card_pos = self.get_best_play(observation)
         if card_pos is not None:
@@ -185,10 +188,8 @@ class Agent(Player):
                         # remove this card
                         del p[card]
 
-        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
-        self.print_possibilities()
 
-    def print_possibilities(self):
+    def print_possibilities(self, playersKnowledge= None):
         for (card_pos, p) in enumerate(self.possibilities):
             table = {"red": [0] * self.num_cards, "green": [0] * self.num_cards, "blue": [0] * self.num_cards,
                      "white": [0] * self.num_cards, "yellow": [0] * self.num_cards}
@@ -198,6 +199,8 @@ class Agent(Player):
 
             print("Card pos:" + str(card_pos), file=redf, flush=True)
             print(table, file=redf, flush=True)
+            if (playersKnowledge!=None):
+                print("knowledge:" + str(playersKnowledge[self.name][card_pos] ), file=redf, flush=True)
             print("--------------------------------------", file=redf, flush=True)
 
     def get_best_play(self, observation):
@@ -489,9 +492,9 @@ class Knowledge:
         self.high = False  # at some point, this card was high (relevant/discardable)(see CardHintsManager)
 
     def __repr__(self):
-        return ("C" if self.color else "-") + ("N" if self.value else "-") + ("P" if self.playable else "-") + (
-            "Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
-
+        return ("C: "+ str(self.color) if self.color else "-") + ("V:"+ str(self.value) if self.value else "-") + (
+            "P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
+    
     def knows(self, hint_type):
         """
         Does the player know the color/number?

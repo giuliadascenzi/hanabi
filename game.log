@@ -1584,3 +1584,345 @@
 01/15/2022 11:21:46 AM WARNING: Player disconnected: dummy2
 01/15/2022 11:21:48 AM WARNING: Player disconnected: dummy3
 01/15/2022 11:21:48 AM INFO: Shutting down server
+01/15/2022 12:10:46 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/15/2022 12:11:03 PM INFO: Connected by: ('127.0.0.1', 52462)
+01/15/2022 12:11:03 PM INFO: Player connected: giulia2
+01/15/2022 12:11:03 PM INFO: Player ready: giulia2
+01/15/2022 12:11:09 PM INFO: Connected by: ('127.0.0.1', 52463)
+01/15/2022 12:11:09 PM INFO: Player connected: giulia
+01/15/2022 12:11:09 PM INFO: Player ready: giulia
+01/15/2022 12:11:09 PM INFO: Game start! Between: ['giulia2', 'giulia']
+01/15/2022 12:11:09 PM INFO: Ok, let's start the game!
+01/15/2022 12:11:09 PM WARNING: Player disconnected: giulia2
+01/15/2022 12:11:09 PM WARNING: Player disconnected: giulia
+01/15/2022 12:11:09 PM INFO: Shutting down server
+01/15/2022 12:12:08 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/15/2022 12:12:14 PM INFO: Connected by: ('127.0.0.1', 52481)
+01/15/2022 12:12:14 PM INFO: Player connected: giulia
+01/15/2022 12:12:14 PM INFO: Player ready: giulia
+01/15/2022 12:12:21 PM INFO: Connected by: ('127.0.0.1', 52482)
+01/15/2022 12:12:21 PM INFO: Player connected: giulia2
+01/15/2022 12:12:21 PM INFO: Player ready: giulia2
+01/15/2022 12:12:21 PM INFO: Game start! Between: ['giulia', 'giulia2']
+01/15/2022 12:12:21 PM INFO: Ok, let's start the game!
+01/15/2022 12:12:21 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:21 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:22 PM INFO: Player giulia providing hint to giulia2: cards with color blue are in positions: [1]
+01/15/2022 12:12:22 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:22 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:23 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0, 1, 3]
+01/15/2022 12:12:23 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:23 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:24 PM INFO: Player giulia providing hint to giulia2: cards with color blue are in positions: [1]
+01/15/2022 12:12:24 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:24 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:25 PM INFO: Player: giulia2: card 22 discarded successfully
+01/15/2022 12:12:25 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:25 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:26 PM INFO: Player: giulia: card 29 discarded successfully
+01/15/2022 12:12:26 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:26 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:28 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0, 2]
+01/15/2022 12:12:28 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:28 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:29 PM INFO: Player: giulia: card 33 discarded successfully
+01/15/2022 12:12:29 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:29 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:30 PM INFO: Player: giulia2: card 46 discarded successfully
+01/15/2022 12:12:30 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:30 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:31 PM INFO: Player giulia providing hint to giulia2: cards with color blue are in positions: [0]
+01/15/2022 12:12:31 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:31 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:32 PM INFO: Player: giulia2: card 27 discarded successfully
+01/15/2022 12:12:32 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:32 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:33 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [0, 2, 4]
+01/15/2022 12:12:33 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:33 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:34 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:12:34 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:34 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:35 PM INFO: Player: giulia: card 16 discarded successfully
+01/15/2022 12:12:35 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:35 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:36 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:12:36 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:36 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:37 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [2, 3]
+01/15/2022 12:12:37 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:37 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:38 PM INFO: Player giulia2 providing hint to giulia: cards with value 2 are in positions: [1, 2]
+01/15/2022 12:12:38 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:38 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:39 PM INFO: Player: giulia: card 19 discarded successfully
+01/15/2022 12:12:39 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:39 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:40 PM INFO: Player: giulia2: card 3 discarded successfully
+01/15/2022 12:12:40 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:40 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:41 PM INFO: Player giulia providing hint to giulia2: cards with color blue are in positions: [2]
+01/15/2022 12:12:41 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:41 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:42 PM INFO: Player giulia2 providing hint to giulia: cards with color red are in positions: [3, 4]
+01/15/2022 12:12:42 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:42 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:43 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:12:43 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:43 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:44 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [3]
+01/15/2022 12:12:44 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:44 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:45 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:12:45 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:45 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:46 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0, 1]
+01/15/2022 12:12:46 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:46 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:47 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [2, 4]
+01/15/2022 12:12:47 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:47 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:48 PM INFO: Player giulia2 providing hint to giulia: cards with value 3 are in positions: [1, 3, 4]
+01/15/2022 12:12:48 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:48 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:49 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [2, 4]
+01/15/2022 12:12:49 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:49 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:50 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0, 1]
+01/15/2022 12:12:50 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:50 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:51 PM INFO: Player: giulia: card 44 discarded successfully
+01/15/2022 12:12:51 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:51 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:53 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [4]
+01/15/2022 12:12:53 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:53 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:54 PM INFO: Player: giulia: card 1 discarded successfully
+01/15/2022 12:12:54 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:54 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:55 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0]
+01/15/2022 12:12:55 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:55 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:56 PM INFO: Player: giulia: card 45 discarded successfully
+01/15/2022 12:12:56 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:56 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:57 PM INFO: Player: giulia2: card 13 discarded successfully
+01/15/2022 12:12:57 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:57 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:58 PM INFO: Player: giulia: card 42 discarded successfully
+01/15/2022 12:12:58 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:58 PM INFO: Showing hand to: giulia2
+01/15/2022 12:12:59 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [3]
+01/15/2022 12:12:59 PM INFO: Showing hand to: giulia
+01/15/2022 12:12:59 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:00 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [3, 4]
+01/15/2022 12:13:00 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:00 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:01 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [0, 3]
+01/15/2022 12:13:01 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:01 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:02 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:13:02 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:02 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:03 PM INFO: Player: giulia2: card 5 discarded successfully
+01/15/2022 12:13:03 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:03 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:04 PM INFO: Player: giulia: card 30 discarded successfully
+01/15/2022 12:13:04 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:04 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:05 PM INFO: Player: giulia2: card 9 discarded successfully
+01/15/2022 12:13:05 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:05 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:06 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [3]
+01/15/2022 12:13:06 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:06 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:07 PM INFO: Player: giulia2: card 11 discarded successfully
+01/15/2022 12:13:07 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:07 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:08 PM INFO: Player: giulia: card 24 discarded successfully
+01/15/2022 12:13:08 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:08 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:09 PM INFO: Player: giulia2: card 37 discarded successfully
+01/15/2022 12:13:09 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:09 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:10 PM INFO: Player: giulia: card 34 discarded successfully
+01/15/2022 12:13:10 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:10 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:11 PM INFO: Player: giulia2: card 43 discarded successfully
+01/15/2022 12:13:11 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:11 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:12 PM INFO: Player giulia providing hint to giulia2: cards with color green are in positions: [1]
+01/15/2022 12:13:12 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:12 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:13 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [4]
+01/15/2022 12:13:13 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:13 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:15 PM INFO: Player giulia providing hint to giulia2: cards with color green are in positions: [1]
+01/15/2022 12:13:15 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:15 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:15 PM INFO: Player: giulia2: card 21 discarded successfully
+01/15/2022 12:13:15 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:15 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:17 PM INFO: Player: giulia: card 7 discarded successfully
+01/15/2022 12:13:17 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:17 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:18 PM INFO: Player: giulia2: card 36 discarded successfully
+01/15/2022 12:13:18 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:18 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:19 PM INFO: Player: giulia: card 12 discarded successfully
+01/15/2022 12:13:19 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:19 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:20 PM INFO: Player giulia2 providing hint to giulia: cards with color blue are in positions: [0, 4]
+01/15/2022 12:13:20 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:20 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:21 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:13:21 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:21 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:22 PM INFO: Player giulia2 providing hint to giulia: cards with color green are in positions: [1, 2, 4]
+01/15/2022 12:13:22 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:22 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:23 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:13:23 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:23 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:24 PM INFO: Player: giulia2: card 49 discarded successfully
+01/15/2022 12:13:24 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:24 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:25 PM INFO: Player: giulia: card 41 discarded successfully
+01/15/2022 12:13:25 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:25 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:26 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [3]
+01/15/2022 12:13:26 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:26 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:26 PM INFO: Closing the server...
+01/15/2022 12:13:40 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/15/2022 12:13:44 PM INFO: Connected by: ('127.0.0.1', 59969)
+01/15/2022 12:13:44 PM INFO: Player connected: giulia
+01/15/2022 12:13:44 PM INFO: Player ready: giulia
+01/15/2022 12:13:48 PM INFO: Connected by: ('127.0.0.1', 59970)
+01/15/2022 12:13:48 PM INFO: Player connected: giulia2
+01/15/2022 12:13:48 PM INFO: Player ready: giulia2
+01/15/2022 12:13:48 PM INFO: Game start! Between: ['giulia', 'giulia2']
+01/15/2022 12:13:48 PM INFO: Ok, let's start the game!
+01/15/2022 12:13:48 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:48 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:49 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [1, 2, 3]
+01/15/2022 12:13:49 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:49 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:50 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:13:50 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:50 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:51 PM INFO: Player: giulia: card 10 discarded successfully
+01/15/2022 12:13:51 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:51 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:52 PM INFO: Player giulia2 providing hint to giulia: cards with color red are in positions: [2]
+01/15/2022 12:13:52 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:52 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:53 PM INFO: Player: giulia: card 48 discarded successfully
+01/15/2022 12:13:53 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:53 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:54 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [1, 2]
+01/15/2022 12:13:54 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:54 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:55 PM INFO: giulia: card played and correctly put on the table
+01/15/2022 12:13:55 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:55 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:56 PM INFO: Player giulia2 providing hint to giulia: cards with value 1 are in positions: [1, 4]
+01/15/2022 12:13:56 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:56 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:57 PM INFO: Player giulia providing hint to giulia2: cards with color yellow are in positions: [0, 1, 4]
+01/15/2022 12:13:57 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:57 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:59 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:13:59 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:59 PM INFO: Showing hand to: giulia2
+01/15/2022 12:13:59 PM INFO: Player giulia providing hint to giulia2: cards with value 2 are in positions: [0, 2, 3]
+01/15/2022 12:13:59 PM INFO: Showing hand to: giulia
+01/15/2022 12:13:59 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:01 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:14:01 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:01 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:01 PM INFO: Player giulia providing hint to giulia2: cards with color green are in positions: [0]
+01/15/2022 12:14:01 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:01 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:03 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:14:03 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:03 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:03 PM INFO: Player: giulia: card 11 discarded successfully
+01/15/2022 12:14:03 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:03 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:05 PM INFO: Player: giulia2: card 21 discarded successfully
+01/15/2022 12:14:05 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:05 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:05 PM INFO: Player giulia providing hint to giulia2: cards with color white are in positions: [1, 3]
+01/15/2022 12:14:05 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:05 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:07 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:14:07 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:07 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:07 PM INFO: Player giulia providing hint to giulia2: cards with color white are in positions: [0, 2]
+01/15/2022 12:14:07 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:07 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:09 PM INFO: Player: giulia2: card 31 discarded successfully
+01/15/2022 12:14:09 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:09 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:10 PM INFO: Player: giulia: card 9 discarded successfully
+01/15/2022 12:14:10 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:10 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:11 PM INFO: Player giulia2 providing hint to giulia: cards with color green are in positions: [1, 4]
+01/15/2022 12:14:11 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:11 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:12 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [1]
+01/15/2022 12:14:12 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:12 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:13 PM INFO: giulia2: card played and correctly put on the table
+01/15/2022 12:14:13 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:13 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:14 PM INFO: Player: giulia: card 2 discarded successfully
+01/15/2022 12:14:14 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:14 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:15 PM INFO: Player: giulia2: card 29 discarded successfully
+01/15/2022 12:14:15 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:15 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:16 PM INFO: Player giulia providing hint to giulia2: cards with color red are in positions: [1, 3]
+01/15/2022 12:14:16 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:16 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:17 PM INFO: Player giulia2 providing hint to giulia: cards with color blue are in positions: [2, 3]
+01/15/2022 12:14:17 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:17 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:18 PM INFO: Player giulia providing hint to giulia2: cards with value 2 are in positions: [3]
+01/15/2022 12:14:18 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:18 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:19 PM INFO: Player: giulia2: card 15 discarded successfully
+01/15/2022 12:14:19 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:19 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:20 PM INFO: Player giulia providing hint to giulia2: cards with color white are in positions: [4]
+01/15/2022 12:14:20 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:20 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:21 PM INFO: Player: giulia2: card 40 discarded successfully
+01/15/2022 12:14:21 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:21 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:22 PM INFO: Player giulia providing hint to giulia2: cards with color white are in positions: [3]
+01/15/2022 12:14:22 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:22 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:24 PM INFO: Player: giulia2: card 13 discarded successfully
+01/15/2022 12:14:24 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:24 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:24 PM INFO: Player: giulia: card 28 discarded successfully
+01/15/2022 12:14:24 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:24 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:26 PM INFO: Player: giulia2: card 32 discarded successfully
+01/15/2022 12:14:26 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:26 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:26 PM INFO: Player: giulia: card 37 discarded successfully
+01/15/2022 12:14:26 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:26 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:28 PM INFO: Player: giulia2: card 4 discarded successfully
+01/15/2022 12:14:28 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:28 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:28 PM INFO: Player giulia providing hint to giulia2: cards with value 1 are in positions: [4]
+01/15/2022 12:14:28 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:28 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:30 PM INFO: Player giulia2 providing hint to giulia: cards with color white are in positions: [3]
+01/15/2022 12:14:30 PM INFO: Showing hand to: giulia
+01/15/2022 12:14:30 PM INFO: Showing hand to: giulia2
+01/15/2022 12:14:30 PM INFO: Closing the server...
