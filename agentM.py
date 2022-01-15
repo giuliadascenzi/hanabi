@@ -191,8 +191,8 @@ class Agent(Player):
 
     def print_possibilities(self, playersKnowledge= None):
         for (card_pos, p) in enumerate(self.possibilities):
-            table = {"red": [0] * self.num_cards, "green": [0] * self.num_cards, "blue": [0] * self.num_cards,
-                     "white": [0] * self.num_cards, "yellow": [0] * self.num_cards}
+            table = {"red": [0] * 5, "green": [0] * 5, "blue": [0] * 5,
+                     "white": [0] * 5, "yellow": [0] * 5}
             table = pd.DataFrame(table, index=[1, 2, 3, 4, 5])
             for card in p:
                 table.loc[card[1], card[0]] = p[card]

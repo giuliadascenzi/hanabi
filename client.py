@@ -191,8 +191,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         try:
             data = s.recv(DATASIZE)
         except:
-                print("Error")
-                run = False
+            print("Error")
+            run = False
         if not data:
             continue
         data = GameData.GameData.deserialize(data)
