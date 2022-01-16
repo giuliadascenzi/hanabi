@@ -1,0 +1,48 @@
+
+
+###############
+## PLAY RULES
+###############
+
+    
+    - play_best_safe_card(agent, observation): the agent checks if he/she has a surely playable cards and choose the one that, in the taable would transform more cards in other players hands playable.
+        
+    - maybe_play_lowest_playable_card(agent, observation): the agent plays a card that was previously hinted but not surely playable
+
+###############
+## HINT RULES
+###############
+ 
+    - give_helpful_hint(agent, observation): the agent gives an hint to a player that knows something about a playable card, but not everything. with this hint he/she will be able to play it
+        
+    - def get_low_value_hint(agent, observation): the agent gives a random player a hint containing an information about a low_value card 
+        
+    - tell_randomly(agent, observation): Tell to a random player a random information prioritizing color
+        
+    - tell_fives(agent, observation): Tell 5s to a random player if it has them
+        
+    - tell_ones(agent, observation): Tell 1s to a random player if it has them
+    
+    - tell_unknown(agent, observation): Tell a random player an unknown information prioritizing color
+
+    - tell_anyone_useless_card(agent, observation) [TO IMPLEMENT]
+
+    - tell_most_information(agent, observation): Tell 1s to a random player if it has them
+
+
+###############
+## DISCARD RULES
+###############
+
+
+    - discard_useless_card(agent, observation):
+    
+    - discard_less_relevant(agent, observation):
+  
+    - discard_duplicate_card(agent, observation):
+        
+    
+
+
+
+

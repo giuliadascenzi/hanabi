@@ -58,7 +58,7 @@ class PlayManager(object):
         """
         It previously a card has been hinted to him,
         :param observation:
-        :return: card_pos
+        :return: card_pos #TODO: maybe check also the possibilities? maybe the hint meant that that card was useless not playable?
         """
         own_card_knowledge = []
         for p in observation['playersKnowledge']:
