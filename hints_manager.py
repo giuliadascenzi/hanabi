@@ -34,6 +34,9 @@ class HintsManager(object):
                         del p[card]
     
     def card_matches_hint(self, card, type, value, positions, card_pos):
+        '''
+        does this card (in the given position) match the given hint?
+        '''
         # does this card (in the given position) match the given hint?
         matches = self.card_matches(card, type, value)
         # card in a hinted position with a possible value that matches the hint
@@ -43,7 +46,9 @@ class HintsManager(object):
 
     @staticmethod
     def card_matches(card, type, value):
-        # does this card match the given color/number? (if the value is None, it is considered to match) 
+        '''
+        does this card match the given color/number? (if the value is None, it is considered to match) 
+        '''
         if type == "color" and card[0] != value:
             return False
         elif type == "value" and card[1] != value:
@@ -52,6 +57,9 @@ class HintsManager(object):
 
 
     def give_helpful_hint(self, observation):
+        '''
+        hint sent to a player that already knows something about a playable card. Expand his/her knowledge
+        '''
         fireworks = observation['fireworks']
 
         best_so_far = 0
@@ -134,6 +142,9 @@ class HintsManager(object):
             return None, None, None
 
     def get_low_value_hint(self, observation):
+        '''
+        get a hint to a random player suggesting an information (color/value) on a low_value card
+        '''
         destination_name = self.agent.name
         while destination_name == self.agent.name:
             destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
@@ -176,27 +187,11 @@ class HintsManager(object):
 
         return False
 
-    def is_duplicate(self, card):
-        """
-        Says if the given card is owned by some player who knows everything about it.
-        """
-        # check other players' hands
-        for (player_id, hand) in self.agent:
-            for card_pos in range(self.k):
-                kn = self.agent.knowledge[player_id][card_pos]
-                if kn.knows_exactly() and hand[card_pos] is not None and hand[card_pos].equals(card):
-                    return True
 
-        # check my hand
-        for card_pos in range(self.k):
-            kn = self.agent.knowledge[self.id][card_pos]
-            if kn.knows_exactly() and any(card.equals(c) for c in self.agent.possibilities[card_pos]):
-                return True
-
-        return False
     
     def tell_unknown(self, observation):
-        '''Tell a random player an unknown information prioritizing color'''
+        '''Tell a random player an unknown information prioritizing color
+        '''
         destination_name = self.agent.name
         while destination_name == self.agent.name:
             destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
