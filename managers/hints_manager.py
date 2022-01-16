@@ -141,6 +141,41 @@ class HintsManager(object):
         else:
             return None, None, None
 
+    def give_useful_hint(self, observation):
+        '''
+        hint about a card that can be played now, preferring players close in turn
+        '''
+        fireworks = observation['fireworks']
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
+            hand = player.hand
+            for card_pos,card in enumerate(hand):
+                if self.agent.playable_card(card, fireworks):
+                    knowledge = player_knowledge[card_pos]
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    if knowledge.knows("value"):
+                        type= "color"
+                        value= card.color
+                    else:
+                        type= "value"
+                        value= card.value
+                    return (player_name, value, type)
+        return (None, None, None)
+
+
+       
+
+    
     def get_low_value_hint(self, observation):
         '''
         get a hint to a random player suggesting an information (color/value) on a low_value card
@@ -225,22 +260,31 @@ class HintsManager(object):
                 # if the player does not know anything about the card skip it
                 if knowledge.knows("color") and knowledge.knows("value"):
                     continue
-                if knowledge.knows("color"):
+                elif knowledge.knows("color"):
                     unknown_value[card.value] += 1
-                if knowledge.knows("value"):
+                elif knowledge.knows("value"):
                     unknown_color[card.color] += 1
+                else:
+                    unknown_value[card.value] += 1
+                    unknown_color[card.color] += 1
+        
+
 
         max_color_occurences = max(unknown_color.values())
         max_value_occurences = max(unknown_value.values())
+    
 
         if max_color_occurences >= max_value_occurences:
             type = "color"
             value = max(unknown_color, key=unknown_color.get)
         else:
             type = "value"
-            value = max(unknown_value, key=unknown_color.get)
+            value = max(unknown_value, key=unknown_value.get)
 
         return next_player.name, value, type
+
+    
+    
 
     def tell_randomly(self, observation):
         '''Tell to a random player a random information prioritizing color'''

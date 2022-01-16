@@ -53,6 +53,49 @@ class PlayManager(object):
         else:
             return best_card_pos
 
+
+    def play_safe_card_prob(self, observation, prob):
+        WEIGHT = {number: self.agent.NUM_NUMBERS - number for number in range(1, self.agent.NUM_NUMBERS)}
+        WEIGHT[self.agent.NUM_NUMBERS] = self.agent.NUM_NUMBERS
+
+        tolerance = 1e-3
+        best_card_pos = None
+        best_avg_num_playable = -1.0  # average number of other playable cards, after my play
+        best_avg_weight = 0.0  # average weight (in the sense above)
+        for (card_pos, p) in enumerate(self.agent.possibilities):
+            # p = Counter of possible tuple (card,value)
+            tot_playable = sum (1 if self.agent.is_playable(card, observation['fireworks']) else 0 for card in p )
+            tot_possibility = len(p)
+            if  len(p) > 0 and tot_playable/tot_possibility>=prob :
+                # the card in this position is playable with probability prob!
+                # how many cards of the other players become playable, on average?
+                num_playable = []
+                for card in p:
+                    # Remember that p is a tuple (color, value)
+                    color = card[0]
+                    value = card[1]
+                    fake_board = copy.copy(observation['fireworks'])
+                    fake_board[color].append(value)
+                    for i in range(p[card]):
+                        num_playable.append(sum(1 for player_info in observation['players'] for c in player_info.hand if
+                                                c is not None and self.agent.playable_card(c, fake_board)))
+
+                avg_num_playable = float(sum(num_playable)) / len(num_playable)
+
+                avg_weight = float(sum(WEIGHT[card[1]] * p[card] for card in p)) / sum(p.values())
+                if avg_num_playable > best_avg_num_playable + tolerance or \
+                        avg_num_playable > best_avg_num_playable - tolerance and avg_weight > best_avg_weight:
+                    print("update card to be played, pos %d, score %f, %f" % (card_pos, avg_num_playable, avg_weight))
+                    best_card_pos, best_avg_num_playable, best_avg_weight = card_pos, avg_num_playable, avg_weight
+
+        if best_card_pos is not None:
+            print("playing card in position %d gives %f playable cards on average and weight %f" % (
+                best_card_pos, best_avg_num_playable, best_avg_weight))
+            return best_card_pos
+        else:
+            return best_card_pos
+
+
     # Not used but put here in case we want to use it anyway
     def maybe_play_lowest_playable_card(self, observation):
         """

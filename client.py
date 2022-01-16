@@ -72,7 +72,7 @@ def agentPlay():
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
                 # action = agent.rl_choice(observation)
-                action = agent.rl_choice(observation)
+                action = agent.vanDerBergh_choice(observation)
                 try: 
                     s.send(action.serialize())
                 except:
