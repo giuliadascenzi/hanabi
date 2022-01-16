@@ -200,3 +200,25 @@ class HintsManager(object):
                 return True
 
         return False
+    def tell_unknown(self, observation):
+        '''Tell a random player an unknown information prioritizing color'''
+        destination_name = self.agent.name
+        while destination_name == self.agent.name:
+            destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
+        for player_info in observation['players']:
+            if player_info.name == destination_name:
+                destination_hand = player_info.hand
+            
+        for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
+            if kn.color == False:
+                type = "color"
+                value = destination_hand[idx].color
+                return destination_name, value, type
+            if kn.value == False:
+                type = "value"
+                value = destination_hand[idx].value
+                return destination_name, value, type
+        return None, None, None
+
+    def tell_most_information(self, observation):
+        pass

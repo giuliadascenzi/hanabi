@@ -36,7 +36,7 @@ class Ruleset():
             return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
-    # Prioritize color, just next player is considered
+    # Prioritize color
     @staticmethod
     def tell_randomly(agent: Agent, observation):
         if observation['usedNoteTokens'] < 8:
@@ -126,7 +126,13 @@ class Ruleset():
     # Prioritize color, just next player is considered
     @staticmethod
     def tell_unknown(agent: Agent, observation):
-        pass
+        '''Tell a random player an unknown information prioritizing color'''
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.tell_unknown(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
 
     @staticmethod
     def tell_anyone_useless_card(agent: Agent, observation):
@@ -134,6 +140,11 @@ class Ruleset():
 
     @staticmethod
     def tell_most_information(agent: Agent, observation):
-        pass
-        
+        '''Tell 1s to a random player if it has them'''
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
 
