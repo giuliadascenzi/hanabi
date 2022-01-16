@@ -182,3 +182,6 @@ class HintsManager(object):
                 value = destination_hand[idx].value
                 return destination_name, value, type
         return None, None, None
+
+    def tell_most_information(self, observation):
+        pass
