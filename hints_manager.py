@@ -223,3 +223,49 @@ class HintsManager(object):
 
     def tell_most_information(self, observation):
         pass
+
+    def tell_randomly(self, observation):
+        '''Tell to a random player a random information prioritizing color'''
+        destination_name = self.agent.name
+        while destination_name == self.agent.name:
+            destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
+        for player_info in observation['players']:
+            if player_info.name == destination_name:
+                destination_hand = player_info.hand
+            
+        card = random.choice([card for card in destination_hand if card is not None])
+        if random.randint(0, 1) == 0:
+            type = "color"
+            value = card.color
+        else:
+            type = "value"
+            value = card.value
+        return destination_name, value, type
+
+    def tell_fives(self, observation):
+        '''Tell 5s to a random player if it has them'''
+        destination_name = self.agent.name
+        while destination_name == self.agent.name:
+            destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
+
+        for player_info in observation['players']:
+            if player_info.name == destination_name:
+                destination_hand = player_info.hand
+        for card in destination_hand:
+            if card.value == 5:
+                return destination_name, card.value, "value"
+        return None, None, None
+
+    def tell_fives(self, observation):
+        '''Tell 1s to a random player if it has them'''
+        destination_name = self.agent.name
+        while destination_name == self.agent.name:
+            destination_name = self.agent.players_names[random.randint(0, len(observation['players'])-1)]
+
+        for player_info in observation['players']:
+            if player_info.name == destination_name:
+                destination_hand = player_info.hand
+        for card in destination_hand:
+            if card.value == 1:
+                return destination_name, card.value, "value"
+        return None, None, None
