@@ -12,7 +12,7 @@ from ruleset import Ruleset
 
 
 class Agent(Player):
-    def __init__(self, name, players, index, num_cards):
+    def __init__(self, name, players, index, num_cards, ruleset):
         super().__init__(name)
         print("Agent initialized: ", name )
         self.players_names = players
@@ -28,7 +28,7 @@ class Agent(Player):
         self.card_hints_manager = HintsManager(self)
         self.card_play_manager = PlayManager(self)
         self.card_discard_manager = DiscardManager(self)
-        self.ruleset = Ruleset()
+        self.ruleset = ruleset
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w')
         print("----- INITIALIZE AGENT:", file=redf, flush=True)
@@ -49,6 +49,17 @@ class Agent(Player):
 
         ######## CHOOSE ACTION ####################
 
+        '''
+        action = 1
+        while action is not None:
+            # 1) Check if there is a playable card
+            action = self.ruleset.play_best_safe_card(self, observation)
+            if action is not None: return action
+
+            for rule in self.ruleset.active_rules:
+                action = self.ruleset.rules[rule](self, observation)
+                if action is not None: return action
+        '''
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_safe_card(self, observation)
         if action is not None: return action

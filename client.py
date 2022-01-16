@@ -10,6 +10,7 @@ import argparse
 
 from constants import *
 from agent import Agent, Knowledge
+from ruleset import Ruleset
 
 # Arguments management
 parser = argparse.ArgumentParser()
@@ -51,6 +52,7 @@ observation = {'players': None,
                }
 scores = []
 player_names = []
+ruleset = Ruleset()
 
 def agentPlay():
     global run
@@ -154,7 +156,7 @@ def initialize(players):
         num_cards = 4
 
     if args.ai_player is not None:
-        agent = Agent(playerName, players, players.index(playerName), num_cards)
+        agent = Agent(playerName, players, players.index(playerName), num_cards, ruleset)
 
     # knowledge of all players
     playersKnowledge = {name: [Knowledge(color=False, value=False) for j in range(num_cards)] for name in players}
@@ -356,6 +358,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             scores.append(data.score)
             print(" |Average score so far:  ", sum(scores)/len(scores))
             print(" |Games played: ", len(scores))
+            '''
+            if len(scores) % 10 == 0:
+                ruleset.fitness( sum(scores[-10:]) / 10 )
+                ruleset.shuffle_rules()
+            '''
             # reset and re-initialize
             del(agent)
             observation = {'players': None,

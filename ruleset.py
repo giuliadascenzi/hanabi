@@ -1,8 +1,42 @@
 
 import GameData
 import random
+import copy
 
 class Ruleset():
+
+    def __init__(self):
+        self.rules = {
+            # 1: self.maybe_play_lowest_playable_card,
+            1: self.give_helpful_hint, 
+            2: self.get_low_value_hint,
+            3: self.tell_randomly,
+            4: self.tell_fives,
+            5: self.tell_ones,
+            6: self.tell_unknown,
+            #3: self.tell_most_information_to_next,
+            7: self.discard_useless_card,
+            8: self.discard_less_relevant,
+            9: self.discard_less_relevant,
+            10: self.discard_duplicate_card
+        }
+        self.active_rules = list(self.rules.keys())
+        self.fittest_ruleset = []
+        self.best_score = 0
+
+    def shuffle_rules(self):
+        random.shuffle(self.active_rules)
+
+    def fitness(self, avg_score):
+        if avg_score > self.best_score:
+            self.best_score = avg_score
+            self.fittest_ruleset = copy.deepcopy(self.active_rules)
+            # Make it print the fittest
+            with open("fittest_ruleset.txt", "a") as f:
+                f.write(str(self.best_score))
+                f.write("\n")
+                f.write(', '.join(str(rule) for rule in self.fittest_ruleset))
+                f.write("\n---------\n")
 
 ###############
 ## PLAY RULES
