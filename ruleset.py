@@ -52,6 +52,7 @@ class Ruleset():
             print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
+    
     # Prioritize color
     @staticmethod
     def tell_randomly(agent: Agent, observation):
@@ -136,10 +137,18 @@ class Ruleset():
 ###############
 
     @staticmethod 
-    def get_best_discard(agent: Agent, observation):
+    def discard_useless_card(agent: Agent, observation):
         if observation['usedNoteTokens'] != 0:
-            card_pos, _, _ = agent.get_best_discard(observation)
-            print(">>>discard the card number:", card_pos)
+            card_pos = agent.card_discard_manager.discard_useless_card(observation)
+            print(">>>discard useless card:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+        return None
+    
+    @staticmethod 
+    def discard_less_relevant(agent: Agent, observation):
+        if observation['usedNoteTokens'] != 0:
+            card_pos = agent.card_discard_manager.discard_less_relevant(observation)
+            print(">>>discard less relevant card:", card_pos)
             return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
@@ -150,18 +159,9 @@ class Ruleset():
         Discard a card that I see in some other player's hand
         '''
         if observation['usedNoteTokens'] != 0:
-            cards_in_player_hands = agent.counterOfCards()
-            for player_info in observation['players']:
-                if (player_info.name != agent.name):
-                    cards_in_player_hands += agent.counterOfCards(player_info.hand)
-
-            for (card_pos, p) in enumerate(agent.possibilities):
-                # for each possible value of the card I check that Its already in someone hand
-                if all(cards_in_player_hands[c]!=0 for c in p):
-                    # this card is surely a duplicate
-                    return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
-            else:
-                return None
+            card_pos = agent.card_discard_manager.discard_duplicate_card(observation)
+            print(">>>discard duplicate card:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
     
 

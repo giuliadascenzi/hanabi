@@ -14,11 +14,10 @@ class DiscardManager(object):
     def __init__(self, agent):
         self.agent = agent    # my agent object
 
-    def get_best_discard(self, observation):
-        """
-        Choose the best card to be discarded.
-        """
-        # first see if I can be sure to discard a useless card
+    def discard_useless_card(self, observation):
+        '''
+        discards a card surely useless
+        '''
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of (color, value) tuples with the number of occurrences
             # representing the possible (color,value) for a card in pos card_pos
@@ -26,9 +25,14 @@ class DiscardManager(object):
             if len(p) > 0 and all(
                     not self.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
                                             self.agent.counterOfCards(observation['discard_pile'])) for card in p):
-                print("considering to discard useless card")
-                return card_pos, 0.0, 0.0
+                # whatever card is this is useless
+                return card_pos
+        return None
 
+    def discard_less_relevant(self, observation):
+        """
+        discard a less relevant card
+        """
         # Try to avoid cards that are (on average) more relevant, then choose cards that are (on average) less useful
         tolerance = 1e-3
         best_cards_pos = []
@@ -61,9 +65,28 @@ class DiscardManager(object):
                     best_cards_pos.append((useful_weight, card_pos))
 
         assert len(best_cards_pos) > 0
-        print("Best card pos: ", best_cards_pos)
         useful_weight, card_pos = min(best_cards_pos, key=lambda t: t[0])  # consider the one with minor useful_weight
 
-        print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
-                % (card_pos, best_relevant_weight, useful_weight))
-        return card_pos, relevant_weight, useful_weight
+        #print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
+        #        % (card_pos, best_relevant_weight, useful_weight))
+        return card_pos
+
+
+    def discard_duplicate_card(self, observation):
+        '''
+        Discard a card that I see in some other player's hand
+        '''
+        if observation['usedNoteTokens'] != 0:
+            cards_in_player_hands = self.agent.counterOfCards()
+            for player_info in observation['players']:
+                if (player_info.name != self.agent.name):
+                    cards_in_player_hands += self.agent.counterOfCards(player_info.hand)
+
+            for (card_pos, p) in enumerate(self.agent.possibilities):
+                # for each possible value of the card I check that Its already in someone hand
+                if all(cards_in_player_hands[c]!=0 for c in p):
+                    # this card is surely a duplicate
+                    return card_pos
+            else:
+                return None
+        return None
