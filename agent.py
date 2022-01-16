@@ -2,10 +2,12 @@ import random
 import copy
 import pandas as pd
 from collections import Counter
+from discard_manager import DiscardManager
 
 from game import Player, Card
 import GameData
 from hints_manager import HintsManager
+from play_manager import PlayManager
 
 
 class Agent(Player):
@@ -23,6 +25,8 @@ class Agent(Player):
         self.NUM_COLORS = 5
         self.COLORS = ["red", "yellow", "green", "white", "blue"]
         self.card_hints_manager = HintsManager(self)
+        self.card_play_manager = PlayManager(self)
+        self.card_discard_manager = DiscardManager(self)
 
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w')
@@ -203,120 +207,9 @@ class Agent(Player):
                 print("knowledge:" + str(playersKnowledge[self.name][card_pos] ), file=redf, flush=True)
             print("--------------------------------------", file=redf, flush=True)
 
-    def get_best_play(self, observation):
-        WEIGHT = {number: self.NUM_NUMBERS - number for number in range(1, self.NUM_NUMBERS)}
-        WEIGHT[self.NUM_NUMBERS] = self.NUM_NUMBERS
+    
 
-        tolerance = 1e-3
-        best_card_pos = None
-        best_avg_num_playable = -1.0  # average number of other playable cards, after my play
-        best_avg_weight = 0.0  # average weight (in the sense above)
-        for (card_pos, p) in enumerate(self.possibilities):
-            # p = Counter of possible tuple (card,value)
-            if all(self.is_playable(card, observation['fireworks']) for card in p) and len(p) > 0:
-                # the card in this position is surely playable!
-                # how many cards of the other players become playable, on average?
-                num_playable = []
-                for card in p:
-                    # Remember that p is a tuple (color, value)
-                    color = card[0]
-                    value = card[1]
-                    fake_board = copy.copy(observation['fireworks'])
-                    fake_board[color].append(value)
-                    for i in range(p[card]):
-                        num_playable.append(sum(1 for player_info in self.players for c in player_info.hand if
-                                                c is not None and self.playable_card(c, fake_board)))
-
-                avg_num_playable = float(sum(num_playable)) / len(num_playable)
-
-                avg_weight = float(sum(WEIGHT[card[1]] * p[card] for card in p)) / sum(p.values())
-                if avg_num_playable > best_avg_num_playable + tolerance or \
-                        avg_num_playable > best_avg_num_playable - tolerance and avg_weight > best_avg_weight:
-                    print("update card to be played, pos %d, score %f, %f" % (card_pos, avg_num_playable, avg_weight))
-                    best_card_pos, best_avg_num_playable, best_avg_weight = card_pos, avg_num_playable, avg_weight
-
-        if best_card_pos is not None:
-            print("playing card in position %d gives %f playable cards on average and weight %f" % (
-                best_card_pos, best_avg_num_playable, best_avg_weight))
-            return best_card_pos
-        # elif random.randint(0,3) == 0:
-        #    return random.randint(0,4)
-        else:
-            return best_card_pos
-
-    # Not used but put here in case we want to use it anyway
-    def maybe_play_lowest_playable_card(self, observation):
-        """
-        The Bot checks if previously a card has been hinted to him,
-        :param observation:
-        :return:
-        """
-        own_card_knowledge = []
-        for p in observation['playersKnowledge']:
-            if p['player'] == self.name:
-                own_card_knowledge = p['knowledge']
-
-        for k in own_card_knowledge:
-            if k.color is not None:
-                return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
-
-        for k in own_card_knowledge:
-            if k.value is not None:
-                return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
-
-    def get_best_discard(self, observation):
-        """
-        Choose the best card to be discarded.
-        """
-        # first see if I can be sure to discard a useless card
-        for (card_pos, p) in enumerate(self.possibilities):
-            # p = Counter of (color, value) tuples with the number of occurrences
-            # representing the possible (color,value) for a card in pos card_pos
-            # one for each card
-            if len(p) > 0 and all(
-                    not self.useful_card(card, observation['fireworks'], self.full_deck_composition,
-                                         self.counterOfCards(observation['discard_pile'])) for card in p):
-                print("considering to discard useless card")
-                return card_pos, 0.0, 0.0
-
-        # Try to avoid cards that are (on average) more relevant, then choose cards that are (on average) less useful
-        tolerance = 1e-3
-        best_cards_pos = []
-
-        WEIGHT = {number: self.NUM_NUMBERS + 1 - number for number in range(1, self.NUM_NUMBERS + 1)}
-        best_relevant_weight = max(WEIGHT.values())
-        relevant_weight = None
-
-        for (card_pos, p) in enumerate(self.possibilities):
-            # p = Counter of (color, value) tuples with the number of occurrences representing the possible
-            # (color,value) for a card in pos card_pos, one for each card
-            if len(p) > 0:
-                relevant_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if
-                                          self.relevant_card(card, observation['fireworks'], self.full_deck_composition,
-                                                             self.counterOfCards(observation['discard_pile'])))
-
-                relevant_weight = float(relevant_weight_sum) / sum(p.values())
-
-                useful_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if
-                                        self.useful_card(card, observation['fireworks'], self.full_deck_composition,
-                                                         self.counterOfCards(observation['discard_pile'])))
-                useful_weight = float(useful_weight_sum) / sum(p.values())
-
-                if relevant_weight < best_relevant_weight - tolerance:
-                    # better weight found
-                    best_cards_pos, best_relevant_weight, = [], relevant_weight
-
-                if relevant_weight < best_relevant_weight + tolerance:
-                    # add this card to the possibilities
-                    best_cards_pos.append((useful_weight, card_pos))
-
-        assert len(best_cards_pos) > 0
-        print("Best card pos: ", best_cards_pos)
-        useful_weight, card_pos = min(best_cards_pos, key=lambda t: t[0])  # consider the one with minor useful_weight
-
-        print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
-              % (card_pos, best_relevant_weight, useful_weight))
-        return card_pos, relevant_weight, useful_weight
+   
 
     def get_best_hint(self, observation):
         return self.card_hints_manager.get_hint(observation)

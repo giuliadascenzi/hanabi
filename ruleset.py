@@ -7,6 +7,7 @@ class Ruleset():
 ###############
 ## PLAY RULES
 ###############
+
     @staticmethod 
     def get_best_play(agent: Agent, observation):
         ################
@@ -22,6 +23,7 @@ class Ruleset():
 ###############
 ## HINT RULES
 ###############
+
     @staticmethod 
     def get_best_hint(agent: Agent, observation):
         if observation['usedNoteTokens'] < 8:

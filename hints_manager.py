@@ -200,6 +200,7 @@ class HintsManager(object):
                 return True
 
         return False
+    
     def tell_unknown(self, observation):
         '''Tell a random player an unknown information prioritizing color'''
         destination_name = self.agent.name
