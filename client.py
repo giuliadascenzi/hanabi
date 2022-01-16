@@ -9,7 +9,7 @@ import os
 import argparse
 
 from constants import *
-from agentM import Agent, Knowledge
+from agent import Agent, Knowledge
 
 # Arguments management
 parser = argparse.ArgumentParser()
@@ -79,7 +79,7 @@ def agentPlay():
                     print("Error")
                     run = False
                 observation['current_player'] = ""
-        time.sleep(2)
+        #time.sleep(2)
 
 def next_turn():
     # Get observation : ask to the server to show the data
@@ -355,6 +355,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(data.scoreMessage)
             scores.append(data.score)
             print(" Average score so far:  ", sum(scores)/len(scores))
+            print("Games played: ", len(scores))
             # reset and re-initialize
             del(agent)
             observation = {'players': None,
@@ -366,7 +367,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                'hints': [],
                'playersKnowledge': []
                }
+            time.sleep(2)
             playersKnowledge, hintState = initialize(player_names)
+            if (AI!= False): next_turn()
             stdout.flush()
             # run = False
             print("Ready for a new game")

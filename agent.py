@@ -5,7 +5,7 @@ from collections import Counter
 
 from game import Player, Card
 import GameData
-from hints_managerM import HintsManager
+from hints_manager import HintsManager
 
 
 class Agent(Player):

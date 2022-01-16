@@ -1,4 +1,4 @@
-from agentM import Agent
+from agent import Agent
 import GameData
 import random
 
