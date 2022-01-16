@@ -52,59 +52,34 @@ class Ruleset():
             print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
-    
-    # Prioritize color
+        
     @staticmethod
     def tell_randomly(agent: Agent, observation):
+        '''Tell to a random player a random information prioritizing color'''
         if observation['usedNoteTokens'] < 8:
-            destination_name = agent.name
-            while destination_name == agent.name:
-                destination_name = agent.players_names[random.randint(0, len(observation['players'])-1)]
-            for player_info in observation['players']:
-                if player_info.name == destination_name:
-                    destination_hand = player_info.hand
-            
-            card = random.choice([card for card in destination_hand if card is not None])
-            if random.randint(0, 1) == 0:
-                type = "color"
-                value = card.color
-            else:
-                type = "value"
-                value = card.value
+            destination_name, value, type = agent.card_hints_manager.tell_randomly(observation)
+            print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(agent.name, destination_name, type, value)
-        
         return None
 
     @staticmethod
     def tell_fives(agent: Agent, observation):
         '''Tell 5s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name = agent.name
-            while destination_name == agent.name:
-                destination_name = agent.players_names[random.randint(0, len(observation['players'])-1)]
-
-            for player_info in observation['players']:
-                if player_info.name == destination_name:
-                    destination_hand = player_info.hand
-            for card in destination_hand:
-                if card.value == 5:
-                    return GameData.ClientHintData(agent.name, destination_name, "value", card.value)
+            destination_name, value, type = agent.card_hints_manager.tell_fives(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
     @staticmethod
     def tell_ones(agent: Agent, observation):
         '''Tell 1s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name = agent.name
-            while destination_name == agent.name:
-                destination_name = agent.players_names[random.randint(0, len(observation['players'])-1)]
-
-            for player_info in observation['players']:
-                if player_info.name == destination_name:
-                    destination_hand = player_info.hand
-            for card in destination_hand:
-                if card.value == 1:
-                    return GameData.ClientHintData(agent.name, destination_name, "value", card.value)
+            destination_name, value, type = agent.card_hints_manager.tell_ones(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
     # Prioritize color, just next player is considered
