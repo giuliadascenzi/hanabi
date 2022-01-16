@@ -54,7 +54,7 @@ class Ruleset():
     def tell_fives(agent: Agent, observation):
         '''Tell 5s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_unknown(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_fives(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
@@ -64,7 +64,7 @@ class Ruleset():
     def tell_ones(agent: Agent, observation):
         '''Tell 1s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_unknown(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_ones(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)

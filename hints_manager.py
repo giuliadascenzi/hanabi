@@ -256,7 +256,7 @@ class HintsManager(object):
                 return destination_name, card.value, "value"
         return None, None, None
 
-    def tell_fives(self, observation):
+    def tell_ones(self, observation):
         '''Tell 1s to a random player if it has them'''
         destination_name = self.agent.name
         while destination_name == self.agent.name:
