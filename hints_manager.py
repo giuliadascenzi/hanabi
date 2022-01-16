@@ -162,3 +162,10 @@ class HintsManager(object):
             value = card.value
         
         return destination_name, value, type
+
+     def tell_most_information(self, observation):
+        for player_info in observation['players']:
+            if player_info.name == destination_name:
+                destination_hand = observation['players'][observation['players'].index(player_info) + 1]
+
+        
