@@ -48,7 +48,6 @@ class Agent(Player):
         self.print_possibilities(observation['playersKnowledge'])
 
         ######## CHOOSE ACTION ####################
-
         '''
         action = 1
         while action is not None:
@@ -64,20 +63,25 @@ class Agent(Player):
         action = self.ruleset.play_best_safe_card(self, observation)
         if action is not None: return action
 
+        # 1.b) If there are less than 5 cards in the discard pile, discard the dead card with lowest index
+        if len(observation['discard_pile']) < 5 and observation['usedNoteTokens'] > 0:
+            action = self.ruleset.discard_useless_card(self, observation)
+            if action is not None: return action
+
         # 2) If it is not possible to hint, discard
         if observation['usedNoteTokens'] == 8:
-            action = self.ruleset.discard_useless_card(self, observation)
+            action = self.ruleset.discard_useless_card(self, observation, lowest=True)
             if action is not None: return action
             action = self.ruleset.discard_duplicate_card(self, observation)
             if action is not None: return action
             action = self.ruleset.discard_less_relevant(self, observation)
             if action is not None: return action
         
-        # 3) If a usefull hint can be done do it:
+        # 3) If a useful hint can be done do it:
         action = self.ruleset.give_helpful_hint(self, observation)
         if action is not None: return action
 
-        # 4) If I can not discard, give a hint
+        # 4) If I cannot discard, give a hint
         if observation['usedNoteTokens'] == 0:
             action = self.ruleset.tell_ones(self, observation)
             if action is not None: return action
@@ -87,7 +91,6 @@ class Agent(Player):
             if action is not None: return action
             action = self.ruleset.tell_most_information_to_next(self, observation)
             if action is not None: return action
-
 
 
         # Else: randomly choose between discard or give a random
