@@ -208,16 +208,6 @@ class Agent(Player):
             print("--------------------------------------", file=redf, flush=True)
 
     
-
-   
-
-    def get_best_hint(self, observation):
-        return self.card_hints_manager.get_hint(observation)
-
-    def get_low_value_hint(self, observation):
-        return self.card_hints_manager.get_low_value_hint(observation)
-
-
     ########################
     #    Card functions    #
     ########################

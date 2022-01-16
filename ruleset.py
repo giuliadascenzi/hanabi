@@ -9,14 +9,26 @@ class Ruleset():
 ###############
 
     @staticmethod 
-    def get_best_play(agent: Agent, observation):
+    def play_best_safe_card(agent: Agent, observation):
         ################
         #  Do we need to add some checks (?) don't think so
         ################
-        card_pos = agent.get_best_play(observation)
+        card_pos = agent.card_play_manager.play_best_safe_card(observation)
 
         if card_pos is not None:
-            print(">>>play the card number:", card_pos)
+            print(">>>play best safe card: ", card_pos)
+            return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
+        return None
+
+    @staticmethod 
+    def maybe_play_lowest_playable_card(agent: Agent, observation):
+        ################
+        #  Do we need to add some checks (?) don't think so
+        ################
+        card_pos = agent.card_play_manager.maybe_play_lowest_playable_card(observation)
+
+        if card_pos is not None:
+            print(">>>play lowest playable card: ", card_pos)
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
 
@@ -36,7 +48,7 @@ class Ruleset():
     @staticmethod 
     def get_low_value_hint(agent: Agent, observation):
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.get_low_value_hint(observation)
+            destination_name, value, type = agent.card_hints_manager.get_low_value_hint(observation)
             print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None

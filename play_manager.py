@@ -14,17 +14,17 @@ class PlayManager(object):
     def __init__(self, agent):
         self.agent = agent    # my agent object
 
-    def get_best_play(self, observation):
+    def play_best_safe_card(self, observation):
         WEIGHT = {number: self.agent.NUM_NUMBERS - number for number in range(1, self.agent.NUM_NUMBERS)}
-        WEIGHT[self.NUM_NUMBERS] = self.NUM_NUMBERS
+        WEIGHT[self.agent.NUM_NUMBERS] = self.agent.NUM_NUMBERS
 
         tolerance = 1e-3
         best_card_pos = None
         best_avg_num_playable = -1.0  # average number of other playable cards, after my play
         best_avg_weight = 0.0  # average weight (in the sense above)
-        for (card_pos, p) in enumerate(self.possibilities):
+        for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of possible tuple (card,value)
-            if all(self.is_playable(card, observation['fireworks']) for card in p) and len(p) > 0:
+            if all(self.agent.is_playable(card, observation['fireworks']) for card in p) and len(p) > 0:
                 # the card in this position is surely playable!
                 # how many cards of the other players become playable, on average?
                 num_playable = []
@@ -35,8 +35,8 @@ class PlayManager(object):
                     fake_board = copy.copy(observation['fireworks'])
                     fake_board[color].append(value)
                     for i in range(p[card]):
-                        num_playable.append(sum(1 for player_info in self.players for c in player_info.hand if
-                                                c is not None and self.playable_card(c, fake_board)))
+                        num_playable.append(sum(1 for player_info in observation['players'] for c in player_info.hand if
+                                                c is not None and self.agent.playable_card(c, fake_board)))
 
                 avg_num_playable = float(sum(num_playable)) / len(num_playable)
 
@@ -50,17 +50,15 @@ class PlayManager(object):
             print("playing card in position %d gives %f playable cards on average and weight %f" % (
                 best_card_pos, best_avg_num_playable, best_avg_weight))
             return best_card_pos
-        # elif random.randint(0,3) == 0:
-        #    return random.randint(0,4)
         else:
             return best_card_pos
 
     # Not used but put here in case we want to use it anyway
     def maybe_play_lowest_playable_card(self, observation):
         """
-        The Bot checks if previously a card has been hinted to him,
+        It previously a card has been hinted to him,
         :param observation:
-        :return:
+        :return: card_pos
         """
         own_card_knowledge = []
         for p in observation['playersKnowledge']:
@@ -69,8 +67,10 @@ class PlayManager(object):
 
         for k in own_card_knowledge:
             if k.color is not None:
-                return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
+                return own_card_knowledge.index(k)
 
         for k in own_card_knowledge:
             if k.value is not None:
-                return GameData.ClientPlayerPlayCardRequest(self.name, own_card_knowledge.index(k))
+                return own_card_knowledge.index(k)
+        else:
+            return None
