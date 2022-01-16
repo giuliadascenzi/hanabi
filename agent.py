@@ -2,12 +2,12 @@ import random
 import copy
 import pandas as pd
 from collections import Counter
-from discard_manager import DiscardManager
+from managers.discard_manager import DiscardManager
 
 from game import Player, Card
 import GameData
-from hints_manager import HintsManager
-from play_manager import PlayManager
+from managers.hints_manager import HintsManager
+from managers.play_manager import PlayManager
 from ruleset import Ruleset
 
 
