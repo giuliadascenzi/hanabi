@@ -37,9 +37,9 @@ class Ruleset():
 ###############
 
     @staticmethod 
-    def get_best_hint(agent: Agent, observation):
+    def give_helpful_hint(agent: Agent, observation):
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.get_hint(observation)
+            destination_name, value, type = agent.card_hints_manager.give_helpful_hint(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
@@ -52,7 +52,7 @@ class Ruleset():
             print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
             return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
-        
+
     @staticmethod
     def tell_randomly(agent: Agent, observation):
         '''Tell to a random player a random information prioritizing color'''

@@ -50,14 +50,8 @@ class HintsManager(object):
             return False
         return True
 
-    def get_hint(self, observation):
-        """
-        Compute hint to give.
-        """
-        destination_name, value, type = self.maybe_give_helpful_hint(observation)
-        return destination_name, value, type
 
-    def maybe_give_helpful_hint(self, observation):
+    def give_helpful_hint(self, observation):
         fireworks = observation['fireworks']
 
         best_so_far = 0
