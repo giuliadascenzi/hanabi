@@ -100,10 +100,10 @@ class Ruleset():
         pass
 
     @staticmethod
-    def tell_most_information(agent, observation):
+    def tell_most_information_to_next(agent, observation):
         '''Tell 1s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_most_information_to_next(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the most information hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)

@@ -39,6 +39,7 @@ class Agent(Player):
         Choose action for this turn.
         Returns the request to the server
         """
+        ######## UPDATE POSSIBILITIES #############
         self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
@@ -46,37 +47,59 @@ class Agent(Player):
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
+        ######## CHOOSE ACTION ####################
+
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_safe_card(self, observation)
         if action is not None: return action
 
-        # 2) If a usefull hint can be done do it:
-        action = self.ruleset.give_helpful_hint(self, observation)
-        if action is not None: return action
-
-        # 3) If I can not discard, give a random hint
-        if observation['usedNoteTokens'] == 0:
-            action = self.ruleset.get_low_value_hint(self, observation)
-            if action is not None: return action
-
-        # 4) If it is not possible to hint
+        # 2) If it is not possible to hint, discard
         if observation['usedNoteTokens'] == 8:
             action = self.ruleset.discard_useless_card(self, observation)
             if action is not None: return action
+            action = self.ruleset.discard_duplicate_card(self, observation)
+            if action is not None: return action
             action = self.ruleset.discard_less_relevant(self, observation)
             if action is not None: return action
+        
+        # 3) If a usefull hint can be done do it:
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
+
+        # 4) If I can not discard, give a hint
+        if observation['usedNoteTokens'] == 0:
+            action = self.ruleset.tell_ones(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_fives(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_unknown(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_most_information_to_next(self, observation)
+            if action is not None: return action
+
+
 
         # Else: randomly choose between discard or give a random
         elif random.randint(0, 1) == 0:
             # discard
             action = self.ruleset.discard_useless_card(self, observation)
             if action is not None: return action
+            action = self.ruleset.discard_duplicate_card(self, observation)
+            if action is not None: return action
             action = self.ruleset.discard_less_relevant(self, observation)
             if action is not None: return action
 
         else:
-            action = self.ruleset.get_low_value_hint(self, observation)
+            action = self.ruleset.tell_ones(self, observation)
             if action is not None: return action
+            action = self.ruleset.tell_fives(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_unknown(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_most_information_to_next(self, observation)
+            if action is not None: return action
+        
+        print("something wrong")
     
     def receive_hint(self, destination, type, value, positions):
         '''

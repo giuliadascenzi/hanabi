@@ -216,7 +216,7 @@ class HintsManager(object):
         '''
         unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
         unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
-        next_player_index = (self.agent.player_names.index(self.agent.name) +1 ) % len(self.agent.players_names)
+        next_player_index = (self.agent.players_names.index(self.agent.name) +1 ) % len(self.agent.players_names)
         next_player = observation['players'][next_player_index]
         next_player_hand = next_player.hand
         next_player_knowledge = observation['playersKnowledge'][next_player.name]

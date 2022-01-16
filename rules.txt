@@ -15,9 +15,9 @@
  
     - give_helpful_hint(agent, observation): the agent gives an hint to a player that knows something about a playable card, but not everything. with this hint he/she will be able to play it
         
-    - def get_low_value_hint(agent, observation): the agent gives a random player a hint containing an information about a low_value card 
+    - def get_low_value_hint(agent, observation)[ALWAYS RETURN]: the agent gives a random player a hint containing an information about a low_value card 
         
-    - tell_randomly(agent, observation): Tell to a random player a random information prioritizing color
+    - tell_randomly(agent, observation) [ALWAYS RETURN]: Tell to a random player a random information prioritizing color
         
     - tell_fives(agent, observation): Tell 5s to a random player if it has them
         
@@ -27,7 +27,7 @@
 
     - tell_anyone_useless_card(agent, observation) [TO IMPLEMENT]
 
-    - tell_most_information(agent, observation): Tell 1s to a random player if it has them
+    - tell_most_information_to_next(agent, observation)[ALWAYS RETURN]: Tell 1s to a random player if it has them
 
 
 ###############
