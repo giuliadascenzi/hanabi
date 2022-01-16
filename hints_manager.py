@@ -13,8 +13,6 @@ class HintsManager(object):
     """
     def __init__(self, agent):
         self.agent = agent    # my agent object
-
-
     
     def is_usable(self, hinter_id):
         """
@@ -162,3 +160,43 @@ class HintsManager(object):
             value = card.value
         
         return destination_name, value, type
+
+    def is_duplicate(self, card, observation):
+        """
+        Says if the given card is owned by some player who knows everything about it.
+        """
+        # check other players' hands
+        for (player_info) in observation['players']:
+            hand = player_info.hand
+            player_name = player_info.name
+            for card_pos in range(self.agent.num_cards):
+                kn = observation['playersKnowledge'][player_name][card_pos]
+                if kn.knows_exactly() and hand[card_pos] is not None and hand[card_pos].equals(card):
+                    return True
+
+        # check my hand
+        for card_pos in range(self.agent.num_cards):
+            kn = self.agent.knowledge[self.agent.name][card_pos]
+            if kn.knows_exactly() and any(card.equals(c) for c in self.agent.possibilities[card_pos]):
+                return True
+
+        return False
+
+    def is_duplicate(self, card):
+        """
+        Says if the given card is owned by some player who knows everything about it.
+        """
+        # check other players' hands
+        for (player_id, hand) in self.agent:
+            for card_pos in range(self.k):
+                kn = self.agent.knowledge[player_id][card_pos]
+                if kn.knows_exactly() and hand[card_pos] is not None and hand[card_pos].equals(card):
+                    return True
+
+        # check my hand
+        for card_pos in range(self.k):
+            kn = self.agent.knowledge[self.id][card_pos]
+            if kn.knows_exactly() and any(card.equals(c) for c in self.agent.possibilities[card_pos]):
+                return True
+
+        return False

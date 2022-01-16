@@ -158,7 +158,7 @@ class Agent(Player):
         return cards
 
     @staticmethod
-    def counterOfCards(cardList):
+    def counterOfCards(cardList=[]):
         """
         Gets as input a list of Card.
         Output = Counter with keys (color,value)
