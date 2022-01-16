@@ -8,6 +8,7 @@ from game import Player, Card
 import GameData
 from hints_manager import HintsManager
 from play_manager import PlayManager
+from ruleset import Ruleset
 
 
 class Agent(Player):
@@ -27,7 +28,7 @@ class Agent(Player):
         self.card_hints_manager = HintsManager(self)
         self.card_play_manager = PlayManager(self)
         self.card_discard_manager = DiscardManager(self)
-
+        self.ruleset = Ruleset()
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w')
         print("----- INITIALIZE AGENT:", file=redf, flush=True)
@@ -46,50 +47,36 @@ class Agent(Player):
         self.print_possibilities(observation['playersKnowledge'])
 
         # 1) Check if there is a playable card
-        card_pos = self.get_best_play(observation)
-        if card_pos is not None:
-            print(">>>play the card number:", card_pos)
-            return GameData.ClientPlayerPlayCardRequest(self.name, card_pos)
+        action = self.ruleset.play_best_safe_card(self, observation)
+        if action is not None: return action
 
         # 2) If a usefull hint can be done do it:
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = self.get_best_hint(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
-                ''''  TODO: Not helpful here since receive_hint is just for hint received by the agent not sent
-                positions = []
-                for player in self.players:
-                    if player.name == destination_name:
-                        for card in player.hand:
-                            if card.value == value or card.color == value:
-                                positions.append(player.hand.index(card))
-                self.card_hints_manager.receive_hint(destination_name, type, value, positions)
-                '''
-                return GameData.ClientHintData(self.name, destination_name, type, value)
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
 
         # 3) If I can not discard, give a random hint
         if observation['usedNoteTokens'] == 0:
-            destination_name, value, type = self.get_low_value_hint(observation)
-            print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(self.name, destination_name, type, value)
+            action = self.ruleset.get_low_value_hint(self, observation)
+            if action is not None: return action
 
         # 4) If it is not possible to hint
         if observation['usedNoteTokens'] == 8:
-            card_pos, _, _ = self.get_best_discard(observation)
-            print(">>>discard the card number:", card_pos)
-            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+            action = self.ruleset.discard_useless_card(self, observation)
+            if action is not None: return action
+            action = self.ruleset.discard_less_relevant(self, observation)
+            if action is not None: return action
 
         # Else: randomly choose between discard or give a random
         elif random.randint(0, 1) == 0:
             # discard
-            card_pos, _, _ = self.get_best_discard(observation)
-            print(">>>discard the card number:", card_pos)
-            return GameData.ClientPlayerDiscardCardRequest(self.name, card_pos)
+            action = self.ruleset.discard_useless_card(self, observation)
+            if action is not None: return action
+            action = self.ruleset.discard_less_relevant(self, observation)
+            if action is not None: return action
 
         else:
-            destination_name, value, type = self.get_low_value_hint(observation)
-            print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(self.name, destination_name, type, value)
+            action = self.ruleset.get_low_value_hint(self, observation)
+            if action is not None: return action
     
     def receive_hint(self, destination, type, value, positions):
         '''

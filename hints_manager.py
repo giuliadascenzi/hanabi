@@ -211,20 +211,24 @@ class HintsManager(object):
         return None, None, None
 
     def tell_most_information_to_next(self, observation):
+        '''
+        hint to next player the color/value that has the most ocurrencies in his/her hand
+        '''
         unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
         unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
-        next_player = observation['players'][self.agent.player_names.index(observation['current_player']) + 1]
+        next_player_index = (self.agent.player_names.index(self.agent.name) +1 ) % len(self.agent.players_names)
+        next_player = observation['players'][next_player_index]
         next_player_hand = next_player.hand
         next_player_knowledge = observation['playersKnowledge'][next_player.name]
 
-        for index, (card, knowledge) in enumerate(zip(next_player_hand, player_knowledge)):
+        for index, (card, knowledge) in enumerate(zip(next_player_hand, next_player_knowledge)):
                 # if the player does not know anything about the card skip it
                 if knowledge.knows("color") and knowledge.knows("value"):
                     continue
                 if knowledge.knows("color"):
                     unknown_value[card.value] += 1
                 if knowledge.knows("value"):
-                    unknow_color[card.color] += 1
+                    unknown_color[card.color] += 1
 
         max_color_occurences = max(unknown_color.values())
         max_value_occurences = max(unknown_value.values())

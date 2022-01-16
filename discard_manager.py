@@ -23,7 +23,7 @@ class DiscardManager(object):
             # representing the possible (color,value) for a card in pos card_pos
             # one for each card
             if len(p) > 0 and all(
-                    not self.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
+                    not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
                                             self.agent.counterOfCards(observation['discard_pile'])) for card in p):
                 # whatever card is this is useless
                 return card_pos
@@ -37,7 +37,7 @@ class DiscardManager(object):
         tolerance = 1e-3
         best_cards_pos = []
 
-        WEIGHT = {number: self.NUM_NUMBERS + 1 - number for number in range(1, self.NUM_NUMBERS + 1)}
+        WEIGHT = {number: self.agent.NUM_NUMBERS + 1 - number for number in range(1, self.agent.NUM_NUMBERS + 1)}
         best_relevant_weight = max(WEIGHT.values())
         relevant_weight = None
 

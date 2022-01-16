@@ -79,7 +79,7 @@ def agentPlay():
                     print("Error")
                     run = False
                 observation['current_player'] = ""
-        #time.sleep(2)
+        time.sleep(3)
 
 def next_turn():
     # Get observation : ask to the server to show the data
@@ -308,7 +308,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
         if type(data) is GameData.ServerHintData: #HINT
             dataOk =True 
-            print("> ["+ data.source + "]: " + "Hinted to "+ data.destination  + " cards with value " + str(data.value) + " are: ", data.positions)
+            print("["+ data.source + "]: " + "Hinted to "+ data.destination  + " cards with value " + str(data.value) + " are: ", data.positions)
             # print("Player " + data.destination + " cards with value " + str(data.value) + " are:")
             # for i in data.positions:
             #    print("\t" + str(i))

@@ -62,7 +62,7 @@ class PlayManager(object):
         """
         own_card_knowledge = []
         for p in observation['playersKnowledge']:
-            if p['player'] == self.name:
+            if p['player'] == self.agent.name:
                 own_card_knowledge = p['knowledge']
 
         for k in own_card_knowledge:
