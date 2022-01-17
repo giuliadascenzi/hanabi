@@ -30,7 +30,7 @@ class HintsManager(object):
              for (i, p) in enumerate(self.agent.possibilities):
                 for card in self.agent.full_deck_composition:
                     if not self.card_matches_hint(card, type, value, positions, i) and card in p:
-                        # removing card from position  due to hint" 
+                        # removing card from position due to hint" 
                         del p[card]
     
     def card_matches_hint(self, card, type, value, positions, card_pos):

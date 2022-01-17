@@ -74,14 +74,14 @@ def agentPlay():
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
                 # action = agent.rl_choice(observation)
-                action = agent.vanDerBergh_choice(observation)
+                action = agent.vanDerBergh_choice_2(observation)
                 try: 
                     s.send(action.serialize())
                 except:
                     print("Error")
                     run = False
                 observation['current_player'] = ""
-        #time.sleep(3)
+        #time.sleep(5)
 
 def next_turn():
     # Get observation : ask to the server to show the data
@@ -243,7 +243,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
 
             else:
-                observation = {'players': data.players,
+                observation = { 'players': data.players,
                                 'current_player': data.currentPlayer,
                                 'usedStormTokens': data.usedStormTokens,
                                 'usedNoteTokens': data.usedNoteTokens,
@@ -256,6 +256,24 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 #print("Player hands: ")
                 #for p in data.players:
                 #    print(p.toClientString())
+                '''
+                print("Current player: " + data.currentPlayer)
+                print("Player hands: ")
+                for p in data.players:
+                    print(p.toString())
+                print("Table cards: ")
+                for pos in data.tableCards:
+                    print(pos + ": [ ")
+                    for c in data.tableCards[pos]:
+                        print(c.toString() + " ")
+                    print("]")
+                print("Discard pile: ")
+                for c in data.discardPile:
+                    print("\t" + c.toString())
+                print("Note tokens used: " + str(data.usedNoteTokens) + "/8")
+                print("Storm tokens used: " + str(data.usedStormTokens) + "/3")
+                '''
+                
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True
             print("Invalid action performed. Reason:")
@@ -362,6 +380,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             scores.append(data.score)
             print(" |Average score so far:  ", sum(scores)/len(scores))
             print(" |Games played: ", len(scores))
+            print(" |Best result: ", max(scores))
+            print(" |Worst result: ", min(scores))
+            if (len(scores)>=20): run=False
             '''
             if len(scores) % 10 == 0:
                 ruleset.fitness( sum(scores[-10:]) / 10 )
@@ -378,7 +399,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                'hints': [],
                'playersKnowledge': []
                }
-            time.sleep(2)
+            #time.sleep(5)
             playersKnowledge, hintState = initialize(player_names)
             if (AI!= False): next_turn()
             stdout.flush()

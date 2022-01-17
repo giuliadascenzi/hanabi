@@ -397,14 +397,13 @@ class Game(object):
             p.hand.append(self.__cardsToDraw.pop())
     
     def __checkTableCards(self) -> bool:
-        for cardPool in self.__tableCards:
-            for card in self.__tableCards[cardPool]:
+            for cardPool in self.__tableCards:
                 if len(self.__tableCards[cardPool]) > 0 and self.__tableCards[cardPool][len(self.__tableCards[cardPool]) - 1].value != len(self.__tableCards[cardPool]):
-                    self.__tableCards[cardPool].pop()
+                    card = self.__tableCards[cardPool].pop()
                     self.__discardPile.append(card)
                     self.__strikeThunder()
                     return False
-        return True
+            return True
 
     # assumes cards checked
     def __checkFinishedFirework(self, pile) -> bool:
