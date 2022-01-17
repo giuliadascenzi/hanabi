@@ -428,7 +428,36 @@ class HintsManager(object):
 
         return next_player.name, value, type
 
-    
+    def give_hint_on_useless(self, observation):
+        '''
+        hint about a card that can be discarded now, preferring players close in turn
+        '''
+        fireworks = observation['fireworks']
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
+            hand = player.hand
+            for card_pos,card in enumerate(hand):
+                if not self.agent.useful_card(card, fireworks):
+                    knowledge = player_knowledge[card_pos]
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    if knowledge.knows("value"):
+                        type= "color"
+                        value= card.color
+                    else:
+                        type= "value"
+                        value= card.value
+                    return (player_name, value, type)
+        return (None, None, None)
     
 
     def tell_randomly(self, observation):
