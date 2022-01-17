@@ -250,6 +250,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                 'hints': hintState,
                                 'playersKnowledge': playersKnowledge}
 
+                #print("Current player: " + data.currentPlayer)
+                #print("Player hands: ")
+                #for p in data.players:
+                #    print(p.toClientString())
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True
             print("Invalid action performed. Reason:")

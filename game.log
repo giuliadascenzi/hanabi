@@ -43170,3 +43170,49 @@
 01/16/2022 04:36:54 PM INFO: Starting new game
 01/16/2022 04:36:54 PM INFO: Ok, let's start the game!
 01/16/2022 04:36:56 PM INFO: Closing the server...
+01/16/2022 04:42:17 PM INFO: Hanabi server started on 127.0.0.1:1024
+01/16/2022 04:45:12 PM INFO: Connected by: ('127.0.0.1', 58370)
+01/16/2022 04:45:12 PM INFO: Player connected: AI
+01/16/2022 04:45:12 PM INFO: Player ready: AI
+01/16/2022 04:45:24 PM INFO: Connected by: ('127.0.0.1', 58378)
+01/16/2022 04:45:24 PM INFO: Player connected: manual
+01/16/2022 04:45:26 PM INFO: Player ready: manual
+01/16/2022 04:45:26 PM INFO: Game start! Between: ['AI', 'manual']
+01/16/2022 04:45:26 PM INFO: Ok, let's start the game!
+01/16/2022 04:45:27 PM INFO: Showing hand to: AI
+01/16/2022 04:45:27 PM INFO: Player AI providing hint to manual: cards with value 1 are in positions: [1, 4]
+01/16/2022 04:45:27 PM INFO: Showing hand to: AI
+01/16/2022 04:46:19 PM INFO: Showing hand to: manual
+01/16/2022 04:47:14 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:47:14 PM INFO: Showing hand to: AI
+01/16/2022 04:47:14 PM INFO: Player AI providing hint to manual: cards with value 2 are in positions: [0, 1, 2]
+01/16/2022 04:47:14 PM INFO: Showing hand to: AI
+01/16/2022 04:48:01 PM INFO: Showing hand to: manual
+01/16/2022 04:49:37 PM INFO: Player manual providing hint to AI: cards with value 1 are in positions: [0]
+01/16/2022 04:49:38 PM INFO: Showing hand to: AI
+01/16/2022 04:49:38 PM INFO: AI: card played and correctly put on the table
+01/16/2022 04:49:38 PM INFO: Showing hand to: AI
+01/16/2022 04:51:39 PM INFO: Showing hand to: manual
+01/16/2022 04:52:50 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:52:50 PM INFO: Showing hand to: AI
+01/16/2022 04:52:50 PM INFO: Player AI providing hint to manual: cards with color red are in positions: [0, 4]
+01/16/2022 04:52:50 PM INFO: Showing hand to: AI
+01/16/2022 04:53:10 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:53:10 PM INFO: Showing hand to: AI
+01/16/2022 04:53:10 PM INFO: Player AI providing hint to manual: cards with color green are in positions: [0]
+01/16/2022 04:53:10 PM INFO: Showing hand to: AI
+01/16/2022 04:53:23 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:53:23 PM INFO: Showing hand to: AI
+01/16/2022 04:53:23 PM INFO: Player AI providing hint to manual: cards with value 2 are in positions: [0, 1]
+01/16/2022 04:53:23 PM INFO: Showing hand to: AI
+01/16/2022 04:54:15 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:54:15 PM INFO: Showing hand to: AI
+01/16/2022 04:54:15 PM INFO: Player AI providing hint to manual: cards with color blue are in positions: [0, 2, 3]
+01/16/2022 04:54:15 PM INFO: Showing hand to: AI
+01/16/2022 04:54:24 PM INFO: Showing hand to: AI
+01/16/2022 04:54:24 PM INFO: Player AI providing hint to manual: cards with value 2 are in positions: [0, 3, 4]
+01/16/2022 04:54:24 PM INFO: Showing hand to: AI
+01/16/2022 04:54:29 PM INFO: manual: card played and correctly put on the table
+01/16/2022 04:54:29 PM INFO: Showing hand to: AI
+01/16/2022 04:54:29 PM INFO: Player: AI: card 41 discarded successfully
+01/16/2022 04:54:29 PM INFO: Showing hand to: AI
