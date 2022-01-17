@@ -172,7 +172,7 @@ class Agent(Player):
         if observation['usedStormTokens'] ==1 :
             prob = 0.6
         if observation['usedStormTokens'] ==2 :
-            prob = 0.8
+            prob = 0.9
         action = self.ruleset.play_safe_card_prob(self, observation, prob)
         if action is not None: return action
         # 2) discard a 100% useless card

@@ -1,13 +1,24 @@
--- van_der_bergh_2 (0.6, 0.6, 0.9)
+-- * van_der_bergh_2 (0.6, 0.6, 0.9) *
  3 players
  |Average score so far:   17.3
  |Games played:  20
  |Best result:  20
  |Worst result:  14
+ 4 players
+ |Average score so far:   16.55
+ |Games played:  20
+ |Best result:  20
+ |Worst result:  14
 
--- van_der_bergh_2 (0.6, 0.6, 0.8)
+-- * van_der_bergh_2 (0.6, 0.6, 0.8) *
  3 players
  |Average score so far:   16.9
  |Games played:  20
  |Best result:  21
+ |Worst result:  13
+
+ 4 players
+ |Average score so far:   16.65
+ |Games played:  20
+ |Best result:  20
  |Worst result:  13

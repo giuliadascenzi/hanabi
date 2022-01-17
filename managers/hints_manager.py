@@ -59,6 +59,7 @@ class HintsManager(object):
     def give_helpful_hint(self, observation):
         '''
         hint sent to a player that already knows something about a playable card. Expand his/her knowledge
+        # TODO: it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
         '''
         fireworks = observation['fireworks']
 
@@ -267,8 +268,6 @@ class HintsManager(object):
                 else:
                     unknown_value[card.value] += 1
                     unknown_color[card.color] += 1
-        
-
 
         max_color_occurences = max(unknown_color.values())
         max_value_occurences = max(unknown_value.values())
