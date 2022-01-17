@@ -148,6 +148,96 @@ class HintsManager(object):
         else:
             return None, None, None
 
+    def give_helpful_hint_to_next(self, observation):
+        '''
+        hint sent to a player that already knows something about a playable card. Expand his/her knowledge
+        # TODO:(DONE?) it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
+        '''
+        fireworks = observation['fireworks']
+
+        best_so_far = 0
+        player_to_hint = -1
+        color_to_hint = -1
+        value_to_hint = -1
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        # consider the next player
+        index = (my_index + 1) % len(self.agent.players_names)
+        player_name = self.agent.players_names[index]
+        
+        player = observation['players'][index]
+        player_knowledge = observation['playersKnowledge'][player_name]
+        player_hand = player.hand
+
+        # Check if the card in the hand of the next player is playable.
+        card_is_really_playable = [False, False, False, False, False]
+        playable_colors = []
+        playable_ranks = []
+        
+        for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+            # if the player does not know anything about the card skip it
+            if not knowledge.knows("color") and not knowledge.knows("value"):
+                continue
+            if self.agent.playable_card(card, fireworks):
+                card_is_really_playable[index] = True
+                if card.color not in playable_colors:
+                    playable_colors.append(card.color)
+                if card.value not in playable_ranks:
+                    playable_ranks.append(card.value)
+
+        '''Can we construct a color hint that gives our partner information about unknown - playable cards, 
+        without also including any unplayable cards?'''
+
+        # go through playable colors
+        for color in playable_colors:
+            information_content = 0
+            missInformative = False
+            for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+                if card.color is not color:
+                    continue
+                if self.agent.playable_card(card, fireworks) and knowledge.color is False:
+                    information_content += 1
+                elif not self.agent.playable_card(card, fireworks):
+                    missInformative = True
+                    break
+            if missInformative:
+                continue
+            if information_content > best_so_far:
+                best_so_far = information_content
+                color_to_hint = color
+                value_to_hint = -1
+                player_to_hint = player.name
+
+        # go through playable ranks
+        for rank in playable_ranks:
+            information_content = 0
+            missInformative = False
+            for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+                if card.value is not rank:
+                    continue
+                if self.agent.playable_card(card, fireworks) and knowledge.value is False:
+                    information_content += 1
+                elif not self.agent.playable_card(card, fireworks):
+                    missInformative = True
+                    break
+            if missInformative:
+                continue
+            if information_content > best_so_far:
+                best_so_far = information_content
+                color_to_hint = None
+                value_to_hint = rank
+                player_to_hint = player.name
+
+        # went through all players, now check
+        if best_so_far == 0:
+            return None, None, None
+        elif color_to_hint is not None:
+            return player_to_hint, color_to_hint, "color"
+        elif value_to_hint != -1:
+            return player_to_hint, value_to_hint, "value"
+        else:
+            return None, None, None
+
     def give_useful_hint(self, observation):
         '''
         hint about a card that can be played now, preferring players close in turn
