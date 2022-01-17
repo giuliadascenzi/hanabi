@@ -59,7 +59,7 @@ class HintsManager(object):
     def give_helpful_hint(self, observation):
         '''
         hint sent to a player that already knows something about a playable card. Expand his/her knowledge
-        # TODO: it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
+        # TODO:(DONE?) it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
         '''
         fireworks = observation['fireworks']
 
@@ -67,12 +67,18 @@ class HintsManager(object):
         player_to_hint = -1
         color_to_hint = -1
         value_to_hint = -1
+        my_index = self.agent.players_names.index(self.agent.name)
 
-        for player in observation['players']:
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
             player_hand = player.hand
-            player_knowledge = observation['playersKnowledge'][player.name]
-            # player_idx = observation['players'].index(player)
-            
+
             # Check if the card in the hand of the opponent is playable.
             card_is_really_playable = [False, False, False, False, False]
             playable_colors = []
