@@ -48,13 +48,14 @@ class Agent(Player):
         self.print_possibilities(observation['playersKnowledge'])
 
         ######## CHOOSE ACTION ####################
-        '''
+
         action = 1
         while action is not None:
             # 1) Check if there is a playable card
+            '''
             action = self.ruleset.play_best_safe_card(self, observation)
             if action is not None: return action
-
+            '''
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
@@ -112,7 +113,7 @@ class Agent(Player):
             if action is not None: return action
             action = self.ruleset.tell_most_information_to_next(self, observation)
             if action is not None: return action
-        
+        '''
         print("something wrong")
     
 

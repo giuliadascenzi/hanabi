@@ -7,7 +7,7 @@ class Ruleset():
 
     def __init__(self):
         self.rules = {
-            # 1: self.maybe_play_lowest_playable_card,
+            0: self.play_best_safe_card,
             1: self.give_helpful_hint,
             2: self.get_low_value_hint,
             3: self.tell_randomly,

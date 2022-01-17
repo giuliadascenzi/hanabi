@@ -73,11 +73,11 @@ def agentPlay():
                 print("[" + playerName + " - " + status + "]: ", end="")
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
-                # action = agent.rl_choice(observation)
+                action = agent.rl_choice(observation)
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
-                action = agent.vanDerBergh_choice_prob(observation)
+                # action = agent.pier_choice(observation)
                 try: 
                     s.send(action.serialize())
                 except:
@@ -386,11 +386,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(" |Best result: ", max(scores))
             print(" |Worst result: ", min(scores))
             if (len(scores)>=500): run=False
-            '''
+
             if len(scores) % 10 == 0:
-                ruleset.fitness( sum(scores[-10:]) / 10 )
+                # ruleset.fitness( sum(scores[-10:]) / 10 )
                 ruleset.shuffle_rules()
-            '''
+
             # reset and re-initialize
             del(agent)
             observation = {'players': None,

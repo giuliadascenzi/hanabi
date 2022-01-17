@@ -82,15 +82,58 @@
 
 -- * pier *
  2 players
- 
+ |Average score so far:   16.8
+ |Games played:  100
+ |Best result:  22
+ |Worst result:  12
 
  3 players
-  |Average score so far:   17.9
-  |Games played:  20
-  |Best result:  20
-  |Worst result:  16
+ |Average score so far:   17.9
+ |Games played:  20
+ |Best result:  20
+ |Worst result:  16
+
+ |Average score so far:   17.09
+ |Games played:  100
+ |Best result:  22
+ |Worst result:  14
 
  4 players
+ |Average score so far:   16.76
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  13
 
  5 players
+ |Average score so far:   15.68
+ |Games played:  100
+ |Best result:  20
+ |Worst result:  11
+
+
+-- Piers on a lot of games played with randomly shuffled rules agents every 10 games (play_best_safe always first rule)
+ 2 players 
+ |Average score so far:   10.439490445859873
+ |Games played:  314
+ |Best result:  19
+ |Worst result:  0
+
+ 5 players
+ |Average score so far:   10.185
+ |Games played:  200
+ |Best result:  16
+ |Worst result:  0
+
+-- Piers on 0.5k games played with randomly shuffled rules agents every 10 games
+ 2 players
+ |Average score so far:   5.844
+ |Games played:  500
+ |Best result:  17
+ |Worst result:  0
+
+ 5 players
+ |Average score so far:   3.912
+ |Games played:  500
+ |Best result:  13
+ |Worst result:  0
 
