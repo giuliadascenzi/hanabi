@@ -44,9 +44,6 @@ class Ruleset():
 
     @staticmethod
     def play_best_safe_card(agent, observation):
-        ################
-        #  Do we need to add some checks (?) don't think so
-        ################
         card_pos = agent.card_play_manager.play_best_safe_card(observation)
 
         if card_pos is not None:
@@ -68,9 +65,6 @@ class Ruleset():
 
     @staticmethod
     def maybe_play_lowest_playable_card(agent, observation):
-        ################
-        #  Do we need to add some checks (?) don't think so
-        ################
         card_pos = agent.card_play_manager.maybe_play_lowest_playable_card(observation)
 
         if card_pos is not None:
