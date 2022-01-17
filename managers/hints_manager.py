@@ -236,14 +236,15 @@ class HintsManager(object):
                 destination_hand = player_info.hand
             
         for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
-            if kn.color == False:
+            if not kn.knows("color"):
                 type = "color"
                 value = destination_hand[idx].color
                 return destination_name, value, type
-            if kn.value == False:
+            if not kn.knows("value"):
                 type = "value"
                 value = destination_hand[idx].value
                 return destination_name, value, type
+        print("this player already knows everything ", destination_name)
         return None, None, None
 
     def tell_most_information_to_next(self, observation):
@@ -331,4 +332,33 @@ class HintsManager(object):
                 return destination_name, card.value, "value"
         return None, None, None
 
-    
+    def tell_useless(self, observation):
+        '''
+        hint about a card that is useless
+        '''
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
+            hand = player.hand
+            for card_pos,card in enumerate(hand):
+                if not self.agent.useful_card((card.color, card.value), observation['fireworks'], self.agent.full_deck_composition,
+                                               self.agent.counterOfCards(observation['discard_pile'])):
+                    knowledge = player_knowledge[card_pos]
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    if knowledge.knows("value"):
+                        type= "color"
+                        value= card.color
+                    else:
+                        type= "value"
+                        value= card.value
+                    return (player_name, value, type)
+        return (None, None, None)

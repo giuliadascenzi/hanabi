@@ -22,3 +22,10 @@
  |Games played:  20
  |Best result:  20
  |Worst result:  13
+
+* pier *
+ 3 players
+  |Average score so far:   17.9
+  |Games played:  20
+  |Best result:  20
+  |Worst result:  16

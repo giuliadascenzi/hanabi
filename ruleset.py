@@ -91,6 +91,8 @@ class Ruleset():
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
+    
+
     @staticmethod
     def give_helpful_hint(agent, observation):
         if observation['usedNoteTokens'] < 8:
@@ -152,7 +154,12 @@ class Ruleset():
 
     @staticmethod
     def tell_anyone_useless_card(agent, observation):
-        pass
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.tell_useless(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the tell_useless hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
 
     @staticmethod
     def tell_most_information_to_next(agent, observation):
@@ -178,11 +185,29 @@ class Ruleset():
         return None
 
     @staticmethod
+    def discard_oldest_first(agent, observation, lowest=False):
+        if observation['usedNoteTokens'] != 0:
+            card_pos = agent.card_discard_manager.discard_oldest_first(observation)
+            if card_pos is not None:
+                print(">>>discard oldest card:", card_pos)
+                return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+        return None
+
+    @staticmethod
     def discard_less_relevant(agent, observation):
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_less_relevant(observation)
             if card_pos is not None:
                 print(">>>discard less relevant card:", card_pos)
+                return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+        return None
+
+    @staticmethod
+    def discard_randomly(agent, observation):
+        if observation['usedNoteTokens'] != 0:
+            card_pos = agent.card_discard_manager.discard_randomly(observation)
+            if card_pos is not None:
+                print(">>>discard random card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
