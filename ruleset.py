@@ -1,14 +1,48 @@
-
 import GameData
 import random
+import copy
+
 
 class Ruleset():
 
-###############
-## PLAY RULES
-###############
+    def __init__(self):
+        self.rules = {
+            # 1: self.maybe_play_lowest_playable_card,
+            1: self.give_helpful_hint,
+            2: self.get_low_value_hint,
+            3: self.tell_randomly,
+            4: self.tell_fives,
+            5: self.tell_ones,
+            6: self.tell_unknown,
+            # 3: self.tell_most_information_to_next,
+            7: self.discard_useless_card,
+            8: self.discard_less_relevant,
+            9: self.discard_less_relevant,
+            10: self.discard_duplicate_card
+        }
+        self.active_rules = list(self.rules.keys())
+        self.fittest_ruleset = []
+        self.best_score = 0
 
-    @staticmethod 
+    def shuffle_rules(self):
+        random.shuffle(self.active_rules)
+
+    def fitness(self, avg_score):
+        if avg_score > self.best_score:
+            self.best_score = avg_score
+            self.fittest_ruleset = copy.deepcopy(self.active_rules)
+            # Make it print the fittest
+            with open("fittest_ruleset.txt", "a") as f:
+                f.write(str(self.best_score))
+                f.write("\n")
+                f.write(', '.join(str(rule) for rule in self.fittest_ruleset))
+                f.write("\n---------\n")
+
+    ###############
+    ## PLAY RULES
+    ###############
+
+    @staticmethod
     def play_best_safe_card(agent, observation):
         ################
         #  Do we need to add some checks (?) don't think so
@@ -19,9 +53,8 @@ class Ruleset():
             print(">>>play best safe card: ", card_pos)
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
-    
-    
-    @staticmethod 
+
+    @staticmethod
     def play_safe_card_prob(agent, observation, prob):
         '''
         Returns a card that has a probability = prob of being playable
@@ -33,7 +66,7 @@ class Ruleset():
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
 
-    @staticmethod 
+    @staticmethod
     def maybe_play_lowest_playable_card(agent, observation):
         ################
         #  Do we need to add some checks (?) don't think so
@@ -45,11 +78,11 @@ class Ruleset():
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
 
-###############
-## HINT RULES
-###############
+    ###############
+    ## HINT RULES
+    ###############
 
-    @staticmethod 
+    @staticmethod
     def give_useful_hint(agent, observation):
         if observation['usedNoteTokens'] < 8:
             destination_name, value, type = agent.card_hints_manager.give_useful_hint(observation)
@@ -57,9 +90,8 @@ class Ruleset():
                 print(">>>give the useful hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
-        
 
-    @staticmethod 
+    @staticmethod
     def give_helpful_hint(agent, observation):
         if observation['usedNoteTokens'] < 8:
             destination_name, value, type = agent.card_hints_manager.give_helpful_hint(observation)
@@ -68,7 +100,7 @@ class Ruleset():
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
-    @staticmethod 
+    @staticmethod
     def get_low_value_hint(agent, observation):
         if observation['usedNoteTokens'] < 8:
             destination_name, value, type = agent.card_hints_manager.get_low_value_hint(observation)
@@ -131,31 +163,28 @@ class Ruleset():
                 print(">>>give the most information hint to next ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
-    
 
+    ###############
+    # DISCARD RULES
+    ###############
 
-###############
-## DISCARD RULES
-###############
-
-    @staticmethod 
-    def discard_useless_card(agent, observation):
+    @staticmethod
+    def discard_useless_card(agent, observation, lowest=False):
         if observation['usedNoteTokens'] != 0:
-            card_pos = agent.card_discard_manager.discard_useless_card(observation)
-            if (card_pos is not None):
+            card_pos = agent.card_discard_manager.discard_useless_card(observation, lowest)
+            if card_pos is not None:
                 print(">>>discard useless card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
-    
-    @staticmethod 
+
+    @staticmethod
     def discard_less_relevant(agent, observation):
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_less_relevant(observation)
-            if (card_pos is not None):
+            if card_pos is not None:
                 print(">>>discard less relevant card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
-
 
     @staticmethod
     def discard_duplicate_card(agent, observation):
@@ -168,8 +197,3 @@ class Ruleset():
                 print(">>>discard duplicate card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
-    
-
-
-
-
