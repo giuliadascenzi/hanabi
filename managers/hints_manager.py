@@ -208,6 +208,8 @@ class HintsManager(object):
         """
         # check other players' hands
         for (player_info) in observation['players']:
+            if player_info.name == self.agent.name:
+                continue
             hand = player_info.hand
             player_name = player_info.name
             for card_pos in range(self.agent.num_cards):
@@ -245,6 +247,53 @@ class HintsManager(object):
                 value = destination_hand[idx].value
                 return destination_name, value, type
         return None, None, None
+
+    def tell_most_information(self, observation):
+        '''
+        hint to next player the color/value that has the most ocurrencies in his/her hand with a tollerance of atleast 3 cards.
+        '''
+        unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
+        unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+        for player_info in observation['players']:
+            if player_info.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player_info.name]
+            for index, (card, knowledge) in enumerate(zip(player_info.hand, player_knowledge)):
+                    # if the player does not know anything about the card skip it
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    elif knowledge.knows("color"):
+                        unknown_value[card.value] += 1
+                    elif knowledge.knows("value"):
+                        unknown_color[card.color] += 1
+                    else:
+                        unknown_value[card.value] += 1
+                        unknown_color[card.color] += 1
+            max_color_occurences_player = max(unknown_color.values())
+            max_value_occurences_player = max(unknown_value.values())
+
+            if max_color_occurences_player > max_color_occurences:
+                max_color_occurences = max_color_occurences_player
+                destination_name_color = player_info.name
+
+            if max_value_occurences_player > max_value_occurences:
+                max_value_occurences = max_value_occurences_player
+                destination_name_value = player_info.name
+
+        if max_color_occurences < 3 and max_value_occurences < 3:
+            return None, None, None 
+
+        if max_color_occurences >= max_value_occurences:
+            type = "color"
+            value = max(unknown_color, key=unknown_color.get)
+            destination_name = destination_name_color
+        else:
+            type = "value"
+            value = max(unknown_value, key=unknown_value.get)
+            destination_name = destination_name_value
+
+        return destination_name, value, type
 
     def tell_most_information_to_next(self, observation):
         '''
