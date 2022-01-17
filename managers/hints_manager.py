@@ -59,7 +59,7 @@ class HintsManager(object):
     def give_helpful_hint(self, observation):
         '''
         hint sent to a player that already knows something about a playable card. Expand his/her knowledge
-        # TODO: it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
+        # TODO:(DONE?) it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
         '''
         fireworks = observation['fireworks']
 
@@ -67,12 +67,18 @@ class HintsManager(object):
         player_to_hint = -1
         color_to_hint = -1
         value_to_hint = -1
+        my_index = self.agent.players_names.index(self.agent.name)
 
-        for player in observation['players']:
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
             player_hand = player.hand
-            player_knowledge = observation['playersKnowledge'][player.name]
-            # player_idx = observation['players'].index(player)
-            
+
             # Check if the card in the hand of the opponent is playable.
             card_is_really_playable = [False, False, False, False, False]
             playable_colors = []
@@ -131,6 +137,96 @@ class HintsManager(object):
                     color_to_hint = None
                     value_to_hint = rank
                     player_to_hint = player.name
+
+        # went through all players, now check
+        if best_so_far == 0:
+            return None, None, None
+        elif color_to_hint is not None:
+            return player_to_hint, color_to_hint, "color"
+        elif value_to_hint != -1:
+            return player_to_hint, value_to_hint, "value"
+        else:
+            return None, None, None
+
+    def give_helpful_hint_to_next(self, observation):
+        '''
+        hint sent to a player that already knows something about a playable card. Expand his/her knowledge
+        # TODO:(DONE?) it consider always the same order of player, maybe sort the players? or consider it in order of play from current on?
+        '''
+        fireworks = observation['fireworks']
+
+        best_so_far = 0
+        player_to_hint = -1
+        color_to_hint = -1
+        value_to_hint = -1
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        # consider the next player
+        index = (my_index + 1) % len(self.agent.players_names)
+        player_name = self.agent.players_names[index]
+        
+        player = observation['players'][index]
+        player_knowledge = observation['playersKnowledge'][player_name]
+        player_hand = player.hand
+
+        # Check if the card in the hand of the next player is playable.
+        card_is_really_playable = [False, False, False, False, False]
+        playable_colors = []
+        playable_ranks = []
+        
+        for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+            # if the player does not know anything about the card skip it
+            if not knowledge.knows("color") and not knowledge.knows("value"):
+                continue
+            if self.agent.playable_card(card, fireworks):
+                card_is_really_playable[index] = True
+                if card.color not in playable_colors:
+                    playable_colors.append(card.color)
+                if card.value not in playable_ranks:
+                    playable_ranks.append(card.value)
+
+        '''Can we construct a color hint that gives our partner information about unknown - playable cards, 
+        without also including any unplayable cards?'''
+
+        # go through playable colors
+        for color in playable_colors:
+            information_content = 0
+            missInformative = False
+            for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+                if card.color is not color:
+                    continue
+                if self.agent.playable_card(card, fireworks) and knowledge.color is False:
+                    information_content += 1
+                elif not self.agent.playable_card(card, fireworks):
+                    missInformative = True
+                    break
+            if missInformative:
+                continue
+            if information_content > best_so_far:
+                best_so_far = information_content
+                color_to_hint = color
+                value_to_hint = -1
+                player_to_hint = player.name
+
+        # go through playable ranks
+        for rank in playable_ranks:
+            information_content = 0
+            missInformative = False
+            for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
+                if card.value is not rank:
+                    continue
+                if self.agent.playable_card(card, fireworks) and knowledge.value is False:
+                    information_content += 1
+                elif not self.agent.playable_card(card, fireworks):
+                    missInformative = True
+                    break
+            if missInformative:
+                continue
+            if information_content > best_so_far:
+                best_so_far = information_content
+                color_to_hint = None
+                value_to_hint = rank
+                player_to_hint = player.name
 
         # went through all players, now check
         if best_so_far == 0:
@@ -208,6 +304,8 @@ class HintsManager(object):
         """
         # check other players' hands
         for (player_info) in observation['players']:
+            if player_info.name == self.agent.name:
+                continue
             hand = player_info.hand
             player_name = player_info.name
             for card_pos in range(self.agent.num_cards):
@@ -236,15 +334,63 @@ class HintsManager(object):
                 destination_hand = player_info.hand
             
         for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
-            if kn.color == False:
+            if not kn.knows("color"):
                 type = "color"
                 value = destination_hand[idx].color
                 return destination_name, value, type
-            if kn.value == False:
+            if not kn.knows("value"):
                 type = "value"
                 value = destination_hand[idx].value
                 return destination_name, value, type
+        print("this player already knows everything ", destination_name)
         return None, None, None
+
+    def tell_most_information(self, observation):
+        '''
+        hint to next player the color/value that has the most ocurrencies in his/her hand with a tollerance of atleast 3 cards.
+        '''
+        unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
+        unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+        for player_info in observation['players']:
+            if player_info.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player_info.name]
+            for index, (card, knowledge) in enumerate(zip(player_info.hand, player_knowledge)):
+                    # if the player does not know anything about the card skip it
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    elif knowledge.knows("color"):
+                        unknown_value[card.value] += 1
+                    elif knowledge.knows("value"):
+                        unknown_color[card.color] += 1
+                    else:
+                        unknown_value[card.value] += 1
+                        unknown_color[card.color] += 1
+            max_color_occurences_player = max(unknown_color.values())
+            max_value_occurences_player = max(unknown_value.values())
+
+            if max_color_occurences_player > max_color_occurences:
+                max_color_occurences = max_color_occurences_player
+                destination_name_color = player_info.name
+
+            if max_value_occurences_player > max_value_occurences:
+                max_value_occurences = max_value_occurences_player
+                destination_name_value = player_info.name
+
+        if max_color_occurences < 3 and max_value_occurences < 3:
+            return None, None, None 
+
+        if max_color_occurences >= max_value_occurences:
+            type = "color"
+            value = max(unknown_color, key=unknown_color.get)
+            destination_name = destination_name_color
+        else:
+            type = "value"
+            value = max(unknown_value, key=unknown_value.get)
+            destination_name = destination_name_value
+
+        return destination_name, value, type
 
     def tell_most_information_to_next(self, observation):
         '''
@@ -282,7 +428,36 @@ class HintsManager(object):
 
         return next_player.name, value, type
 
-    
+    def give_hint_on_useless(self, observation):
+        '''
+        hint about a card that can be discarded now, preferring players close in turn
+        '''
+        fireworks = observation['fireworks']
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
+            hand = player.hand
+            for card_pos,card in enumerate(hand):
+                if not self.agent.useful_card(card, fireworks):
+                    knowledge = player_knowledge[card_pos]
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    if knowledge.knows("value"):
+                        type= "color"
+                        value= card.color
+                    else:
+                        type= "value"
+                        value= card.value
+                    return (player_name, value, type)
+        return (None, None, None)
     
 
     def tell_randomly(self, observation):
@@ -331,4 +506,33 @@ class HintsManager(object):
                 return destination_name, card.value, "value"
         return None, None, None
 
-    
+    def tell_useless(self, observation):
+        '''
+        hint about a card that is useless
+        '''
+        my_index = self.agent.players_names.index(self.agent.name)
+
+        for i in range (1, len(self.agent.players_names)):
+            # consider the players in order of turns (from me on)
+            index = (my_index +i) % len(self.agent.players_names)
+            player_name = self.agent.players_names[index]
+            if (player_name==self.agent.name):
+                break
+
+            player = observation['players'][index]
+            player_knowledge = observation['playersKnowledge'][player_name]
+            hand = player.hand
+            for card_pos,card in enumerate(hand):
+                if not self.agent.useful_card((card.color, card.value), observation['fireworks'], self.agent.full_deck_composition,
+                                               self.agent.counterOfCards(observation['discard_pile'])):
+                    knowledge = player_knowledge[card_pos]
+                    if knowledge.knows("color") and knowledge.knows("value"):
+                        continue
+                    if knowledge.knows("value"):
+                        type= "color"
+                        value= card.color
+                    else:
+                        type= "value"
+                        value= card.value
+                    return (player_name, value, type)
+        return (None, None, None)

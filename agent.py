@@ -150,7 +150,7 @@ class Agent(Player):
 
         print("something went wrong")
 
-    def vanDerBergh_choice_2(self, observation):
+    def vanDerBergh_choice_prob(self, observation):
         """
         Choose action for this turn.
         Returns the request to the server
@@ -189,6 +189,96 @@ class Agent(Player):
         if action is not None: return action
 
         print("something went wrong")    
+
+    def pier_choice(self, observation):
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        It follows the pier strategy as explained here:
+
+        """
+        ######## UPDATE POSSIBILITIES #############
+        self.players = observation['players']
+        # Start by updating the possibilities (should take hints into account?)
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
+
+        ######## CHOOSE ACTION ####################
+        # 1) IfRule (lives > 1 ∧ ¬deck.hasCardsLeft) Then (PlayProbablySafeCard(0.0))
+        lives = 3 -  observation['usedStormTokens'] 
+        visible_cards = self.visible_cards(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        deck_left_cards = self.full_deck_composition -visible_cards
+        number_cards_left = sum (deck_left_cards.values())
+        if (lives >1 and number_cards_left <= 0):
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.0)
+            if action is not None: return action
+        
+        # 2) PlaySafeCard
+        action = self.ruleset.play_safe_card_prob(self, observation, 1.0)
+        if action is not None: return action
+        # 3) IfRule (lives > 1) Then (PlayProbablySafeCard(0.6))
+        if (lives >1):
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.6)
+            if action is not None: return action
+        # 4) TellAnyoneAboutUsefulCard
+        action = self.ruleset.give_useful_hint(self, observation)
+        if action is not None: return action
+        # 5) IfRule (information < 4) Then (TellDispensable)
+        information = 8 - observation['usedNoteTokens'] 
+        if (information<4):
+            action = self.ruleset.tell_anyone_useless_card(self, observation)
+            if action is not None: return action
+        # 6) discard useless
+        action = self.ruleset.discard_useless_card(self, observation)
+        if action is not None: return action
+        # 7) DiscardOldestFirst
+        action = self.ruleset.discard_oldest_first(self, observation)
+        if action is not None: return action
+        # 8) Tell randomly
+        action = self.ruleset.tell_randomly(self, observation)
+        if action is not None: return action
+        # 9) Discard randomly
+        action = self.ruleset.discard_randomly(self, observation)
+        if action is not None: return action
+
+
+        print("something went wrong")
+
+    def osawa_outer_choice(self, observation):
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        It follows the osawa outer strategy
+         (optimized for 2 players)
+        """
+        ######## UPDATE POSSIBILITIES #############
+        self.players = observation['players']
+        # Start by updating the possibilities (should take hints into account?)
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
+
+        ######## CHOOSE ACTION ####################
+        # 1) Check if there is a card playable with prob 100%
+        action = self.ruleset.play_safe_card_prob(self, observation, 1.0)
+        if action is not None: return action
+        # 2) discard a 100% useless card
+        action = self.ruleset.discard_useless_card(self, observation)
+        if action is not None: return action
+        # 3) hint about a card that is immediately playable
+        action = self.ruleset.give_useful_hint(self, observation)
+        if action is not None: return action
+        # 4) hint about the most informative
+        action = self.ruleset.tell_unknown(self, observation)
+        if action is not None: return action
+        # 5) discard less relevant
+        action = self.ruleset.discard_randomly(self, observation)
+        if action is not None: return action
+
+        print("something went wrong")        
 
     
 

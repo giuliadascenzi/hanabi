@@ -79,3 +79,18 @@
  |Worst result:  13
 
  5 players
+
+-- * pier *
+ 2 players
+ 
+
+ 3 players
+  |Average score so far:   17.9
+  |Games played:  20
+  |Best result:  20
+  |Worst result:  16
+
+ 4 players
+
+ 5 players
+

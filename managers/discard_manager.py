@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 
+import random
+
+
 class DiscardManager(object):
     """
     Discard Manager.
@@ -97,3 +100,19 @@ class DiscardManager(object):
             else:
                 return None
         return None
+
+    def discard_oldest_first(self, observation):
+        """
+        Discards the card that has been held in the hand the longest amount of time
+        """
+        card_pos = 0
+        return card_pos
+    
+    def discard_randomly(self, observation):
+        """
+        Discards the card that has been held in the hand the longest amount of time
+        """
+        card_pos = random.randint(0, len(self.agent.possibilities)-1)
+        return card_pos
+
+    
