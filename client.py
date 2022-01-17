@@ -382,7 +382,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(" |Games played: ", len(scores))
             print(" |Best result: ", max(scores))
             print(" |Worst result: ", min(scores))
-            if (len(scores)>=20): run=False
+            if (len(scores)>=100): run=False
             '''
             if len(scores) % 10 == 0:
                 ruleset.fitness( sum(scores[-10:]) / 10 )

@@ -1,24 +1,81 @@
 -- * van_der_bergh_2 (0.6, 0.6, 0.9) *
+ 2 players
+ |Average score so far:   15.0
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  7
+
  3 players
  |Average score so far:   17.3
  |Games played:  20
  |Best result:  20
  |Worst result:  14
+
+ |Average score so far:   17.18
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  13
+
  4 players
  |Average score so far:   16.55
  |Games played:  20
  |Best result:  20
  |Worst result:  14
 
+ |Average score so far:   16.7
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  12
+
+ |Average score so far:   16.41
+ |Games played:  100
+ |Best result:  20
+ |Worst result:  12
+
+ |Average score so far:   16.67
+ |Games played:  100
+ |Best result:  20
+ |Worst result:  11
+
+ 5 players
+ |Average score so far:   15.88
+ |Games played:  100
+ |Best result:  18
+ |Worst result:  12
+
+ |Average score so far:   15.63
+ |Games played:  100
+ |Best result:  20
+ |Worst result:  12
+
+ |Average score so far:   15.51
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  11
+
+
 -- * van_der_bergh_2 (0.6, 0.6, 0.8) *
+ 2 players
+ |Average score so far:   14.91
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  0
+
  3 players
  |Average score so far:   16.9
  |Games played:  20
  |Best result:  21
  |Worst result:  13
 
+ |Average score so far:   16.89
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  0
+
  4 players
  |Average score so far:   16.65
  |Games played:  20
  |Best result:  20
  |Worst result:  13
+
+ 5 players
