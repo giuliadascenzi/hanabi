@@ -17,8 +17,8 @@ class Ruleset():
             # 3: self.tell_most_information_to_next,
             7: self.discard_useless_card,
             8: self.discard_less_relevant,
-            9: self.discard_less_relevant,
-            10: self.discard_duplicate_card
+            # 9: self.discard_less_relevant,
+            9: self.discard_duplicate_card
         }
         self.active_rules = list(self.rules.keys())
         self.fittest_ruleset = []
@@ -72,6 +72,13 @@ class Ruleset():
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
 
+    @staticmethod
+    def play_oldest(agent):
+        card_pos = agent.card_play_manager.play_oldest()
+        print(">>>play oldest card: ", card_pos)
+        return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
+
+
     ###############
     ## HINT RULES
     ###############
@@ -85,12 +92,19 @@ class Ruleset():
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
-    
-
     @staticmethod
     def give_helpful_hint(agent, observation):
         if observation['usedNoteTokens'] < 8:
             destination_name, value, type = agent.card_hints_manager.give_helpful_hint(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
+
+    @staticmethod
+    def give_helpful_hint_to_next(agent, observation):
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.give_helpful_hint_to_next(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
                 print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
@@ -156,8 +170,18 @@ class Ruleset():
         return None
 
     @staticmethod
+    def tell_most_information(agent, observation):
+        '''Tell most information to a random player'''
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give the most information hint to next ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
+
+    @staticmethod
     def tell_most_information_to_next(agent, observation):
-        '''Tell 1s to a random player if it has them'''
+        '''Tell most information to next player'''
         if observation['usedNoteTokens'] < 8:
             destination_name, value, type = agent.card_hints_manager.tell_most_information_to_next(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint

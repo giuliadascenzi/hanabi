@@ -65,10 +65,10 @@ class PlayManager(object):
         best_probability = 0
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of possible tuple (color,value)
-            tot_playable = sum (p[card] if self.agent.is_playable(card, observation['fireworks']) else 0 for card in p )
-            tot_possibility = sum (p.values())
+            tot_playable = sum(p[card] if self.agent.is_playable(card, observation['fireworks']) else 0 for card in p)
+            tot_possibility = sum(p.values())
             probability = tot_playable/tot_possibility
-            if  len(p) > 0 and probability>=prob :
+            if len(p) > 0 and probability >= prob:
                 # the card in this position is playable with probability prob!
                 # how many cards of the other players become playable, on average?
                 num_playable = []
@@ -97,6 +97,8 @@ class PlayManager(object):
         else:
             return best_card_pos
 
+    def play_oldest(self):
+        return 0
 
     # Not used but put here in case we want to use it anyway
     def maybe_play_lowest_playable_card(self, observation):

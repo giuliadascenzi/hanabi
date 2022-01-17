@@ -28,11 +28,11 @@ class DiscardManager(object):
                     not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
                                                self.agent.counterOfCards(observation['discard_pile'])) for card in p):
                 if lowest:
-                    useless.append([card_pos, p.value])
+                    useless.append([card_pos, p[1]])
                 # whatever card is this is useless
                 else:
                     return card_pos
-            if lowest:
+            if lowest and len(useless) > 0:
                 useless.sort(key=lambda x: x[1])
                 return useless[0][0]
         return None
@@ -47,7 +47,6 @@ class DiscardManager(object):
 
         WEIGHT = {number: self.agent.NUM_NUMBERS + 1 - number for number in range(1, self.agent.NUM_NUMBERS + 1)}
         best_relevant_weight = max(WEIGHT.values())
-        relevant_weight = None
 
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of (color, value) tuples with the number of occurrences representing the possible

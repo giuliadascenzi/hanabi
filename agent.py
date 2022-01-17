@@ -14,7 +14,7 @@ from ruleset import Ruleset
 class Agent(Player):
     def __init__(self, name, players, index, num_cards, ruleset):
         super().__init__(name)
-        print("Agent initialized: ", name )
+        print("Agent initialized: ", name)
         self.players_names = players
         self.players = None
         self.index = index
@@ -59,6 +59,7 @@ class Agent(Player):
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
+
         '''
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_safe_card(self, observation)
@@ -115,7 +116,103 @@ class Agent(Player):
             if action is not None: return action
         '''
         print("something wrong")
-    
+
+    def rule_choice(self, observation):
+        ############### COSIMO'S FLOW #################
+
+        # 1) Check if there is a playable card
+        action = self.ruleset.play_best_safe_card(self, observation)
+        if action is not None: return action
+
+        # 2) If a lot of hints have been played, try to discard a useless or duplicate card
+        if observation['usedNoteTokens'] > 5:
+            action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+            if action is not None: return action
+            action = self.ruleset.discard_duplicate_card(self, observation)
+            if action is not None: return action
+
+        # 3) If it is not possible to hint, discard
+        if observation['usedNoteTokens'] == 8:
+            action = self.safe_discard_sequence(observation)
+            if action is not None: return action
+
+        # 4) If you can hint, try first to give an helpful hint to the next player
+        action = self.ruleset.give_helpful_hint_to_next(self, observation)
+        if action is not None: return action
+
+        # 5) If next player cannot be helpfully hinted, try to give an helpful hint to another player
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
+
+        # 6) Discard safely a card
+        action = self.safe_discard_sequence(observation)
+        if action is not None: return action
+
+        # 7) If no token has been used yet
+        if observation['usedNoteTokens'] == 0:
+            action = self.hint_sequence(observation)
+            if action is not None: return action
+
+        # 8)
+        if observation['usedStormTokens'] == 0:
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.6)
+            if action is not None: return action
+
+            if observation['usedNoteTokens'] < 4:
+                action = self.hint_sequence(observation)
+                if action is not None: return action
+
+        elif observation['usedStormTokens'] == 1:
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.8)
+            if action is not None: return action
+
+        action = self.hint_sequence(observation)
+        if action is not None: return action
+
+        action = self.discard_sequence(observation)
+        if action is not None: return action
+
+        action = self.ruleset.tell_ones(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_fives(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_unknown(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_randomly(self, observation)
+        if action is not None: return action
+
+        action = self.ruleset.play_safe_card_prob(self, observation, 0.8)
+        if action is not None: return action
+
+        action = self.ruleset.play_oldest(self, observation)
+        if action is not None: return action
+
+
+        return None
+
+    def hint_sequence(self, observation):
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_most_information(self, observation)
+        if action is not None: return action
+        action = self.ruleset.give_useful_hint(self, observation)
+        if action is not None: return action
+
+    def discard_sequence(self, observation):
+        action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+        if action is not None: return action
+        action = self.ruleset.discard_duplicate_card(self, observation)
+        if action is not None: return action
+        action = self.ruleset.discard_less_relevant(self, observation)
+        if action is not None: return action
+        return None
+
+    def safe_discard_sequence(self, observation):
+        action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+        if action is not None: return action
+        action = self.ruleset.discard_duplicate_card(self, observation)
+        if action is not None: return action
+        return None
 
     def vanDerBergh_choice(self, observation):
         """
@@ -168,11 +265,11 @@ class Agent(Player):
 
         ######## CHOOSE ACTION ####################
         # 1) Check if there is a card playable with prob 60%
-        if observation['usedStormTokens'] ==0 :
+        if observation['usedStormTokens'] == 0:
             prob = 0.6
-        if observation['usedStormTokens'] ==1 :
+        if observation['usedStormTokens'] == 1:
             prob = 0.6
-        if observation['usedStormTokens'] ==2 :
+        if observation['usedStormTokens'] == 2:
             prob = 0.9
         action = self.ruleset.play_safe_card_prob(self, observation, prob)
         if action is not None: return action
@@ -189,7 +286,7 @@ class Agent(Player):
         action = self.ruleset.discard_less_relevant(self, observation)
         if action is not None: return action
 
-        print("something went wrong")    
+        print("something went wrong")
 
     def pier_choice(self, observation):
         """
@@ -208,27 +305,27 @@ class Agent(Player):
 
         ######## CHOOSE ACTION ####################
         # 1) IfRule (lives > 1 ∧ ¬deck.hasCardsLeft) Then (PlayProbablySafeCard(0.0))
-        lives = 3 -  observation['usedStormTokens'] 
+        lives = 3 - observation['usedStormTokens']
         visible_cards = self.visible_cards(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
-        deck_left_cards = self.full_deck_composition -visible_cards
-        number_cards_left = sum (deck_left_cards.values())
-        if (lives >1 and number_cards_left <= 0):
+        deck_left_cards = self.full_deck_composition - visible_cards
+        number_cards_left = sum(deck_left_cards.values())
+        if (lives > 1 and number_cards_left <= 0):
             action = self.ruleset.play_safe_card_prob(self, observation, 0.0)
             if action is not None: return action
-        
+
         # 2) PlaySafeCard
         action = self.ruleset.play_safe_card_prob(self, observation, 1.0)
         if action is not None: return action
         # 3) IfRule (lives > 1) Then (PlayProbablySafeCard(0.6))
-        if (lives >1):
+        if (lives > 1):
             action = self.ruleset.play_safe_card_prob(self, observation, 0.6)
             if action is not None: return action
         # 4) TellAnyoneAboutUsefulCard
         action = self.ruleset.give_useful_hint(self, observation)
         if action is not None: return action
         # 5) IfRule (information < 4) Then (TellDispensable)
-        information = 8 - observation['usedNoteTokens'] 
-        if (information<4):
+        information = 8 - observation['usedNoteTokens']
+        if (information < 4):
             action = self.ruleset.tell_anyone_useless_card(self, observation)
             if action is not None: return action
         # 6) discard useless
@@ -243,7 +340,6 @@ class Agent(Player):
         # 9) Discard randomly
         action = self.ruleset.discard_randomly(self, observation)
         if action is not None: return action
-
 
         print("something went wrong")
 
@@ -279,12 +375,8 @@ class Agent(Player):
         action = self.ruleset.discard_randomly(self, observation)
         if action is not None: return action
 
-        print("something went wrong")        
+        print("something went wrong")
 
-    
-
-
-    
     def receive_hint(self, destination, type, value, positions):
         '''
         the agent received an hint from outside
@@ -381,13 +473,12 @@ class Agent(Player):
                 if card in p:
                     # this card is still possible, update the number of possible occurrences
                     p[card] = self.full_deck_composition[card] - visible_cards[card]
-                    assert p[card]>=0     
+                    assert p[card] >= 0
                     if p[card] <= 0:
                         # remove this card
                         del p[card]
 
-
-    def print_possibilities(self, playersKnowledge= None):
+    def print_possibilities(self, playersKnowledge=None):
         for (card_pos, p) in enumerate(self.possibilities):
             table = {"red": [0] * 5, "green": [0] * 5, "blue": [0] * 5,
                      "white": [0] * 5, "yellow": [0] * 5}
@@ -397,11 +488,10 @@ class Agent(Player):
 
             print("Card pos:" + str(card_pos), file=redf, flush=True)
             print(table, file=redf, flush=True)
-            if (playersKnowledge!=None):
-                print("knowledge:" + str(playersKnowledge[self.name][card_pos] ), file=redf, flush=True)
+            if (playersKnowledge != None):
+                print("knowledge:" + str(playersKnowledge[self.name][card_pos]), file=redf, flush=True)
             print("--------------------------------------", file=redf, flush=True)
 
-    
     ########################
     #    Card functions    #
     ########################
@@ -570,9 +660,10 @@ class Knowledge:
         self.high = False  # at some point, this card was high (relevant/discardable)(see CardHintsManager)
 
     def __repr__(self):
-        return ("C: "+ str(self.color) if self.color else "-") + ("V:"+ str(self.value) if self.value else "-") + (
-            "P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + ("H" if self.high else "-")
-    
+        return ("C: " + str(self.color) if self.color else "-") + ("V:" + str(self.value) if self.value else "-") + (
+            "P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + (
+                   "H" if self.high else "-")
+
     def knows(self, hint_type):
         """
         Does the player know the color/number?

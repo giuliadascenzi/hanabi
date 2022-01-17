@@ -55,7 +55,6 @@ class HintsManager(object):
             return False
         return True
 
-
     def give_helpful_hint(self, observation):
         '''
         hint sent to a player that already knows something about a playable card. Expand his/her knowledge
@@ -69,7 +68,7 @@ class HintsManager(object):
         value_to_hint = -1
         my_index = self.agent.players_names.index(self.agent.name)
 
-        for i in range (1, len(self.agent.players_names)):
+        for i in range(1, len(self.agent.players_names)):
             # consider the players in order of turns (from me on)
             index = (my_index +i) % len(self.agent.players_names)
             player_name = self.agent.players_names[index]
@@ -261,17 +260,13 @@ class HintsManager(object):
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
                     if knowledge.knows("value"):
-                        type= "color"
-                        value= card.color
+                        type = "color"
+                        value = card.color
                     else:
-                        type= "value"
-                        value= card.value
-                    return (player_name, value, type)
-        return (None, None, None)
-
-
-       
-
+                        type = "value"
+                        value = card.value
+                    return player_name, value, type
+        return None, None, None
     
     def get_low_value_hint(self, observation):
         '''
@@ -320,8 +315,6 @@ class HintsManager(object):
                 return True
 
         return False
-
-
     
     def tell_unknown(self, observation):
         '''Tell a random player an unknown information prioritizing color
@@ -370,6 +363,8 @@ class HintsManager(object):
             max_color_occurences_player = max(unknown_color.values())
             max_value_occurences_player = max(unknown_value.values())
 
+            max_color_occurences = max_value_occurences = 0
+
             if max_color_occurences_player > max_color_occurences:
                 max_color_occurences = max_color_occurences_player
                 destination_name_color = player_info.name
@@ -417,7 +412,6 @@ class HintsManager(object):
 
         max_color_occurences = max(unknown_color.values())
         max_value_occurences = max(unknown_value.values())
-    
 
         if max_color_occurences >= max_value_occurences:
             type = "color"
@@ -535,4 +529,4 @@ class HintsManager(object):
                         type= "value"
                         value= card.value
                     return (player_name, value, type)
-        return (None, None, None)
+        return None, None, None
