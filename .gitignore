@@ -1,5 +1,9 @@
 __pycache__/
 ./__pycache__
 ././__pycache__
-possibilities/
+# exclude everything
+possibilities/*
+
+# exception to the rule
+!possibilities/.gitkeep
 game.log

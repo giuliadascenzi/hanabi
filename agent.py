@@ -30,7 +30,7 @@ class Agent(Player):
         self.card_discard_manager = DiscardManager(self)
         self.ruleset = ruleset
         global redf
-        redf = open('possibilities/possibilities' + self.name + '.txt', 'w')
+        redf = open('possibilities/possibilities' + self.name + '.txt', 'w+')
         print("----- INITIALIZE AGENT:", file=redf, flush=True)
         self.print_possibilities()
 

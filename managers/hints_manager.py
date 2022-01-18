@@ -344,6 +344,7 @@ class HintsManager(object):
         '''
         unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
         unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+        max_color_occurences = max_value_occurences = 0
 
         for player_info in observation['players']:
             if player_info.name == self.agent.name:
@@ -363,26 +364,27 @@ class HintsManager(object):
             max_color_occurences_player = max(unknown_color.values())
             max_value_occurences_player = max(unknown_value.values())
 
-            max_color_occurences = max_value_occurences = 0
 
             if max_color_occurences_player > max_color_occurences:
                 max_color_occurences = max_color_occurences_player
                 destination_name_color = player_info.name
+                value_color = max(unknown_color, key=unknown_color.get)
 
             if max_value_occurences_player > max_value_occurences:
                 max_value_occurences = max_value_occurences_player
                 destination_name_value = player_info.name
+                value_value = max(unknown_value, key=unknown_value.get)
 
         if max_color_occurences < 3 and max_value_occurences < 3:
             return None, None, None 
 
         if max_color_occurences >= max_value_occurences:
             type = "color"
-            value = max(unknown_color, key=unknown_color.get)
+            value = value_color
             destination_name = destination_name_color
         else:
             type = "value"
-            value = max(unknown_value, key=unknown_value.get)
+            value = value_value
             destination_name = destination_name_value
 
         return destination_name, value, type
