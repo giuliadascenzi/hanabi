@@ -137,3 +137,71 @@
  |Best result:  13
  |Worst result:  0
 
+-- Rule choice Beta 
+ 2 players
+ |Average score so far:   16.88
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  10
+
+ 3 players
+ |Average score so far:   9.61
+ |Games played:  100
+ |Best result:  16
+ |Worst result:  4
+
+ 4 players
+ |Average score so far:   7.44
+ |Games played:  100
+ |Best result:  12
+ |Worst result:  0
+
+ 5 players
+ |Average score so far:   5.99
+ |Games played:  100
+ |Best result:  10
+ |Worst result:  3
+
+-- Rule choice Delta 
+ 2 players
+ |Average score so far:   16.39
+ |Games played:  100
+ |Best result:  21
+ |Worst result:  0
+
+ 3 players
+ |Average score so far:   9.31
+ |Games played:  100
+ |Best result:  14
+ |Worst result:  5
+
+ 4 players
+ |Average score so far:   7.2
+ |Games played:  100
+ |Best result:  13
+ |Worst result:  3
+
+ 5 players
+ |Average score so far:   6.54
+ |Games played:  100
+ |Best result:  11
+ |Worst result:  3
+
+-- Rule choice Delta on 0.5k games played with randomly shuffled rules agents every 2 games
+ 2 players
+ |Average score so far:   4.77
+ |Games played:  100
+ |Best result:  13
+ |Worst result:  0
+
+ 5 players
+ |Average score so far:   3.72
+ |Games played:  100
+ |Best result:  8
+ |Worst result:  0
+
+-- Rule choice
+ 2 players
+ 3 players
+ 4 players
+ 5 players
