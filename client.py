@@ -7,6 +7,8 @@ import socket
 import time
 import os
 import argparse
+import matplotlib.pyplot as plt
+import numpy as np
 
 from constants import *
 from agent import Agent, Knowledge
@@ -77,8 +79,8 @@ def agentPlay():
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
-                # action = agent.vanDerBergh_choice_prob(observation)
-                action = agent.rule_choice(observation)
+                action = agent.vanDerBergh_choice_prob(observation)
+                #action = agent.rule_choice(observation)
                 try: 
                     s.send(action.serialize())
                 except:
@@ -386,7 +388,19 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(" |Games played: ", len(scores))
             print(" |Best result: ", max(scores))
             print(" |Worst result: ", min(scores))
-            if (len(scores)>=500): run=False
+            if (len(scores)>=20):
+                x = np.arange(0, len(scores), 1)
+                plt.plot(x, scores)
+                plt.scatter(x, scores)
+                plt.xlabel('games')
+                plt.ylabel('scores')
+                plt.xticks(x)
+                plt.yticks(scores)
+                plt.title('Agent = VanDerBergh(0.6,0.6,0.9) Num_players = 3')
+                t = time.localtime()
+                timestamp = time.strftime('%b-%d-%Y_%H%M', t)
+                plt.savefig('graphs/'+timestamp+'.png' )
+                run=False
             '''
             if len(scores) % 10 == 0:
                 ruleset.fitness( sum(scores[-10:]) / 10 )
@@ -419,4 +433,3 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         stdout.flush()
 
     print("END")       
-    os._exit(0)
