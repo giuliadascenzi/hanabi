@@ -189,6 +189,16 @@ class Ruleset():
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
+    @staticmethod
+    def tell_useless(agent, observation):
+        '''Tell most information to next player'''
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, type = agent.card_hints_manager.tell_useless(observation)
+            if (destination_name, value, type) != (None, None, None):  # found a best hint
+                print(">>>give useless hint ", type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, type, value)
+        return None
+
     ###############
     # DISCARD RULES
     ###############
