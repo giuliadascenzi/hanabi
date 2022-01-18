@@ -271,6 +271,22 @@ class Agent(Player):
             action = self.ruleset.discard_oldest_first(self, observation)
             if action is not None: return action
 
+            '''
+            action = self.ruleset.tell_most_information_to_next(self, observation)
+            if action is not None: return action
+            '''
+            if observation['usedStormTokens'] ==1 and  observation['usedNoteTokens']==0:
+                print("*******************************-> lets hope")
+                #will return the card with the highest probability of being playable but with no threshold on the probability
+                action = self.ruleset.play_safe_card_prob(self, observation, 0.0) 
+                if action is not None: return action
+            else:
+                action = self.ruleset.tell_unknown(self, observation)
+                if action is not None: return action
+            
+            print("Something wrong happened")
+            print('usedStormTokens', observation['usedStormTokens'])
+            print('usedNoteTokens', observation['usedNoteTokens'])
             return None
 
 
@@ -283,6 +299,7 @@ class Agent(Player):
         if action is not None: return action
         # action = self.ruleset.tell_useless(self, observation)
         # if action is not None: return action
+        return None
 
     def discard_sequence(self, observation):
         action = self.ruleset.discard_useless_card(self, observation, lowest=True)
