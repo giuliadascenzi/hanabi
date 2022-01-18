@@ -190,6 +190,90 @@ class Agent(Player):
 
         return None
 
+    def rule_choice_beta(self, observation):
+        ############### COSIMO'S FLOW BETA #################
+
+        # 1) Check if there is a playable card
+        action = self.ruleset.play_best_safe_card(self, observation)
+        if action is not None: return action
+
+        # 2) If it is not possible to hint, discard
+        if observation['usedNoteTokens'] == 8:
+            action = self.safe_discard_sequence(observation)
+            if action is not None: return action
+        else:
+            # 3) If you can hint, try first to give an helpful hint to the next player
+            action = self.ruleset.give_helpful_hint_to_next(self, observation)
+            if action is not None: return action
+            action = self.hint_sequence(observation)
+            if action is not None: return action
+
+
+        # 7) If no token has been used yet
+        if observation['usedNoteTokens'] == 0:
+            action = self.hint_sequence(observation)
+            if action is not None: return action
+            action = self.ruleset.tell_unknown(self, observation)
+            if action is not None: return action
+            action = self.ruleset.tell_randomly(self, observation)
+            if action is not None: return action
+
+        # 8)
+        if observation['usedStormTokens'] < 2:
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.6)
+            if action is not None: return action
+
+            if observation['usedNoteTokens'] < 6:
+                action = self.hint_sequence(observation)
+                if action is not None: return action
+            action = self.discard_sequence(observation)
+            if action is not None: return action
+
+        elif observation['usedStormTokens'] == 2:
+            action = self.ruleset.play_safe_card_prob(self, observation, 0.8)
+            if action is not None: return action
+
+        action = self.hint_sequence(observation)
+        if action is not None: return action
+
+        action = self.discard_sequence(observation)
+        if action is not None: return action
+        action = self.ruleset.tell_unknown(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_randomly(self, observation)
+        if action is not None: return action
+        return None
+
+    def rule_choice_delta(self, observation):
+            ############### COSIMO'S FLOW DELTA work in progress #################
+            ##### this version is dangerous, don't try it at home!!!#####
+            #TODO: remove the possibility of return None with out affecting the result is getting
+
+
+            # 1) Check if there is a playable card
+            action = self.ruleset.play_best_safe_card(self, observation)
+            if action is not None: return action
+
+            # 2) If we have token then use them!!! (with two player we can know a lot with 8 hints)
+            if observation['usedNoteTokens'] < 8:
+                action = self.ruleset.give_helpful_hint_to_next(self, observation)
+                if action is not None: return action
+                action = self.hint_sequence(observation)
+                if action is not None: return action
+
+            
+            if observation['usedStormTokens'] < 2:
+                action = self.ruleset.play_safe_card_prob(self, observation, 0.6)
+                if action is not None: return action
+
+            action = self.discard_sequence(observation)
+            if action is not None: return action
+            action = self.ruleset.discard_oldest_first(self, observation)
+            if action is not None: return action
+
+            return None
+
+
     def hint_sequence(self, observation):
         action = self.ruleset.give_helpful_hint(self, observation)
         if action is not None: return action
@@ -197,6 +281,8 @@ class Agent(Player):
         if action is not None: return action
         action = self.ruleset.give_useful_hint(self, observation)
         if action is not None: return action
+        # action = self.ruleset.tell_useless(self, observation)
+        # if action is not None: return action
 
     def discard_sequence(self, observation):
         action = self.ruleset.discard_useless_card(self, observation, lowest=True)
