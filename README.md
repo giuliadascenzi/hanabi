@@ -4,16 +4,15 @@ checked:
   - give_useful_hint
   - tell_most_information
   - discard_less_relevant
+  - tell_unknown
   - discard_useless_card
   - discard_oldest
-  
-##TODO:
 
+##TODO:
   - tell_useless
   - tell_randomly
   - give_helpful_hint
   - discard_duplicate_card
-  - tell_unknown
   - tell_ones
   - tell_fives
 

@@ -34,6 +34,7 @@ class HintsManager(object):
                         del p[card]
 
     def give_helpful_hint(self, observation):
+        # TODO: Must be fixed, something wrong while using it (not doing what it should)
         """
         Try to complete a hint to give to a player full knowledge of at least one of its playable cards
         @param observation: current state of the game
@@ -42,7 +43,7 @@ class HintsManager(object):
         fireworks = observation['fireworks']
         best_so_far = 0
         player_to_hint = -1
-        color_to_hint = -1
+        color_to_hint = None
         value_to_hint = -1
 
         for player in observation['players']:
@@ -57,7 +58,7 @@ class HintsManager(object):
             playable_ranks = []
 
             for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
-                if not knowledge.knows("color") and not knowledge.knows("value"):
+                if (not knowledge.knows("color") and not knowledge.knows("value")) or (knowledge.knows("color") and knowledge.knows("value")):
                     continue
                 if self.agent.playable_card(card, fireworks):
                     card_is_really_playable[index] = True
@@ -72,10 +73,14 @@ class HintsManager(object):
                 for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                     if card.color is not color:
                         continue
-                    if self.agent.playable_card(card, fireworks) and knowledge.color is False:
+                    print(f'idx: {index} color: {knowledge.color}, value: {knowledge.value}')
+                    print(f"{self.agent.playable_card(card, fireworks)}")
+                    if self.agent.playable_card(card, fireworks) and knowledge.color is False and knowledge.value:
                         information_content += 1
+                        print("good")
                     elif not self.agent.playable_card(card, fireworks):
                         missInformative = True
+                        print("bad")
                         break
                 if missInformative:
                     continue
@@ -91,10 +96,13 @@ class HintsManager(object):
                 for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                     if card.value is not rank:
                         continue
-                    if self.agent.playable_card(card, fireworks) and knowledge.value is False:
+                    print(f'idx: {index} color: {knowledge.color}, value: {knowledge.value}')
+                    if self.agent.playable_card(card, fireworks) and knowledge.value is False and knowledge.color:
                         information_content += 1
+                        print("good")
                     elif not self.agent.playable_card(card, fireworks):
                         missInformative = True
+                        print("bad")
                         break
                 if missInformative:
                     continue
@@ -204,6 +212,7 @@ class HintsManager(object):
         destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
 
         for idx, kn in enumerate(observation['playersKnowledge'][destination.name]):
+            # print(f'idx:{idx}, c:{kn[0].color}, v:{kn[0].value}')
             if not kn.knows("color"):
                 hint_type = "color"
                 value = destination.hand[idx].color

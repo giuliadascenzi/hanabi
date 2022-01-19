@@ -46,11 +46,17 @@ class Agent(Player):
         self.print_possibilities(observation['playersKnowledge'])
 
         # CHOOSE ACTION
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_unknown(self, observation)
+        if action is not None: return action
+        '''
         action = 1
         while action is not None:
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
+        '''
         print("something wrong")
 
     # COSIMO'S FLOW ALPHA
