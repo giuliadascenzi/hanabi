@@ -1,207 +1,49 @@
--- * van_der_bergh_2 (0.6, 0.6, 0.9) *
- 2 players
- |Average score so far:   15.0
+-- * van_der_bergh_choice_prob (0.6, 0.6, 0.9) *
+2 players
+ |Average score so far:   15.01
  |Games played:  100
  |Best result:  21
  |Worst result:  7
 
- 3 players
- |Average score so far:   17.3
- |Games played:  20
- |Best result:  20
- |Worst result:  14
-
- |Average score so far:   17.18
- |Games played:  100
- |Best result:  21
- |Worst result:  13
-
- 4 players
- |Average score so far:   16.55
- |Games played:  20
- |Best result:  20
- |Worst result:  14
-
- |Average score so far:   16.7
+3 players
+ |Average score so far:   17.0
  |Games played:  100
  |Best result:  21
  |Worst result:  12
 
- |Average score so far:   16.41
- |Games played:  100
- |Best result:  20
- |Worst result:  12
-
+4 players
  |Average score so far:   16.67
  |Games played:  100
  |Best result:  20
- |Worst result:  11
-
- 5 players
- |Average score so far:   15.88
- |Games played:  100
- |Best result:  18
  |Worst result:  12
 
- |Average score so far:   15.63
+5 players
+ |Average score so far:   15.6
  |Games played:  100
- |Best result:  20
- |Worst result:  12
-
- |Average score so far:   15.51
- |Games played:  100
- |Best result:  21
- |Worst result:  11
-
-
--- * van_der_bergh_2 (0.6, 0.6, 0.8) *
- 2 players
- |Average score so far:   14.91
- |Games played:  100
- |Best result:  21
- |Worst result:  0
-
- 3 players
- |Average score so far:   16.9
- |Games played:  20
- |Best result:  21
- |Worst result:  13
-
- |Average score so far:   16.89
- |Games played:  100
- |Best result:  21
- |Worst result:  0
-
- 4 players
- |Average score so far:   16.65
- |Games played:  20
- |Best result:  20
- |Worst result:  13
-
- 5 players
-
--- * pier *
- 2 players
- |Average score so far:   16.8
- |Games played:  100
- |Best result:  22
- |Worst result:  12
-
- 3 players
- |Average score so far:   17.9
- |Games played:  20
- |Best result:  20
- |Worst result:  16
-
- |Average score so far:   17.09
- |Games played:  100
- |Best result:  22
- |Worst result:  14
-
- 4 players
- |Average score so far:   16.76
- |Games played:  100
- |Best result:  21
- |Worst result:  13
-
- 5 players
- |Average score so far:   15.68
- |Games played:  100
- |Best result:  20
- |Worst result:  11
-
-
--- Piers on a lot of games played with randomly shuffled rules agents every 10 games (play_best_safe always first rule)
- 2 players 
- |Average score so far:   10.439490445859873
- |Games played:  314
  |Best result:  19
- |Worst result:  0
+ |Worst result:  12
 
- 5 players
- |Average score so far:   10.185
- |Games played:  200
- |Best result:  16
- |Worst result:  0
-
--- Piers on 0.5k games played with randomly shuffled rules agents every 10 games
- 2 players
- |Average score so far:   5.844
- |Games played:  500
- |Best result:  17
- |Worst result:  0
-
- 5 players
- |Average score so far:   3.912
- |Games played:  500
- |Best result:  13
- |Worst result:  0
-
--- Rule choice Beta 
- 2 players
- |Average score so far:   16.88
- |Games played:  100
- |Best result:  21
- |Worst result:  10
-
- 3 players
- |Average score so far:   9.61
- |Games played:  100
- |Best result:  16
- |Worst result:  4
-
- 4 players
- |Average score so far:   7.44
- |Games played:  100
- |Best result:  12
- |Worst result:  0
-
- 5 players
- |Average score so far:   5.99
- |Games played:  100
- |Best result:  10
- |Worst result:  3
-
--- Rule choice Delta 
- 2 players
- |Average score so far:   16.39
+-- * van_der_bergh_choice *
+2 players
+ |Average score so far:   11.41
  |Games played:  100
  |Best result:  21
  |Worst result:  0
 
- 3 players
- |Average score so far:   9.31
+3 players
+ |Average score so far:   14.14
  |Games played:  100
- |Best result:  14
- |Worst result:  5
-
- 4 players
- |Average score so far:   7.2
- |Games played:  100
- |Best result:  13
- |Worst result:  3
-
- 5 players
- |Average score so far:   6.54
- |Games played:  100
- |Best result:  11
- |Worst result:  3
-
--- Rule choice Delta on 0.5k games played with randomly shuffled rules agents every 2 games
- 2 players
- |Average score so far:   4.77
- |Games played:  100
- |Best result:  13
+ |Best result:  23
  |Worst result:  0
 
- 5 players
- |Average score so far:   3.72
+4 players
+ |Average score so far:   13.87
  |Games played:  100
- |Best result:  8
+ |Best result:  21
  |Worst result:  0
 
--- Rule choice
- 2 players
- 3 players
- 4 players
- 5 players
+5 players
+ |Average score so far:   13.89
+ |Games played:  100
+ |Best result:  20
+ |Worst result:  0
