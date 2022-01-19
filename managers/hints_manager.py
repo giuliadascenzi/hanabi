@@ -131,9 +131,8 @@ class HintsManager(object):
 
         for player in self.agent.players:
             player_knowledge = observation['playersKnowledge'][player.name]
-            hand = player.hand
 
-            for card_pos, card in enumerate(hand):
+            for card_pos, card in enumerate(player.hand):
                 if self.agent.playable_card(card, fireworks):
                     print("A card is playable !", card.value)
                     knowledge = player_knowledge[card_pos]
