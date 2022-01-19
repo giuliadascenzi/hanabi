@@ -77,12 +77,12 @@ def agentPlay():
                 # action = agent.simple_heuristic_choice(observation)
                 # action = agent.rl_choice(observation)
                 # action = agent.osawa_outer_choice(observation)
-                #action = agent.pier_choice(observation)
-                #action = agent.vanDerBergh_choice(observation)
-                action = agent.vanDerBergh_choice_prob(observation)
-                #action = agent.rule_choice(observation)
-                #action = agent.rule_choice_delta(observation)
-                #action = agent.vanDerBergh_choice_threshold(observation)
+                # action = agent.pier_choice(observation)
+                action = agent.vanDerBergh_choice(observation)
+                # action = agent.vanDerBergh_choice_prob(observation)
+                # action = agent.rule_choice(observation)
+                # action = agent.rule_choice_delta(observation)
+                # action = agent.vanDerBergh_choice_threshold(observation)
                 
                 try: 
                     s.send(action.serialize())
@@ -388,7 +388,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(" |Games played: ", len(scores))
             print(" |Best result: ", max(scores))
             print(" |Worst result: ", min(scores))
-            if (data.score==0 or len(scores)>=20):
+            if len(scores) >= 100:
                 x = np.arange(0, len(scores), 1)
                 plt.plot(x, scores)
                 plt.plot(x, [avg] * len(scores), 'r--') #plotting the average
@@ -397,7 +397,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 plt.ylabel('scores')
                 plt.xticks(x)
                 plt.yticks(scores)
-                plt.title('Agent =vanDerBergh_choice_prob Num_players = 3')
+                plt.title('Agent =vanDerBergh_choice Num_players = 2')
                 t = time.localtime()
                 timestamp = time.strftime('%b-%d-%Y_%H%M', t)
                 plt.savefig('graphs/'+timestamp+'.png' )
