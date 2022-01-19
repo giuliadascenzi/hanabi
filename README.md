@@ -4,7 +4,9 @@ checked:
   - give_useful_hint
   - tell_most_information_to_next
   - discard_less_relevant
-TODO:
+  
+##TODO:
+
   - tell_anyone_useless_card
   - discard_oldest_first
   - tell_randomly
@@ -13,9 +15,11 @@ TODO:
   - discard_duplicate_card
   - tell_unknown
 
-- clean the code
-- comment it
-- run multiple try
+---------------
+* clean the code
+* comment it
+* run multiple try
+* define what agent/mixed agents use!!!
 
 
 # Computational Intelligence 2021-2022
