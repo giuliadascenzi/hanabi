@@ -23,8 +23,18 @@
     - discard_less_relevant(agent, observation):
     - discard_duplicate_card(agent, observation):
     - discard_oldest():
-        
-    
+
+################
+## FLOWS
+################
+    - Cosimo's flow alpha
+    - Cosimo's flow beta
+    - Cosimo's flow delta
+    - vanDerBergh
+    - vanDerBergh prob
+    - vanDerBergh threshold
+    - pier
+    - osawa outer
 
 
 

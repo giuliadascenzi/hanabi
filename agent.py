@@ -64,32 +64,26 @@ class Agent(Player):
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_card_prob(self, observation, 1)
         if action is not None: return action
-
         # 2) If a lot of hints have been played, try to discard a useless or duplicate card
         if observation['usedNoteTokens'] > 5:
             action = self.ruleset.discard_useless_card(self, observation, lowest=True)
             if action is not None: return action
             action = self.ruleset.discard_duplicate_card(self, observation)
             if action is not None: return action
-
         # 3) If it is not possible to hint, discard
         if observation['usedNoteTokens'] == 8:
             action = self.safe_discard_sequence(observation)
             if action is not None: return action
-
         # 4) Try to hint next then other players with an helpful hint
         action = self.ruleset.give_helpful_hint(self, observation)
         if action is not None: return action
-
         # 6) Discard safely a card
         action = self.safe_discard_sequence(observation)
         if action is not None: return action
-
         # 7) If no token has been used yet
         if observation['usedNoteTokens'] == 0:
             action = self.hint_sequence(observation)
             if action is not None: return action
-
         # 8)
         if observation['usedStormTokens'] == 0:
             action = self.ruleset.play_best_card_prob(self, observation, 0.6)
@@ -137,12 +131,10 @@ class Agent(Player):
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_card_prob(self, observation, 1)
         if action is not None: return action
-
         # 1.b) If there are less than 5 cards in the discard pile, discard the dead card with lowest index
         if len(observation['discard_pile']) < 5 and observation['usedNoteTokens'] > 0:
             action = self.ruleset.discard_useless_card(self, observation)
             if action is not None: return action
-
         # 2) If it is not possible to hint, discard
         if observation['usedNoteTokens'] == 8:
             action = self.safe_discard_sequence(observation)
@@ -151,7 +143,6 @@ class Agent(Player):
         else:
             action = self.hint_sequence(observation)
             if action is not None: return action
-
         # 4) If no token has been used yet
         if observation['usedNoteTokens'] == 0:
             action = self.ruleset.tell_unknown(self, observation)
@@ -162,7 +153,6 @@ class Agent(Player):
             if action is not None: return action
             action = self.ruleset.tell_randomly(self, observation)
             if action is not None: return action
-
         # 8)
         if observation['usedStormTokens'] < 2:
             action = self.ruleset.play_best_card_prob(self, observation, 0.6)
@@ -202,16 +192,13 @@ class Agent(Player):
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_card_prob(self, observation, 1)
         if action is not None: return action
-
         # 2) If we have token then use them!!! (with two player we can know a lot with 8 hints)
         if observation['usedNoteTokens'] < 8:
             action = self.hint_sequence(observation)
             if action is not None: return action
-
         if observation['usedStormTokens'] < 2:
             action = self.ruleset.play_best_card_prob(self, observation, 0.6)
             if action is not None: return action
-
         action = self.discard_sequence(observation)
         if action is not None: return action
         action = self.ruleset.discard_oldest(self, observation)
@@ -522,46 +509,48 @@ class Agent(Player):
                 print("knowledge:" + str(playersKnowledge[self.name][card_pos]), file=redf, flush=True)
             print("--------------------------------------", file=redf, flush=True)
 
-    @staticmethod
-    def playable_card(card, board):
-        """
-        Is this card playable on the board?
-        """
-        return card.value == len(board[card.color]) + 1
-
-    @staticmethod
-    def useful_card(card, board, full_deck, discard_pile):
-        """
-        Is this card still useful?
-        full_deck and discard_pile are Counters.
-        REMEMBER: card is a tuple (color, value)
-        """
-        # check that lower cards still exist
-        color = card[0]
-        value = card[1]
-
-        last_value_in_board = len(board[color])
-
-        for number in range(last_value_in_board + 1, value):
-            copies_in_deck = full_deck[(color, number)]
-            copies_in_discard_pile = discard_pile[(color, number)]
-
-            if copies_in_deck == copies_in_discard_pile:
-                # some lower card was discarded!
-                return False
-
-        return value > last_value_in_board
-
     def relevant_card(self, card, board, full_deck, discard_pile):
         """
         Is this card the last copy available?
-        full_deck and discard_pile are Counters.
+        @param card: card for which the relevance is questioned
+        @param board: cards that are currently on the table
+        @param full_deck: counter of the whole set of cards
+        @param discard_pile: counter of the cards within the discard pile
+        @return:
         """
         color = card[0]
         value = card[1]
         copies_in_deck = full_deck[(color, value)]
         copies_in_discard_pile = discard_pile[(color, value)]
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
+
+    @staticmethod
+    def useful_card(card, board, full_deck, discard_pile):
+        """
+        Is this card still useful?
+        @param card: card for which the relevance is questioned
+        @param board: cards that are currently on the table
+        @param full_deck: counter of the whole set of cards
+        @param discard_pile: counter of the cards within the discard pile
+        """
+        color = card[0]
+        value = card[1]
+        last_value_in_board = len(board[color])
+        for number in range(last_value_in_board + 1, value):
+            copies_in_deck = full_deck[(color, number)]
+            copies_in_discard_pile = discard_pile[(color, number)]
+            if copies_in_deck == copies_in_discard_pile:
+                return False
+        return value > last_value_in_board
+
+    @staticmethod
+    def playable_card(card, board):
+        """
+        Is this card playable on the board?
+        @param card: card for which the playability is checked
+        @param board: cards that are currently on the table
+        """
+        return card.value == len(board[card.color]) + 1
 
     @staticmethod
     def get_full_deck():

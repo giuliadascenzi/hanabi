@@ -169,7 +169,6 @@ def initialize(players):
     if AI:
         agent = Agent(playerName, players.index(playerName), num_cards, ruleset)
 
-    # knowledge of all players
     playersKnowledge = {name: [Knowledge(color=False, value=False) for j in range(num_cards)] for name in players}
 
     return playersKnowledge

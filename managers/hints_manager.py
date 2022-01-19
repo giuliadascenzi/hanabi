@@ -220,9 +220,7 @@ class HintsManager(object):
         @param observation: current state of the game
         @return: information about a useless card if there is, None otherwise
         """
-        for player in observation['players']:
-            if player.name == self.agent.name:
-                continue
+        for player in self.agent.players:
             player_knowledge = observation['playersKnowledge'][player.name]
             for card_pos, card in enumerate(player.hand):
                 if not self.agent.useful_card((card.color, card.value), observation['fireworks'],
