@@ -46,10 +46,9 @@ class HintsManager(object):
         value_to_hint = -1
 
         for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
-                break
-            player_knowledge = observation['playersKnowledge'][player_name]
+            if player.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player.name]
             player_hand = player.hand
 
             # Check if the card in the hand of the player is playable
@@ -123,14 +122,15 @@ class HintsManager(object):
         fireworks = observation['fireworks']
 
         for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
-                break
-            player_knowledge = observation['playersKnowledge'][player_name]
+            print("I AM LOOKING AT", player.name)
+            if player.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player.name]
             hand = player.hand
 
             for card_pos, card in enumerate(hand):
                 if self.agent.playable_card(card, fireworks):
+                    print("A card is playable !", card.value)
                     knowledge = player_knowledge[card_pos]
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
@@ -140,7 +140,7 @@ class HintsManager(object):
                     else:
                         hint_type = "value"
                         value = card.value
-                    return player_name, value, hint_type
+                    return player.name, value, hint_type
         return None, None, None
 
     def tell_most_information(self, observation, threshold=0):
@@ -227,10 +227,9 @@ class HintsManager(object):
         @return: information about a useless card if there is, None otherwise
         """
         for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
-                break
-            player_knowledge = observation['playersKnowledge'][player_name]
+            if player.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player.name]
             for card_pos, card in enumerate(player.hand):
                 if not self.agent.useful_card((card.color, card.value), observation['fireworks'],
                                               self.agent.full_deck_composition,
@@ -244,7 +243,7 @@ class HintsManager(object):
                     else:
                         hint_type = "value"
                         value = card.value
-                    return player_name, value, hint_type
+                    return player.name, value, hint_type
         return None, None, None
 
     def tell_ones(self):

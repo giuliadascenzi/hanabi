@@ -116,8 +116,34 @@ class Agent(Player):
         '''
         print("something wrong")
 
+    def test(self, observation):
+        ######## UPDATE POSSIBILITIES #############
+        self.players = observation['players']
+
+        # Start by updating the possibilities (should take hints into account?)
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
+
+        print("try to give useful hint")
+        action = self.ruleset.give_useful_hint(self, observation)
+        if action is not None: return action
+
+        print("give most info")
+        action = self.ruleset.tell_most_information(self, observation)
+        if action is not None: return action
+
     def rule_choice(self, observation):
         ############### COSIMO'S FLOW #################
+        ######## UPDATE POSSIBILITIES #############
+        self.players = observation['players']
+
+        # Start by updating the possibilities (should take hints into account?)
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
 
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_card_prob(self, observation, 1)
