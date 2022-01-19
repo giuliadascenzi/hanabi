@@ -78,7 +78,7 @@ def agentPlay():
                 # action = agent.rl_choice(observation)
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
-                # action = agent.vanDerBergh_choice(observation)
+                action = agent.vanDerBergh_choice(observation)
                 # action = agent.vanDerBergh_choice_prob(observation)
                 #action = agent.rule_choice(observation)
                 action = agent.rule_choice_delta(observation)
@@ -259,10 +259,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                 'hints': hintState,
                                 'playersKnowledge': playersKnowledge}
 
-                #print("Current player: " + data.currentPlayer)
-                #print("Player hands: ")
-                #for p in data.players:
-                #    print(p.toClientString())
+                print("Current player: " + data.currentPlayer)
+                print("Player hands: ")
+                for p in data.players:
+                    print(p.toClientString())
                 '''
                 print("Current player: " + data.currentPlayer)
                 print("Player hands: ")
