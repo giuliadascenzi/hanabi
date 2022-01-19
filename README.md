@@ -1,20 +1,20 @@
 checked:
-  - play_safe_card_prob
-  - discard_useless_card
+  - play_best_card_prob
+  - play_oldest
   - give_useful_hint
-  - tell_most_information_to_next
+  - tell_most_information
   - discard_less_relevant
   - tell_unknown
-  
-##TODO:
-  - give_helpful_hint
-  - tell_anyone_useless_card
-  - discard_oldest_first
-  - tell_randomly
-  - discard_randomly
+  - discard_useless_card
+  - discard_oldest
 
+##TODO:
+  - tell_useless
+  - tell_randomly
+  - give_helpful_hint
   - discard_duplicate_card
-  
+  - tell_ones
+  - tell_fives
 
 ---------------
 * clean the code

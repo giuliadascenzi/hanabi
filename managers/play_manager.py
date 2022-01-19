@@ -27,7 +27,7 @@ class PlayManager(object):
 
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of possible tuple (color,value)
-            tot_playable = sum(p[card] if self.agent.is_playable(card, observation['fireworks']) else 0 for card in p)
+            tot_playable = sum(p[card] if self.agent.playable_card(card, observation['fireworks']) else 0 for card in p)
             tot_possibility = sum(p.values())
             if tot_playable == 0:
                 probability = 0

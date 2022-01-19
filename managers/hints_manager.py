@@ -47,10 +47,9 @@ class HintsManager(object):
         value_to_hint = -1
 
         for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
+            if player.name == self.agent.name:
                 continue
-            player_knowledge = observation['playersKnowledge'][player_name]
+            player_knowledge = observation['playersKnowledge'][player.name]
             player_hand = player.hand
 
             # Check if the card in the hand of the player is playable
@@ -130,15 +129,13 @@ class HintsManager(object):
         """
         fireworks = observation['fireworks']
 
-        for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
-                break
-            player_knowledge = observation['playersKnowledge'][player_name]
+        for player in self.agent.players:
+            player_knowledge = observation['playersKnowledge'][player.name]
             hand = player.hand
 
             for card_pos, card in enumerate(hand):
                 if self.agent.playable_card(card, fireworks):
+                    print("A card is playable !", card.value)
                     knowledge = player_knowledge[card_pos]
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
@@ -148,7 +145,7 @@ class HintsManager(object):
                     else:
                         hint_type = "value"
                         value = card.value
-                    return player_name, value, hint_type
+                    return player.name, value, hint_type
         return None, None, None
 
     def tell_most_information(self, observation, threshold=0):
@@ -212,20 +209,17 @@ class HintsManager(object):
         @param observation: current state of the game
         @return: information obout an unknown characteristic of a card if possible, None otherwise
         """
-        destination = self.agent
-        while destination.name == self.agent.name:
-            destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_hand = destination.hand
+        destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
 
         for idx, kn in enumerate(observation['playersKnowledge'][destination.name]):
             # print(f'idx:{idx}, c:{kn[0].color}, v:{kn[0].value}')
             if not kn.knows("color"):
                 hint_type = "color"
-                value = destination_hand[idx].color
+                value = destination.hand[idx].color
                 return destination.name, value, hint_type
             if not kn.knows("value"):
                 hint_type = "value"
-                value = destination_hand[idx].value
+                value = destination.hand[idx].value
                 return destination.name, value, hint_type
         return None, None, None
 
@@ -236,10 +230,9 @@ class HintsManager(object):
         @return: information about a useless card if there is, None otherwise
         """
         for player in observation['players']:
-            player_name = player.name
-            if player_name == self.agent.name:
-                break
-            player_knowledge = observation['playersKnowledge'][player_name]
+            if player.name == self.agent.name:
+                continue
+            player_knowledge = observation['playersKnowledge'][player.name]
             for card_pos, card in enumerate(player.hand):
                 if not self.agent.useful_card((card.color, card.value), observation['fireworks'],
                                               self.agent.full_deck_composition,
@@ -253,7 +246,7 @@ class HintsManager(object):
                     else:
                         hint_type = "value"
                         value = card.value
-                    return player_name, value, hint_type
+                    return player.name, value, hint_type
         return None, None, None
 
     def tell_ones(self):
@@ -261,12 +254,8 @@ class HintsManager(object):
         Give information about cards with value 1
         @return: information about cards with value 1 if there are, None otherwise
         """
-        destination = self.agent
-        while destination == self.agent:
-            destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_hand = destination.hand
-
-        for card in destination_hand:
+        destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
+        for card in destination.hand:
             if card.value == 1:
                 return destination.name, card.value, "value"
         return None, None, None
@@ -276,12 +265,8 @@ class HintsManager(object):
         Give information about cards with value 5
         @return: information about cards with value 5 if there are, None otherwise
         """
-        destination = self.agent
-        while destination == self.agent:
-            destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_hand = destination.hand
-
-        for card in destination_hand:
+        destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
+        for card in destination.hand:
             if card.value == 5:
                 return destination.name, card.value, "value"
         return None, None, None
@@ -291,12 +276,8 @@ class HintsManager(object):
         Give information about random card(s)
         @return: information about random card(s)
         """
-        destination = self.agent
-        while destination == self.agent:
-            destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_hand = destination.hand
-
-        card = random.choice([card for card in destination_hand if card is not None])
+        destination = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
+        card = random.choice([card for card in destination.hand if card is not None])
         if random.randint(0, 1) == 0:
             hint_type = "color"
             value = card.color

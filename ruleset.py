@@ -2,38 +2,25 @@ import GameData
 import random
 import copy
 
-'''k
-  - play_best_card_prob(self, observation, prob)
-  - play oldest
-
-  - give_helpful_hint(agent, observation):
-  - give_useful_hint(agent, observation):
-  - tell_most_information(agent, observation):
-  - tell_unknown(agent, observation): 
-  - tell_useless(agent, observation):
-  - tell_ones(agent, observation):
-  - tell_fives(agent, observation):
-  - tell_randomly(agent, observation)
-
-  - discard_useless_card(agent, observation, lowest=False):
-  - discard_less_relevant(agent, observation):
-  - discard_duplicate_card(agent, observation):
-  - discard_randomly(self):
-  - discard_oldest():'''
 
 class Ruleset:
 
     def __init__(self):
         self.rules = {
             0: self.play_best_card_prob,
-            1: self.give_helpful_hint,
-            2: self.tell_randomly,
-            3: self.tell_fives,
-            4: self.tell_ones,
+            1: self.play_oldest,
+            2: self.give_helpful_hint,
+            3: self.give_useful_hint,
+            4: self.tell_most_information,
             5: self.tell_unknown,
-            6: self.discard_useless_card,
-            7: self.discard_less_relevant,
-            8: self.discard_duplicate_card
+            6: self.tell_useless,
+            7: self.tell_ones,
+            8: self.tell_fives,
+            9: self.tell_randomly,
+            10: self.discard_useless_card,
+            11: self.discard_less_relevant,
+            12: self.discard_duplicate_card,
+            13: self.discard_oldest
         }
         self.active_rules = list(self.rules.keys())
         self.fittest_ruleset = []
@@ -106,71 +93,108 @@ class Ruleset:
 
     @staticmethod
     def give_useful_hint(agent, observation):
+        """
+        Give a useful hint (which is a hint about a playable card), if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.give_useful_hint(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the useful hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.give_useful_hint(observation)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the useful hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     @staticmethod
     def tell_most_information(agent, observation, threshold=0):
-        '''Tell most information to a random player'''
+        """
+        Give an hint about the higher number of cards in a player's hand, if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @param threshold: minimum number of cards that must be concerned with the hint
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation, threshold)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the most information hint to a player ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_most_information(observation, threshold)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the most information hint to a player ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
-    # Prioritize color, just next player is considered
     @staticmethod
     def tell_unknown(agent, observation):
-        '''Tell a random player an unknown information prioritizing color'''
+        """
+        Give an hint about an unknown characteristic of a card, if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_unknown(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_unknow hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_unknown(observation)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the tell_unknown hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     @staticmethod
-    def tell_anyone_useless_card(agent, observation):
+    def tell_useless(agent, observation):
+        """
+        Give an hint about a useless cards, if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_useless(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_useless hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_useless(observation)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the tell_useless hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     @staticmethod
     def tell_ones(agent, observation):
-        '''Tell 1s to a random player if it has them'''
+        """
+        Give an hint about cards with value 1, if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_ones(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_ones hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_ones(observation)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the tell_ones hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     @staticmethod
     def tell_fives(agent, observation):
-        '''Tell 5s to a random player if it has them'''
+        """
+        Give an hint about cards with value 5, if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_fives(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_five hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_fives(observation)
+            if (destination_name, value, hint_type) != (None, None, None):  # found a best hint
+                print(">>>give the tell_five hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     @staticmethod
     def tell_randomly(agent, observation):
-        '''Tell to a random player a random information prioritizing color'''
+        """
+        Give an hint about a random card (with priority for color hints), if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_randomly(observation)
-            assert (destination_name, value, type) != (None, None, None)
-            print(">>>give the random hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, hint_type = agent.card_hints_manager.tell_randomly(observation)
+            assert (destination_name, value, hint_type) != (None, None, None)
+            print(">>>give the random hint ", hint_type, " ", value, " to ", destination_name)
+            return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
     ###############
@@ -219,20 +243,6 @@ class Ruleset:
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_less_relevant(observation)
             print(">>>discard less relevant card:", card_pos)
-            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
-        return None
-
-    @staticmethod
-    def discard_randomly(agent, observation):
-        """
-        Discards a random card, if possible
-        @param agent: the player that will try to discard
-        @param observation: current state of the game
-        @return: a request to discard the random card, None if it is not possible
-        """
-        if observation['usedNoteTokens'] != 0:
-            card_pos = agent.card_discard_manager.discard_randomly(observation)
-            print(">>>discard random card:", card_pos)
             return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
