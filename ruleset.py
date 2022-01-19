@@ -2,23 +2,38 @@ import GameData
 import random
 import copy
 
+'''k
+  - play_best_card_prob(self, observation, prob)
+  - play oldest
 
-class Ruleset():
+  - give_helpful_hint(agent, observation):
+  - give_useful_hint(agent, observation):
+  - tell_most_information(agent, observation):
+  - tell_unknown(agent, observation): 
+  - tell_useless(agent, observation):
+  - tell_ones(agent, observation):
+  - tell_fives(agent, observation):
+  - tell_randomly(agent, observation)
+
+  - discard_useless_card(agent, observation, lowest=False):
+  - discard_less_relevant(agent, observation):
+  - discard_duplicate_card(agent, observation):
+  - discard_randomly(self):
+  - discard_oldest():'''
+
+class Ruleset:
 
     def __init__(self):
         self.rules = {
-            0: self.play_best_safe_card,
+            0: self.play_best_card_prob,
             1: self.give_helpful_hint,
-            2: self.get_low_value_hint,
-            3: self.tell_randomly,
-            4: self.tell_fives,
-            5: self.tell_ones,
-            6: self.tell_unknown,
-            # 3: self.tell_most_information_to_next,
-            7: self.discard_useless_card,
-            8: self.discard_less_relevant,
-            # 9: self.discard_less_relevant,
-            9: self.discard_duplicate_card
+            2: self.tell_randomly,
+            3: self.tell_fives,
+            4: self.tell_ones,
+            5: self.tell_unknown,
+            6: self.discard_useless_card,
+            7: self.discard_less_relevant,
+            8: self.discard_duplicate_card
         }
         self.active_rules = list(self.rules.keys())
         self.fittest_ruleset = []
@@ -39,49 +54,55 @@ class Ruleset():
                 f.write("\n---------\n")
 
     ###############
-    ## PLAY RULES
+    # PLAY RULES
     ###############
 
     @staticmethod
-    def play_best_safe_card(agent, observation):
-        card_pos = agent.card_play_manager.play_best_safe_card(observation)
-
-        if card_pos is not None:
-            print(">>>play best safe card: ", card_pos)
-            return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
-        return None
-
-    @staticmethod
-    def play_safe_card_prob(agent, observation, prob):
-        '''
-        Returns a card that has a probability = prob of being playable
-        '''
-        card_pos = agent.card_play_manager.play_safe_card_prob(observation, prob)
-
+    def play_best_card_prob(agent, observation, prob):
+        """
+        Plays the best card (best means the card that would transform more cards in other players hands to playable)
+        that is playable up until probability prob, if possible
+        @param agent: the player that will try to play a card
+        @param observation: current state of the game
+        @param prob: probability up until which a card is playable
+        @return: a request to play the best card, None if it is not possible
+        """
+        card_pos = agent.card_play_manager.play_best_card_prob(observation, prob)
         if card_pos is not None:
             print(">>>play probable safe card: ", card_pos)
             return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
         return None
 
     @staticmethod
-    def maybe_play_lowest_playable_card(agent, observation):
-        card_pos = agent.card_play_manager.maybe_play_lowest_playable_card(observation)
-
-        if card_pos is not None:
-            print(">>>play lowest playable card: ", card_pos)
-            return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
-        return None
-
-    @staticmethod
     def play_oldest(agent):
+        """
+        Plays the oldest card in the hand
+        @param agent: the player that will try to play a card
+        @return: a request to play the oldest card
+        """
         card_pos = agent.card_play_manager.play_oldest()
         print(">>>play oldest card: ", card_pos)
         return GameData.ClientPlayerPlayCardRequest(agent.name, card_pos)
 
+    ###############
+    # HINT RULES
+    ###############
 
-    ###############
-    ## HINT RULES
-    ###############
+    @staticmethod
+    def give_helpful_hint(agent, observation):
+        """
+        Give an helpful hint (which is a hint that will allow a player to have full knowledge of one of its playable
+        cards, at least), if possible
+        @param agent: the player that will try to hint
+        @param observation: current state of the game
+        @return: a request to hint, None if it is not possible
+        """
+        if observation['usedNoteTokens'] < 8:
+            destination_name, value, hint_type = agent.card_hints_manager.give_helpful_hint(observation)
+            if (destination_name, value, hint_type) != (None, None, None):
+                print(">>>give the helpful hint ", hint_type, " ", value, " to ", destination_name)
+                return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
+        return None
 
     @staticmethod
     def give_useful_hint(agent, observation):
@@ -93,59 +114,12 @@ class Ruleset():
         return None
 
     @staticmethod
-    def give_helpful_hint(agent, observation):
+    def tell_most_information(agent, observation, threshold=0):
+        '''Tell most information to a random player'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.give_helpful_hint(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation, threshold)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
-        return None
-
-    @staticmethod
-    def give_helpful_hint_to_next(agent, observation):
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.give_helpful_hint_to_next(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the helpful hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
-        return None
-
-    @staticmethod
-    def get_low_value_hint(agent, observation):
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.get_low_value_hint(observation)
-            assert (destination_name, value, type) != (None, None, None)
-            print(">>>give the low_value hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(agent.name, destination_name, type, value)
-        return None
-
-    @staticmethod
-    def tell_randomly(agent, observation):
-        '''Tell to a random player a random information prioritizing color'''
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_randomly(observation)
-            assert (destination_name, value, type) != (None, None, None)
-            print(">>>give the random hint ", type, " ", value, " to ", destination_name)
-            return GameData.ClientHintData(agent.name, destination_name, type, value)
-        return None
-
-    @staticmethod
-    def tell_fives(agent, observation):
-        '''Tell 5s to a random player if it has them'''
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_fives(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_five hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
-        return None
-
-    @staticmethod
-    def tell_ones(agent, observation):
-        '''Tell 1s to a random player if it has them'''
-        if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_ones(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the tell_ones hint ", type, " ", value, " to ", destination_name)
+                print(">>>give the most information hint to a player ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
@@ -170,33 +144,33 @@ class Ruleset():
         return None
 
     @staticmethod
-    def tell_most_information(agent, observation):
-        '''Tell most information to a random player'''
+    def tell_ones(agent, observation):
+        '''Tell 1s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_most_information(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_ones(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the most information hint to a player ", type, " ", value, " to ", destination_name)
+                print(">>>give the tell_ones hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
     @staticmethod
-    def tell_most_information_to_next(agent, observation):
-        '''Tell most information to next player'''
+    def tell_fives(agent, observation):
+        '''Tell 5s to a random player if it has them'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_most_information_to_next(observation)
+            destination_name, value, type = agent.card_hints_manager.tell_fives(observation)
             if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give the most information hint to next ", type, " ", value, " to ", destination_name)
+                print(">>>give the tell_five hint ", type, " ", value, " to ", destination_name)
                 return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
     @staticmethod
-    def tell_useless(agent, observation):
-        '''Tell most information to next player'''
+    def tell_randomly(agent, observation):
+        '''Tell to a random player a random information prioritizing color'''
         if observation['usedNoteTokens'] < 8:
-            destination_name, value, type = agent.card_hints_manager.tell_useless(observation)
-            if (destination_name, value, type) != (None, None, None):  # found a best hint
-                print(">>>give useless hint ", type, " ", value, " to ", destination_name)
-                return GameData.ClientHintData(agent.name, destination_name, type, value)
+            destination_name, value, type = agent.card_hints_manager.tell_randomly(observation)
+            assert (destination_name, value, type) != (None, None, None)
+            print(">>>give the random hint ", type, " ", value, " to ", destination_name)
+            return GameData.ClientHintData(agent.name, destination_name, type, value)
         return None
 
     ###############
@@ -205,6 +179,13 @@ class Ruleset():
 
     @staticmethod
     def discard_useless_card(agent, observation, lowest=False):
+        """
+        Discards a useless card, if possible
+        @param agent: the player that will try to discard
+        @param observation: current state of the game
+        @param lowest: if True, the lowest useless card will be discarded
+        @return: a request to discard the useless card, None if it is not possible
+        """
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_useless_card(observation, lowest)
             if card_pos is not None:
@@ -213,40 +194,58 @@ class Ruleset():
         return None
 
     @staticmethod
-    def discard_oldest_first(agent, observation, lowest=False):
+    def discard_duplicate_card(agent, observation):
+        """
+        Discards a duplicate card, if possible
+        @param agent: the player that will try to discard
+        @param observation: current state of the game
+        @return: a request to discard the duplicate card, None if it is not possible
+        """
         if observation['usedNoteTokens'] != 0:
-            card_pos = agent.card_discard_manager.discard_oldest_first(observation)
+            card_pos = agent.card_discard_manager.discard_duplicate_card(observation)
             if card_pos is not None:
-                print(">>>discard oldest card:", card_pos)
+                print(">>>discard duplicate card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
     @staticmethod
     def discard_less_relevant(agent, observation):
+        """
+        Discards the less relevant card of the hand, if possible
+        @param agent: the player that will try to discard
+        @param observation: current state of the game
+        @return: a request to discard the less relevant card, None if it is not possible
+        """
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_less_relevant(observation)
-            if card_pos is not None:
-                print(">>>discard less relevant card:", card_pos)
-                return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+            print(">>>discard less relevant card:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
     @staticmethod
     def discard_randomly(agent, observation):
+        """
+        Discards a random card, if possible
+        @param agent: the player that will try to discard
+        @param observation: current state of the game
+        @return: a request to discard the random card, None if it is not possible
+        """
         if observation['usedNoteTokens'] != 0:
             card_pos = agent.card_discard_manager.discard_randomly(observation)
-            if card_pos is not None:
-                print(">>>discard random card:", card_pos)
-                return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+            print(">>>discard random card:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None
 
     @staticmethod
-    def discard_duplicate_card(agent, observation):
-        '''
-        Discard a card that I see in some other player's hand
-        '''
+    def discard_oldest(agent, observation):
+        """
+        Discards the oldest card, if possible
+        @param agent: the player that will try to discard
+        @param observation: current state of the game
+        @return: a request to discard the oldest card, None if it is not possible
+        """
         if observation['usedNoteTokens'] != 0:
-            card_pos = agent.card_discard_manager.discard_duplicate_card(observation)
-            if (card_pos is not None):
-                print(">>>discard duplicate card:", card_pos)
-                return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
+            card_pos = agent.card_discard_manager.discard_oldest(observation)
+            print(">>>discard oldest card:", card_pos)
+            return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)
         return None

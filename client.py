@@ -76,12 +76,12 @@ def agentPlay():
                 print("[" + playerName + " - " + status + "]: ", end="")
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
-                # action = agent.rl_choice(observation)
+                action = agent.rl_choice(observation)
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
                 # action = agent.vanDerBergh_choice_prob(observation)
-                action = agent.rule_choice(observation)
+                # action = agent.rule_choice(observation)
                 # action = agent.rule_choice_delta(observation)
                 try:
                     s.send(action.serialize())
@@ -232,7 +232,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if type(data) is GameData.ServerGameStateData:
             dataOk = True
 
-            if AI:
+            if not AI:
                 print("Current player: " + data.currentPlayer)
                 print("Player hands: ")
                 for p in data.players:

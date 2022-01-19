@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-
 import random
 
 
@@ -11,25 +7,23 @@ class DiscardManager(object):
     """
 
     def __init__(self, agent):
-        self.agent = agent  # my agent object
+        self.agent = agent
 
     def discard_useless_card(self, observation, lowest=False):
         """
-        Discards a card surely useless
-        @param observation: state of the game
-        @return: useless card to be discarded
+        Look for a card surely useless
+        @param lowest: if True, discard the lowest useless card
+        @param observation: current state of the game
+        @return: the index of the useless card to be discarded or None if there isn't
         """
         for (card_pos, p) in enumerate(self.agent.possibilities):
-            # p = Counter of (color, value) tuples with the number of occurrences
-            # representing the possible (color,value) for a card in pos card_pos
-            # one for each card
+            # p is a Counter of (color, value) tuples representing the chance that the card is (color, value)
             useless = []
             if len(p) > 0 and all(
                     not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
                                                self.agent.counterOfCards(observation['discard_pile'])) for card in p):
                 if lowest:
-                    useless.append([card_pos, p[1]])
-                # whatever card is this is useless
+                    useless.append([card_pos, self.agent.hand[card_pos].value])
                 else:
                     return card_pos
             if lowest and len(useless) > 0:
@@ -39,9 +33,11 @@ class DiscardManager(object):
 
     def discard_less_relevant(self, observation):
         """
-        discard a less relevant card
+        Look for the less relevant card by trying to avoid cards that are (on average) more relevant and choosing among
+        cards that are (on average) less useful
+        @param observation: current state of the game
+        @return: the index of the less relevant card in the hand
         """
-        # Try to avoid cards that are (on average) more relevant, then choose cards that are (on average) less useful
         tolerance = 1e-3
         best_cards_pos = []
 
@@ -49,8 +45,7 @@ class DiscardManager(object):
         best_relevant_weight = max(WEIGHT.values())
 
         for (card_pos, p) in enumerate(self.agent.possibilities):
-            # p = Counter of (color, value) tuples with the number of occurrences representing the possible
-            # (color,value) for a card in pos card_pos, one for each card
+            # p is a Counter of (color, value) tuples representing the chance that the card is (color, value)
             if len(p) > 0:
                 relevant_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if
                                           self.agent.relevant_card(card, observation['fireworks'],
@@ -67,54 +62,46 @@ class DiscardManager(object):
                 useful_weight = float(useful_weight_sum) / sum(p.values())
 
                 if relevant_weight < best_relevant_weight - tolerance:
-                    # better weight found
                     best_cards_pos, best_relevant_weight, = [], relevant_weight
 
                 if relevant_weight < best_relevant_weight + tolerance:
-                    # add this card to the possibilities
                     best_cards_pos.append((useful_weight, card_pos))
-                
-                #print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
-                #% (card_pos, best_relevant_weight, useful_weight))
 
         assert len(best_cards_pos) > 0
         useful_weight, card_pos = min(best_cards_pos, key=lambda t: t[0])  # consider the one with minor useful_weight
 
-        # print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
-        #        % (card_pos, best_relevant_weight, useful_weight))
         return card_pos
 
     def discard_duplicate_card(self, observation):
         """
-        Discard a card that I see in some other player's hand
+        Look for a card that I see in some other player's hand
+        @param observation: current state of the game
+        @return: the index of the duplicate card to be or None if there isn't
         """
-        if observation['usedNoteTokens'] != 0:
-            cards_in_player_hands = self.agent.counterOfCards()
-            for player_info in observation['players']:
-                if player_info.name != self.agent.name:
-                    cards_in_player_hands += self.agent.counterOfCards(player_info.hand)
+        cards_in_player_hands = self.agent.counterOfCards()
+        for player_info in observation['players']:
+            if player_info.name != self.agent.name:
+                cards_in_player_hands += self.agent.counterOfCards(player_info.hand)
 
-            for (card_pos, p) in enumerate(self.agent.possibilities):
-                # for each possible value of the card I check that Its already in someone hand
-                if all(cards_in_player_hands[c] != 0 for c in p):
-                    # this card is surely a duplicate
-                    return card_pos
-            else:
-                return None
-        return None
+        for (card_pos, p) in enumerate(self.agent.possibilities):
+            if all(cards_in_player_hands[card] != 0 for card in p):
+                # this card is surely a duplicate
+                return card_pos
+        else:
+            return None
 
-    def discard_oldest_first(self, observation):
+    def discard_randomly(self):
         """
-        Discards the card that has been held in the hand the longest amount of time
+        Look for a random card
+        @return: the index of a card in the hand, drawn randomly
         """
-        card_pos = 0
-        return card_pos
-    
-    def discard_randomly(self, observation):
-        """
-        Discards the card that has been held in the hand the longest amount of time
-        """
-        card_pos = random.randint(0, len(self.agent.possibilities)-1)
+        card_pos = random.randint(0, len(self.agent.hand)-1)
         return card_pos
 
-    
+    @staticmethod
+    def discard_oldest():
+        """
+        Look for the card that has been held in the hand the longest amount of time
+        @return: the index of the oldest card (i.e. 0)
+        """
+        return 0
