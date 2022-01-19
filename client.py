@@ -363,9 +363,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     notedHint = True
                     hintState.append({'sender': data.source, 'player': data.destination, 'value': d_val, 'color': d_col,
                                       'card_index': i})
-
-                playersKnowledge[data.destination][i].value = d_val
-                playersKnowledge[data.destination][i].color = d_col
+                                      
+                if d_val is not None:
+                    playersKnowledge[data.destination][i].value = d_val
+                if d_col is not None:
+                    playersKnowledge[data.destination][i].color = d_col
 
             if AI and data.destination == playerName:
                 agent.receive_hint(data.destination, data.type, data.value, data.positions)

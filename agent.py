@@ -46,19 +46,24 @@ class Agent(Player):
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
-        ######## CHOOSE ACTION ####################
+        action = self.ruleset.give_helpful_hint(self, observation)
+        if action is not None: return action
+        action = self.ruleset.tell_unknown(self, observation)
+        if action is not None: return action
 
+        ######## CHOOSE ACTION ####################
+        '''
         action = 1
         while action is not None:
             # 1) Check if there is a playable card
-            '''
+            
             action = self.ruleset.play_best_safe_card(self, observation)
             if action is not None: return action
-            '''
+            
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
-
+        '''
         '''
         # 1) Check if there is a playable card
         action = self.ruleset.play_best_safe_card(self, observation)

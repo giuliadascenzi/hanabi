@@ -4,16 +4,17 @@ checked:
   - give_useful_hint
   - tell_most_information_to_next
   - discard_less_relevant
+  - tell_unknown
   
 ##TODO:
-
+  - give_helpful_hint
   - tell_anyone_useless_card
   - discard_oldest_first
   - tell_randomly
   - discard_randomly
-  - give_helpful_hint
+
   - discard_duplicate_card
-  - tell_unknown
+  
 
 ---------------
 * clean the code
