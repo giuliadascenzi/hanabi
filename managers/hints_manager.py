@@ -122,7 +122,6 @@ class HintsManager(object):
         fireworks = observation['fireworks']
 
         for player in self.agent.players:
-            print("I AM LOOKING AT", player.name)
             player_knowledge = observation['playersKnowledge'][player.name]
             hand = player.hand
 

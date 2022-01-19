@@ -2,7 +2,7 @@
 ## PLAY RULES
 ###############
     - play_best_card_prob(self, observation, prob): choose to play a card only if has at least prob probability of being playable
-    - play oldest
+    - play_oldest
 
 ##############
 ## HINT RULES
@@ -22,7 +22,6 @@
     - discard_useless_card(agent, observation, lowest=False):
     - discard_less_relevant(agent, observation):
     - discard_duplicate_card(agent, observation):
-    - discard_randomly(self):
     - discard_oldest():
         
     

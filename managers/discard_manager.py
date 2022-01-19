@@ -1,6 +1,3 @@
-import random
-
-
 class DiscardManager(object):
     """
     Discard Manager.
@@ -89,14 +86,6 @@ class DiscardManager(object):
                 return card_pos
         else:
             return None
-
-    def discard_randomly(self):
-        """
-        Look for a random card
-        @return: the index of a card in the hand, drawn randomly
-        """
-        card_pos = random.randint(0, len(self.agent.hand)-1)
-        return card_pos
 
     @staticmethod
     def discard_oldest():

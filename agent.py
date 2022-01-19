@@ -128,10 +128,6 @@ class Agent(Player):
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
-        print("try to give useful hint")
-        action = self.ruleset.give_useful_hint(self, observation)
-        if action is not None: return action
-
         print("give most info")
         action = self.ruleset.tell_most_information(self, observation)
         if action is not None: return action
@@ -482,7 +478,7 @@ class Agent(Player):
         # 5) IfRule (information < 4) Then (TellDispensable)
         information = 8 - observation['usedNoteTokens']
         if (information < 4):
-            action = self.ruleset.tell_anyone_useless_card(self, observation)
+            action = self.ruleset.tell_useless(self, observation)
             if action is not None: return action
         # 6) discard useless
         action = self.ruleset.discard_useless_card(self, observation)
@@ -493,8 +489,8 @@ class Agent(Player):
         # 8) Tell randomly
         action = self.ruleset.tell_randomly(self, observation)
         if action is not None: return action
-        # 9) Discard randomly
-        action = self.ruleset.discard_randomly(self, observation)
+        # 9) Discard less relevant
+        action = self.ruleset.discard_less_relevant(self, observation)
         if action is not None: return action
 
         print("something went wrong")
@@ -527,7 +523,7 @@ class Agent(Player):
         action = self.ruleset.tell_unknown(self, observation)
         if action is not None: return action
         # 5) discard less relevant
-        action = self.ruleset.discard_randomly(self, observation)
+        action = self.ruleset.discard_less_relevant(self, observation)
         if action is not None: return action
 
         print("something went wrong")
