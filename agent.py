@@ -187,7 +187,6 @@ class Agent(Player):
         action = self.ruleset.play_oldest(self, observation)
         if action is not None: return action
 
-
         return None
 
     def rule_choice_beta(self, observation):
