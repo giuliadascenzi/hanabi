@@ -14,7 +14,7 @@ class Agent(Player):
         super().__init__(name)
         print("Agent initialized: ", name)
         self.players_names = players
-        self.players = None
+        self.players = []
         self.index = index
         self.num_cards = num_cards
         self.full_deck = self.get_full_deck()
@@ -32,14 +32,18 @@ class Agent(Player):
         print("----- INITIALIZE AGENT:", file=redf, flush=True)
         self.print_possibilities()
 
+    def set_players(self, observation):
+        for i in range(self.index+1, len(observation['players'])-1):
+            self.players.append(observation['players'][i])
+        for i in range(0, self.index-1):
+            self.players.append(observation['players'][i])
+
     def rl_choice(self, observation):
         """
         Choose action for this turn.
         Returns the request to the server
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
-
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -118,8 +122,6 @@ class Agent(Player):
 
     def test(self, observation):
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
-
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -137,8 +139,6 @@ class Agent(Player):
     def rule_choice(self, observation):
         ############### COSIMO'S FLOW #################
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
-
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -339,7 +339,6 @@ class Agent(Player):
         (optimized for 3 players)
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -373,7 +372,6 @@ class Agent(Player):
         (optimized for 3 players)
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -413,7 +411,6 @@ class Agent(Player):
         (optimized for 3 players)
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -456,7 +453,6 @@ class Agent(Player):
 
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
@@ -511,7 +507,6 @@ class Agent(Player):
          (optimized for 2 players)
         """
         ######## UPDATE POSSIBILITIES #############
-        self.players = observation['players']
         # Start by updating the possibilities (should take hints into account?)
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
 
