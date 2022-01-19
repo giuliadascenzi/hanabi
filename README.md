@@ -1,3 +1,27 @@
+checked:
+  - play_safe_card_prob
+  - discard_useless_card
+  - give_useful_hint
+  - tell_most_information_to_next
+  - discard_less_relevant
+  
+##TODO:
+
+  - tell_anyone_useless_card
+  - discard_oldest_first
+  - tell_randomly
+  - discard_randomly
+  - give_helpful_hint
+  - discard_duplicate_card
+  - tell_unknown
+
+---------------
+* clean the code
+* comment it
+* run multiple try
+* define what agent/mixed agents use!!!
+
+
 # Computational Intelligence 2021-2022
 
 Exam of computational intelligence 2021 - 2022. It requires teaching the client to play the game of Hanabi (rules can be found [here](https://www.spillehulen.dk/media/102616/hanabi-card-game-rules.pdf)).

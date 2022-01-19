@@ -73,6 +73,9 @@ class DiscardManager(object):
                 if relevant_weight < best_relevant_weight + tolerance:
                     # add this card to the possibilities
                     best_cards_pos.append((useful_weight, card_pos))
+                
+                #print("considering to discard a card (pos %d, relevant weight ~%.3f, useful weight %.3f)"
+                #% (card_pos, best_relevant_weight, useful_weight))
 
         assert len(best_cards_pos) > 0
         useful_weight, card_pos = min(best_cards_pos, key=lambda t: t[0])  # consider the one with minor useful_weight

@@ -390,6 +390,49 @@ class Agent(Player):
 
         print("something went wrong")
 
+    def vanDerBergh_choice_threshold(self, observation):
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        It follows the van der bergh strategy: https://www.researchgate.net/publication/319853435_Aspects_of_the_Cooperative_Card_Game_Hanabi
+        (optimized for 3 players)
+        """
+        ######## UPDATE POSSIBILITIES #############
+        self.players = observation['players']
+        # Start by updating the possibilities (should take hints into account?)
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+
+        print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
+        self.print_possibilities(observation['playersKnowledge'])
+
+        ######## CHOOSE ACTION ####################
+        # 1) Check if there is a card playable with prob 60%
+        if observation['usedStormTokens'] == 0:
+            prob = 0.6
+        if observation['usedStormTokens'] == 1:
+            prob = 0.6
+        if observation['usedStormTokens'] == 2:
+            prob = 0.9
+        action = self.ruleset.play_safe_card_prob(self, observation, prob)
+        if action is not None: return action
+        # 2) discard a 100% useless card
+        action = self.ruleset.discard_useless_card(self, observation)
+        if action is not None: return action
+        # 3) hint about a card that is immediately playable
+        action = self.ruleset.give_useful_hint(self, observation)
+        if action is not None: return action
+        # 4) hint about the most informative
+        action = self.ruleset.tell_most_information(self, observation)
+        if action is not None: return action
+        # 5) discard less relevant
+        action = self.ruleset.discard_less_relevant(self, observation)
+        if action is not None: return action
+        # 6) 
+        action = self.ruleset.tell_most_information_to_next(self, observation)
+        if action is not None: return action
+
+        print("something went wrong")
+
     def pier_choice(self, observation):
         """
         Choose action for this turn.
@@ -760,11 +803,11 @@ class Knowledge:
         self.non_playable = False  # at some point, this card was not playable
         self.useless = False  # this card is useless
         self.high = False  # at some point, this card was high (relevant/discardable)(see CardHintsManager)
-
+        
     def __repr__(self):
         return ("C: " + str(self.color) if self.color else "-") + ("V:" + str(self.value) if self.value else "-") + (
             "P" if self.playable else "-") + ("Q" if self.non_playable else "-") + ("L" if self.useless else "-") + (
-                   "H" if self.high else "-")
+                 "H" if self.high else "-")
 
     def knows(self, hint_type):
         """
