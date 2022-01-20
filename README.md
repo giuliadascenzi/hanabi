@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 checked:
   - tell_most_information
   - tell_useless
@@ -16,6 +17,25 @@ checked:
   - discard_useless_card
   - discard_duplicate_card
 
+=======
+checked (/14)
+  - give_helpful_hint
+  - tell_randomly
+  - tell_useless
+  - tell_ones
+  - tell_fives
+
+##TODO:
+  - play_best_card_prob
+  - play_oldest
+  - give_useful_hint
+  - tell_most_information
+  - discard_less_relevant
+  - discard_useless_card
+  - discard_oldest
+  - tell_useless
+  - discard_duplicate_card
+>>>>>>> 6b344332b40209e6170f7cb130961f3bc586de5a
 
 ---------------
 * clean the code
