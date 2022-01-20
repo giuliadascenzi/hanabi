@@ -75,7 +75,11 @@ def agentPlay():
                 #action = agent.piers_choice(observation)
                 #action = agent.osawa_outer_choice(observation)
                 #action = agent.vanDerBergh_choice(observation)
+<<<<<<< HEAD
                 #action = agent.vanDerBergh_choice_prob(observation)
+=======
+                action = agent.vanDerBergh_choice_prob(observation)
+>>>>>>> 18fb7c1339a923287c6539a794fa2fedb9d699aa
                 #action = agent.rule_choice(observation)
                 action = agent.rule_choice_beta(observation)
                 #action = agent.rule_choice_delta(observation)
@@ -359,7 +363,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 plt.ylabel('scores')
                 plt.xticks(x)
                 plt.yticks(scores)
+<<<<<<< HEAD
                 plt.title('Agent = rule_choice_beta  Num_players = 5')
+=======
+                plt.title('Agent =vanDerBergh_choice_prob Num_players = 5')
+>>>>>>> 18fb7c1339a923287c6539a794fa2fedb9d699aa
                 t = time.localtime()
                 timestamp = time.strftime('%b-%d-%Y_%H%M', t)
                 plt.savefig('graphs/' + timestamp + '.png')
