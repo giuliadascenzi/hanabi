@@ -143,6 +143,7 @@ class HintsManager(object):
                 if self.agent.playable_card(card, fireworks):
                     print("A card is playable !", card.value)
                     knowledge = player_knowledge[card_pos]
+                    print(player_name, knowledge.knows("color"), knowledge.knows("value") )
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
                     if knowledge.knows("value"):

@@ -81,7 +81,7 @@ class DiscardManager(object):
             return None
 
     @staticmethod
-    def discard_oldest():
+    def discard_oldest(self, observation=None):
         """
         Look for the card that has been held in the hand the longest amount of time
         @return: the index of the oldest card (i.e. 0)
