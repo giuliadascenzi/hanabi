@@ -1,20 +1,41 @@
+<<<<<<< HEAD
 checked:
+  - tell_most_information
+  - tell_useless
+  - discard_oldest
+  - play_oldest
+  - tell_unknown
+  - tell_randomly
+  - give_helpful_hint
+  - tell_ones
+  - tell_fives
+  - give_useful_hint
+
+##TODO:
+  - play_best_card_prob
+  - discard_less_relevant
+  - discard_useless_card
+  - discard_duplicate_card
+
+=======
+checked (/14)
+  - give_helpful_hint
+  - tell_randomly
+  - tell_useless
+  - tell_ones
+  - tell_fives
+
+##TODO:
   - play_best_card_prob
   - play_oldest
   - give_useful_hint
   - tell_most_information
   - discard_less_relevant
-  - tell_unknown
   - discard_useless_card
   - discard_oldest
-
-##TODO:
   - tell_useless
-  - tell_randomly
-  - give_helpful_hint
   - discard_duplicate_card
-  - tell_ones
-  - tell_fives
+>>>>>>> 6b344332b40209e6170f7cb130961f3bc586de5a
 
 ---------------
 * clean the code

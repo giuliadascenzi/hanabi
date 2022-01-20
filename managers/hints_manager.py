@@ -163,6 +163,8 @@ class HintsManager(object):
         destination_name_color = destination_name_value = value_color = value_value = None
 
         for player_name in self.agent.players:
+            unknown_color = {'red': 0, 'blue': 0, 'yellow': 0, 'white': 0, 'green': 0}
+            unknown_value = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
             for p in observation['players']:
                 if p.name == player_name:
                     player = p
@@ -264,7 +266,7 @@ class HintsManager(object):
 
     def tell_ones(self, observation):
         """
-        Give information about cards with value 1
+        Give information about cards with value 1, a single random player is considered
         @return: information about cards with value 1 if there are, None otherwise
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
@@ -279,7 +281,7 @@ class HintsManager(object):
 
     def tell_fives(self, observation):
         """
-        Give information about cards with value 5
+        Give information about cards with value 5, a single random player is considered
         @return: information about cards with value 5 if there are, None otherwise
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]

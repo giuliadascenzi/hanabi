@@ -51,9 +51,9 @@ class Agent(Player):
         self.print_possibilities(observation['playersKnowledge'])
 
         # CHOOSE ACTION
-        action = self.ruleset.give_helpful_hint(self, observation)
+        action = self.ruleset.tell_most_information(self, observation)
         if action is not None: return action
-        action = self.ruleset.tell_unknown(self, observation)
+        action = self.ruleset.tell_randomly(self, observation)
         if action is not None: return action
         '''
         action = 1
