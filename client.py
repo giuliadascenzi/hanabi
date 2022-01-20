@@ -72,12 +72,12 @@ def agentPlay():
             if observation['current_player'] == playerName:
                 print("[" + playerName + " - " + status + "]: ", end="")
                 #action = agent.rl_choice(observation)
-                # action = agent.pier_choice(observation)
+                #action = agent.piers_choice(observation)
                 #action = agent.osawa_outer_choice(observation)
-                action = agent.vanDerBergh_choice(observation)
+                #action = agent.vanDerBergh_choice(observation)
                 #action = agent.vanDerBergh_choice_prob(observation)
                 #action = agent.rule_choice(observation)
-                #action = agent.rule_choice_beta(observation)
+                action = agent.rule_choice_beta(observation)
                 #action = agent.rule_choice_delta(observation)
                 try:
                     s.send(action.serialize())
@@ -359,16 +359,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 plt.ylabel('scores')
                 plt.xticks(x)
                 plt.yticks(scores)
-                plt.title('Agent =vanDerBergh_choice Num_players = 2')
+                plt.title('Agent = rule_choice_beta  Num_players = 5')
                 t = time.localtime()
                 timestamp = time.strftime('%b-%d-%Y_%H%M', t)
                 plt.savefig('graphs/' + timestamp + '.png')
                 run = False
-            '''
-            if len(scores) % 10 == 0:
-                ruleset.fitness( sum(scores[-10:]) / 10 )
-                ruleset.shuffle_rules()
-            '''
+
             # reset and re-initialize
 
             if run is not False:

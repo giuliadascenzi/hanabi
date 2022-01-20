@@ -178,7 +178,7 @@ class Agent(Player):
             if action is not None: return action
 
         elif observation['usedStormTokens'] == 2:
-            action = self.ruleset.play_best_card_prob(self, observation, 0.8)
+            action = self.ruleset.play_best_card_prob(self, observation, 0.9)
             if action is not None: return action
 
         action = self.hint_sequence(observation)
@@ -379,11 +379,11 @@ class Agent(Player):
 
         print("something went wrong")
 
-    def pier_choice(self, observation):
+    def piers_choice(self, observation):
         """
         Choose action for this turn.
         Returns the request to the server
-        It follows the pier strategy as explained here:
+        It follows the piers strategy as explained here:
 
         """
         # UPDATE POSSIBILITIES
