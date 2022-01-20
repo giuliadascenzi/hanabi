@@ -132,7 +132,7 @@ class HintsManager(object):
         """
         fireworks = observation['fireworks']
 
-        for player_name in self.agent.players:
+        for player_name in self.agent.players: # Scan all the other players in order of turn from me on
             for p in observation['players']:
                 if p.name == player_name:
                     player = p
@@ -141,7 +141,6 @@ class HintsManager(object):
 
             for card_pos, card in enumerate(player_hand):
                 if self.agent.playable_card(card, fireworks):
-                    print("A card is playable !", card.value)
                     knowledge = player_knowledge[card_pos]
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
@@ -235,6 +234,8 @@ class HintsManager(object):
                 hint_type = "value"
                 value = destination_hand[idx].value
                 return destination_name, value, hint_type
+        for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
+            print(str(kn))
         return None, None, None
 
     def tell_useless(self, observation):

@@ -22,7 +22,7 @@ class Agent(Player):
         self.full_deck = self.get_full_deck()
         self.full_deck_composition = self.counterOfCards(self.full_deck)
         self.possibilities = [self.counterOfCards(self.full_deck) for i in range(num_cards)]
-
+        print("Initialized agent: ", self.name)
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w+')
         print("----- INITIALIZE AGENT:", file=redf, flush=True)

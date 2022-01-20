@@ -73,11 +73,11 @@ def agentPlay():
                 print("[" + playerName + " - " + status + "]: ", end="")
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
-                action = agent.rl_choice(observation)
+                # action = agent.rl_choice(observation)
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
-                #action = agent.vanDerBergh_choice_prob(observation)
+                action = agent.vanDerBergh_choice_prob(observation)
                 #action = agent.rule_choice(observation)
                 # action = agent.rule_choice_delta(observation)
                 try:
@@ -85,7 +85,7 @@ def agentPlay():
                 except:
                     print("Error")
                     run = False
-                observation['current_player'] = ""
+                observation['current_player'] = "" 
         # time.sleep(5)
 
 
@@ -261,7 +261,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                'fireworks': data.tableCards,
                                'discard_pile': data.discardPile,
                                'playersKnowledge': playersKnowledge}
-                
+                '''
+                print("Current player: " + data.currentPlayer)
+                print("Player hands: ")
+                for p in data.players:
+                    print(p.toClientString() )
+                '''
             if AI and first:
                 # 8) Set the status from lobby to game.
                 status = statuses[1]
