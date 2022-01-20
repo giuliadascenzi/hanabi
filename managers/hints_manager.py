@@ -47,9 +47,13 @@ class HintsManager(object):
         value_to_hint = -1
 
         for player_name in self.agent.players:
-            player_idx = observation['players'].index(player_name)
+            print("I am looking at player", player_name)
+            for p in observation['players']:
+                if p.name == player_name:
+                    player = p
             player_knowledge = observation['playersKnowledge'][player_name]
-            player_hand = observation['players'][player_idx].hand
+            player_hand = player.hand
+            print('with card of value at position 0', player_hand[0].value)
 
             # Check if the card in the hand of the player is playable
             card_is_really_playable = [False, False, False, False, False]
@@ -129,9 +133,11 @@ class HintsManager(object):
         fireworks = observation['fireworks']
 
         for player_name in self.agent.players:
-            player_idx = observation['players'].index(player_name)
+            for p in observation['players']:
+                if p.name == player_name:
+                    player = p
             player_knowledge = observation['playersKnowledge'][player_name]
-            player_hand = observation['players'][player_idx].hand
+            player_hand = player.hand
 
             for card_pos, card in enumerate(player_hand):
                 if self.agent.playable_card(card, fireworks):
@@ -163,9 +169,11 @@ class HintsManager(object):
         destination_name_color = destination_name_value = value_color = value_value = None
 
         for player_name in self.agent.players:
-            player_idx = observation['players'].index(player_name)
+            for p in observation['players']:
+                if p.name == player_name:
+                    player = p
             player_knowledge = observation['playersKnowledge'][player_name]
-            player_hand = observation['players'][player_idx].hand
+            player_hand = player.hand
             for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                 if knowledge.knows("color") and knowledge.knows("value"):
                     continue
@@ -210,12 +218,16 @@ class HintsManager(object):
         @return: information obout an unknown characteristic of a card if possible, None otherwise
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_idx = observation['players'].index(destination_name)
-        destination_hand = observation['players'][destination_idx].hand
+        for p in observation['players']:
+            if p.name == destination_name:
+                destination = p
+        destination_hand = destination.hand
+        print("My player is", destination_name)
 
         for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
             # print(f'idx:{idx}, c:{kn[0].color}, v:{kn[0].value}')
             if not kn.knows("color"):
+                print("I give color")
                 hint_type = "color"
                 value = destination_hand[idx].color
                 return destination_name, value, hint_type
@@ -232,9 +244,11 @@ class HintsManager(object):
         @return: information about a useless card if there is, None otherwise
         """
         for player_name in self.agent.players:
-            player_idx = observation['players'].index(player_name)
+            for p in observation['players']:
+                if p.name == player_name:
+                    player = p
             player_knowledge = observation['playersKnowledge'][player_name]
-            player_hand = observation['players'][player_idx].hand
+            player_hand = player.hand
 
             for card_pos, card in enumerate(player_hand):
                 if not self.agent.useful_card((card.color, card.value), observation['fireworks'],
@@ -258,8 +272,10 @@ class HintsManager(object):
         @return: information about cards with value 1 if there are, None otherwise
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_idx = observation['players'].index(destination_name)
-        destination_hand = observation['players'][destination_idx].hand
+        for p in observation['players']:
+            if p.name == destination_name:
+                destination = p
+        destination_hand = destination.hand
         for card in destination_hand:
             if card.value == 1:
                 return destination_name, card.value, "value"
@@ -271,8 +287,10 @@ class HintsManager(object):
         @return: information about cards with value 5 if there are, None otherwise
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_idx = observation['players'].index(destination_name)
-        destination_hand = observation['players'][destination_idx].hand
+        for p in observation['players']:
+            if p.name == destination_name:
+                destination = p
+        destination_hand = destination.hand
         for card in destination_hand:
             if card.value == 5:
                 return destination_name, card.value, "value"
@@ -284,8 +302,10 @@ class HintsManager(object):
         @return: information about random card(s)
         """
         destination_name = self.agent.players[random.randint(0, len(self.agent.players) - 1)]
-        destination_idx = observation['players'].index(destination_name)
-        destination_hand = observation['players'][destination_idx].hand
+        for p in observation['players']:
+            if p.name == destination_name:
+                destination = p
+        destination_hand = destination.hand
         card = random.choice([card for card in destination_hand if card is not None])
         if random.randint(0, 1) == 0:
             hint_type = "color"
