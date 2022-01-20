@@ -51,8 +51,10 @@ class PlayManager(object):
                 avg_weight = float(sum(WEIGHT[card[1]] * p[card] for card in p)) / sum(p.values())
 
                 if probability > best_probability or (
-                        probability == best_probability and avg_num_playable > best_avg_num_playable + tolerance or
-                        avg_num_playable > best_avg_num_playable - tolerance and avg_weight > best_avg_weight):
+                        probability == best_probability and 
+                                        avg_num_playable > best_avg_num_playable + tolerance or
+                                        avg_num_playable > best_avg_num_playable - tolerance and 
+                                        avg_weight > best_avg_weight):
                     best_card_pos, best_avg_num_playable, best_avg_weight, best_probability = card_pos, \
                                                                                               avg_num_playable, \
                                                                                               avg_weight, probability

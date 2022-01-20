@@ -14,10 +14,10 @@ class DiscardManager(object):
         """
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p is a Counter of (color, value) tuples representing the chance that the card is (color, value)
-            useless = []
-            if len(p) > 0 and all(
+            if len(p) > 0 and all( # if any possible instance of the card is usless then the card is surely useless
                     not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
-                                               self.agent.counterOfCards(observation['discard_pile'])) for card in p):
+                                               self.agent.counterOfCards(observation['discard_pile'])) 
+                                               for card in p):
                     return card_pos
         return None
 
