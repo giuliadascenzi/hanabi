@@ -359,7 +359,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 plt.ylabel('scores')
                 plt.xticks(x)
                 plt.yticks(scores)
+<<<<<<< HEAD
                 plt.title('Agent =vanDerBergh_choice_prob Num_players = 4')
+=======
+                plt.title('Agent = rule_choice Num_players = 4')
+>>>>>>> 0faed48405d31980651a8c9f3cba5ef528a3ec02
                 t = time.localtime()
                 timestamp = time.strftime('%b-%d-%Y_%H%M', t)
                 plt.savefig('graphs/' + timestamp + '.png')
