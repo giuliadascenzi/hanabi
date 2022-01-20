@@ -35,14 +35,12 @@ python client.py [-h] [--ip IP] [--port PORT] [--player-name PLAYER_NAME | --ai-
 ```
 
 Arguments:
-
 + ip: IP address of the server (for localhost: 127.0.0.1)
 + port: server TCP port (default: 1024)
 + player-name: the name of the player (if you want to play manually)
 + ai-player: the name of your AI player (if you want to play in AI mode)
 
-Commands for client:
-
+If playing in manual mode, commands for client:
 + exit: exit from the game
 + ready: set your status to ready (lobby only)
 + show: show cards
