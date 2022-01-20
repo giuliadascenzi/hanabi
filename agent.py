@@ -30,19 +30,13 @@ class Agent(Player):
 
     def set_players(self, observation):
         for i in range(self.index+1, len(observation['players'])):
-            self.players.append(observation['players'][i])
+            self.players.append(observation['players'][i].name)
         for i in range(0, self.index):
-            self.players.append(observation['players'][i])
-        print("self.players")
-
-        print("observation.players")
-        for player in observation['players']:
-            print(player.name)
-        print("-------------")
+            self.players.append(observation['players'][i].name)
 
         print("WHO ARE MY TEAMMATES ??")
         for p in self.players:
-            print(p.name)
+            print(p)
 
     # SHUFFLE
     def rl_choice(self, observation):
@@ -51,7 +45,8 @@ class Agent(Player):
         Returns the request to the server
         """
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -72,7 +67,8 @@ class Agent(Player):
     # COSIMO'S FLOW ALPHA
     def rule_choice(self, observation):
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -139,7 +135,8 @@ class Agent(Player):
     # COSIMO'S FLOW BETA
     def rule_choice_beta(self, observation):
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -200,7 +197,8 @@ class Agent(Player):
         #TODO: remove the possibility of return None with out affecting the result is getting
 
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -276,7 +274,8 @@ class Agent(Player):
         """
         
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -314,7 +313,8 @@ class Agent(Player):
         for player in observation['players']:
             print(player.name)
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -352,7 +352,8 @@ class Agent(Player):
         (optimized for 3 players)
         """
         # UPDATE POSSIBILITIES
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -393,14 +394,16 @@ class Agent(Player):
         """
         # UPDATE POSSIBILITIES
         # Start by updating the possibilities (should take hints into account?)
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
         # CHOOSE ACTION
         # 1) IfRule (lives > 1 ∧ ¬deck.hasCardsLeft) Then (PlayProbablySafeCard(0.0))
         lives = 3 - observation['usedStormTokens']
-        visible_cards = self.visible_cards(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        visible_cards = self.visible_cards(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                           observation['players'])
         deck_left_cards = self.full_deck_composition - visible_cards
         number_cards_left = sum(deck_left_cards.values())
         if (lives > 1 and number_cards_left <= 0):
@@ -445,7 +448,8 @@ class Agent(Player):
         """
         # UPDATE POSSIBILITIES
         # Start by updating the possibilities (should take hints into account?)
-        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
+        self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
+                                  observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
 
@@ -478,13 +482,13 @@ class Agent(Player):
         """
         self.card_hints_manager.received_hint(destination, hint_type, value, positions)
 
-    def update_possibilities(self, board, discard_pile):
+    def update_possibilities(self, board, discard_pile, players):
         """
         Update the possibilities by removing visible cards
         @param board: cards that are currently on the table
         @param discard_pile: cards that are currently on the discard pile
         """
-        visible_cards = self.visible_cards(board, discard_pile)
+        visible_cards = self.visible_cards(board, discard_pile, players)
         for p in self.possibilities:
             for card in self.full_deck_composition:
                 if card in p:
@@ -493,14 +497,14 @@ class Agent(Player):
                     if p[card] == 0:
                         del p[card]
 
-    def visible_cards(self, board, discard_pile):
+    def visible_cards(self, board, discard_pile, players):
         """
         Counter of all the cards visible by me
         @param board: cards that are currently on the table
         @param discard_pile: cards that are currently on the discard pile
         """
         res = discard_pile
-        for player_info in self.players:
+        for player_info in players:
             res += self.counterOfCards(player_info.hand)
         for color, cards in board.items():
             res += self.counterOfCards(cards)
