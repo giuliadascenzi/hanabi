@@ -77,10 +77,9 @@ def agentPlay():
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
-                action = agent.vanDerBergh_choice_prob(observation)
-                # action = agent.rule_choice(observation)
+                # action = agent.vanDerBergh_choice_prob(observation)
+                action = agent.rule_choice(observation)
                 # action = agent.rule_choice_delta(observation)
-                #action = agent.test(observation)
                 try:
                     s.send(action.serialize())
                 except:

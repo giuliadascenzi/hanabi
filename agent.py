@@ -29,19 +29,20 @@ class Agent(Player):
         self.print_possibilities()
 
     def set_players(self, observation):
-        print("set players: ")
-
-        for i in range(self.index+1, len(observation['players'])-1):
+        for i in range(self.index+1, len(observation['players'])):
             self.players.append(observation['players'][i])
-        for i in range(0, self.index-1):
+        for i in range(0, self.index):
             self.players.append(observation['players'][i])
         print("self.players")
-        for player in self.players:
-            print(player.name)
+
         print("observation.players")
         for player in observation['players']:
             print(player.name)
         print("-------------")
+
+        print("WHO ARE MY TEAMMATES ??")
+        for p in self.players:
+            print(p.name)
 
     # SHUFFLE
     def rl_choice(self, observation):
