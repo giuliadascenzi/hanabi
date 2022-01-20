@@ -178,7 +178,7 @@ class Agent(Player):
             if action is not None: return action
 
         elif observation['usedStormTokens'] == 2:
-            action = self.ruleset.play_best_card_prob(self, observation, 0.8)
+            action = self.ruleset.play_best_card_prob(self, observation, 0.9)
             if action is not None: return action
 
         action = self.hint_sequence(observation)
