@@ -1,6 +1,7 @@
 # RESULTS
 
 ## vanDerBergh_choice
+
 | Agent  | Number of Players   | Number of games   |Results   |  Notes |
 |---|---|---|---|---|
 |  vanDerBergh_choice | 2 | 100 | ![Alt text](graphs/vdb2.png)  |   |
@@ -28,6 +29,7 @@
 |  rule_choice | 4 | 100 | ![Alt text](graphs/rc4.png)  |   |
 |  rule_choice | 5 | 100 | ![Alt text](graphs/rc5.png)|   |
 
+
 ## rule_choice_beta
 
 | Agent  | Number of Players   | Number of games   |Results   |  Notes |
@@ -36,6 +38,7 @@
 |  rule_choice_beta | 3 | 100 | ![Alt text](graphs/rcb3.png) |   |
 |  rule_choice_beta | 4 | 100 | ![Alt text](graphs/rcb4.png)  |   |
 |  rule_choice_beta | 5 | 100 | ![Alt text](graphs/rcb5.png)|   |
+
 
 ## rule_choice_delta
 
@@ -47,9 +50,8 @@
 |  rule_choice_delta | 5 | 100 | ![Alt text](graphs/rcd5.png)|   |
 
 
-
-
 ## piers_choice
+
 | Agent  | Number of Players   | Number of games   |Results   |  Notes |
 |---|---|---|---|---|
 |  piers_choice | 2 | 100 | ![Alt text](graphs/piers2.png)  |   |
@@ -57,7 +59,9 @@
 |  piers_choice | 4 | 100 | ![Alt text](graphs/piers4.png)  |   |
 |  piers_choice | 5 | 100 | ![Alt text](graphs/piers5.png)|   |
 
+
 ## osawa_outer_choice
+
 | Agent  | Number of Players   | Number of games   |Results   |  Notes |
 |---|---|---|---|---|
 |  osawa_outer_choice | 2 | 100 | ![Alt text](graphs/osawa2.png)  |   |
