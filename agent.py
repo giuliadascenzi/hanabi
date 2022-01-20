@@ -34,7 +34,7 @@ class Agent(Player):
         for i in range(0, self.index):
             self.players.append(observation['players'][i].name)
 
-        print("WHO ARE MY TEAMMATES ??")
+        print("MY TEAMMATES:")
         for p in self.players:
             print(p)
 
@@ -223,7 +223,7 @@ class Agent(Player):
         if action is not None: return action
         '''
         if observation['usedStormTokens'] ==1 and  observation['usedNoteTokens'] == 0:
-            print("*******************************-> lets hope")
+            # print("*******************************-> lets hope")
             # will return the card with the highest probability of being playable but with no threshold on the
             # probability
             action = self.ruleset.play_best_card_prob(self, observation, 0.0)
