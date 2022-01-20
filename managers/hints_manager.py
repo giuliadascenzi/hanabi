@@ -161,9 +161,7 @@ class HintsManager(object):
         max_color_occurrences = max_value_occurrences = 0
         destination_name_color = destination_name_value = value_color = value_value = None
 
-        for player_info in observation['players']:
-            if player_info.name == self.agent.name:
-                continue
+        for player_info in self.agent.players:
             player_knowledge = observation['playersKnowledge'][player_info.name]
             for index, (card, knowledge) in enumerate(zip(player_info.hand, player_knowledge)):
                 if knowledge.knows("color") and knowledge.knows("value"):
