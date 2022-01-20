@@ -71,7 +71,8 @@ def agentPlay():
         if status == statuses[1]:
             if observation['current_player'] == playerName:
                 print("[" + playerName + " - " + status + "]: ", end="")
-                action = agent.pier_choice(observation) 
+                action = agent.rl_choice(observation)
+                # action = agent.pier_choice(observation)
                 #action = agent.osawa_outer_choice(observation)
                 #action = agent.vanDerBergh_choice(observation)
                 #action = agent.vanDerBergh_choice_prob(observation)

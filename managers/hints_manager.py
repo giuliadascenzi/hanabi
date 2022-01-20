@@ -47,13 +47,11 @@ class HintsManager(object):
         value_to_hint = -1
 
         for player_name in self.agent.players:
-            print("I am looking at player", player_name)
             for p in observation['players']:
                 if p.name == player_name:
                     player = p
             player_knowledge = observation['playersKnowledge'][player_name]
             player_hand = player.hand
-            print('with card of value at position 0', player_hand[0].value)
 
             # Check if the card in the hand of the player is playable
             card_is_really_playable = [False, False, False, False, False]
@@ -61,7 +59,8 @@ class HintsManager(object):
             playable_ranks = []
 
             for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
-                if (not knowledge.knows("color") and not knowledge.knows("value")) or (knowledge.knows("color") and knowledge.knows("value")):
+                if (not knowledge.knows("color") and not knowledge.knows("value")) or (knowledge.knows("color")
+                                                                                       and knowledge.knows("value")):
                     continue
                 if self.agent.playable_card(card, fireworks):
                     card_is_really_playable[index] = True
@@ -76,14 +75,11 @@ class HintsManager(object):
                 for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                     if card.color is not color:
                         continue
-                    print(f'idx: {index} color: {knowledge.color}, value: {knowledge.value}')
-                    print(f"{self.agent.playable_card(card, fireworks)}")
-                    if self.agent.playable_card(card, fireworks) and knowledge.color is False and knowledge.value:
+                    if self.agent.playable_card(card, fireworks) and not knowledge.knows('color') and \
+                            knowledge.knows('value'):
                         information_content += 1
-                        print("good")
                     elif not self.agent.playable_card(card, fireworks):
                         missInformative = True
-                        print("bad")
                         break
                 if missInformative:
                     continue
@@ -99,13 +95,11 @@ class HintsManager(object):
                 for index, (card, knowledge) in enumerate(zip(player_hand, player_knowledge)):
                     if card.value is not rank:
                         continue
-                    print(f'idx: {index} color: {knowledge.color}, value: {knowledge.value}')
-                    if self.agent.playable_card(card, fireworks) and knowledge.value is False and knowledge.color:
+                    if self.agent.playable_card(card, fireworks) and not knowledge.knows('value') and \
+                            knowledge.knows('color'):
                         information_content += 1
-                        print("good")
                     elif not self.agent.playable_card(card, fireworks):
                         missInformative = True
-                        print("bad")
                         break
                 if missInformative:
                     continue
@@ -132,7 +126,7 @@ class HintsManager(object):
         """
         fireworks = observation['fireworks']
 
-        for player_name in self.agent.players: # Scan all the other players in order of turn from me on
+        for player_name in self.agent.players:  # Scan all the other players in order of turn from me on
             for p in observation['players']:
                 if p.name == player_name:
                     player = p
