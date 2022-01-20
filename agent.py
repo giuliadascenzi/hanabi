@@ -339,11 +339,11 @@ class Agent(Player):
 
 
 
-    def pier_choice(self, observation):
+    def piers_choice(self, observation):
         """
         Choose action for this turn.
         Returns the request to the server
-        It follows the pier strategy as explained here:
+        It follows the piers strategy as explained here:
 
         """
         # UPDATE POSSIBILITIES

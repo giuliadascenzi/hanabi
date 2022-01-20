@@ -29,17 +29,6 @@ class Ruleset:
     def shuffle_rules(self):
         random.shuffle(self.active_rules)
 
-    def fitness(self, avg_score):
-        if avg_score > self.best_score:
-            self.best_score = avg_score
-            self.fittest_ruleset = copy.deepcopy(self.active_rules)
-            # Make it print the fittest
-            with open("fittest_ruleset.txt", "a") as f:
-                f.write(str(self.best_score))
-                f.write("\n")
-                f.write(', '.join(str(rule) for rule in self.fittest_ruleset))
-                f.write("\n---------\n")
-
     ###############
     # PLAY RULES
     ###############
