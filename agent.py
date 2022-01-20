@@ -29,10 +29,19 @@ class Agent(Player):
         self.print_possibilities()
 
     def set_players(self, observation):
+        print("set players: ")
+
         for i in range(self.index+1, len(observation['players'])-1):
             self.players.append(observation['players'][i])
         for i in range(0, self.index-1):
             self.players.append(observation['players'][i])
+        print("self.players")
+        for player in self.players:
+            print(player.name)
+        print("observation.players")
+        for player in observation['players']:
+            print(player.name)
+        print("-------------")
 
     # SHUFFLE
     def rl_choice(self, observation):
@@ -264,6 +273,7 @@ class Agent(Player):
         https://www.researchgate.net/publication/319853435_Aspects_of_the_Cooperative_Card_Game_Hanabi
         (optimized for 3 players)
         """
+        
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
@@ -296,6 +306,12 @@ class Agent(Player):
         https://www.researchgate.net/publication/319853435_Aspects_of_the_Cooperative_Card_Game_Hanabi
         (optimized for 3 players)
         """
+        print("self.players")
+        for player in self.players:
+            print(player.name)
+        print("observation.players")
+        for player in observation['players']:
+            print(player.name)
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']))
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)

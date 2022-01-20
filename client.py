@@ -71,9 +71,6 @@ def agentPlay():
         if status == statuses[1]:
             if observation['current_player'] == playerName:
                 print("[" + playerName + " - " + status + "]: ", end="")
-                if first:
-                    agent.set_players(observation)
-                    first = False
                 # action = agent.dummy_agent_choice(observation)
                 # action = agent.simple_heuristic_choice(observation)
                 # action = agent.rl_choice(observation)
@@ -225,7 +222,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.send(GameData.ClientPlayerReadyData(playerName).serialize())
 
             # 8) Set the status from lobby to game.
-            status = statuses[1]
+            #status = statuses[1]
+            
             print("---Starting game process done----")
 
         if type(data) is GameData.ServerGameStateData:
@@ -256,6 +254,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                'fireworks': data.tableCards,
                                'discard_pile': data.discardPile,
                                'playersKnowledge': playersKnowledge}
+                
+            if AI and first:
+                # 8) Set the status from lobby to game.
+                status = statuses[1]
+                agent.set_players(observation)
+                first = False    
 
         if type(data) is GameData.ServerActionInvalid:
             dataOk = True
@@ -366,6 +370,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                'discard_pile': None,
                                'playersKnowledge': []}
                 #time.sleep(5)
+                status = statuses[0]
+                first = True
                 playersKnowledge = initialize(player_names)
                 if AI: next_turn()
                 stdout.flush()

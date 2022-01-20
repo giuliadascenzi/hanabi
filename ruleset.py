@@ -118,7 +118,7 @@ class Ruleset:
         if observation['usedNoteTokens'] < 8:
             destination_name, value, hint_type = agent.card_hints_manager.tell_most_information(observation, threshold)
             if (destination_name, value, hint_type) != (None, None, None):
-                print(">>>give the most information hint to a player ", hint_type, " ", value, " to ", destination_name)
+                print(">>>give the most information hint to a player ", hint_type, " ", value, " to ", destination_name, "with threshold:", threshold)
                 return GameData.ClientHintData(agent.name, destination_name, hint_type, value)
         return None
 
