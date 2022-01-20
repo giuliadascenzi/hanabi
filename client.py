@@ -260,12 +260,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                'fireworks': data.tableCards,
                                'discard_pile': data.discardPile,
                                'playersKnowledge': playersKnowledge}
-                
+                '''
                 print("Current player: " + data.currentPlayer)
                 print("Player hands: ")
                 for p in data.players:
                     print(p.toClientString() )
-                
+                '''
             if AI and first:
                 # 8) Set the status from lobby to game.
                 status = statuses[1]
