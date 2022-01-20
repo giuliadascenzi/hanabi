@@ -12,7 +12,7 @@ class Agent(Player):
         super().__init__(name)
         self.index = index
         self.ruleset = ruleset
-        self.players = []
+        self.players = [] # list of the other players name ordered by turn (from mine on)
         self.card_hints_manager = HintsManager(self)
         self.card_play_manager = PlayManager(self)
         self.card_discard_manager = DiscardManager(self)
@@ -306,12 +306,6 @@ class Agent(Player):
         https://www.researchgate.net/publication/319853435_Aspects_of_the_Cooperative_Card_Game_Hanabi
         (optimized for 3 players)
         """
-        print("self.players")
-        for player in self.players:
-            print(player.name)
-        print("observation.players")
-        for player in observation['players']:
-            print(player.name)
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
