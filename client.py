@@ -228,7 +228,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.send(GameData.ClientPlayerReadyData(playerName).serialize())
 
             # 8) Set the status from lobby to game.
-            #status = statuses[1]
+            if not AI:
+                status = statuses[1]
             
             print("---Starting game process done----")
 
