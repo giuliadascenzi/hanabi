@@ -77,8 +77,8 @@ def agentPlay():
                 # action = agent.osawa_outer_choice(observation)
                 # action = agent.pier_choice(observation)
                 # action = agent.vanDerBergh_choice(observation)
-                # action = agent.vanDerBergh_choice_prob(observation)
-                # action = agent.rule_choice(observation)
+                #action = agent.vanDerBergh_choice_prob(observation)
+                #action = agent.rule_choice(observation)
                 # action = agent.rule_choice_delta(observation)
                 try:
                     s.send(action.serialize())
@@ -164,6 +164,7 @@ def initialize(players):
 
     if AI:
         agent = Agent(playerName, players.index(playerName), num_cards, ruleset)
+
     playersKnowledge = {name: [Knowledge(color=None, value=None) for j in range(num_cards)] for name in players}
 
     return playersKnowledge
@@ -179,8 +180,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.send(request.serialize())
 
     # 2) wait the response of the server
-    data = s.recv(DATASIZE)
-    data = GameData.GameData.deserialize(data)
+    try:
+        data = s.recv(DATASIZE)
+        data = GameData.GameData.deserialize(data)
+    except:
+        print("Error")
+        run = False
+        data = ""
+
     if type(data) is GameData.ServerPlayerConnectionOk:
         print("Connection accepted by the server. Welcome " + playerName)
     print("[" + playerName + " - " + status + "]: ", end="")
@@ -196,12 +203,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         # 5) Wait the response from the server
         try:
             data = s.recv(DATASIZE)
+            data = GameData.GameData.deserialize(data)
         except:
             print("Error")
             run = False
         if not data:
             continue
-        data = GameData.GameData.deserialize(data)
+       
         if type(data) is GameData.ServerPlayerStartRequestAccepted:
             dataOk = True
 
