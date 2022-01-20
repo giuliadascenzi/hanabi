@@ -202,7 +202,7 @@ class Ruleset:
     ###############
 
     @staticmethod
-    def discard_useless_card(agent, observation, lowest=False):
+    def discard_useless_card(agent, observation):
         """
         Discards a useless card, if possible
         @param agent: the player that will try to discard
@@ -211,7 +211,7 @@ class Ruleset:
         @return: a request to discard the useless card, None if it is not possible
         """
         if observation['usedNoteTokens'] != 0:
-            card_pos = agent.card_discard_manager.discard_useless_card(observation, lowest)
+            card_pos = agent.card_discard_manager.discard_useless_card(observation)
             if card_pos is not None:
                 print(">>>discard useless card:", card_pos)
                 return GameData.ClientPlayerDiscardCardRequest(agent.name, card_pos)

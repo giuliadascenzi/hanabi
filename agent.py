@@ -78,7 +78,7 @@ class Agent(Player):
         if action is not None: return action
         # 2) If a lot of hints have been played, try to discard a useless or duplicate card
         if observation['usedNoteTokens'] > 5:
-            action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+            action = self.ruleset.discard_useless_card(self, observation)
             if action is not None: return action
             action = self.ruleset.discard_duplicate_card(self, observation)
             if action is not None: return action
@@ -249,7 +249,7 @@ class Agent(Player):
         return None
 
     def discard_sequence(self, observation):
-        action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+        action = self.ruleset.discard_useless_card(self, observation)
         if action is not None: return action
         action = self.ruleset.discard_duplicate_card(self, observation)
         if action is not None: return action
@@ -258,7 +258,7 @@ class Agent(Player):
         return None
 
     def safe_discard_sequence(self, observation):
-        action = self.ruleset.discard_useless_card(self, observation, lowest=True)
+        action = self.ruleset.discard_useless_card(self, observation)
         if action is not None: return action
         action = self.ruleset.discard_duplicate_card(self, observation)
         if action is not None: return action
@@ -680,10 +680,10 @@ class Knowledge:
         Does the player know the color/number?
         """
         if hint_type == "color":
-            return self.color != None
+            return self.color is not None
         else:
-            return self.value != None
+            return self.value is not None
     
     def __repr__(self):
-        return ("C: " + str(self.color) if self.color else "-") + ("V:" + str(self.value) if self.value else "-") 
+        return ("C: " + str(self.color) if self.color is not None else "-") + ("V:" + str(self.value) if self.value is not None else "-") 
 

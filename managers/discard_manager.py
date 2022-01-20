@@ -6,10 +6,9 @@ class DiscardManager(object):
     def __init__(self, agent):
         self.agent = agent
 
-    def discard_useless_card(self, observation, lowest=False):
+    def discard_useless_card(self, observation):
         """
         Look for a card surely useless
-        @param lowest: if True, discard the lowest useless card
         @param observation: current state of the game
         @return: the index of the useless card to be discarded or None if there isn't
         """
@@ -19,13 +18,7 @@ class DiscardManager(object):
             if len(p) > 0 and all(
                     not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
                                                self.agent.counterOfCards(observation['discard_pile'])) for card in p):
-                if lowest:
-                    useless.append([card_pos, self.agent.hand[card_pos].value])
-                else:
                     return card_pos
-            if lowest and len(useless) > 0:
-                useless.sort(key=lambda x: x[1])
-                return useless[0][0]
         return None
 
     def discard_less_relevant(self, observation):
