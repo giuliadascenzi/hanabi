@@ -534,7 +534,7 @@ class Agent(Player):
     def useful_card(card, board, full_deck, discard_pile):
         """
         Is this card still useful?
-        @param card: card for which the relevance is questioned
+        @param card: card for which the relevance is questioned tuple (color,value)
         @param board: cards that are currently on the table
         @param full_deck: counter of the whole set of cards
         @param discard_pile: counter of the cards within the discard pile
@@ -556,7 +556,20 @@ class Agent(Player):
         @param card: card for which the playability is checked
         @param board: cards that are currently on the table
         """
-        return card.value == len(board[card.color]) + 1
+        if isinstance(card, Card):
+            return card.value == len(board[card.color]) + 1
+        elif isinstance(card, tuple):
+            color = card[0]
+            value = card[1]
+            if len(board[color]) == 0:
+                if value == 1:
+                    return True
+            elif value == len(board[color]) + 1:
+                return True
+
+            return False 
+        else:
+            assert(False) #something went wrong
 
     @staticmethod
     def get_full_deck():
@@ -643,7 +656,7 @@ class Knowledge:
     An instance of this class represents what a player knows about a card, as known by everyone.
     """
 
-    def __init__(self, color=False, value=False):
+    def __init__(self, color=None, value=None):
         self.color = color
         self.value = value
 
@@ -652,6 +665,10 @@ class Knowledge:
         Does the player know the color/number?
         """
         if hint_type == "color":
-            return self.color
+            return self.color != None
         else:
-            return self.value
+            return self.value != None
+    
+    def __repr__(self):
+        return ("C: " + str(self.color) if self.color else "-") + ("V:" + str(self.value) if self.value else "-") 
+
