@@ -532,7 +532,7 @@ class Agent(Player):
 
     def relevant_card(self, card, board, full_deck, discard_pile):
         """
-        Is this card the last copy available?
+        Is this card the last copy available of a playable card?
         @param card: card for which the relevance is questioned
         @param board: cards that are currently on the table
         @param full_deck: counter of the whole set of cards
@@ -541,8 +541,8 @@ class Agent(Player):
         """
         color = card[0]
         value = card[1]
-        copies_in_deck = full_deck[(color, value)]
-        copies_in_discard_pile = discard_pile[(color, value)]
+        copies_in_deck = full_deck[(color, value)] # total of cards of (color, value)  for example 3
+        copies_in_discard_pile = discard_pile[(color, value)]  # total of this type of cards discarded 2
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
 
     @staticmethod
@@ -556,11 +556,11 @@ class Agent(Player):
         """
         color = card[0]
         value = card[1]
-        last_value_in_board = len(board[color])
-        for number in range(last_value_in_board + 1, value):
-            copies_in_deck = full_deck[(color, number)]
-            copies_in_discard_pile = discard_pile[(color, number)]
-            if copies_in_deck == copies_in_discard_pile:
+        last_value_in_board = len(board[color]) 
+        for number in range(last_value_in_board + 1, value): #consider the cards that need to be played before the specific card
+            copies_in_deck = full_deck[(color, number)] # tot copies 
+            copies_in_discard_pile = discard_pile[(color, number)] # copies discarded
+            if copies_in_deck == copies_in_discard_pile: #the card is in someone players or still in the deck
                 return False
         return value > last_value_in_board
 
