@@ -1,8 +1,8 @@
-# Computational Intelligence 2021-2022
+# [<img src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-ai-computer-and-laptop-itim2101-lineal-color-itim2101.png" width="40px" alt="CI">](https://github.com/squillero/computational-intelligence) Computational Intelligence 2021-2022 
 
-Exam of computational intelligence 2021 - 2022. It requires teaching the client to play the game of Hanabi (rules can be found [here](https://www.spillehulen.dk/media/102616/hanabi-card-game-rules.pdf)).
+Exam of computational intelligence 2021 - 2022. It requires teaching the client to play the game of Hanabi (rules can be found [<img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-fireworks-celebration-photo3ideastudio-flat-photo3ideastudio-1.png" width="30px" alt="Hanabi">](https://www.spillehulen.dk/media/102616/hanabi-card-game-rules.pdf)).
 
-## GROUP
+## GROUP 
 *s291262* Cosimo Michelagnoli
 
 *s292435* Alesssandro Versace
@@ -97,16 +97,36 @@ different contexts.
 
 
 With these rules, several flows have been implemented and tested in order to see
-what ordering yield th best results.
+what ordering yield th best results. Some tested flows have been inspired by 
+papers (van Der Bergh with its variant, Piers and Osawa) while others have been 
+designed by us (alpha, beta and delta). To compare the performances of these flows we
+ran 100 games using each strategy for every possible configuration of players and stored
+the results along with the average scores over all games. The results are displayed in the
+table below (the values in bold correspond to the best scores obtained for the number of players
+considered).
 
-    - Cosimo's flow alpha
-    - Cosimo's flow beta
-    - Cosimo's flow delta
-    - vanDerBergh
-    - vanDerBergh prob
-    - vanDerBergh threshold
-    - pier
-    - osawa outer
+Algorithm | 2 players | 3 players | 4 players | 5 players
+--- | --- | --- | --- |--- 
+van Der Bergh | 13 | 13 | 13.9 | 13.5 
+van Der Bergh - probability | 15.5 | 17.3 | **17.3** | 16
+Piers | 17.2 | **17.8** | 17.1 | **16**
+Osawa | 14 | 16.4 | 16 | 14.9
+Alpha | 17.1 | 17 | 16.2 | 15.2 
+Beta | 18.3 | 17.3 | 16.4 | 15.6 
+Delta | **18.4** | 17.4 | 16.8 | 15.4 
+
+According to those results, we decided to keep CHOICE HERE !!!!! (maybe we could
+keep different strategies dependent of the number of players ?)
+
+In the figures below are displayed the results of the experiment for the winning strategy for each
+number of players.
+
+![Delta flow for 2 players](graphs/rcd2.png)
+![Piers flow for 3 players](graphs/piers3.png)
+![Piers flow for 4 players](graphs/piers4.png)
+![Piers flow for 5 players](graphs/piers5.png)
+
+
 
 
 

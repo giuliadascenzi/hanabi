@@ -68,3 +68,11 @@
 |  osawa_outer_choice | 3 | 100 | ![Alt text](graphs/osawa3.png) |   |
 |  osawa_outer_choice | 4 | 100 | ![Alt text](graphs/osawa4.png)  |   |
 |  osawa_outer_choice | 5 | 100 | ![Alt text](graphs/osawa5.png)|   |
+
+## rule_choice_delta and others
+
+| Agent  | Number of games   |Results   |  Notes |
+|---|---|---|---|
+|   rule_choice_delta | 50 | ![Alt text](graphs/rcd&vdb&piers.png)  | rule_choice_delta playing with piers_choice and vanDerBergh_choice_prob|
+|   rule_choice_delta | 50 | ![Alt text](graphs/rcd&3piers.png) | rule_choice_delta playing with 3 occurencies of piers_choice|
+|   rule_choice_delta | 50 | ![Alt text](graphs/rcd&3vdb.png)  |  rule_choice_delta playing with 3 occurencies of vanDerBergh_choice_prob|
