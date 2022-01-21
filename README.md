@@ -1,6 +1,6 @@
 # [<img src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-ai-computer-and-laptop-itim2101-lineal-color-itim2101.png" width="40px" alt="CI">](https://github.com/squillero/computational-intelligence) Computational Intelligence 2021-2022 
 
-Exam of computational intelligence 2021 - 2022. It requires teaching the client to play the game of Hanabi (rules can be found [<img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-fireworks-celebration-photo3ideastudio-flat-photo3ideastudio-1.png" width="30px" alt="Hanabi">](https://www.spillehulen.dk/media/102616/hanabi-card-game-rules.pdf)).
+Exam of computational intelligence 2021 - 2022. It requires teaching the client to play the game of Hanabi (rules can be found here: [<img src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-fireworks-celebration-photo3ideastudio-flat-photo3ideastudio-1.png" width="30px" alt="Hanabi">](https://www.spillehulen.dk/media/102616/hanabi-card-game-rules.pdf)).
 
 ## GROUP 
 *s291262* Cosimo Michelagnoli
