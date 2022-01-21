@@ -21,7 +21,7 @@ class Agent(Player):
         self.COLORS = ["red", "yellow", "green", "white", "blue"]
         self.full_deck = self.get_full_deck()
         self.full_deck_composition = self.counterOfCards(self.full_deck)
-        self.possibilities = [self.counterOfCards(self.full_deck) for i in range(num_cards)]
+        self.possibilities = [self.counterOfCards(self.full_deck) for i in range(num_cards)] # -> list (one element for each card_pos) of Counters (color,value)
         print("Initialized agent: ", self.name)
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w+')
@@ -34,9 +34,6 @@ class Agent(Player):
         for i in range(0, self.index):
             self.players.append(observation['players'][i].name)
 
-        print("MY TEAMMATES:")
-        for p in self.players:
-            print(p)
 
     # SHUFFLE
     def rl_choice(self, observation):
@@ -49,19 +46,13 @@ class Agent(Player):
                                   observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
-
-        # CHOOSE ACTION
-        action = self.ruleset.tell_most_information(self, observation)
-        if action is not None: return action
-        action = self.ruleset.tell_randomly(self, observation)
-        if action is not None: return action
-        '''
+        
         action = 1
         while action is not None:
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
-        '''
+        
         print("something wrong")
 
     # COSIMO'S FLOW ALPHA
@@ -130,6 +121,8 @@ class Agent(Player):
         action = self.ruleset.play_oldest(self, observation)
         if action is not None: return action
 
+        print("Something went wrong")
+
         return None
 
     # COSIMO'S FLOW BETA
@@ -192,10 +185,9 @@ class Agent(Player):
         if action is not None: return action
         return None
 
-    # COSIMO'S FLOW DELTA work in progress : this version is dangerous, don't try it at home!!!
+    # COSIMO'S FLOW DELTA this version is dangerous, don't try it at home!!!
     def rule_choice_delta(self, observation):
-        #TODO: remove the possibility of return None with out affecting the result is getting
-
+        
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
@@ -218,10 +210,7 @@ class Agent(Player):
         action = self.ruleset.discard_oldest(self, observation)
         if action is not None: return action
 
-        '''
-        action = self.ruleset.tell_most_information_to_next(self, observation)
-        if action is not None: return action
-        '''
+
         if observation['usedStormTokens'] ==1 and  observation['usedNoteTokens'] == 0:
             # print("*******************************-> lets hope")
             # will return the card with the highest probability of being playable but with no threshold on the
@@ -343,7 +332,7 @@ class Agent(Player):
         """
         Choose action for this turn.
         Returns the request to the server
-        It follows the piers strategy as explained here:
+        It follows the piers strategy as explained here: https://www.researchgate.net/publication/318294875_Evaluating_and_modelling_Hanabi-playing_agents
 
         """
         # UPDATE POSSIBILITIES
