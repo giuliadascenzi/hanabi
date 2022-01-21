@@ -108,8 +108,8 @@ considered).
 Algorithm | 2 players | 3 players | 4 players | 5 players
 --- | --- | --- | --- |--- 
 van Der Bergh | 13 | 13 | 13.9 | 13.5 
-van Der Bergh - probability | 15.5 | 17.3 | 17.3 | 16
-Piers | 17.2 | **17.8** | **17.1** | **16**
+van Der Bergh - probability | 15.5 | 17.3 | **17.3** | 16
+Piers | 17.2 | **17.8** | 17.1 | **16**
 Osawa | 14 | 16.4 | 16 | 14.9
 Alpha | 17.1 | 17 | 16.2 | 15.2 
 Beta | 18.3 | 17.3 | 16.4 | 15.6 
