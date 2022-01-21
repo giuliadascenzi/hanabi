@@ -196,7 +196,7 @@ class Agent(Player):
 
         # CHOOSE ACTION
         # 1) Check if there is a playable card
-        action = self.ruleset.play_best_card_prob(self, observation, 1)
+        action = self.ruleset.play_best_card_prob(self, observation, 0.86)
         if action is not None: return action
         # 2) If we have token then use them!!! (with two player we can know a lot with 8 hints)
         if observation['usedNoteTokens'] < 8:
@@ -211,7 +211,7 @@ class Agent(Player):
         if action is not None: return action
 
 
-        if observation['usedStormTokens'] ==1 and  observation['usedNoteTokens'] == 0:
+        if observation['usedStormTokens'] == 1 and  observation['usedNoteTokens'] == 0:
             # print("*******************************-> lets hope")
             # will return the card with the highest probability of being playable but with no threshold on the
             # probability
