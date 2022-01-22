@@ -110,11 +110,11 @@ Algorithm | 2 players | 3 players | 4 players | 5 players
 --- | --- | --- | --- |--- 
 van Der Bergh | 13 | 13 | 13.9 | 13.5 
 van Der Bergh - probability | 15.5 | 17.3 | **17.3** | 16
-Piers | 17.2 | **17.8** | 17.1 | **16**
+Piers | 17.2 | **17.8** | 17.1 | 16
 Osawa | 14 | 16.4 | 16 | 14.9
 Alpha | 17.1 | 17 | 16.2 | 15.2 
 Beta | 18.3 | 17.3 | 16.4 | 15.6 
-Delta | **18.4** | 17.4 | 16.8 | 15.4 
+Delta | **18.65** | 17.4 | 16.8 | **16.54** 
 
 According to those results, we decided to use the Delta agent for games with two players and the Piers agent for the games with more players.
 In the figures below are displayed the results of the experiment for the winning strategy for each

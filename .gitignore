@@ -5,7 +5,6 @@ __pycache__/
 possibilities/*
 
 # exception to the rule
-!possibilities/.gitkeep
 !possibilities/possibilitiesagent1.txt
 !possibilities/possibilitiesagent2.txt
 
