@@ -71,6 +71,12 @@ def agentPlay():
         if status == statuses[1]:
             if observation['current_player'] == playerName:
                 print("[" + playerName + " - " + status + "]: ", end="")
+                #### AI action #####
+                if (len(player_names)==2): #best agent for 2 players game: rule_choice_delta
+                    action = agent.rule_choice_delta(observation)
+                else:
+                    action = agent.piers_choice(observation)
+
                 #action = agent.rl_choice(observation)
                 #action = agent.piers_choice(observation)
                 #action = agent.osawa_outer_choice(observation)
@@ -78,7 +84,7 @@ def agentPlay():
                 #action = agent.vanDerBergh_choice_prob(observation)
                 #action = agent.rule_choice(observation)
                 #action = agent.rule_choice_beta(observation)
-                action = agent.rule_choice_delta(observation)
+                #action = agent.rule_choice_delta(observation)
                 try:
                     s.send(action.serialize())
                 except:
@@ -260,12 +266,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                                'fireworks': data.tableCards,
                                'discard_pile': data.discardPile,
                                'playersKnowledge': playersKnowledge}
-                '''
-                print("Current player: " + data.currentPlayer)
-                print("Player hands: ")
-                for p in data.players:
-                    print(p.toClientString() )
-                '''
+
             if AI and first:
                 # 8) Set the status from lobby to game.
                 status = statuses[1]
@@ -350,6 +351,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print(" |Games played: ", len(scores))
             print(" |Best result: ", max(scores))
             print(" |Worst result: ", min(scores))
+            '''
+            # plotting results
             if len(scores) >= 100:
                 x = np.arange(0, len(scores), 1)
                 plt.plot(x, scores)
@@ -364,7 +367,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 timestamp = time.strftime('%b-%d-%Y_%H%M', t)
                 plt.savefig('graphs/' + timestamp + '.png')
                 run = False
-
+            '''
             # reset and re-initialize
 
             if run is not False:

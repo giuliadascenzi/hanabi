@@ -100,10 +100,11 @@ With these rules, several flows have been implemented and tested in order to see
 what ordering yield th best results. Some tested flows have been inspired by 
 papers (van Der Bergh with its variant, Piers and Osawa) while others have been 
 designed by us (alpha, beta and delta). To compare the performances of these flows we
-ran 100 games using each strategy for every possible configuration of players and stored
+ran 100 games using each strategy for every possible configuration of number of players and stored
 the results along with the average scores over all games. The results are displayed in the
 table below (the values in bold correspond to the best scores obtained for the number of players
 considered).
+
 
 Algorithm | 2 players | 3 players | 4 players | 5 players
 --- | --- | --- | --- |--- 
@@ -115,9 +116,7 @@ Alpha | 17.1 | 17 | 16.2 | 15.2
 Beta | 18.3 | 17.3 | 16.4 | 15.6 
 Delta | **18.4** | 17.4 | 16.8 | 15.4 
 
-According to those results, we decided to keep CHOICE HERE !!!!! (maybe we could
-keep different strategies dependent of the number of players ?)
-
+According to those results, we decided to use the Delta agent for games with two players and the Piers agent for the games with more players.
 In the figures below are displayed the results of the experiment for the winning strategy for each
 number of players.
 
