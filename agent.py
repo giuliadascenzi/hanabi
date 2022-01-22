@@ -12,7 +12,7 @@ class Agent(Player):
         super().__init__(name)
         self.index = index
         self.ruleset = ruleset
-        self.players = [] # list of the other players name ordered by turn (from mine on)
+        self.players = []  # list of the other players name ordered by turn (from mine on)
         self.card_hints_manager = HintsManager(self)
         self.card_play_manager = PlayManager(self)
         self.card_discard_manager = DiscardManager(self)
@@ -21,7 +21,8 @@ class Agent(Player):
         self.COLORS = ["red", "yellow", "green", "white", "blue"]
         self.full_deck = self.get_full_deck()
         self.full_deck_composition = self.counterOfCards(self.full_deck)
-        self.possibilities = [self.counterOfCards(self.full_deck) for i in range(num_cards)] # -> list (one element for each card_pos) of Counters (color,value)
+        self.possibilities = [self.counterOfCards(self.full_deck) for i in
+                              range(num_cards)]  # -> list (one element for each card_pos) of Counters (color,value)
         print("Initialized agent: ", self.name)
         global redf
         redf = open('possibilities/possibilities' + self.name + '.txt', 'w+')
@@ -29,11 +30,10 @@ class Agent(Player):
         self.print_possibilities()
 
     def set_players(self, observation):
-        for i in range(self.index+1, len(observation['players'])):
+        for i in range(self.index + 1, len(observation['players'])):
             self.players.append(observation['players'][i].name)
         for i in range(0, self.index):
             self.players.append(observation['players'][i].name)
-
 
     # SHUFFLE
     def rl_choice(self, observation):
@@ -46,17 +46,21 @@ class Agent(Player):
                                   observation['players'])
         print("----- UPDATED POSSIBILITIES:", file=redf, flush=True)
         self.print_possibilities(observation['playersKnowledge'])
-        
+
         action = 1
         while action is not None:
             for rule in self.ruleset.active_rules:
                 action = self.ruleset.rules[rule](self, observation)
                 if action is not None: return action
-        
+
         print("something wrong")
 
-    # COSIMO'S FLOW ALPHA
+    # FLOW ALPHA
     def rule_choice(self, observation):
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        """
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
@@ -89,14 +93,15 @@ class Agent(Player):
             if action is not None: return action
         # 8) You still have 3 lives
         if observation['usedStormTokens'] == 0:
-            action = self.ruleset.play_best_card_prob(self, observation, 0.6) #try to play a card if there is one with at least 60% of probability
+            # try to play a card if there is one with at least 60% of probability
+            action = self.ruleset.play_best_card_prob(self, observation, 0.6)
             if action is not None: return action
 
-            if observation['usedNoteTokens'] < 4: #or hint
+            if observation['usedNoteTokens'] < 4:  # or hint
                 action = self.hint_sequence(observation)
                 if action is not None: return action
         # 8) You still have 2 lives
-        elif observation['usedStormTokens'] == 1: 
+        elif observation['usedStormTokens'] == 1:
             action = self.ruleset.play_best_card_prob(self, observation, 0.8)
             if action is not None: return action
 
@@ -125,8 +130,12 @@ class Agent(Player):
 
         return None
 
-    # COSIMO'S FLOW BETA
+    # FLOW BETA
     def rule_choice_beta(self, observation):
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        """
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
@@ -185,9 +194,12 @@ class Agent(Player):
         if action is not None: return action
         return None
 
-    # COSIMO'S FLOW DELTA this version is dangerous, don't try it at home!!!
+    # FLOW DELTA
     def rule_choice_delta(self, observation):
-        
+        """
+        Choose action for this turn.
+        Returns the request to the server
+        """
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
@@ -212,10 +224,9 @@ class Agent(Player):
         # 5) if nothing better found, discard oldest 
         action = self.ruleset.discard_oldest(self, observation)
         if action is not None: return action
-
-        # 6) if you can not discard and you still have lives, play the card with highest probability of being playable (praying the gods)
-        if observation['usedStormTokens'] == 1 and  observation['usedNoteTokens'] == 0:
-            # print("*******************************-> lets hope")
+        # 6) if you can not discard and you still have lives, play the card with highest probability of being playable
+        # (praying the gods)
+        if observation['usedStormTokens'] == 1 and observation['usedNoteTokens'] == 0:
             # will return the card with the highest probability of being playable but with no threshold on the
             # probability
             action = self.ruleset.play_best_card_prob(self, observation, 0.0)
@@ -225,7 +236,7 @@ class Agent(Player):
             action = self.ruleset.tell_unknown(self, observation)
             if action is not None: return action
 
-        print("Something wrong happened") 
+        print("Something wrong happened")
         return None
 
     def hint_sequence(self, observation):
@@ -261,7 +272,6 @@ class Agent(Player):
         https://www.researchgate.net/publication/319853435_Aspects_of_the_Cooperative_Card_Game_Hanabi
         (optimized for 3 players)
         """
-        
         # UPDATE POSSIBILITIES
         self.update_possibilities(observation['fireworks'], self.counterOfCards(observation['discard_pile']),
                                   observation['players'])
@@ -308,7 +318,7 @@ class Agent(Player):
         if observation['usedStormTokens'] == 1:
             prob = 0.6
         if observation['usedStormTokens'] == 2:
-            prob = 0.9 #better not to risk
+            prob = 0.9  # better not to risk
         action = self.ruleset.play_best_card_prob(self, observation, prob)
         if action is not None: return action
         # 2) discard a 100% useless card
@@ -326,14 +336,11 @@ class Agent(Player):
 
         print("something went wrong")
 
-
-
     def piers_choice(self, observation):
         """
         Choose action for this turn.
         Returns the request to the server
         It follows the piers strategy as explained here: https://www.researchgate.net/publication/318294875_Evaluating_and_modelling_Hanabi-playing_agents
-
         """
         # UPDATE POSSIBILITIES
         # Start by updating the possibilities (should take hints into account?)
@@ -490,7 +497,7 @@ class Agent(Player):
         """
         color = card[0]
         value = card[1]
-        copies_in_deck = full_deck[(color, value)] # total of cards of (color, value)  for example 3
+        copies_in_deck = full_deck[(color, value)]  # total of cards of (color, value)  for example 3
         copies_in_discard_pile = discard_pile[(color, value)]  # total of this type of cards discarded 2
         return self.useful_card(card, board, full_deck, discard_pile) and copies_in_deck == copies_in_discard_pile + 1
 
@@ -505,11 +512,12 @@ class Agent(Player):
         """
         color = card[0]
         value = card[1]
-        last_value_in_board = len(board[color]) 
-        for number in range(last_value_in_board + 1, value): #consider the cards that need to be played before the specific card
-            copies_in_deck = full_deck[(color, number)] # tot copies 
-            copies_in_discard_pile = discard_pile[(color, number)] # copies discarded
-            if copies_in_deck == copies_in_discard_pile: #the card is in someone players or still in the deck
+        last_value_in_board = len(board[color])
+        for number in range(last_value_in_board + 1,
+                            value):  # consider the cards that need to be played before the specific card
+            copies_in_deck = full_deck[(color, number)]  # tot copies
+            copies_in_discard_pile = discard_pile[(color, number)]  # copies discarded
+            if copies_in_deck == copies_in_discard_pile:  # the card is in someone players or still in the deck
                 return False
         return value > last_value_in_board
 
@@ -531,9 +539,9 @@ class Agent(Player):
             elif value == len(board[color]) + 1:
                 return True
 
-            return False 
+            return False
         else:
-            assert(False) #something went wrong
+            assert (False)  # something went wrong
 
     @staticmethod
     def get_full_deck():
@@ -632,7 +640,7 @@ class Knowledge:
             return self.color is not None
         else:
             return self.value is not None
-    
-    def __repr__(self):
-        return ("C: " + str(self.color) if self.color is not None else "-") + ("V:" + str(self.value) if self.value is not None else "-") 
 
+    def __repr__(self):
+        return ("C: " + str(self.color) if self.color is not None else "-") + (
+            "V:" + str(self.value) if self.value is not None else "-")

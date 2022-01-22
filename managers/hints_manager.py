@@ -20,7 +20,7 @@ class HintsManager(object):
         if destination == self.agent.name:
             for (i, p) in enumerate(self.agent.possibilities):
                 for card in self.agent.full_deck_composition:
-                    # Check if the card matches the hint
+                    # check if the card matches the hint
                     matches = True
                     if hint_type == "color" and card[0] != value:
                         matches = False
@@ -34,7 +34,6 @@ class HintsManager(object):
                         del p[card]
 
     def give_helpful_hint(self, observation):
-        # TODO: Must be fixed, something wrong while using it (not doing what it should)
         """
         Try to complete a hint to give to a player full knowledge of at least one of its playable cards
         @param observation: current state of the game
@@ -53,7 +52,7 @@ class HintsManager(object):
             player_knowledge = observation['playersKnowledge'][player_name]
             player_hand = player.hand
 
-            # Check if the card in the hand of the player is playable
+            # check if the card in the hand of the player is playable
             card_is_really_playable = [False, False, False, False, False]
             playable_colors = []
             playable_ranks = []
@@ -136,7 +135,6 @@ class HintsManager(object):
             for card_pos, card in enumerate(player_hand):
                 if self.agent.playable_card(card, fireworks):
                     knowledge = player_knowledge[card_pos]
-                    #(player_name, knowledge.knows("color"), knowledge.knows("value") )
                     if knowledge.knows("color") and knowledge.knows("value"):
                         continue
                     if knowledge.knows("value"):
@@ -218,12 +216,9 @@ class HintsManager(object):
             if p.name == destination_name:
                 destination = p
         destination_hand = destination.hand
-        #print("My player is", destination_name)
 
         for idx, kn in enumerate(observation['playersKnowledge'][destination_name]):
-            # print(f'idx:{idx}, c:{kn[0].color}, v:{kn[0].value}')
             if not kn.knows("color"):
-                #print("I give color")
                 hint_type = "color"
                 value = destination_hand[idx].color
                 return destination_name, value, hint_type

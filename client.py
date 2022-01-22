@@ -71,27 +71,25 @@ def agentPlay():
         if status == statuses[1]:
             if observation['current_player'] == playerName:
                 print("[" + playerName + " - " + status + "]: ", end="")
-                #### AI action #####
-                if (len(player_names)==2): #best agent for 2 players game: rule_choice_delta
+                # AI action
+                if len(player_names) == 2:  # best agent for 2 players game: rule_choice_delta
                     action = agent.rule_choice_delta(observation)
                 else:
                     action = agent.piers_choice(observation)
-
-                #action = agent.rl_choice(observation)
-                #action = agent.piers_choice(observation)
-                #action = agent.osawa_outer_choice(observation)
-                #action = agent.vanDerBergh_choice(observation)
-                #action = agent.vanDerBergh_choice_prob(observation)
-                #action = agent.rule_choice(observation)
-                #action = agent.rule_choice_beta(observation)
-                #action = agent.rule_choice_delta(observation)
+                # action = agent.rl_choice(observation)
+                # action = agent.piers_choice(observation)
+                # action = agent.osawa_outer_choice(observation)
+                # action = agent.vanDerBergh_choice(observation)
+                # action = agent.vanDerBergh_choice_prob(observation)
+                # action = agent.rule_choice(observation)
+                # action = agent.rule_choice_beta(observation)
+                # action = agent.rule_choice_delta(observation)
                 try:
                     s.send(action.serialize())
                 except:
                     print("Error")
                     run = False
-                observation['current_player'] = "" 
-        # time.sleep(5)
+                observation['current_player'] = ""
 
 
 def next_turn():

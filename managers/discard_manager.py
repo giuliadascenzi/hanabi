@@ -14,11 +14,12 @@ class DiscardManager(object):
         """
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p is a Counter of (color, value) tuples representing the chance that the card is (color, value)
-            if len(p) > 0 and all( # if any possible instance of the card is usless then the card is surely useless
+            # if any possible instance of the card is useless then the card is surely useless
+            if len(p) > 0 and all(
                     not self.agent.useful_card(card, observation['fireworks'], self.agent.full_deck_composition,
-                                               self.agent.counterOfCards(observation['discard_pile'])) 
-                                               for card in p):
-                    return card_pos
+                                               self.agent.counterOfCards(observation['discard_pile']))
+                    for card in p):
+                return card_pos
         return None
 
     def discard_less_relevant(self, observation):
@@ -32,26 +33,28 @@ class DiscardManager(object):
         best_cards_pos = []
         # HOW TO DECIDE?
         # Look for the card that has the lowest possibility of being relevant (useful+last_copy).
-        # In case of tie consider the one that has the lowest useful weight 
+        # In case of tie consider the one that has the lowest useful weight
         # Weights (value 1 : weight 5) (value 2: weight 4) (value 3: weight 3) (value 4: weight 2) (value 5: weight 1)
         WEIGHT = {number: self.agent.NUM_NUMBERS + 1 - number for number in range(1, self.agent.NUM_NUMBERS + 1)}
-        best_relevant_weight = max(WEIGHT.values()) #5 
+        best_relevant_weight = max(WEIGHT.values())  # 5
         # WEIGHT -> If you have both a 1 and a 5 that are the last copy available is better to choose to discard the 5
 
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p is a Counter of (color, value) tuples representing the chance that the card is (color, value)
             if len(p) > 0:
                 # CHECK IF IT COULD BE RELEVANT (if its the last copy available of a useful card)
-                # for each possible (color,value) that the card can have consider the WEIGHT[value] * #tot possibilities that the card can have the value if that (color,value) 
+                # for each possible (color,value) that the card can have, consider the
+                # WEIGHT[value] * #tot possibilities that the card can have the value if that (color,value)
                 relevant_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if
                                           self.agent.relevant_card(card, observation['fireworks'],
                                                                    self.agent.full_deck_composition,
                                                                    self.agent.counterOfCards(
                                                                        observation['discard_pile'])))
-                
+
                 relevant_weight = float(relevant_weight_sum) / sum(p.values())
-                # CHECK IF IT COULD BE USEFUL 
-                # for each possible (color,value) that the card can have consider the WEIGHT[value] * #tot possibilities that the card can have the value if that (color,value) 
+                # CHECK IF IT COULD BE USEFUL
+                # for each possible (color,value) that the card can have, consider the
+                # WEIGHT[value] * #tot possibilities that the card can have the value if that (color,value)
                 useful_weight_sum = sum(WEIGHT[card[1]] * p[card] for card in p if
                                         self.agent.useful_card(card, observation['fireworks'],
                                                                self.agent.full_deck_composition,
@@ -59,10 +62,13 @@ class DiscardManager(object):
                 useful_weight = float(useful_weight_sum) / sum(p.values())
 
                 if relevant_weight < best_relevant_weight - tolerance:
-                    best_cards_pos, best_relevant_weight, = [], relevant_weight # a minor relevant weight has been found
+                    # a minor relevant weight has been found
+                    best_cards_pos, best_relevant_weight, = [], relevant_weight
 
                 if relevant_weight < best_relevant_weight + tolerance:
-                    best_cards_pos.append((useful_weight, card_pos)) # save card_pos at the given relevant_weight, to then pick the one with lower useful_weight
+                    # save card_pos at the given relevant_weight, to then pick the one with lower useful_weight
+                    best_cards_pos.append((useful_weight,
+                                           card_pos))
 
         assert len(best_cards_pos) > 0
         useful_weight, card_pos = min(best_cards_pos, key=lambda t: t[0])  # consider the one with minor useful_weight

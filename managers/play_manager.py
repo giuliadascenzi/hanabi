@@ -20,7 +20,7 @@ class PlayManager(object):
         # Weights (value 1 : weight 4) (value 2: weight 3) (value 3: weight 2) (value 4: weight 1) (value 5: weight: 5)
         WEIGHT = {number: self.agent.NUM_NUMBERS - number for number in range(1, self.agent.NUM_NUMBERS)}
         WEIGHT[self.agent.NUM_NUMBERS] = self.agent.NUM_NUMBERS
-        ### HOW TO CHOOSE THE BEST CARD TO PLAY?
+        # HOW TO CHOOSE THE BEST CARD TO PLAY?
         # 1) the probability of the given card of being playable must be higher then the threshold
         # 2) In case of tie choose the card that would make the highest number of other players cards playable
         # 3) consider a different weight connected to the value of the card
@@ -32,7 +32,8 @@ class PlayManager(object):
 
         for (card_pos, p) in enumerate(self.agent.possibilities):
             # p = Counter of possible tuple (color,value)
-            # 1) Define the probability of the card being playable considering all the possible (color,value) instances that the card could be
+            # 1) Define the probability of the card being playable considering all the possible (color,value) instances
+            # that the card could be
             tot_playable = sum(p[card] if self.agent.playable_card(card, observation['fireworks']) else 0 for card in p) # count the # possible instances that would lead to a playable card
             tot_possibility = sum(p.values()) # total possibilities of the card
             if tot_playable == 0:

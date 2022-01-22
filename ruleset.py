@@ -1,6 +1,5 @@
 import GameData
 import random
-import copy
 
 
 class Ruleset:
