@@ -208,7 +208,7 @@ class Agent(Player):
 
         # CHOOSE ACTION
         # 1) Check if there is a playable card
-        action = self.ruleset.play_best_card_prob(self, observation, 0.86)
+        action = self.ruleset.play_best_card_prob(self, observation, 0.9)
         if action is not None: return action
         # 2) If we have token then use them!!! (with two player we can know a lot with 8 hints)
         if observation['usedNoteTokens'] < 8:
